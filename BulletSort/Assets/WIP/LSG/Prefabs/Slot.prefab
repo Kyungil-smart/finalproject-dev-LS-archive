@@ -113,7 +113,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -241575523
+  m_SortingLayerID: -468604019
   m_SortingLayer: -3
   m_SortingOrder: 0
   m_MaskInteraction: 0
@@ -326,7 +326,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -241575523
+  m_SortingLayerID: -468604019
   m_SortingLayer: -3
   m_SortingOrder: 0
   m_MaskInteraction: 0
@@ -559,7 +559,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -2068122739
+  m_SortingLayerID: 904888743
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &5595077669559150403
@@ -714,7 +714,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -2068122739
+  m_SortingLayerID: 904888743
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
@@ -806,7 +806,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -241575523
+  m_SortingLayerID: -468604019
   m_SortingLayer: -3
   m_SortingOrder: 0
   m_MaskInteraction: 0
@@ -979,7 +979,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -241575523
+  m_SortingLayerID: -468604019
   m_SortingLayer: -3
   m_SortingOrder: 0
   m_MaskInteraction: 0
@@ -1182,7 +1182,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1623126153
+  m_SortingLayerID: -864810359
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_MaskInteraction: 0
