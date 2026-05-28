@@ -39,6 +39,7 @@ public class TargetDetector : MonoBehaviour
    // 단순 거리 대조 방식
    private void DetectTarget()
    {
+      // 테스트용
       List<GameObject> monster = _spawner.GetComponent<TestMonsterSpawner>().monsters;
       
       foreach (GameObject enemy in monster)
