@@ -37,7 +37,6 @@ public class TestMonsterMove : MonoBehaviour
     private void OnDestroy()
     {
         // 여기서 리스트에 직접접근(테스트용)
-        
         target.GetComponent<TargetDetector>()._detectedMonsters.Remove(gameObject);
         _spawnPoint.GetComponent<TestMonsterSpawner>().monsters.Remove(gameObject);
         
