@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000a781ef358dab11e4510501a3890a74cc
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -497,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1124037078
 SpriteRenderer:
   serializedVersion: 2
@@ -941,7 +941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1002,6 +1002,10 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861500827584947295, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 904888743
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
