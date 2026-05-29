@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1858496172314017648}
   - component: {fileID: 6646871210943582374}
   - component: {fileID: 1744484721387361109}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -468604019
-  m_SortingLayer: -3
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1548792665451052819, guid: bbd1948ba7be47f4b8e52e99ff91e400, type: 3}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 7071287700610001845}
   - component: {fileID: 8923697355845202104}
   - component: {fileID: 5942800558091417446}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HB_Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8806725714893421436}
   - component: {fileID: 3518740442919512179}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Slot_Bottom_White_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,8 +327,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -468604019
-  m_SortingLayer: -3
-  m_SortingOrder: 0
+  m_SortingLayer: -4
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4034861016412977544, guid: 0e1af44d10e7147479af00619cfe2740, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -349,7 +349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5361777769419121882}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Slot_Bottom_White_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2161326930870800521}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Cell_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3830217226727734368}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Cell_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8883692537065875865}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Slot_Bottom_White_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7814387538291255770}
   - component: {fileID: 5861500827584947295}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 904888743
+  m_SortingLayerID: 837417751
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &5595077669559150403
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 190338849364941849}
   - component: {fileID: 3437590945372310858}
   - component: {fileID: 5603109051130169867}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: FrontBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,8 +714,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 904888743
-  m_SortingLayer: 1
+  m_SortingLayerID: 837417751
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1163403940888511613, guid: d10119cdde209374a8c31fa691e1dda5, type: 3}
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 5810315780761714317}
   - component: {fileID: 4179915434333799383}
   - component: {fileID: 4456626648144830195}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +807,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -468604019
-  m_SortingLayer: -3
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5861120956020648150, guid: 067982606067c38468f52b69b78d2ef3, type: 3}
@@ -875,7 +875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2419801571869947197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cell_Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -912,7 +912,7 @@ GameObject:
   - component: {fileID: 486544694612670368}
   - component: {fileID: 28084976102706079}
   - component: {fileID: 1300478525166067586}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,7 +980,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -468604019
-  m_SortingLayer: -3
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2973038148337216891, guid: feb8a30a68968b24c98726ef68f6fd6d, type: 3}
@@ -1048,7 +1048,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5740751918186369454}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Slot_Bottom_White_Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,7 +1081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2221988417443515237}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Cell_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1115,7 +1115,7 @@ GameObject:
   - component: {fileID: 668001874864863285}
   - component: {fileID: 1846952356716666167}
   - component: {fileID: 2526010386676033940}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Slot_Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1183,7 +1183,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -864810359
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6263213103404643077, guid: 191e66ffb0c04c241aa1eeed38b0937a, type: 3}

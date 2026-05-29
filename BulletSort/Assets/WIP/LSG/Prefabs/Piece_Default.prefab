@@ -137,6 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaea2e1ba3318e34e8b8460bd3eadaaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Piece
+  _renderer: {fileID: 5752497259685090063}
+  _originalLayer: Piece
+  _originalOrder: 0
+  _collider: {fileID: 3450532317090284595}
 --- !u!70 &3450532317090284595
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
