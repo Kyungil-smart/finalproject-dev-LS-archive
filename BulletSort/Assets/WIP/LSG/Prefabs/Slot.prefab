@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1783962189566400482}
+  - component: {fileID: 3096295840989390296}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -35,6 +36,18 @@ Transform:
   - {fileID: 7814387538291255770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3096295840989390296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140998026832287425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12cd717c6b46c04eb941eff3057ab26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.Slot
 --- !u!1 &480688581967147860
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5361777769419121882}
+  - component: {fileID: 3966176048550537561}
   m_Layer: 8
   m_Name: Slot_Bottom_White_Left
   m_TagString: Untagged
@@ -373,6 +387,20 @@ Transform:
   - {fileID: 2161326930870800521}
   m_Father: {fileID: 2419801571869947197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3966176048550537561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062784784051051745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5aff980908e7649b1bd90dcfad49f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotCell
+  _cellIndex: 0
+  _cellPivot: {fileID: 2161326930870800521}
 --- !u!1 &1150822160672441664
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8883692537065875865}
+  - component: {fileID: 2672054799033331956}
   m_Layer: 8
   m_Name: Slot_Bottom_White_Right
   m_TagString: Untagged
@@ -502,6 +531,20 @@ Transform:
   - {fileID: 3830217226727734368}
   m_Father: {fileID: 2419801571869947197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2672054799033331956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4728092736382965637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5aff980908e7649b1bd90dcfad49f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotCell
+  _cellIndex: 2
+  _cellPivot: {fileID: 3830217226727734368}
 --- !u!1 &5249667759770159607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5740751918186369454}
+  - component: {fileID: 8602239653027637563}
   m_Layer: 8
   m_Name: Slot_Bottom_White_Center
   m_TagString: Untagged
@@ -1072,6 +1116,20 @@ Transform:
   - {fileID: 2221988417443515237}
   m_Father: {fileID: 2419801571869947197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8602239653027637563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879765065378487891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5aff980908e7649b1bd90dcfad49f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotCell
+  _cellIndex: 1
+  _cellPivot: {fileID: 2221988417443515237}
 --- !u!1 &9094905941480137360
 GameObject:
   m_ObjectHideFlags: 0
