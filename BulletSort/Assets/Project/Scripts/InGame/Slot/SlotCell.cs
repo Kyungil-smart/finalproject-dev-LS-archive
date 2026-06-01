@@ -22,6 +22,7 @@ namespace InGame.Slot
         public int CellIndex => _cellIndex;
         public Slot Slot => _slot;
         public Vector3 Position => _cellPivot.position;
+        public Transform PivotTransform => _cellPivot;
 
         private void Awake()
         {

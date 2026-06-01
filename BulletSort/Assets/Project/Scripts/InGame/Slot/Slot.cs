@@ -1,4 +1,5 @@
 using Core;
+using InGame.Sort;
 using UnityEngine;
 
 namespace InGame.Slot
@@ -13,25 +14,48 @@ namespace InGame.Slot
         // 매치-3에서 가져온 SGrid1D<T>로 보드 표현(2차원은 오버스펙이라 1차원 개조).
         private SGrid1D<CellRuntimeData> _cells;
         
-        void Awake()
+        private void Awake()
         {
             // 슬롯당 셀 수 = 정렬 완성에 필요한 기물 수(SORT_COUNT) — 같은 의미라 상수 공유.
             _cells = new SGrid1D<CellRuntimeData>(Define.SORT_COUNT);
         }
+
+        private void Start()
+        {
+            // 임시 초기화 — 자식 SlotCell들의 자식에 Piece가 있으면 데이터 등록
+            var cells = GetComponentsInChildren<SlotCell>();
+            foreach (var cell in cells)
+            {
+                var piece = cell.GetComponentInChildren<Piece>();
+                if (piece != null)
+                {
+                    _cells[cell.CellIndex] = new CellRuntimeData { PieceID = piece.PieceID };
+                    Debug.Log($"{gameObject.name} 초기 등록 cell={cell.CellIndex}, pieceID={piece.PieceID}");
+                }
+            }
+        }
     
         // 지정 셀이 빈 칸인지 — 드롭 판정 시 SlotCell이 위임 호출.
-        public bool IsCellEmpty(int cellIndex) => _cells[cellIndex].IsEmpty;
+        public bool IsCellEmpty(int cellIndex)
+        {
+            var result = _cells[cellIndex].IsEmpty;
+            Core.Logger.Instance.LogInfo($"{gameObject.name} IsCellEmpty({cellIndex}) = {result}, PieceID={_cells[cellIndex].PieceID}");
+            return result;
+        }
     
         // 지정 셀에 기물 배치. 슬롯이 셀 상태를 단독 관리하므로 외부는 이 메서드로만 변경.
         public void PlacePiece(int cellIndex, int pieceID)
         {
+            Core.Logger.Instance.LogInfo($"{gameObject.name} PlacePiece(cell={cellIndex}, pieceID={pieceID})");
             _cells[cellIndex] = new CellRuntimeData { PieceID = pieceID };
         }
     
         // 지정 셀 비우기 — 정렬 성공 후 셀 초기화·기물 이동 시 사용.
         public void ClearCell(int cellIndex)
         {
+            Core.Logger.Instance.LogInfo($"{gameObject.name} ClearCell({cellIndex})");
             _cells[cellIndex] = CellRuntimeData.Empty;
         }
+
     }
 }
