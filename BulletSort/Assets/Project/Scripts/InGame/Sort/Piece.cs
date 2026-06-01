@@ -132,15 +132,19 @@ namespace InGame.Sort
             if (targetCell == null || !targetCell.IsEmpty)
                 return false;
 
+            // 비주얼·부모 먼저 옮김 — 출발 셀에서 자식 관계 해제.
+            // ClearCell이 자기 자신을 자식으로 찾아 끄는 사고 방지.
+            transform.SetParent(targetCell.PivotTransform);
+            transform.position = targetCell.PivotTransform.position;
+            
             // 데이터 이동 — 출발 비우기 → 도착 배치 순서.
             if (_dragState.OriginSlotCell != null)
                 _dragState.OriginSlotCell.Slot.ClearCell(_dragState.OriginSlotCell.CellIndex);
             
             targetCell.Slot.PlacePiece(targetCell.CellIndex, PieceID);
             
-            // 비주얼 — Cell_Pivot 자식으로 재배치 후 위치 스냅.
-            transform.SetParent(targetCell.PivotTransform);
-            transform.position = targetCell.PivotTransform.position;
+            // 정렬 판정 — 성공 시 Slot 내부에서 이벤트·셀 비우기 처리
+            targetCell.Slot.CheckSort();
             
             return true;
         }
