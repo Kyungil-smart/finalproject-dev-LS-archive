@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1560214191
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4803371626618953921, guid: b9cd8f6958144ba4794f8f058615da3a, type: 3}
@@ -138,9 +138,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Piece
   _renderer: {fileID: 5752497259685090063}
-  _originalLayer: Piece
-  _originalOrder: 0
   _collider: {fileID: 3450532317090284595}
+  _cellLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _pieceID: 1
+  _draggingLayer: 4
 --- !u!70 &3450532317090284595
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
