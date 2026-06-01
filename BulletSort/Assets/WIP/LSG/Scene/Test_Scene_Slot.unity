@@ -1958,11 +1958,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Name
-      value: Slot
+      value: Slot (0)
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 942905945033743639, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_LocalScale.x
@@ -2039,10 +2043,6 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5861500827584947295, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 904888743
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
