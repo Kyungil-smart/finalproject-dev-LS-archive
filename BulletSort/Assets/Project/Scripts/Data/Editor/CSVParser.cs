@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+
 
 /// <summary>
 /// CSV 파일을 Parsing하여 데이터를 SO 파일로 저장하기 위한 Editor 코드.
@@ -20,7 +22,7 @@ public class CSVParser
     public static void ParseCSV()
     {
         string csvDirectoryPath = Path.Combine(Application.dataPath, "Resources/CSVTables");
-        string outputPath = "Assets/Resources/SO";
+        string outputPath = "Assets/Project/Data/SO";
 
         if (!Directory.Exists(csvDirectoryPath))
         {
@@ -53,32 +55,36 @@ public class CSVParser
             {
                 if (!AssetDatabase.IsValidFolder(outputPath))
                 {
-                    AssetDatabase.CreateFolder("Assets/Resources", "SO");
+                    AssetDatabase.CreateFolder("Assets/Data", "SO");
                 }
 
                 AssetDatabase.CreateFolder(outputPath, className);
             }
 
             // Read Each Line of CSV File
-
             string[] lines = File.ReadAllLines(csvFile);
-            if (lines.Length <= 1)
+            if (lines.Length <= 2)
             {
                 Debug.LogWarning($"CSVParser : Invalid File : {csvFile}");
                 continue;
             }
 
-            string[] headers = lines[0].Split(',');
+            string[] rawHeaders = lines[1].Split(',');
+            List<string> headers = new List<string>();
 
-            for (int iCnt = 0; iCnt < headers.Length; ++iCnt)
+            foreach (string rawHeader in rawHeaders)
             {
-                headers[iCnt] = headers[iCnt].Trim();
+                string header = rawHeader.Trim();
+
+                if (header == "*")
+                {
+                    break;
+                }
+
+                headers.Add(header);
             }
 
-            // 첫 column의 이름이 key로 간주
-            string idFieldName = headers[0];
-
-            for (int lineIdx = 1; lineIdx < lines.Length; ++lineIdx)
+            for (int lineIdx = 2; lineIdx < lines.Length; ++lineIdx)
             {
                 if (string.IsNullOrWhiteSpace(lines[lineIdx]))
                 {
@@ -86,24 +92,41 @@ public class CSVParser
                 }
 
                 string[] row = lines[lineIdx].Split(',');
+
+                if (row.Length == 0 || row[0].Trim() == "" || row[0].Trim() == "*")
+                {
+                    continue;
+                }
+
                 string idStr = row[0].Trim();
 
-                // 에셋 파일 명 예시 : Assets/Resources/SO/DataTypeName/DataTypeName_ID.asset
+                // 에셋 파일 명 예시 : Assets/Project/Data/SO/DataTypeName/DataTypeName_ID.asset
                 string assetPath = $"{targetFolder}/{className}_{idStr}.asset";
+                Debug.Log($"Asset Path : {assetPath}");
 
                 // SO 로드 or 생성
                 ScriptableObject soInstance = AssetDatabase.LoadAssetAtPath(assetPath, soType) as ScriptableObject;
-                if (soInstance != null)
+                if (soInstance == null)
                 {
                     soInstance = ScriptableObject.CreateInstance(soType);
                     AssetDatabase.CreateAsset(soInstance, assetPath);
                 }
 
                 // csv에서 값 찾고 SO에 넣어주기
-                for (int headerIdx = 0; headerIdx < headers.Length; ++headerIdx)
+                for (int headerIdx = 0; headerIdx < headers.Count; ++headerIdx)
                 {
+                    if (headerIdx >= row.Length)
+                    {
+                        break;
+                    }
+
                     string fieldName = headers[headerIdx];
                     string value = row[headerIdx].Trim();
+
+                    if (value == "*")
+                    {
+                        break;
+                    }
 
                     FieldInfo field = soType.GetField(fieldName);
                     if (field != null)

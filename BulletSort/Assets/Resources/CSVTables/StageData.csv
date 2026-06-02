@@ -1,0 +1,8 @@
+int,string,int,int,int,int,int,int,int,int,int,int,int,string,*,string,,,,,,
+StageID,StageName,WaveID_1,WaveID_2,WaveID_3,WaveID_4,WaveID_5,WaveID_6,WaveID_7,WaveID_8,WaveID_9,WaveID_10,ClearReward,BG,*,Desc,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
+1001,StageName_1,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,100,리소스 Key,*,1스테이지 _ 게임 조작과 클리어 조건 튜토리얼,,StageID,PK,,스테이지의 고유 식별 ID. 스테이지 버튼을 눌렀을 때 해당 스테이지의 정보를 불러오기 위함.,P2
+1002,StageName_2,3011,3012,3013,3014,3015,3016,3017,3018,3019,3020,100,리소스 Key,*,.,,StageName,FK,Localize.Key,스테이지의 이름. 로컬라이즈 필요,P1
+1003,StageName_3,3021,3022,3023,3024,3025,3026,3027,3028,3029,3030,100,리소스 Key,*,.,,WaveID,FK,WaveData.WaveID,해당 스테이지에 나오는 웨이브 정보,P1
+1004,StageName_4,3031,3032,3033,3034,3035,3036,3037,3038,3039,3040,100,리소스 Key,*,,,ClearReward,,,스테이지 보스를 클리어했을 때 주는 보상.,P4
+,,,,,,,,,,,,,,*,,,BG,FK,Resource.ID,,P3
+,,,,,,,,,,,,,,*,,,Desc,,,시트에서 데이터 부연설명을 위한 칼럼으로 인게임에서 사용되지 않음.,P4
