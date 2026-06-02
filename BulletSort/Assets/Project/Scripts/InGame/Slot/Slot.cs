@@ -31,7 +31,7 @@ namespace InGame.Slot
         
         // 셀 변경 이벤트 — Place/Clear 호출 시 발행.
         // 보드 관리자가 빈 칸 감지·보충 흐름에 사용.
-        public event Action<Slot, int> OnCellChanged;  // (this, cellIndex
+        public event Action<Slot, int> OnCellChanged;  // (this, cellIndex)
         
         #region 유니티 라이프사이클
         
@@ -47,19 +47,6 @@ namespace InGame.Slot
                 _slotCells[cell.CellIndex] = cell;
         }
         
-        private void Start()
-        {
-            // TODO(SlotBoardManager 도입 후 제거) — 임시 초기화.
-            // 자식 SlotCell의 자식에 Piece가 있으면 데이터 등록.
-            // 정식 초기 배치(SlotBoardManager)가 들어오면 교체.
-            for (int i = 0; i < Define.SORT_COUNT; i++)
-            {
-                var piece = _slotCells[i].GetComponentInChildren<Piece>();
-                if (piece != null && piece.PieceID > 0) 
-                    _cells[i] = new CellRuntimeData { PieceID = piece.PieceID };
-            }
-        }
-        
         #endregion
         
         #region 셀 조작 (단일 셀)
@@ -71,6 +58,9 @@ namespace InGame.Slot
         public void PlacePiece(int cellIndex, int pieceID)
         {
             _cells[cellIndex] = new CellRuntimeData { PieceID = pieceID };
+            
+            // 비주얼 갱신 — 풀링 Piece가 SetByID로 켜짐
+            _slotCells[cellIndex].Piece?.SetByID(pieceID);
 
             OnCellChanged?.Invoke(this, cellIndex);
         }
@@ -80,11 +70,8 @@ namespace InGame.Slot
         {
             _cells[cellIndex] = CellRuntimeData.Empty;
             
-            // TODO(풀링·SetData 패턴 도입 후) — 자식에서 찾는 방식 → 셀-기물 매핑 직접 참조로 교체
-            // 비주얼 갱신 — 대응 Piece 끄기 (단방향 동기화)
-            var piece = _slotCells[cellIndex].GetComponentInChildren<Piece>();
-            if (piece != null)
-                piece.gameObject.SetActive(false);
+            // 비주얼 갱신 — 풀링 Piece가 SetByID(0)로 꺼짐
+            _slotCells[cellIndex].Piece?.SetByID(0);
 
             OnCellChanged?.Invoke(this, cellIndex);
         }

@@ -18,7 +18,7 @@ namespace InGame.Slot
         [Tooltip("자식으로 둔 슬롯 9개를 SlotID 순서로 등록")]
         [SerializeField] private List<Slot> _slots;
         
-        // 정렬 성공 통합 발행 — 안정연 영역(포탑 소환)이 구독
+        // 정렬 성공 통합 발행 — 포탑 소환등 외부 구독
         public event Action<int, int> OnSortSuccess;  // (slotID, pieceID)
         
         // TODO(WaitingGroup 도입 후) — 임시 대기 그룹. 지금은 단순 리스트.
@@ -34,8 +34,7 @@ namespace InGame.Slot
         private void Start()
         {
             SubscribeSlotEvents();
-            // TODO — 초기 배치
-            // InitialPlacement();
+            InitialPlacement();
         }
         
         private void OnDestroy()
@@ -43,6 +42,58 @@ namespace InGame.Slot
             UnsubscribeSlotEvents();
         }
         
+        #endregion
+
+        #region 초기 배치
+
+        private void InitialPlacement()
+        {
+            PrepareWaitingGroup();
+
+            foreach (var slot in _slots)
+            {
+                PlaceInitialPiecesInSlot(slot);
+            }
+        }
+
+        private void PrepareWaitingGroup()
+        {
+            // TODO(데이터 SO 도입 후) — 기획서 4-3절 종류별 9개씩
+            // 데모: Basic(1) 충분량
+            for (int i = 0; i < 50; i++)
+                _waitingGroup.Add(1);
+        }
+
+        private void PlaceInitialPiecesInSlot(Slot slot)
+        {
+            var emptyCells = slot.GetEmptyCellIndices();
+            Shuffle(emptyCells);
+    
+            int placeCount = Mathf.Min(2, emptyCells.Count, _waitingGroup.Count);
+            for (int i = 0; i < placeCount; i++)
+            {
+                int pieceID = DequeueFromWaitingGroup();
+                slot.PlacePiece(emptyCells[i], pieceID);
+            }
+        }
+
+        private int DequeueFromWaitingGroup()
+        {
+            if (_waitingGroup.Count == 0) return 0;
+            int pieceID = _waitingGroup[0];
+            _waitingGroup.RemoveAt(0);
+            return pieceID;
+        }
+
+        private void Shuffle<T>(List<T> list)
+        {
+            for (int i = list.Count - 1; i > 0; i--)
+            {
+                int j = UnityEngine.Random.Range(0, i + 1);
+                (list[i], list[j]) = (list[j], list[i]);
+            }
+        }
+
         #endregion
         
         #region 슬롯 셋업 검증
@@ -103,7 +154,7 @@ namespace InGame.Slot
         {
             Logger.Instance.LogInfo($"보드 매니저 — 슬롯 {slotID} 정렬 성공, PieceID={pieceID}");
             
-            // 외부 발행 — 안정연 영역이 구독
+            // 외부 발행 — 외부 영역(포탑 소환)이 구독
             OnSortSuccess?.Invoke(slotID, pieceID);
             
             // TODO — 정렬 성공 슬롯의 빈 칸 보충
