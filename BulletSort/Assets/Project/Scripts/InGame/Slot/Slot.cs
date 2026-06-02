@@ -31,7 +31,7 @@ namespace InGame.Slot
         
         // 셀 변경 이벤트 — Place/Clear 호출 시 발행.
         // 보드 관리자가 빈 칸 감지·보충 흐름에 사용.
-        public event Action<int> OnCellChanged;  // cellIndex
+        public event Action<Slot, int> OnCellChanged;  // (this, cellIndex
         
         #region 유니티 라이프사이클
         
@@ -71,8 +71,8 @@ namespace InGame.Slot
         public void PlacePiece(int cellIndex, int pieceID)
         {
             _cells[cellIndex] = new CellRuntimeData { PieceID = pieceID };
-            
-            OnCellChanged?.Invoke(cellIndex);
+
+            OnCellChanged?.Invoke(this, cellIndex);
         }
         
         // 지정 셀 비우기 — 데이터 + 대응 Piece 비주얼 끔.
@@ -85,8 +85,8 @@ namespace InGame.Slot
             var piece = _slotCells[cellIndex].GetComponentInChildren<Piece>();
             if (piece != null)
                 piece.gameObject.SetActive(false);
-            
-            OnCellChanged?.Invoke(cellIndex);
+
+            OnCellChanged?.Invoke(this, cellIndex);
         }
         
         // 셀 3개 전체 비우기 — 정렬 성공 후 사용.
