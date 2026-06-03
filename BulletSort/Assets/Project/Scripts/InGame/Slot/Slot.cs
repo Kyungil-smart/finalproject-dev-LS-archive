@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Core;
 using InGame.Sort;
 using UnityEngine;
@@ -28,6 +29,12 @@ namespace InGame.Slot
         // 외부(포탑 소환 시스템 등)가 구독해 후속 처리.
         public event Action<int, int> OnSortSuccess;
         
+        // 셀 변경 이벤트 — Place/Clear 호출 시 발행.
+        // 보드 관리자가 빈 칸 감지·보충 흐름에 사용.
+        public event Action<Slot, int> OnCellChanged;  // (this, cellIndex)
+        
+        #region 유니티 라이프사이클
+        
         private void Awake()
         {
             // 슬롯당 셀 수 = 정렬 완성에 필요한 기물 수(SORT_COUNT) — 같은 의미라 상수 공유.
@@ -40,17 +47,9 @@ namespace InGame.Slot
                 _slotCells[cell.CellIndex] = cell;
         }
         
-        private void Start()
-        {
-            // 임시 초기화 — 자식 SlotCell의 자식에 Piece가 있으면 데이터 등록.
-            // 정식 초기 배치(SlotBoardManager)가 들어오면 교체.
-            for (int i = 0; i < Define.SORT_COUNT; i++)
-            {
-                var piece = _slotCells[i].GetComponentInChildren<Piece>();
-                if (piece != null && piece.PieceID > 0) 
-                    _cells[i] = new CellRuntimeData { PieceID = piece.PieceID };
-            }
-        }
+        #endregion
+        
+        #region 셀 조작 (단일 셀)
         
         // 지정 셀이 빈 칸인지 — 드롭 판정 시 SlotCell이 위임 호출.
         public bool IsCellEmpty(int cellIndex) => _cells[cellIndex].IsEmpty;
@@ -59,6 +58,11 @@ namespace InGame.Slot
         public void PlacePiece(int cellIndex, int pieceID)
         {
             _cells[cellIndex] = new CellRuntimeData { PieceID = pieceID };
+            
+            // 비주얼 갱신 — 풀링 Piece가 SetByID로 켜짐
+            _slotCells[cellIndex].Piece?.SetByID(pieceID);
+
+            OnCellChanged?.Invoke(this, cellIndex);
         }
         
         // 지정 셀 비우기 — 데이터 + 대응 Piece 비주얼 끔.
@@ -66,10 +70,10 @@ namespace InGame.Slot
         {
             _cells[cellIndex] = CellRuntimeData.Empty;
             
-            // 비주얼 갱신 — 대응 Piece 끄기 (단방향 동기화)
-            var piece = _slotCells[cellIndex].GetComponentInChildren<Piece>();
-            if (piece != null)
-                piece.gameObject.SetActive(false);
+            // 비주얼 갱신 — 풀링 Piece가 SetByID(0)로 꺼짐
+            _slotCells[cellIndex].Piece?.SetByID(0);
+
+            OnCellChanged?.Invoke(this, cellIndex);
         }
         
         // 셀 3개 전체 비우기 — 정렬 성공 후 사용.
@@ -79,6 +83,31 @@ namespace InGame.Slot
                 ClearCell(i);
         }
         
+        #endregion
+
+        #region 슬롯 전체 조회
+
+        // 빈 칸 인덱스 리스트 — 보충 시 어느 셀에 넣을지 결정
+        public List<int> GetEmptyCellIndices()
+        {
+            var empties = new List<int>();
+            for(int i=0; i < Define.SORT_COUNT; i++)
+                if(_cells[i].IsEmpty) empties.Add(i);
+            return empties;
+        }
+        
+        // 슬롯의 모든 셀이 비어있는지 — 재생성 AND 조건 검사용
+        public bool IsAllEmpty()
+        {
+            for (int i = 0; i < Define.SORT_COUNT; i++)
+                if (!_cells[i].IsEmpty) return false;
+            return true;
+        }
+
+        #endregion
+
+        #region 정렬
+
         // 자기 셀 3개가 모두 같은 PieceID인지 (빈 칸 제외).
         public bool IsSorted()
         {
@@ -111,8 +140,30 @@ namespace InGame.Slot
             // 셀 3개 비우기 — 다음 정렬 사이클 준비
             ClearAllCells();
         }
-        
+
+        #endregion
+
+        #region 접근자
+
         // 슬롯의 셀에 인덱스로 직접 접근.
         public SlotCell GetSlotCellByIndex(int cellIndex) => _slotCells[cellIndex];
+
+        #endregion
+
+        #region 디버그
+
+        // 디버그용 — 셀 상태 문자열 (예: "Slot 0: [1][1][_]")
+        public string GetDebugInfo()
+        {
+            var sb = new System.Text.StringBuilder($"Slot {_slotID}: ");
+            for (int i = 0; i < Define.SORT_COUNT; i++)
+            {
+                int id = _cells[i].PieceID;
+                sb.Append(id == 0 ? "[_]" : $"[{id}]");
+            }
+            return sb.ToString();
+        }
+
+        #endregion
     }
 }

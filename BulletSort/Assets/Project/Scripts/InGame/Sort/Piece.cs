@@ -30,7 +30,7 @@ namespace InGame.Sort
         [SerializeField] private LayerMask _cellLayer;
         
         [Header("Piece Data (임시 — 데이터 파싱 SO 도입 후 SetData로 교체)")]
-        [SerializeField] private PieceType _pieceType = PieceType.Basic;
+        [SerializeField] private PieceType _pieceType = PieceType.None;
         
         [Header("Sorting")]
         [Tooltip("드래그 중 기물이 올라갈 소팅 레이어")]
@@ -66,10 +66,22 @@ namespace InGame.Sort
                 _collider = GetComponent<Collider2D>();
         }
         
+        // 풀링 재사용 시 호출. PieceID → PieceType 매핑 + 활성 토글.
+        // TODO(데이터 SO 도입 후) — switch 매핑 폐기, _data 참조로 교체.
+        public void SetByID(int pieceID)
+        {
+            _pieceType = pieceID switch
+            {
+                0 => PieceType.None,
+                1 => PieceType.Basic,
+                _ => PieceType.None,
+            };
+            
+            gameObject.SetActive(_pieceType != PieceType.None);
+        }
+        
         public void OnGrabbed(Vector2 worldPos)
         {
-            Logger.Instance.LogInfo($"{gameObject.name} OnGrabbed");
-            
             _dragState = new DragState
             {
                 OriginalPos = transform.position,
@@ -95,23 +107,17 @@ namespace InGame.Sort
         
         public void OnReleased(Vector2 worldPos)
         {
-            Logger.Instance.LogInfo($"{gameObject.name} OnReleased");
+            PlaceOnCell(FindCellAt(worldPos));
             
-            SlotCell targetCell = FindCellAt(worldPos);
-            bool success = TryPlaceOnCell(targetCell);
-            
-            if (!success)
-            {
-                // 실패 — 원위치 복귀.
-                transform.position = _dragState.OriginalPos;
-            }
+            // 원위치 복귀 (성공·실패 무관)
+            // 성공 시: 자기는 이미 SetByID(0)로 꺼졌고, 도착 셀 Piece가 켜짐
+            // 실패 시: 그대로 자리 유지
+            transform.position = _dragState.OriginalPos;
             
             // 소팅·콜라이더 복귀.
             _renderer.sortingLayerName = _dragState.OriginalSortingLayer;
             _renderer.sortingOrder = _dragState.OriginalSortingOrder;
             _collider.enabled = true;
-            
-            Logger.Instance.LogInfo($"드롭 {(success ? "성공" : "실패")}");
         }
         
         // 지정 좌표에서 Cell 레이어 콜라이더 검색 → SlotCell 반환 (없으면 null)
@@ -124,33 +130,26 @@ namespace InGame.Sort
         // 잡힐 시점의 자기 위치 셀 찾기 — 출발 셀 캐싱용.
         private SlotCell FindOriginCell() => FindCellAt(transform.position);
 
-        // 대상 셀에 배치 시도. 빈 셀이면 데이터 이동 + 비주얼 스냅 + 부모 재배치.
-        // 반환: 성공 여부.
-        private bool TryPlaceOnCell(SlotCell targetCell)
+        // 대상 셀로 기물 데이터 이동 — Piece 자체는 자기 셀에 영구 매핑, 데이터만 옮김.
+        // 도착 셀의 풀링 Piece가 켜지고, 출발 셀의 풀링 Piece가 꺼지는 흐름.
+        private void PlaceOnCell(SlotCell targetCell)
         {
-            // 타겟 Cell이 없거나 비워져있지 않다면 배치 실패
-            if (targetCell == null || !targetCell.IsEmpty)
-                return false;
-
-            // 비주얼·부모 먼저 옮김 — 출발 셀에서 자식 관계 해제.
-            // ClearCell이 자기 자신을 자식으로 찾아 끄는 사고 방지.
-            transform.SetParent(targetCell.PivotTransform);
-            transform.position = targetCell.PivotTransform.position;
+            // 타겟 셀이 없거나 비어있지 않으면 배치 실패
+            if (targetCell == null || !targetCell.IsEmpty) return;
             
-            // 데이터 이동 — 출발 비우기 → 도착 배치 순서.
+            // 옮길 PieceID 캐싱 — 아래 ClearCell이 자기 _pieceType을 None으로 바꾸기 전에 확보
+            int movingPieceID = PieceID;
+            
+            // 도착 먼저 → 출발 나중 순서.
+            // 같은 슬롯 안에서 옮길 때 '도착 비우고 출발 채우기' 사이 순간 전체 빔 상태를 막아
+            // 그 틈에 보충 이벤트가 끼어드는 사고를 방지.
+            targetCell.Slot.PlacePiece(targetCell.CellIndex, movingPieceID);
+            
             if (_dragState.OriginSlotCell != null)
                 _dragState.OriginSlotCell.Slot.ClearCell(_dragState.OriginSlotCell.CellIndex);
             
-            targetCell.Slot.PlacePiece(targetCell.CellIndex, PieceID);
-            
-            // 정렬 판정 — 성공 시 Slot 내부에서 이벤트·셀 비우기 처리
-            targetCell.Slot.CheckSort();
-            
-            return true;
+            // 정렬 판정 — 성공 시 Slot 내부에서 이벤트 발행·셀 비우기 처리
+            targetCell.Slot.CheckSort(); 
         }
-        
-        // TODO: 미래 SO 도입 시 활성. 풀링 재활용 시 호출되어 비주얼·정체성 갱신.
-        // 현재는 임시 SerializeField _pieceID로 우회
-        // public void SetData(PieceData data) { ... }
     }
 }
