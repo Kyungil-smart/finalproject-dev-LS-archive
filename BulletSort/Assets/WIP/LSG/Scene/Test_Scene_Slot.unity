@@ -187,6 +187,7 @@ MonoBehaviour:
   - {fileID: 1466221017}
   - {fileID: 1094082932}
   - {fileID: 1585272574}
+  _debugMode: 1
 --- !u!4 &431010836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
@@ -1916,5 +1917,5 @@ SceneRoots:
   - {fileID: 1287372128}
   - {fileID: 6348066378005556175}
   - {fileID: 2470810986791007378}
-  - {fileID: 1650842468}
   - {fileID: 412654749}
+  - {fileID: 1650842468}

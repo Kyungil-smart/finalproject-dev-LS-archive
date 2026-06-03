@@ -130,24 +130,25 @@ namespace InGame.Sort
         // 잡힐 시점의 자기 위치 셀 찾기 — 출발 셀 캐싱용.
         private SlotCell FindOriginCell() => FindCellAt(transform.position);
 
-        // 대상 셀에 데이터 이동 — Piece 자체는 자기 셀에 영구 매핑, 데이터만 이동.
-        // 출발 셀이 SetByID(0)로 꺼지고, 도착 셀의 풀링 Piece가 SetByID로 켜지는 흐름.
+        // 대상 셀로 기물 데이터 이동 — Piece 자체는 자기 셀에 영구 매핑, 데이터만 옮김.
+        // 도착 셀의 풀링 Piece가 켜지고, 출발 셀의 풀링 Piece가 꺼지는 흐름.
         private void PlaceOnCell(SlotCell targetCell)
         {
-            // 타겟 Cell이 없거나 비워져있지 않다면 배치 실패
-            if (targetCell == null || !targetCell.IsEmpty)
-                return;
+            // 타겟 셀이 없거나 비어있지 않으면 배치 실패
+            if (targetCell == null || !targetCell.IsEmpty) return;
             
-            // 자기 PieceID 캐싱 — ClearCell이 자기 _pieceType을 None으로 바꿔버리기 전에
+            // 옮길 PieceID 캐싱 — 아래 ClearCell이 자기 _pieceType을 None으로 바꾸기 전에 확보
             int movingPieceID = PieceID;
             
-            // 데이터만 이동 — 출발 비우기 → 도착 배치 순서
+            // 도착 먼저 → 출발 나중 순서.
+            // 같은 슬롯 안에서 옮길 때 '도착 비우고 출발 채우기' 사이 순간 전체 빔 상태를 막아
+            // 그 틈에 보충 이벤트가 끼어드는 사고를 방지.
+            targetCell.Slot.PlacePiece(targetCell.CellIndex, movingPieceID);
+            
             if (_dragState.OriginSlotCell != null)
                 _dragState.OriginSlotCell.Slot.ClearCell(_dragState.OriginSlotCell.CellIndex);
             
-            targetCell.Slot.PlacePiece(targetCell.CellIndex, movingPieceID);
-            
-            // 정렬 판정 — 성공 시 Slot 내부에서 이벤트·셀 비우기 처리
+            // 정렬 판정 — 성공 시 Slot 내부에서 이벤트 발행·셀 비우기 처리
             targetCell.Slot.CheckSort(); 
         }
     }

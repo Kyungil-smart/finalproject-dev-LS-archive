@@ -149,5 +149,21 @@ namespace InGame.Slot
         public SlotCell GetSlotCellByIndex(int cellIndex) => _slotCells[cellIndex];
 
         #endregion
+
+        #region 디버그
+
+        // 디버그용 — 셀 상태 문자열 (예: "Slot 0: [1][1][_]")
+        public string GetDebugInfo()
+        {
+            var sb = new System.Text.StringBuilder($"Slot {_slotID}: ");
+            for (int i = 0; i < Define.SORT_COUNT; i++)
+            {
+                int id = _cells[i].PieceID;
+                sb.Append(id == 0 ? "[_]" : $"[{id}]");
+            }
+            return sb.ToString();
+        }
+
+        #endregion
     }
 }
