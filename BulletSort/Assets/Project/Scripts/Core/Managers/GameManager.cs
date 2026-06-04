@@ -18,6 +18,7 @@ namespace Core
             // 주의: 다른 매니저가 데이터를 참조할 수 있으므로 DataManager를 가장 먼저 등록한다.
             // RegisterManager<DataManager>();
             RegisterManager<InputManager>();
+            RegisterManager<ScreenWatcher>();
             
             // TODO: (데모 단계 확정 시) 인게임 흐름, 3-Sort 판정 등 추가 매니저 등록
             // RegisterManager<InGameManager>();

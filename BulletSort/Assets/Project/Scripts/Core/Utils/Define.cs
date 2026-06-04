@@ -14,6 +14,9 @@ namespace Core
         public const int PIECE_TYPE_COUNT = 6;    // 기물 종류 수 (데모 임시, CBT는 데이터)
         public const int PIECE_PER_TYPE = 9;      // 종류당 개수 (한 세트 기준)
         public const int REFILL_PER_SLOT = 2;     // 슬롯 보충 시 채우는 칸 수 (3칸 중 2칸)
+        // 슬롯 보드 그리드 — 3×3 배치 (셀 수 SORT_COUNT)와 의미가 다른 별도 개념
+        public const int SLOT_BOARD_COLS = 3; // 슬롯 보드 가로 슬롯 수
+        public const int SLOT_BOARD_ROWS = 3; // 슬롯 보드 세로 슬롯 수
     }
     
     // 소팅 레이어 enum — 인스펙터에서 드롭다운으로 선택, 오타 차단

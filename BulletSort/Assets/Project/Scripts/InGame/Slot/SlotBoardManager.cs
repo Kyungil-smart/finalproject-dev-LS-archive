@@ -195,7 +195,7 @@ namespace InGame.Slot
             int lineCount = _slots.Count + 1;
             float lineHeight = 50;
             float bgHeight = lineCount * lineHeight + 20;
-            float bgWidth = 640;
+            float bgWidth = 1050;
     
             // 좌하단 기준 — 아래에서 위로 쌓이도록 시작 y 계산
             float startY = Screen.height - bgHeight - 5;
