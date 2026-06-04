@@ -1,35 +1,48 @@
+using Core.Interface.IDamageble;
+using Core.Manager.StageDataManager;
 using UnityEngine;
 
-public class TestMonsterMove : MonoBehaviour
+public class TestMonsterMove : MonoBehaviour, IDamageble
 {
     private float _moveSpeed;
+    private int atk;
+    private int _atkSpeed;
+    
+    private int _health;
+    private int _maxHealth;
+    
+    private Timer atkTimer;
     
     public GameObject target;
     
     [SerializeField] public GameObject _spawnPoint;
     
     // 테스트 용 몹 디스트로이 타이머
-    private Timer _deadTimer;
 
     private void Awake()
     {
         _moveSpeed = 2.5f;
-        _deadTimer = new Timer(5f);
+        atk = 10;
+        _atkSpeed = 2;
+        atkTimer = new Timer(_atkSpeed);
     }
 
     private void Update()
     {
-        _deadTimer.UpdateTimer();
-        if (_deadTimer.IsEnabled)
-        {
-            target.GetComponent<TargetDetector>().target = null;
-            Destroy(gameObject);
-        }
+        if(!atkTimer.IsEnabled)
+            atkTimer.UpdateTimer();
     }
 
     private void FixedUpdate()
     {
-        Move();        
+        if(Mathf.Abs(Vector3.Distance(target.transform.position, gameObject.transform.position)) >= 1 )
+            Move();
+        
+        else if (atkTimer.IsEnabled)
+        {
+            Attack();
+            atkTimer.ResetTimer(_atkSpeed);
+        }
     }
 
     // 몬스터가 죽을 때 
@@ -48,9 +61,34 @@ public class TestMonsterMove : MonoBehaviour
         
     }
 
+    private void Attack()
+    {
+        StageDataManager.Instance.TakeDamage(target.GetComponent<IDamageble>(), atk);
+    }
+
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position,
             target.transform.position, _moveSpeed * Time.deltaTime);
+    }
+
+    public int Health 
+    { 
+        get
+        { return _health; }
+        set
+        { } 
+    }
+    public int MaxHealth
+    {
+        get
+        { return _maxHealth; } 
+        set
+        {}
+    }
+    
+    public void Dead()
+    {
+        Destroy(gameObject);
     }
 }
