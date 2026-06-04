@@ -23,10 +23,13 @@ namespace Towers.Struct.TowerInfo
             //  타겟팅
 
         // 사격 타입
+        
+        public EProjectileType ProjectileType => _projectileType;
+        
+        public int TowerMaxAmmo => _towerMaxAmmo;
+        
 
         // 테스트용 임시 데이터
-        
-        
         public STowerInfo(string towerName)
         {
             _towerName = towerName;

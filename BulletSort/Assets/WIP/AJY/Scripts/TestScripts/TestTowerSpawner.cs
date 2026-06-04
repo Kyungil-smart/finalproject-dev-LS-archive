@@ -1,13 +1,11 @@
-using Towers.Factory;
+using Core.Manager.SpawnManager;
 using Towers.Factory.Type;
 using UnityEngine;
 
 public class TestTowerSpawner : MonoBehaviour
 {
-    [SerializeField] private TowerFactory _towerFactory;
-
     private void Start()
     {
-        _towerFactory.CreateTower(ETowerType.Basic, gameObject.transform.position);
+        SpawnManager.Instance.SpawnTower(ETowerType.Basic, gameObject.transform.position);
     }
 }

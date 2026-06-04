@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core.Manager.SpawnManager;
 using UnityEngine;
 
 public class TargetDetector : MonoBehaviour
@@ -6,19 +7,21 @@ public class TargetDetector : MonoBehaviour
    [Header("사거리"), SerializeField]
    private float _bulletDuration = 1.5f;
 
-   [SerializeField] private GameObject _spawner;
+   [SerializeField] private TestMonsterSpawner _spawner;
 
    private float _bulletSpeed;
    private float _detectRange;
    
    [SerializeField]public GameObject target;
    [SerializeField]public List<GameObject> _detectedMonsters;
+   public TestMonsterSpawner MonsterSpawner { get; set; }
    
 
    private void Awake()
    {
       _bulletSpeed = 1f;
       _detectedMonsters = new List<GameObject>();
+      _spawner = SpawnManager.Instance.testMonsterSpawner;
    }
 
    private void Start()
