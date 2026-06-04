@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Core;
 using UnityEngine;
 
 namespace InGame.Slot
@@ -24,21 +26,26 @@ namespace InGame.Slot
             var emptyCells = slot.GetEmptyCellIndices();
             
             // 슬롯당 2개가 원칙 — 2개 못 채울 상황이면 보충 보류.
-            if (_waitingGroup.Count < 2 || emptyCells.Count < 2) return;
+            if (_waitingGroup.Count < Define.REFILL_PER_SLOT || emptyCells.Count < Define.REFILL_PER_SLOT) return;
             
             Shuffle(emptyCells);
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < Define.REFILL_PER_SLOT; i++)
                 slot.PlacePiece(emptyCells[i], Dequeue());
         }
         
         // 대기 그룹 재생성 — 호출 판단(보드 전체 클리어 여부)은 매니저가.
-        // TODO(데이터 SO 도입 후) — 종류·수량을 데이터에서 읽어 채움(6종 × 9 = 54).
-        // 현재 데모: 기본형(ID 1)을 한 세트 분량(54)으로 채워 균등 랜덤처럼 동작.
+        // TODO(데이터 SO 도입 후) — 종류·수량을 데이터에서 읽어 채움.
+        // 현재 데모: 6종(ID 1~6) × 9개씩 = 54개. 기획서 4-3절(3 × 6 × 3 = 54)과 정합.
         public void Regenerate()
         {
             _waitingGroup.Clear();
-            for (int i = 0; i < 54; i++)
-                _waitingGroup.Add(1);
+            for (int id = 1; id <= Define.PIECE_TYPE_COUNT; id++)
+            { 
+                for (int i = 0; i < Define.PIECE_PER_TYPE; i++) 
+                    _waitingGroup.Add(id);
+            }
+
+            Shuffle(_waitingGroup);
         }
         
         // 대기 그룹 앞에서 기물 ID 1개 꺼냄.
@@ -71,7 +78,8 @@ namespace InGame.Slot
             if (counts.Count > 0)
             {
                 sb.Append(" (");
-                foreach (var kv in counts)
+                // Key(ID) 기준으로 오름차순 정렬하여 출력합니다.
+                foreach (var kv in counts.OrderBy(kv => kv.Key))
                     sb.Append($"ID{kv.Key}×{kv.Value} ");
                 sb.Append(")");
             }

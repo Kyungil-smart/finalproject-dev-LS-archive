@@ -32,6 +32,9 @@ namespace InGame.Sort
         [Header("Piece Data (임시 — 데이터 파싱 SO 도입 후 SetData로 교체)")]
         [SerializeField] private PieceType _pieceType = PieceType.None;
         
+        [Tooltip("타입별 스프라이트 — 인덱스 = (int)PieceType (0=None은 빈 칸이라 비워둬도 됨, 1=Basic ~ 6=Support)")]
+        [SerializeField] private Sprite[] _typeSprites;
+        
         [Header("Sorting")]
         [Tooltip("드래그 중 기물이 올라갈 소팅 레이어")]
         [SerializeField] private SortingLayerType _draggingLayer = SortingLayerType.Dragging;
@@ -51,12 +54,8 @@ namespace InGame.Sort
         }
         
         // 외부(Slot 정렬 판정 등) 접근용 — 미래 SO 도입 시 내부 구현만 _data.PieceID로 교체.
-        public int PieceID => _pieceType switch
-        {
-            PieceType.None  => 0,    // 빈 칸 예약값과 일치
-            PieceType.Basic => 1,
-            _ => 0,
-        };
+        // enum 순서 = ID라 (int)_pieceType 캐스팅으로 충분 (None=0이 빈 칸과 일치).
+        public int PieceID => (int)_pieceType;
         
         void Awake()
         {
@@ -66,18 +65,23 @@ namespace InGame.Sort
                 _collider = GetComponent<Collider2D>();
         }
         
-        // 풀링 재사용 시 호출. PieceID → PieceType 매핑 + 활성 토글.
-        // TODO(데이터 SO 도입 후) — switch 매핑 폐기, _data 참조로 교체.
+        // 풀링 재사용 시 호출. PieceID → PieceType 매핑 + 스프라이트 교체 + 활성 토글.
+        // TODO(데이터 SO 도입 후) — _typeSprites 배열 폐기, _data.Sprite 참조로 교체.
         public void SetByID(int pieceID)
         {
-            _pieceType = pieceID switch
-            {
-                0 => PieceType.None,
-                1 => PieceType.Basic,
-                _ => PieceType.None,
-            };
+            // 유효 범위(0~6) 밖이면 None 취급 — 잘못된 ID 사고 방지.
+            _pieceType = System.Enum.IsDefined(typeof(PieceType), pieceID)
+                ? (PieceType)pieceID
+                : PieceType.None;
+
+            bool active = _pieceType != PieceType.None;
+            gameObject.SetActive(active);
             
-            gameObject.SetActive(_pieceType != PieceType.None);
+            // 켜질 때만 스프라이트 교체 (None은 꺼지므로 갱신 불필요)
+            if (active && _renderer != null && pieceID < _typeSprites.Length)
+            {
+                _renderer.sprite = _typeSprites[pieceID];
+            }
         }
         
         public void OnGrabbed(Vector2 worldPos)

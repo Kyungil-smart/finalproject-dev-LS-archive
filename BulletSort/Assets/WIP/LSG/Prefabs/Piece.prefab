@@ -143,6 +143,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _pieceType: 0
+  _typeSprites:
+  - {fileID: 1838722009942519549, guid: f9e03b094cc5a6c4facd841efc222af3, type: 3}
+  - {fileID: 119503648871944297, guid: c969120c6c020b742b0a11fd3fd4d25c, type: 3}
+  - {fileID: -6867943320122117231, guid: a3c5b9511f3d9d546aa11a84e24b8e4f, type: 3}
+  - {fileID: -8250441514784936749, guid: 1efdb51b75a7157498bec5b0a4b47382, type: 3}
+  - {fileID: 9170920317180513361, guid: b66f079a25a9b704a8dc4388e61c1e27, type: 3}
+  - {fileID: -5515308719531674407, guid: 3caac6dc0d687424c978d2f8f6c7aded, type: 3}
+  - {fileID: -2097026880970379580, guid: 4d55d87b640abd64ead4458c72533775, type: 3}
   _draggingLayer: 4
 --- !u!70 &3450532317090284595
 CapsuleCollider2D:
