@@ -598,6 +598,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 821051761739005084, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1760770089006415204, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -638,11 +642,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2460795998841317536, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5857488100814291629, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
       propertyPath: m_Name
       value: SlotBoard
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7865541898473340264, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352063222712190572, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8668408723720823170, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695208766488934828, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705244823500166394, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977676881326883851, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2460795998841317536, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+    - {fileID: 821051761739005084, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+    - {fileID: 7865541898473340264, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+    - {fileID: 8977676881326883851, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+    - {fileID: 8705244823500166394, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+    - {fileID: 8352063222712190572, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+    - {fileID: 8695208766488934828, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+    - {fileID: 8668408723720823170, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

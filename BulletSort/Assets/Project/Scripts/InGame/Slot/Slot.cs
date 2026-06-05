@@ -10,11 +10,16 @@ namespace InGame.Slot
     // 슬롯 1개. 셀 3개의 상태를 SGrid1D로 보유하고 정렬 판정·셀 조작을 담당.
     // 자식 SlotCell들은 표현(콜라이더·Pivot), 데이터는 이 클래스의 _cells에 집중.
     // 단방향 동기화 — 데이터(_cells)를 먼저 바꾸고 자식 SlotCell·Piece에 반영.
+    // 전투 피격(HP)은 SlotHealth 컴포넌트로 분리 — Slot은 게임 로직(정렬·보충)만.
     // 작성자: 이성규
     public class Slot : MonoBehaviour
     {
         [Header("Identity")]
         [SerializeField] private int _slotID;
+
+        [Header("Health")]
+        [Tooltip("슬롯 체력 컴포넌트 — 전투 피격 처리. 비우면 Awake에서 탐색")]
+        [SerializeField] private SlotHealth _slotHealth;
         
         // 셀 3개의 런타임 상태. 인덱스 0~2로 접근.
         // 매치-3에서 가져온 SGrid1D<T>로 보드 표현 (2차원은 오버스펙이라 1차원 개조).
@@ -24,6 +29,10 @@ namespace InGame.Slot
         private SlotCell[] _slotCells;
         
         public int SlotID => _slotID;
+        
+        // 체력 컴포넌트 노출 — 외부가 slot.Health.TakeDamage()로 접근 가능.
+        // (전투가 콜라이더로 IDamageable 직접 접근도 가능 — 양쪽 다 열어둠)
+        public SlotHealth Health => _slotHealth;
         
         // 3-Sort 정렬 성공 이벤트 — (slotID, pieceID).
         // 외부(포탑 소환 시스템 등)가 구독해 후속 처리.
@@ -39,6 +48,12 @@ namespace InGame.Slot
         {
             // 슬롯당 셀 수 = 정렬 완성에 필요한 기물 수(SORT_COUNT) — 같은 의미라 상수 공유.
             _cells = new SGrid1D<CellRuntimeData>(Define.SORT_COUNT);
+            
+            // SlotHealth 탐색 — 인스펙터 미지정 시. 루트에 함께 붙는 게 기본(피격 = 슬롯 단위),
+            // 혹시 자식에 뒀어도 잡히도록 GetComponentInChildren로 fallback.
+            if (_slotHealth == null)
+                _slotHealth = GetComponent<SlotHealth>()
+                              ?? GetComponentInChildren<SlotHealth>(includeInactive: true);
             
             // 자식 SlotCell들을 cellIndex 기준으로 정렬 캐싱
             var cells = GetComponentsInChildren<SlotCell>();
