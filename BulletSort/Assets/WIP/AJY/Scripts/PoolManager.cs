@@ -76,10 +76,17 @@ namespace Core.ObjectPool
             {
                 poolable.OnDespawn();
             }
-        
-            obj.SetActive(false);
+
+            SetActiveFalse(obj);
         
             _pools[prefab].Enqueue(obj);
+        }
+        
+        // 디버그 코스
+        private void SetActiveFalse(GameObject obj)
+        {
+            obj.SetActive(false);
+            Debug.Log($"{obj.name} 비활성화");
         }
     }
 }    

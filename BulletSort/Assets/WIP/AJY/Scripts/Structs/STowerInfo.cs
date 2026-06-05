@@ -26,6 +26,8 @@ namespace Towers.Struct.TowerInfo
         
         public EProjectileType ProjectileType => _projectileType;
         
+        public int TowerAtk => _towerAtk;
+        public float TowerAtkSpeed => _towerAtkSpeed;
         public int TowerMaxAmmo => _towerMaxAmmo;
         
 
@@ -34,7 +36,7 @@ namespace Towers.Struct.TowerInfo
         {
             _towerName = towerName;
             _towerAtk = 100;
-            _towerAtkSpeed = 4;
+            _towerAtkSpeed = 2;
             _projectileCount = 1;
             _projectileType = EProjectileType.Normal;
             _towerMaxAmmo = 20;

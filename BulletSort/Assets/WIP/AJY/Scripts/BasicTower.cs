@@ -1,5 +1,7 @@
+using System.Collections;
 using Core.Manager.SpawnManager;
 using Core.ObjectPool;
+using Core.ObjectPool.Interface;
 using Projectile.Interface;
 using Towers.Interface.Tower;
 using Towers.Struct.TowerInfo;
@@ -14,6 +16,8 @@ namespace Towers.Factory
         
         private GameObject _projectile;
         
+        private Coroutine _atkCoroutine;
+        
         private void Awake()
         {
             _targetDetector = gameObject.GetComponent<TargetDetector>();
@@ -26,12 +30,8 @@ namespace Towers.Factory
         {
             _towerInfo.ShowData();
             _projectile = SpawnManager.Instance.SpawnProjectile(_towerInfo.ProjectileType, _towerInfo.TowerMaxAmmo);
-            //_targetDetector.SetDetectRange();
-        }
-
-        private void FixedUpdate()
-        {
-            Attack();
+            
+            _atkCoroutine = StartCoroutine(Attack());
         }
 
         // SO데이터 불러오기 구현 필요
@@ -40,15 +40,24 @@ namespace Towers.Factory
             
         }
 
-        public void Attack()
+        public IEnumerator Attack()
         {
-            if(_targetDetector.target == null) return;
-
+            yield return new WaitUntil(() => _targetDetector.target != null);
+            
             for (int i = 0; i < _towerInfo.TowerMaxAmmo; i++)
             {
-                GameObject obj = PoolManager.Instance.Get(_projectile, gameObject.transform.position, Quaternion.identity);
-                obj.GetComponent<IProjectile>().Target = _targetDetector.target;
+                GameObject valueObj = PoolManager.Instance.Get(_projectile, gameObject.transform.position, Quaternion.identity);
+                valueObj.GetComponent<IProjectile>().Target = _targetDetector.target;
+                valueObj.GetComponent<IPoolable>().KeyObject = _projectile;
+                yield return new WaitForSeconds(_towerInfo.TowerAtkSpeed);
             }
+            
+            Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            _atkCoroutine = null;
         }
     }
 }

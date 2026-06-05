@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Towers;
 using Towers.Factory;
 using Towers.Factory.Type;
@@ -10,11 +11,11 @@ namespace Core.Manager.SpawnManager
       [SerializeField] private TowerFactory _towerFactory;
       [SerializeField] private ProjectileFactory _projectileFactory;
       [SerializeField] private MonsterFactory _monsterFactory;
-
+      
       public TowerFactory TowerFactory => _towerFactory;
       public ProjectileFactory ProjectileFactory => _projectileFactory;
       
-      public TestMonsterSpawner testMonsterSpawner;
+      public List<GameObject> monsters;
 
       // 3sorting시 호출하여 타워 스폰
       public void SpawnTower(ETowerType towerType, Vector3 spawnPoint)
@@ -28,5 +29,6 @@ namespace Core.Manager.SpawnManager
 
         return projectile;
       }
+      
    }
 }

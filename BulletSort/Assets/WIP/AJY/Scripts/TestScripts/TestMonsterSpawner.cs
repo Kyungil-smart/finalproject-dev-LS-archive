@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using Core.Manager.SpawnManager;
 using UnityEngine;
 
 public class TestMonsterSpawner : MonoBehaviour
@@ -6,25 +6,23 @@ public class TestMonsterSpawner : MonoBehaviour
     [SerializeField] GameObject monsterPrefab;
     [SerializeField] GameObject tower;
 
+    private int _spawnCount;
     private int _maxMonsterCount;
 
     private Timer _spawnTimer;
     private float _spawnLate;
-    
-    public List<GameObject> monsters;
 
     private void Awake()
     {
+        _spawnCount = 0;
         _maxMonsterCount = 10;
         _spawnLate = 1f;
         _spawnTimer = new Timer(_spawnLate);
-        
-        monsters = new List<GameObject>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (monsters.Count >= _maxMonsterCount) return;
+        if (_spawnCount >= _maxMonsterCount) return;
             
         _spawnTimer.UpdateTimer();
         
@@ -32,10 +30,10 @@ public class TestMonsterSpawner : MonoBehaviour
         {
             GameObject spawnObj = Instantiate(monsterPrefab, transform.position, transform.rotation);
             spawnObj.GetComponent<TestMonsterMove>().target = tower;
-            spawnObj.GetComponent<TestMonsterMove>()._spawnPoint = gameObject;
-            monsters.Add(spawnObj);
+            SpawnManager.Instance.monsters.Add(spawnObj);
             
             _spawnTimer.ResetTimer(_spawnLate);
+            _spawnCount++;
         }
     }
 }
