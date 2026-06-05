@@ -1,3 +1,6 @@
+using Core.Interface.IDamageable;
+using Core.Manager.StageDataManager;
+using Core.ObjectPool;
 using Projectile.Interface;
 using Core.ObjectPool.Interface;
 using UnityEngine;
@@ -6,24 +9,25 @@ public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
 {
     private GameObject _target;
     private float _moveSpeed;
+    private int _atk = 10;
+
+    public GameObject Target
+    {
+        get { return _target; }
+        set { _target = value; }
+    }
     
+    public int Atk
+    {
+        get { return _atk;}
+        set{}
+    }
+
     private void FixedUpdate()
     {
         MoveToTarget(_target);
     }
-
-    public GameObject Target
-    {
-        get
-        {
-            return _target;
-        }
-        set
-        {
-            _target = value;
-        }
-    }
-
+    
     public void MoveToTarget(GameObject target)
     {
         if (target == null) return;
@@ -37,6 +41,8 @@ public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
     public void AtkTarget(GameObject target)
     {
         // 피해 계산
+        target.GetComponent<IDamageble>().TakeDamage(_atk);
+        Destroy(gameObject);
     }
 
     public void OnSpawn()
@@ -54,6 +60,7 @@ public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
 
     public void OnDespawn()
     {
-        
+        // 풀로 돌아가기
+        //PoolManager.Instance.Release();
     }
 }
