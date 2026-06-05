@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1746991953642516983}
@@ -81,12 +81,12 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 119503648871944297, guid: c969120c6c020b742b0a11fd3fd4d25c, type: 3}
+  m_Sprite: {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.96, y: 1.44}
+  m_Size: {x: 0.75, y: 1.140625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -144,13 +144,13 @@ MonoBehaviour:
     m_Bits: 256
   _pieceType: 0
   _typeSprites:
-  - {fileID: 1838722009942519549, guid: f9e03b094cc5a6c4facd841efc222af3, type: 3}
-  - {fileID: 119503648871944297, guid: c969120c6c020b742b0a11fd3fd4d25c, type: 3}
-  - {fileID: -6867943320122117231, guid: a3c5b9511f3d9d546aa11a84e24b8e4f, type: 3}
-  - {fileID: -8250441514784936749, guid: 1efdb51b75a7157498bec5b0a4b47382, type: 3}
-  - {fileID: 9170920317180513361, guid: b66f079a25a9b704a8dc4388e61c1e27, type: 3}
-  - {fileID: -5515308719531674407, guid: 3caac6dc0d687424c978d2f8f6c7aded, type: 3}
-  - {fileID: -2097026880970379580, guid: 4d55d87b640abd64ead4458c72533775, type: 3}
+  - {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - {fileID: 1960944477512924465, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - {fileID: -4851825434126095193, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - {fileID: 9197641502506625523, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - {fileID: 2811034543993936900, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - {fileID: -8848733089012088071, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
   _draggingLayer: 4
 --- !u!70 &3450532317090284595
 CapsuleCollider2D:
