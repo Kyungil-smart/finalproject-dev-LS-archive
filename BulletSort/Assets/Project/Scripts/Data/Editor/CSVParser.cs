@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ public class CSVParser
     public static void ParseCSV()
     {
         string csvDirectoryPath = Path.Combine(Application.dataPath, "Resources/CSVTables");
-        string outputPath = "Assets/Project/Data/SO";
+        string outputPath = "Assets/Resources/SO";
 
         if (!Directory.Exists(csvDirectoryPath))
         {
@@ -100,7 +101,7 @@ public class CSVParser
 
                 string idStr = row[0].Trim();
 
-                // 에셋 파일 명 예시 : Assets/Project/Data/SO/DataTypeName/DataTypeName_ID.asset
+                // 에셋 파일 명 예시 : Assets/Resources/SO/DataTypeName/DataTypeName_ID.asset
                 string assetPath = $"{targetFolder}/{className}_{idStr}.asset";
                 Debug.Log($"Asset Path : {assetPath}");
 
@@ -152,6 +153,8 @@ public class CSVParser
         AssetDatabase.Refresh();
 
         Debug.Log($"CSVParser : All Files are Done");
+
+        GenerateDataManagerPaths();
     }
 
     private static Type GetTypeFromName(string className)
@@ -192,5 +195,58 @@ public class CSVParser
         }
 
         return Convert.ChangeType(value, targetType);
+    }
+
+    private static void GenerateDataManagerPaths()
+    {
+        string soRootPath = Path.Combine(Application.dataPath, "Resources/SO");
+
+        string dataManagerPath = Path.Combine(Application.dataPath, "Project/Scripts/Core/Managers/DataManager.cs");
+
+        if (!Directory.Exists(soRootPath))
+        {
+            Debug.LogError($"CSV Parser : Path Error, DataManager.cs File is Not Found. Wrong Path : {soRootPath}");
+        }
+
+        if (!File.Exists(dataManagerPath))
+        {
+            Debug.LogError($"CSV Parser : Path Error, DataManager.cs File is Not Found. Wrong Path : {dataManagerPath}");
+        }
+
+        string[] directories = Directory.GetDirectories(soRootPath);
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.AppendLine("            // [AUTO GENERATED START]");
+        foreach (string dir in directories)
+        {
+            string folderName = Path.GetFileName(dir);
+            sb.AppendLine($"            LoadTable<{folderName}>(\"SO/{folderName}\");");
+        }
+        sb.Append("            // [AUTO GENERATED END]");
+
+        string originalCode = File.ReadAllText(dataManagerPath, Encoding.UTF8);
+
+        string startMakrer = "            // [AUTO GENERATED START]";
+        string endMarker = "            // [AUTO GENERATED END]";
+
+        int startIndex = originalCode.IndexOf(startMakrer);
+        int endIndex = originalCode.IndexOf(endMarker) + endMarker.Length;
+
+        if (startIndex != -1 && endIndex != -1)
+        {
+            string firstPart = originalCode.Substring(0, startIndex);
+            string secondPart = originalCode.Substring(endIndex);
+
+            File.WriteAllText(dataManagerPath, firstPart + sb.ToString() + secondPart, Encoding.UTF8);
+
+            AssetDatabase.Refresh();
+
+            Debug.Log($"CSV Parser : DataManager Code is Successfully Generated");
+        }
+        else
+        {
+            Debug.LogError($"CSV Parser : Start or End Marker is Not Found in DataManager.cs File");
+        }
     }
 }
