@@ -1,6 +1,6 @@
 namespace Core.Interface.IDamageable
 {
-    public interface IDamageble
+    public interface IDamageable
     {
         public int Health { get; }
         public int MaxHealth { get; }

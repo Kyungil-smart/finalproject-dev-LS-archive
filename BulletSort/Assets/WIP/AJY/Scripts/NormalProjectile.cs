@@ -1,5 +1,4 @@
 using Core.Interface.IDamageable;
-using Core.Manager.StageDataManager;
 using Core.ObjectPool;
 using Projectile.Interface;
 using Core.ObjectPool.Interface;
@@ -41,7 +40,7 @@ public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
     public void AtkTarget(GameObject target)
     {
         // 피해 계산
-        target.GetComponent<IDamageble>().TakeDamage(_atk);
+        target.GetComponent<IDamageable>().TakeDamage(_atk);
         Destroy(gameObject);
     }
 

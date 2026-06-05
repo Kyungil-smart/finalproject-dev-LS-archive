@@ -1,7 +1,7 @@
 using Core.Interface.IDamageable;
 using UnityEngine;
 
-public class TestMonsterMove : MonoBehaviour, IDamageble
+public class TestMonsterMove : MonoBehaviour, IDamageable
 {
     private float _moveSpeed;
     private int atk;
@@ -64,7 +64,7 @@ public class TestMonsterMove : MonoBehaviour, IDamageble
     {
         
         
-        target.GetComponent<IDamageble>().TakeDamage(atk);
+        target.GetComponent<IDamageable>().TakeDamage(atk);
     }
 
     private void Move()
