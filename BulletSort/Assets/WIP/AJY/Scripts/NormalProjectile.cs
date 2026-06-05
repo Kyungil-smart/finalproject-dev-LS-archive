@@ -7,6 +7,8 @@ using UnityEngine;
 public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
 {
     private GameObject _target;
+    private GameObject _keyObj;
+    
     private float _moveSpeed;
     private int _atk = 10;
 
@@ -15,11 +17,17 @@ public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
         get { return _target; }
         set { _target = value; }
     }
-    
+
     public int Atk
     {
         get { return _atk;}
         set{}
+    }
+
+    public GameObject KeyObject
+    {
+        get { return _keyObj; }
+        set { _keyObj = value; }
     }
 
     private void FixedUpdate()
@@ -33,15 +41,30 @@ public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
         
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,
             _target.transform.position, _moveSpeed * Time.deltaTime);
-        // 투사체가 몬스터에 도달 시
-        AtkTarget(target);
+    }
+    
+    // 투사체가 몬스터에 도달 시
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Monster")
+        {
+            AtkTarget(other.gameObject);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Monster")
+        {
+            AtkTarget(other.gameObject);
+        }
     }
 
     public void AtkTarget(GameObject target)
     {
         // 피해 계산
         target.GetComponent<IDamageable>().TakeDamage(_atk);
-        Destroy(gameObject);
+        PoolManager.Instance.Release(_keyObj, gameObject);
     }
 
     public void OnSpawn()
@@ -59,7 +82,6 @@ public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
 
     public void OnDespawn()
     {
-        // 풀로 돌아가기
-        //PoolManager.Instance.Release();
+        _target = null;
     }
 }

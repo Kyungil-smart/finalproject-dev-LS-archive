@@ -197,7 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestMonsterSpawner
   monsterPrefab: {fileID: 7379475534407945745, guid: 8e7464548ab207541abea23a6908f565, type: 3}
   tower: {fileID: 1842571247}
-  monsters: []
 --- !u!4 &1136624732
 Transform:
   m_ObjectHideFlags: 0
@@ -245,7 +244,7 @@ MonoBehaviour:
   _towerFactory: {fileID: 590597282}
   _projectileFactory: {fileID: 2060363485}
   _monsterFactory: {fileID: 2019768584}
-  testMonsterSpawner: {fileID: 1136624731}
+  monsters: []
 --- !u!4 &1326739873
 Transform:
   m_ObjectHideFlags: 0

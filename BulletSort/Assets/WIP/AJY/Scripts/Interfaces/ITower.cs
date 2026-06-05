@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Towers.Interface.Tower
@@ -5,7 +6,7 @@ namespace Towers.Interface.Tower
     public interface ITower
     {
         // 투사체 생성
-        public void Attack();
+        public IEnumerator Attack();
         
         // 탄배출
         

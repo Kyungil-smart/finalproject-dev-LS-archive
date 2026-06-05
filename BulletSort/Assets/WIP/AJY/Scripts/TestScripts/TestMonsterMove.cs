@@ -1,4 +1,5 @@
 using Core.Interface.IDamageable;
+using Core.Manager.SpawnManager;
 using UnityEngine;
 
 public class TestMonsterMove : MonoBehaviour, IDamageable
@@ -7,23 +8,25 @@ public class TestMonsterMove : MonoBehaviour, IDamageable
     private int atk;
     private int _atkSpeed;
     
-    private int _health;
-    private int _maxHealth;
+    [SerializeField]private int _health;
+    private int _maxHealth = 50;
+    
+    public bool isDead;
     
     private Timer atkTimer;
     
     public GameObject target;
     
-    [SerializeField] public GameObject _spawnPoint;
-    
-    // 테스트 용 몹 디스트로이 타이머
-
     private void Awake()
     {
         _moveSpeed = 2.5f;
         atk = 10;
         _atkSpeed = 2;
         atkTimer = new Timer(_atkSpeed);
+        
+        _health = _maxHealth;
+        
+        isDead = false;
     }
 
     private void Update()
@@ -47,10 +50,7 @@ public class TestMonsterMove : MonoBehaviour, IDamageable
     // 몬스터가 죽을 때 
     private void OnDestroy()
     {
-        // 여기서 리스트에 직접접근(테스트용)
-        target.GetComponent<TargetDetector>()._detectedMonsters.Remove(gameObject);
-        _spawnPoint.GetComponent<TestMonsterSpawner>().monsters.Remove(gameObject);
-        
+        Debug.Log(gameObject.name + " has been destroyed");
         // 리스트를 관리하는 객체에서 일괄 처리(결합 시 구조설계필요)
     }
     
@@ -62,9 +62,7 @@ public class TestMonsterMove : MonoBehaviour, IDamageable
 
     private void Attack()
     {
-        
-        
-        target.GetComponent<IDamageable>().TakeDamage(atk);
+        //target.GetComponent<IDamageable>().TakeDamage(atk);
     }
 
     private void Move()
@@ -94,12 +92,13 @@ public class TestMonsterMove : MonoBehaviour, IDamageable
 
         if (_health <= 0)
         {
-            // 죽음
+            Dead();
         }
     }
     
     public void Dead()
     {
-        Destroy(gameObject);
+        SpawnManager.Instance.monsters.Remove(gameObject);
+        isDead = true;
     }
 }

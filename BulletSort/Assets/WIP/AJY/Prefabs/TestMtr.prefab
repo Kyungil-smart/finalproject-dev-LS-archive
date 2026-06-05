@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8022778148581625461}
   m_Layer: 0
   m_Name: TestMtr
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,13 +100,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7379475534407945745}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 765423438f6e4524d861c852b58e7afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestMonsterMove
   target: {fileID: 0}
-  _spawnPoint: {fileID: 0}
 --- !u!61 &8022778148581625461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,7 +136,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

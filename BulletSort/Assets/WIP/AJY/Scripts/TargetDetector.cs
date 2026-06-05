@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Core.Manager.SpawnManager;
 using UnityEngine;
@@ -5,23 +6,19 @@ using UnityEngine;
 public class TargetDetector : MonoBehaviour
 {
    [Header("사거리"), SerializeField]
-   private float _bulletDuration = 1.5f;
-
-   [SerializeField] private TestMonsterSpawner _spawner;
+   private float _bulletDuration;
 
    private float _bulletSpeed;
    private float _detectRange;
    
    [SerializeField]public GameObject target;
    [SerializeField]public List<GameObject> _detectedMonsters;
-   public TestMonsterSpawner MonsterSpawner { get; set; }
    
 
    private void Awake()
    {
       _bulletSpeed = 1f;
       _detectedMonsters = new List<GameObject>();
-      _spawner = SpawnManager.Instance.testMonsterSpawner;
    }
 
    private void Start()
@@ -29,10 +26,16 @@ public class TargetDetector : MonoBehaviour
       _detectRange = _bulletSpeed * _bulletDuration;
    }
 
+   private void Update()
+   {
+      if(target != null && target.GetComponent<TestMonsterMove>().isDead)
+         KillTarget();
+   }
+
    private void FixedUpdate()
    {
       // 생성된 몬스터가 없다면 탐색 X
-      if(_spawner.GetComponent<TestMonsterSpawner>().monsters.Count <=0) return;
+      if(SpawnManager.Instance.monsters.Count <=0) return;
       
       if (target != null) return;
       
@@ -43,7 +46,7 @@ public class TargetDetector : MonoBehaviour
    private void DetectTarget()
    {
       // 테스트용
-      List<GameObject> monster = _spawner.GetComponent<TestMonsterSpawner>().monsters;
+      List<GameObject> monster = SpawnManager.Instance.monsters;
       
       foreach (GameObject enemy in monster)
       {
@@ -81,21 +84,29 @@ public class TargetDetector : MonoBehaviour
       float mindistance = GetDistance(atkTarget.transform.position);
       Debug.Log($"<color=Green>{mindistance}</color>");
       
-      foreach (GameObject target in _detectedMonsters)
+      foreach (GameObject monster in _detectedMonsters)
       {
-         float targetDistance = GetDistance(target.transform.position);
+         float targetDistance = GetDistance(monster.transform.position);
          if (mindistance > targetDistance)
          {
-            atkTarget = target;
+            atkTarget = monster;
             mindistance = targetDistance;
          }
       }
 
       target = atkTarget;
+      Debug.Log("타겟선정");
+   }
+
+   private void KillTarget()
+   {
+      Debug.Log("목표제거");
+      _detectedMonsters.Remove(target);
+      Destroy(target);
+      target = null;
    }
    
    // 레이 캐스트 방식
-
    private void DetectedTargetRaycast()
    {
       

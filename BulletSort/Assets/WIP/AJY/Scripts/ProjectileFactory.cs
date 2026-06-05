@@ -19,8 +19,7 @@ public class ProjectileFactory : MonoBehaviour
          _ => throw new SystemException($"잘못된 타입 : {type}")
       };
       
-      GameObject instance =  Instantiate(prefab);
-      PoolManager.Instance.CreatePool(instance, count);
-      return instance;
+      PoolManager.Instance.CreatePool(prefab, count);
+      return prefab;
    }
 }
