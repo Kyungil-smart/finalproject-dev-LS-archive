@@ -1,5 +1,4 @@
-using Core.Interface.IDamageble;
-using Core.Manager.StageDataManager;
+using Core.Interface.IDamageable;
 using UnityEngine;
 
 public class TestMonsterMove : MonoBehaviour, IDamageble
@@ -63,7 +62,9 @@ public class TestMonsterMove : MonoBehaviour, IDamageble
 
     private void Attack()
     {
-        StageDataManager.Instance.TakeDamage(target.GetComponent<IDamageble>(), atk);
+        
+        
+        target.GetComponent<IDamageble>().TakeDamage(atk);
     }
 
     private void Move()
@@ -85,6 +86,16 @@ public class TestMonsterMove : MonoBehaviour, IDamageble
         { return _maxHealth; } 
         set
         {}
+    }
+    
+    public void TakeDamage(int Damage)
+    {
+        _health -= Damage;
+
+        if (_health <= 0)
+        {
+            // 죽음
+        }
     }
     
     public void Dead()

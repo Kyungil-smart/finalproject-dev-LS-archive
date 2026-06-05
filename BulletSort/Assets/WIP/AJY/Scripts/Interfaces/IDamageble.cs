@@ -1,11 +1,11 @@
-namespace Core.Interface.IDamageble
+namespace Core.Interface.IDamageable
 {
     public interface IDamageble
     {
-        public int Health { get; set; }
-        public int MaxHealth { get; set; }
+        public int Health { get; }
+        public int MaxHealth { get; }
 
-        public void Dead();
+        public void TakeDamage(int amount);
     }
 }
 
