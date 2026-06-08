@@ -28,6 +28,8 @@ namespace InGame.Slot
         // 파괴 이벤트 — HP 0 도달 시 발행. Slot·외부가 구독해 후속 처리 (연출·게임오버 등)
         public event Action<SlotHealth> OnDead;
 
+        public bool isDead = false;
+
         private void Awake()
         {
             _health = _maxHealth;
@@ -49,8 +51,22 @@ namespace InGame.Slot
         // HP 0 도달 시 내부 호출
         private void Dead()
         {
+            Debug.Log("[SlotHealth] Dead");
+            isDead = true;
             OnDead?.Invoke(this);
-            // TODO(데모 후) — 슬롯 비활성·파괴 연출·게임오버 판정 연결
+            DeadEvent();
+        }
+
+        private void DeadEvent()
+        {
+            Debug.Log("[SlotHealth] DeadEvent");
+            Invoke("TempActive", 0.1f);
+            // TODO(데모 후) — 슬롯 비주얼·파괴 연출·게임오버 판정 연결
+        }
+
+        // 임시
+        private void TempActive()
+        {
             gameObject.SetActive(false);
         }
     }

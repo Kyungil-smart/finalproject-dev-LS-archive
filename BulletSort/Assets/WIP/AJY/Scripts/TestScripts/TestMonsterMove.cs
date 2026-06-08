@@ -62,7 +62,7 @@ public class TestMonsterMove : MonoBehaviour, IDamageable
 
     private void Attack()
     {
-        //target.GetComponent<IDamageable>().TakeDamage(atk);
+        target.GetComponent<IDamageable>().TakeDamage(atk);
     }
 
     private void Move()

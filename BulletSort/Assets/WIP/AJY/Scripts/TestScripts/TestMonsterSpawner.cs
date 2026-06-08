@@ -9,6 +9,8 @@ public class TestMonsterSpawner : MonoBehaviour
     
     [SerializeField] private SlotBoardManager _slotBoardManager;
     private List<Slot> _slots = new List<Slot>();
+
+    public List<Slot> Slots => _slots;
     
 
     private int _spawnCount;
@@ -17,6 +19,7 @@ public class TestMonsterSpawner : MonoBehaviour
     private Timer _spawnTimer;
     private float _spawnLate;
     private Slot _target;
+    private SlotHealth _slotHealth;
 
     private void Awake()
     {
@@ -29,7 +32,7 @@ public class TestMonsterSpawner : MonoBehaviour
     private void Start()
     {
         _slots = _slotBoardManager._slots;
-        SelectTarget();
+        _target = SelectTarget();
     }
 
     void FixedUpdate()
@@ -42,6 +45,7 @@ public class TestMonsterSpawner : MonoBehaviour
         if (_spawnTimer.IsEnabled)
         {
             GameObject spawnObj = Instantiate(monsterPrefab, transform.position, transform.rotation);
+            spawnObj.transform.parent = transform;
             spawnObj.GetComponentInChildren<TestMonsterMove>().target = _target.gameObject;
             SpawnManager.Instance.monsters.Add(spawnObj);
             
@@ -52,14 +56,18 @@ public class TestMonsterSpawner : MonoBehaviour
 
     // 추후 조건 구현
     // 기본은 가까운 거리
-    private void SelectTarget()
+    public Slot SelectTarget()
     {
+        if (_slotHealth != null)
+            _slotHealth.OnDead -= DeadEvent;
+        
         Slot atkTarget = _slots[0];
         float mindistance = GetDistance(atkTarget.transform.position);
         Debug.Log($"<color=Green>{mindistance}</color>");
       
         foreach (Slot slot in _slots)
         {
+            if (slot.Health.isDead) continue;
             float targetDistance = GetDistance(slot.transform.position);
             if (mindistance > targetDistance)
             {
@@ -68,8 +76,25 @@ public class TestMonsterSpawner : MonoBehaviour
             }
         }
 
-        _target = atkTarget;
-        Debug.Log("타겟선정");
+        _slotHealth = atkTarget.Health;
+
+        _slotHealth.OnDead += DeadEvent;
+
+        Debug.Log($"타겟선정 {_target?.gameObject.name}");
+
+        return atkTarget;
+    }
+
+    private void DeadEvent(SlotHealth health)
+    {
+        Debug.Log("[TestMSP] Dead");
+        Debug.Log($"Target {_target.gameObject.name} is Dead");
+        _target = SelectTarget();
+        TestMonsterMove[] monsters= GetComponentsInChildren<TestMonsterMove>();
+        foreach (var monster in monsters)
+        {
+            monster.target = _target.gameObject;
+        }
     }
     
     // 직선거리 구하기
