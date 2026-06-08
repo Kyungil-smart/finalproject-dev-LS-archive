@@ -1,3 +1,5 @@
+using Core.Manager.SpawnManager;
+
 namespace Core
 {
     // 요약: 프로젝트의 핵심 매니저들을 생성하고 관리하는 전역 진입점
@@ -19,6 +21,7 @@ namespace Core
             // RegisterManager<DataManager>();
             RegisterManager<InputManager>();
             RegisterManager<ScreenWatcher>();
+            RegisterManager<SpawnManager>();
             
             // TODO: (데모 단계 확정 시) 인게임 흐름, 3-Sort 판정 등 추가 매니저 등록
             // RegisterManager<InGameManager>();

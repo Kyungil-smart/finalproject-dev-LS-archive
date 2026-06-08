@@ -36,6 +36,8 @@ public class TestMonsterSpawner : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (SpawnManager.Instance == null || SpawnManager.Instance.Monsters == null)
+            return;
         if (_target == null) return;
         if (_spawnCount >= _maxMonsterCount) return;
 
@@ -46,7 +48,7 @@ public class TestMonsterSpawner : MonoBehaviour
             GameObject spawnObj = Instantiate(monsterPrefab, transform.position, transform.rotation);
             spawnObj.transform.parent = transform;
             spawnObj.GetComponentInChildren<TestMonsterMove>().target = _target.gameObject;
-            SpawnManager.Instance.monsters.Add(spawnObj);
+            SpawnManager.Instance.Monsters.Add(spawnObj);
 
             _spawnTimer.ResetTimer(_spawnLate);
             _spawnCount++;

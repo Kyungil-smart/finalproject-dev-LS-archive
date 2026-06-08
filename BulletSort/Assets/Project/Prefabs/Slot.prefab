@@ -65,7 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd49aeae12be63342904b851cc974614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotHealth
-  _maxHealth: 100
+  _maxHealth: 1000
+  isDead: 0
 --- !u!114 &1635724828321727665
 MonoBehaviour:
   m_ObjectHideFlags: 0

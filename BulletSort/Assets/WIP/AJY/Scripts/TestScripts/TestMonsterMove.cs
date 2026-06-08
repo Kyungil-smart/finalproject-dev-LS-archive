@@ -98,7 +98,7 @@ public class TestMonsterMove : MonoBehaviour, IDamageable
     
     public void Dead()
     {
-        SpawnManager.Instance.monsters.Remove(gameObject);
+        SpawnManager.Instance.Monsters.Remove(gameObject);
         isDead = true;
     }
 }
