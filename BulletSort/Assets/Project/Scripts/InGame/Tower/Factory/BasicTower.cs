@@ -50,6 +50,7 @@ namespace Towers.Factory
                 valueObj.GetComponent<IProjectile>().Target = _targetDetector.target;
                 valueObj.GetComponent<IPoolable>().KeyObject = _projectile;
                 yield return new WaitForSeconds(_towerInfo.TowerAtkSpeed);
+                yield return new WaitUntil(() => _targetDetector.target != null);
             }
             
             Destroy(gameObject);

@@ -106,12 +106,6 @@ public class TargetDetector : MonoBehaviour
       target = null;
    }
    
-   // 레이 캐스트 방식
-   private void DetectedTargetRaycast()
-   {
-      
-   }
-
    // 직선거리 구하기
    private float GetDistance(Vector3 target)
    {
