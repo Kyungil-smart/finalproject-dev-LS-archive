@@ -81,12 +81,13 @@ public class TargetDetector : MonoBehaviour
    // 기본은 가까운 거리
    private void SelectTarget()
    {
-      GameObject atkTarget = _detectedMonsters[0];
-      float mindistance = GetDistance(atkTarget.transform.position);
+      GameObject atkTarget = null;
+      float mindistance = float.MaxValue;
       Debug.Log($"<color=Green>{mindistance}</color>");
       
       foreach (GameObject monster in _detectedMonsters)
       {
+         if (monster == null) continue;
          float targetDistance = GetDistance(monster.transform.position);
          if (mindistance > targetDistance)
          {
@@ -94,6 +95,8 @@ public class TargetDetector : MonoBehaviour
             mindistance = targetDistance;
          }
       }
+      
+      if (atkTarget == null) return;
 
       target = atkTarget;
       Debug.Log("타겟선정");

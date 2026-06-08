@@ -1342,6 +1342,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4060128181838744797, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+      propertyPath: _debugMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5857488100814291629, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
       propertyPath: m_Name
       value: SlotBoard
