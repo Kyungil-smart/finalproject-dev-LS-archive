@@ -1,17 +1,17 @@
-using System.Collections.Generic;
 using Core.Manager.SpawnManager;
 using InGame.Slot;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TestMonsterSpawner : MonoBehaviour
 {
     [SerializeField] GameObject monsterPrefab;
-    
+
     [SerializeField] private SlotBoardManager _slotBoardManager;
     private List<Slot> _slots = new List<Slot>();
 
     public List<Slot> Slots => _slots;
-    
+
 
     private int _spawnCount;
     private int _maxMonsterCount;
@@ -39,16 +39,16 @@ public class TestMonsterSpawner : MonoBehaviour
     {
         if (_target == null) return;
         if (_spawnCount >= _maxMonsterCount) return;
-            
+
         _spawnTimer.UpdateTimer();
-        
+
         if (_spawnTimer.IsEnabled)
         {
             GameObject spawnObj = Instantiate(monsterPrefab, transform.position, transform.rotation);
             spawnObj.transform.parent = transform;
             spawnObj.GetComponentInChildren<TestMonsterMove>().target = _target.gameObject;
             SpawnManager.Instance.monsters.Add(spawnObj);
-            
+
             _spawnTimer.ResetTimer(_spawnLate);
             _spawnCount++;
         }
@@ -60,11 +60,10 @@ public class TestMonsterSpawner : MonoBehaviour
     {
         if (_slotHealth != null)
             _slotHealth.OnDead -= DeadEvent;
-        
-        Slot atkTarget = _slots[0];
-        float mindistance = GetDistance(atkTarget.transform.position);
-        Debug.Log($"<color=Green>{mindistance}</color>");
-      
+
+        Slot atkTarget = null; //_slots[0];
+        float mindistance = 99999.0f; // GetDistance(atkTarget.transform.position);
+
         foreach (Slot slot in _slots)
         {
             if (slot.Health.isDead) continue;
@@ -76,11 +75,13 @@ public class TestMonsterSpawner : MonoBehaviour
             }
         }
 
+        Debug.Log($"<color=Green>{mindistance}</color>");
+
         _slotHealth = atkTarget.Health;
 
         _slotHealth.OnDead += DeadEvent;
 
-        Debug.Log($"타겟선정 {_target?.gameObject.name}");
+        Debug.Log($"타겟선정 {atkTarget?.gameObject.name}");
 
         return atkTarget;
     }
@@ -90,17 +91,17 @@ public class TestMonsterSpawner : MonoBehaviour
         Debug.Log("[TestMSP] Dead");
         Debug.Log($"Target {_target.gameObject.name} is Dead");
         _target = SelectTarget();
-        TestMonsterMove[] monsters= GetComponentsInChildren<TestMonsterMove>();
+        TestMonsterMove[] monsters = GetComponentsInChildren<TestMonsterMove>();
         foreach (var monster in monsters)
         {
             monster.target = _target.gameObject;
         }
     }
-    
+
     // 직선거리 구하기
     private float GetDistance(Vector3 target)
     {
-        float distance = Vector3.Distance(transform.position , target);
+        float distance = Vector3.Distance(transform.position, target);
         return Mathf.Abs(distance);
     }
 }
