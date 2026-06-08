@@ -12,7 +12,6 @@ public class TestMonsterSpawner : MonoBehaviour
 
     public List<Slot> Slots => _slots;
 
-
     private int _spawnCount;
     private int _maxMonsterCount;
 
@@ -62,7 +61,7 @@ public class TestMonsterSpawner : MonoBehaviour
             _slotHealth.OnDead -= DeadEvent;
 
         Slot atkTarget = null; //_slots[0];
-        float mindistance = 99999.0f; // GetDistance(atkTarget.transform.position);
+        float mindistance = float.MaxValue; // GetDistance(atkTarget.transform.position);
 
         foreach (Slot slot in _slots)
         {
@@ -76,16 +75,13 @@ public class TestMonsterSpawner : MonoBehaviour
         }
 
         Debug.Log($"<color=Green>{mindistance}</color>");
+        
+        if (atkTarget == null) return null;
+        
+        _slotHealth = atkTarget.Health;
+        _slotHealth.OnDead += DeadEvent;
 
-
-        if (atkTarget != null)
-        {
-            _slotHealth = atkTarget.Health;
-
-            _slotHealth.OnDead += DeadEvent;
-
-            Debug.Log($"타겟선정 {atkTarget?.gameObject.name}");
-        }
+        Debug.Log($"타겟선정 {atkTarget.gameObject.name}");
 
         return atkTarget;
     }
@@ -95,13 +91,18 @@ public class TestMonsterSpawner : MonoBehaviour
         Debug.Log("[TestMSP] Dead");
         Debug.Log($"Target {_target.gameObject.name} is Dead");
         _target = SelectTarget();
-
+        
+        // 모든 슬롯 파괴 — 더 줄 타겟 없음 = 게임오버 시점
         if (_target == null)
         {
-            return;
+            Debug.Log("[TestMSP] 모든 슬롯 파괴 — 게임오버");
+            // 게임오버 이벤트 연결 (게임플로우)
+            return;   // 아래 몬스터 타겟 갱신 안 함
         }
-
-        TestMonsterMove[] monsters = GetComponentsInChildren<TestMonsterMove>();
+        
+        Debug.Log($"새 타겟 {_target.gameObject.name}");
+        
+        TestMonsterMove[] monsters= GetComponentsInChildren<TestMonsterMove>();
         foreach (var monster in monsters)
         {
             monster.target = _target.gameObject;
