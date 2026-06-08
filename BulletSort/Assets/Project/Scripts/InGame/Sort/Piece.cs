@@ -11,11 +11,12 @@ namespace InGame.Sort
     {
         None,       // 0 풀링 비활성 — SetData 받기 전 / 빈 칸 표시
         Basic,      // 1
-        Shotgun,    // 2
-        LongRange,  // 3
-        Tank,       // 4
-        Splash,     // 5
-        Support,    // 6
+        NonBasic,   // 2
+        Shotgun,    // 3
+        LongRange,  // 4
+        Tank,       // 5
+        Splash,     // 6
+        Support,    // 7
     }
     
     // 3-Sort 기물. 드래그 가능한 오브젝트.

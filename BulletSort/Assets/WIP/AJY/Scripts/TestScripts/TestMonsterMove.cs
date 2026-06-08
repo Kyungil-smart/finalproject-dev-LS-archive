@@ -62,7 +62,7 @@ public class TestMonsterMove : MonoBehaviour, IDamageable
 
     private void Attack()
     {
-        //target.GetComponent<IDamageable>().TakeDamage(atk);
+        target.GetComponent<IDamageable>().TakeDamage(atk);
     }
 
     private void Move()
@@ -98,7 +98,7 @@ public class TestMonsterMove : MonoBehaviour, IDamageable
     
     public void Dead()
     {
-        SpawnManager.Instance.monsters.Remove(gameObject);
+        SpawnManager.Instance.Monsters.Remove(gameObject);
         isDead = true;
     }
 }

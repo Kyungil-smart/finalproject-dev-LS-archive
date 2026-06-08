@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,11 +146,8 @@ MonoBehaviour:
   _typeSprites:
   - {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
   - {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - {fileID: -4803371626618953921, guid: e995ef4484d5b704b9528b75785ea199, type: 3}
   - {fileID: 1960944477512924465, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  - {fileID: -4851825434126095193, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  - {fileID: 9197641502506625523, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  - {fileID: 2811034543993936900, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  - {fileID: -8848733089012088071, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
   _draggingLayer: 4
 --- !u!70 &3450532317090284595
 CapsuleCollider2D:

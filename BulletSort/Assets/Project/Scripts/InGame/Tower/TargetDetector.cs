@@ -35,7 +35,7 @@ public class TargetDetector : MonoBehaviour
    private void FixedUpdate()
    {
       // 생성된 몬스터가 없다면 탐색 X
-      if(SpawnManager.Instance.monsters.Count <=0) return;
+      if(SpawnManager.Instance.Monsters.Count <=0) return;
       
       if (target != null) return;
       
@@ -46,10 +46,11 @@ public class TargetDetector : MonoBehaviour
    private void DetectTarget()
    {
       // 테스트용
-      List<GameObject> monster = SpawnManager.Instance.monsters;
+      List<GameObject> monster = SpawnManager.Instance.Monsters;
       
       foreach (GameObject enemy in monster)
       {
+         if (enemy == null) continue;
          // 포탑과 몬스터 사이의 거리 계산
          float distance = GetDistance(enemy.transform.position);
          Debug.Log($"<color=Red>{distance}</color>");
@@ -106,12 +107,6 @@ public class TargetDetector : MonoBehaviour
       target = null;
    }
    
-   // 레이 캐스트 방식
-   private void DetectedTargetRaycast()
-   {
-      
-   }
-
    // 직선거리 구하기
    private float GetDistance(Vector3 target)
    {
