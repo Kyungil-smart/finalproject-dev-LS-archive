@@ -77,11 +77,15 @@ public class TestMonsterSpawner : MonoBehaviour
 
         Debug.Log($"<color=Green>{mindistance}</color>");
 
-        _slotHealth = atkTarget.Health;
 
-        _slotHealth.OnDead += DeadEvent;
+        if (atkTarget != null)
+        {
+            _slotHealth = atkTarget.Health;
 
-        Debug.Log($"타겟선정 {atkTarget?.gameObject.name}");
+            _slotHealth.OnDead += DeadEvent;
+
+            Debug.Log($"타겟선정 {atkTarget?.gameObject.name}");
+        }
 
         return atkTarget;
     }
