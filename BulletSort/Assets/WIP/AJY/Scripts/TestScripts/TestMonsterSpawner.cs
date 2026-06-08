@@ -95,6 +95,12 @@ public class TestMonsterSpawner : MonoBehaviour
         Debug.Log("[TestMSP] Dead");
         Debug.Log($"Target {_target.gameObject.name} is Dead");
         _target = SelectTarget();
+
+        if (_target == null)
+        {
+            return;
+        }
+
         TestMonsterMove[] monsters = GetComponentsInChildren<TestMonsterMove>();
         foreach (var monster in monsters)
         {
