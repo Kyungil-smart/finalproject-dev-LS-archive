@@ -16,7 +16,7 @@ namespace InGame.Slot
     {
         [Header("References")]
         [Tooltip("자식으로 둔 슬롯 9개를 SlotID 순서로 등록")]
-        [SerializeField] private List<Slot> _slots;
+        [SerializeField] public List<Slot> _slots;
         
         [Header("Debug")]
         [SerializeField] private bool _debugMode = true;

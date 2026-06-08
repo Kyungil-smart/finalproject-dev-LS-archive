@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5892617180485562619}
   - component: {fileID: 1635724828321727665}
   - component: {fileID: 880831245563764145}
-  - component: {fileID: 4501164239672771698}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -127,21 +126,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.3, y: 2.65}
   m_EdgeRadius: 0
---- !u!114 &4501164239672771698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140998026832287425}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e1bb9c054a18ff45b121c30b364a5e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotHealthTester
-  _slotHealth: {fileID: 5892617180485562619}
-  _damagePerHit: 10
-  _damageKey: 1
 --- !u!1 &480688581967147860
 GameObject:
   m_ObjectHideFlags: 0

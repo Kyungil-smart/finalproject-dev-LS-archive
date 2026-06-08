@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using InGame.Slot;
 using Towers;
 using Towers.Factory;
 using Towers.Factory.Type;
@@ -18,9 +19,10 @@ namespace Core.Manager.SpawnManager
       public List<GameObject> monsters;
 
       // 3sorting시 호출하여 타워 스폰
-      public void SpawnTower(ETowerType towerType, Vector3 spawnPoint)
+      public void SpawnTower(ETowerType towerType, Slot slot)
       {
-         _towerFactory.CreateTower(towerType, spawnPoint);
+         Transform spawnTr = slot.transform;
+         _towerFactory.CreateTower(towerType, spawnTr);
       }
 
       public GameObject SpawnProjectile(EProjectileType projectileType, int count)

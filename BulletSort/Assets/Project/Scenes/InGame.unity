@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &303796091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4060128181838744797, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
+  m_PrefabInstance: {fileID: 4782242637426716872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1f36ccc5c331941a3e0e1e9fafbe6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotBoardManager
 --- !u!1 &499347006
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestMonsterSpawner
   monsterPrefab: {fileID: 7379475534407945745, guid: 8e7464548ab207541abea23a6908f565, type: 3}
-  tower: {fileID: 1388435581}
+  _slotBoardManager: {fileID: 303796091}
 --- !u!4 &657288376
 Transform:
   m_ObjectHideFlags: 0
@@ -357,7 +368,7 @@ Transform:
   m_GameObject: {fileID: 657288374}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.8, y: 2.8, z: 0}
+  m_LocalPosition: {x: -0.1, y: 10.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -537,6 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf289f6328685e4c9600965daa51feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestTowerSpawner
+  _slotBoardManager: {fileID: 303796091}
 --- !u!114 &1388435583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,8 +562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Towers.Factory.TowerFactory
   _basicPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
-  _nonBasicPrefab: {fileID: 0}
-  _shoutGunPrefab: {fileID: 0}
+  _nonBasicPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
+  _shoutGunPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
 --- !u!4 &1388435584
 Transform:
   m_ObjectHideFlags: 0
@@ -597,8 +609,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Towers.Factory.TowerFactory
   _basicPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
-  _nonBasicPrefab: {fileID: 0}
-  _shoutGunPrefab: {fileID: 0}
+  _nonBasicPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
+  _shoutGunPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
 --- !u!4 &1514316268
 Transform:
   m_ObjectHideFlags: 0
@@ -962,9 +974,9 @@ SceneRoots:
   - {fileID: 2470810986791007378}
   - {fileID: 4782242637426716872}
   - {fileID: 1650842468}
+  - {fileID: 2012332855}
+  - {fileID: 1388435584}
   - {fileID: 1372060142}
   - {fileID: 499347008}
-  - {fileID: 1388435584}
-  - {fileID: 2012332855}
   - {fileID: 657288376}
   - {fileID: 1514316268}
