@@ -143,11 +143,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _pieceType: 0
-  _typeSprites:
-  - {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  - {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  - {fileID: -4803371626618953921, guid: e995ef4484d5b704b9528b75785ea199, type: 3}
-  - {fileID: 1960944477512924465, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  _pieceDatabase: {fileID: 11400000, guid: 735534ef0a22628498a19b326e0158b1, type: 2}
   _draggingLayer: 4
 --- !u!70 &3450532317090284595
 CapsuleCollider2D:
