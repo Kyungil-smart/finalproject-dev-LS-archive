@@ -1,5 +1,6 @@
 using Core;
 using InGame.Slot;
+using InGame.Sort.Data;
 using UnityEngine;
 using Logger = Core.Logger;
 
@@ -30,11 +31,11 @@ namespace InGame.Sort
         [SerializeField] private Collider2D _collider;
         [SerializeField] private LayerMask _cellLayer;
         
-        [Header("Piece Data (임시 — 데이터 파싱 SO 도입 후 SetData로 교체)")]
+        [Header("Piece Data (임시 — 데이터 파싱 SO 도입 후 정식 DB로 교체)")]
         [SerializeField] private PieceType _pieceType = PieceType.None;
         
-        [Tooltip("타입별 스프라이트 — 인덱스 = (int)PieceType (0=None은 빈 칸이라 비워둬도 됨, 1=Basic ~ 6=Support)")]
-        [SerializeField] private Sprite[] _typeSprites;
+        [Tooltip("기물 데이터 조회 DB — SetByID 시 PieceID로 스프라이트 조회. 프리팹 1개에 꽂으면 풀링 인스턴스 공유")]
+        [SerializeField] private PieceDatabase _pieceDatabase;
         
         [Header("Sorting")]
         [Tooltip("드래그 중 기물이 올라갈 소팅 레이어")]
@@ -67,7 +68,7 @@ namespace InGame.Sort
         }
         
         // 풀링 재사용 시 호출. PieceID → PieceType 매핑 + 스프라이트 교체 + 활성 토글.
-        // TODO(데이터 SO 도입 후) — _typeSprites 배열 폐기, _data.Sprite 참조로 교체.
+        // TODO(데이터 SO 도입 후) — PieceDatabase 조회 — 정식 DB 도입 시 출처만 교체
         public void SetByID(int pieceID)
         {
             // 유효 범위(0~6) 밖이면 None 취급 — 잘못된 ID 사고 방지.
@@ -79,9 +80,11 @@ namespace InGame.Sort
             gameObject.SetActive(active);
             
             // 켜질 때만 스프라이트 교체 (None은 꺼지므로 갱신 불필요)
-            if (active && _renderer != null && pieceID < _typeSprites.Length)
+            if (active && _renderer != null && _pieceDatabase != null)
             {
-                _renderer.sprite = _typeSprites[pieceID];
+                PieceData data = _pieceDatabase.GetByID(pieceID);
+                if (data != null && data.Sprite != null)
+                    _renderer.sprite = data.Sprite;
             }
         }
         
