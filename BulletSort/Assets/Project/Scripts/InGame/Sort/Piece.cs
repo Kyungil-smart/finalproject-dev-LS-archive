@@ -16,12 +16,12 @@ namespace InGame.Sort
         [SerializeField] private Collider2D _collider;
         [SerializeField] private LayerMask _cellLayer;
         
-        [Header("Piece Data (임시 — 데이터 파싱 SO 도입 후 정식 DB로 교체)")]
-        [Tooltip("기물 데이터 조회 DB — SetByID 시 PieceID로 스프라이트 조회. 프리팹 1개에 꽂으면 풀링 인스턴스 공유")]
-        [SerializeField] private PieceDatabase _pieceDatabase;
         
+        [Header("Piece Data")]
+        [Tooltip("조회 — PieceQuery 경유, DataManager 데이터")]
+        // PieceQuery.Get으로 DataManager 데이터 조회.
         // 현재 기물 ID — 데이터 체계(8001 등) 그대로 보유. 0은 빈 칸 예약값.
-        private int _pieceID;
+        [SerializeField] private int _pieceID; // 인스펙터 디버깅을 위하여 SerializeField 추가
         
         [Header("Sorting")]
         [Tooltip("드래그 중 기물이 올라갈 소팅 레이어")]
@@ -40,7 +40,7 @@ namespace InGame.Sort
             public SlotCell OriginSlotCell;     // 출발 셀 — 데이터 이동 시 비우기 대상
         }
         
-        // 외부(Slot 정렬 판정 등) 접근용 — 보유한 ID 그대로 반환(데이터 체계 수용).
+        // 외부(Slot 정렬 판정 등) 접근용 — 보유한 ID 그대로 반환.
         public int PieceID => _pieceID;
         
         void Awake()
@@ -52,7 +52,7 @@ namespace InGame.Sort
         }
         
         // 풀링 재사용 시 호출. PieceID 보유 + 스프라이트 교체 + 활성 토글
-        // 0은 빈 칸 예약값이라 끔. 그 외엔 DB 조회로 스프라이트 갱신(유효성은 DB 등록 여부로 판단).
+        // 0은 빈 칸 예약값이라 끔. 그 외엔 DataManager 조회로 스프라이트 갱신(유효성은 DB 등록 여부로 판단).
         public void SetByID(int pieceID)
         {
             _pieceID = pieceID;
@@ -61,11 +61,11 @@ namespace InGame.Sort
             gameObject.SetActive(active);
             
             // 켜질 때만 스프라이트 교체 (0은 꺼지므로 갱신 불필요)
-            if (active && _renderer != null && _pieceDatabase != null)
+            if (active && _renderer != null)
             {
-                PieceData data = _pieceDatabase.GetByID(pieceID);
+                PieceData data = PieceQuery.Get(pieceID);   // ← static 호출, 참조 불필요
                 if (data != null && data.Sprite != null)
-                    _renderer.sprite = data.Sprite; 
+                    _renderer.sprite = data.Sprite;
             }
         }
         

@@ -15,13 +15,18 @@ namespace InGame.Sort.Data
 
         [Tooltip("기물 스프라이트 — SetByID 시 이 스프라이트로 교체")]
         [SerializeField] private Sprite _sprite;
+        
+        [Tooltip("연결 포탑 ID — 정렬 성공 시 소환할 포탑 식별자(ERD의 ConnectTower). 타워 영역이 이 ID로 자기 타입 조회")]
+        [SerializeField] private int _connectTowerID;
 
         // 외부 접근용 프로퍼티
         public int PieceID => _pieceID;
         public Sprite Sprite => _sprite;
+        public int ConnectTowerID => _connectTowerID;
         
         // ── 정식 SO 도입 시 추가될 자리 ──
-        // 등급(PieceGrade), 레벨(PieceLv), 연결 포탑(ConnectTower) 등.
-        // 지금은 스프라이트 연결만 — 비주얼 교체가 이번 작업 범위.
+        // 등급(PieceGrade), 레벨(PieceLv) 등.
+        // ConnectTowerID는 ERD의 기물↔포탑 FK — 타워 enum 대신 int로 들어 결합 회피.
+        // 지금은 스프라이트 + 연결 포탑 ID까지.
     }
 }
