@@ -1,0 +1,79 @@
+using InGame.Slot;
+using UnityEngine;
+
+namespace Core
+{
+    /// <summary>
+    /// 현재 Ingame에서 진행중인 Stage의 진행을 관리하는 클래스이다.
+    /// Lobby에서 Stage 선택 시 해당 Stage의 index 정보를 받고,
+    /// StageData SO의 id로 정보를 접근함.
+    /// 
+    /// 작성자 : 김경민
+    /// </summary>
+
+    // DataManager로부터 현 Stage에 맞는 SO instance를 가져오고
+    // Monster Spawner에 요청하는 형태?
+
+    class StageManager : Singleton<StageManager>
+    {
+        [SerializeField] private SlotBoardManager _slotBoardManager;
+        int _targetKillNum = 0;
+        int _killCount = 0;
+
+        bool _isWin = false;
+        bool _isDefeat = false;
+
+        protected override void Init()
+        {
+            TestMonsterSpawner[] spawners = FindObjectsByType<TestMonsterSpawner>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
+
+            foreach (TestMonsterSpawner spawner in spawners)
+            {
+                _targetKillNum += spawner.MaxMonsterCount;
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            while (_isWin == false && _isDefeat == false)
+            {
+                if (_targetKillNum == _killCount)
+                {
+                    _isWin = true;
+                }
+
+                _isDefeat = CheckDefeatCondition();
+
+                if (_isWin)
+                {
+                    // 승리 처리
+                    break;
+                }
+
+                if (_isDefeat)
+                {
+                    // 패배 처리
+                    break;
+                }
+            }
+        }
+
+        private bool CheckDefeatCondition()
+        {
+            foreach (Slot slot in _slotBoardManager._slots)
+            {
+                if (slot.Health.isDead == false)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public void IncrementKillCount()
+        {
+            _killCount++;
+        }
+    }
+}
