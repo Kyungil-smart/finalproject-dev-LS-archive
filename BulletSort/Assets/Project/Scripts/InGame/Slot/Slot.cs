@@ -147,7 +147,6 @@ namespace InGame.Slot
             if (!IsSorted()) return;
             
             int sortedPieceID = GetSortedPieceID();
-            Logger.Instance.LogInfo($"정렬 성공! SlotID={_slotID}, PieceID={sortedPieceID}");
             
             // 외부 발행 — 안정연 영역(포탑 소환)이 구독
             OnSortSuccess?.Invoke(_slotID, sortedPieceID);

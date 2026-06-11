@@ -2,6 +2,7 @@ using Core.Manager.SpawnManager;
 using InGame.Slot;
 using Towers.Factory.Type;
 using UnityEngine;
+using Logger = Core.Logger;
 
 namespace Towers.Spawner.Handler
 {
@@ -26,10 +27,14 @@ namespace Towers.Spawner.Handler
             // 1. slotID → 슬롯 데이터
             Slot slot = _slotBoardManager.GetSlotByID(slotID);
         
-            // 2. pieceID → ETowerType 변환 ( 임시 매핑 추후 데이터 SO로)
-            ETowerType type = (ETowerType)pieceID;
+            // 2. pieceID → 연결 포탑 ID (PieceData.ConnectTower 조회)
+            int towerID = _slotBoardManager.GetConnectTowerID(pieceID);
 
-            // 3. 소환
+            // 3. towerID → ETowerType (타워 영역 매핑 — 추후 타워 SO 조회로 교체)
+            ETowerType type = (ETowerType)towerID;
+            Logger.Instance?.LogInfo($"{pieceID} 기물의 {type.ToString()} 포탑 소환 요청");
+            
+            // 4. 소환
             SpawnManager.Instance.SpawnTower(type, slot);
         }
     }
