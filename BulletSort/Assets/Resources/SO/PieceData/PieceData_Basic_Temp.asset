@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PieceData_Basic_Temp
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Data.PieceData
   _pieceID: 1
-  _pieceType: 1
   _sprite: {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  _connectTowerID: 1
