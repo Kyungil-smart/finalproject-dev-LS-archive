@@ -24,6 +24,14 @@ namespace InGame.Sort.Data
             BuildLookupIfNeeded();
             return _lookup.TryGetValue(pieceID, out var data) ? data : null;
         }
+        
+        // 등록된 모든 PieceID 목록 — 공급기가 대기 그룹 생성 시 사용.
+        // ID 체계(8001 등)를 데이터가 정하므로, 공급기는 이 목록만 받아 채운다.
+        public IReadOnlyList<int> GetAllIDs()
+        {
+            BuildLookupIfNeeded();
+            return new List<int>(_lookup.Keys);
+        }
 
         private void BuildLookupIfNeeded()
         {

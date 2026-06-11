@@ -13,19 +13,28 @@ namespace InGame.Slot
         // 슬롯에 보충할 기물 ID를 숫자로 들고 관리하는 풀.
         private readonly List<int> _waitingGroup = new List<int>();
         
+        // 대기 그룹에 채울 기물 ID 목록 — DB에서 받음
+        // enum이나 하드코딩 대신 데이터가 정한 ID로 채우기 위함
+        private IReadOnlyList<int> _pieceIDs;
+        
         // 대기 그룹 비었는지 — 매니저가 재생성 조건(대기 0 + 슬롯 0) 판단에 사용.
         public bool IsEmpty => _waitingGroup.Count == 0;
         
-        // 명시적 초기화 — 매니저 Awake에서 호출. 생성 시점을 매니저가 제어.
-        public void Initialize() => Regenerate();
-        
-        // 슬롯에 기물 2개 배치 — 빈 칸 중 2칸 셔플 선정 후 대기 그룹에서 꺼내 채움.
-        // 2개를 못 채우는 상황(대기 부족·빈 칸 부족)이면 아예 채우지 않음 — 1개짜리 슬롯 방지.
+        // 명시적 초기화 — 매니저 Awake에서 호출. 채울 ID 목록(DB 제공)을 받아 보관 후 생성.
+        public void Initialize(IReadOnlyList<int> pieceIDs)
+        {
+            _pieceIDs = pieceIDs;
+            // 생성 시점을 매니저가 제어.
+            Regenerate();
+        }
+
+        // 슬롯에 기물 배치 — 빈 칸 중 REFILL_PER_SLOT칸 셔플 선정 후 대기 그룹에서 꺼내 채움.
+        // 정원 못 채우는 상황(대기 부족·빈 칸 부족)이면 아예 채우지 않음 — 1개짜리 슬롯 방지.
         public void RefillSlot(Slot slot)
         {
             var emptyCells = slot.GetEmptyCellIndices();
             
-            // 슬롯당 2개가 원칙 — 2개 못 채울 상황이면 보충 보류.
+            // 슬롯당 정원이 원칙 — 정원 못 채울 상황이면 보충 보류.
             if (_waitingGroup.Count < Define.REFILL_PER_SLOT || emptyCells.Count < Define.REFILL_PER_SLOT) return;
             
             Shuffle(emptyCells);
@@ -34,17 +43,19 @@ namespace InGame.Slot
         }
         
         // 대기 그룹 재생성 — 호출 판단(보드 전체 클리어 여부)은 매니저가.
-        // TODO(데이터 SO 도입 후) — 종류·수량을 데이터에서 읽어 채움.
-        // 현재 데모: 6종(ID 1~6) × 9개씩 = 54개. 기획서 4-3절(3 × 6 × 3 = 54)과 정합.
+        // DB가 준 ID 목록 × PIECE_PER_TYPE개로 채움. ID 체계(8001 등)는 데이터가 정함.
+        // 종류당 수량은 아직 상수(PIECE_PER_TYPE) — 정식 데이터 도입 시 데이터에서 읽도록 교체 가능.
         public void Regenerate()
         {
             _waitingGroup.Clear();
-            for (int id = 1; id <= Define.PIECE_TYPE_COUNT; id++)
-            { 
-                for (int i = 0; i < Define.PIECE_PER_TYPE; i++) 
+            
+            foreach (int id in _pieceIDs)
+            {
+                for (int i = 0; i < Define.PIECE_PER_TYPE; i++)
                     _waitingGroup.Add(id);
             }
-
+            
+            // 종류별로 뭉쳐 들어간 걸 섞어 Dequeue 시 골고루 나오게.
             Shuffle(_waitingGroup);
         }
         

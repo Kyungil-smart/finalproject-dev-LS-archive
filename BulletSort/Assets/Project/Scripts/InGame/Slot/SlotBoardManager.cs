@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Core;
 using UnityEngine;
 using Logger = Core.Logger;
 
@@ -16,7 +15,10 @@ namespace InGame.Slot
     {
         [Header("References")]
         [Tooltip("자식으로 둔 슬롯 9개를 SlotID 순서로 등록")]
-        [SerializeField] public List<Slot> _slots;
+        [SerializeField] private List<Slot> _slots;
+        
+        [Tooltip("기물 데이터 DB — 공급기가 채울 기물 ID 목록을 여기서 받음")]
+        [SerializeField] private Sort.Data.PieceDatabase _pieceDatabase;
         
         [Header("Debug")]
         [SerializeField] private bool _debugMode = true;
@@ -30,13 +32,16 @@ namespace InGame.Slot
         
         private GUIStyle _debugStyle;
         
+        public List<Slot> Slots => _slots;
+        
         #region 유니티 라이프사이클
         
         private void Awake()
         {
             ValidateSlots();
             _supplier = new PieceSupplier();
-            _supplier.Initialize();
+            // DB가 가진 기물 ID 목록으로 대기 그룹 생성 — ID 체계(8001 등)는 데이터가 정함.
+            _supplier.Initialize(_pieceDatabase.GetAllIDs());
         }
         
         private void Start()

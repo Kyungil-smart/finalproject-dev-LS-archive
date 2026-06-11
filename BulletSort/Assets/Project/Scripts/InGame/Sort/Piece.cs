@@ -2,24 +2,9 @@ using Core;
 using InGame.Slot;
 using InGame.Sort.Data;
 using UnityEngine;
-using Logger = Core.Logger;
 
 namespace InGame.Sort
 {
-    // 임시 — 데이터 SO 도입 전까지 인스펙터 드롭다운 + 0 입력 방지용.
-    // 정식 ID는 데이터 담당이 매김, 여기선 enum → ID 임시 매핑만.
-    public enum PieceType
-    {
-        None,       // 0 풀링 비활성 — SetData 받기 전 / 빈 칸 표시
-        Basic,      // 1
-        NonBasic,   // 2
-        Shotgun,    // 3
-        LongRange,  // 4
-        Tank,       // 5
-        Splash,     // 6
-        Support,    // 7
-    }
-    
     // 3-Sort 기물. 드래그 가능한 오브젝트.
     // 1차 구현: 손가락 따라가기 + 놓으면 원위치 복귀.
     // 슬롯 시스템 진입 후 SortResult 발행·셀 진입 등 게임 로직 추가 예정.
@@ -32,15 +17,15 @@ namespace InGame.Sort
         [SerializeField] private LayerMask _cellLayer;
         
         [Header("Piece Data (임시 — 데이터 파싱 SO 도입 후 정식 DB로 교체)")]
-        [SerializeField] private PieceType _pieceType = PieceType.None;
-        
         [Tooltip("기물 데이터 조회 DB — SetByID 시 PieceID로 스프라이트 조회. 프리팹 1개에 꽂으면 풀링 인스턴스 공유")]
         [SerializeField] private PieceDatabase _pieceDatabase;
+        
+        // 현재 기물 ID — 데이터 체계(8001 등) 그대로 보유. 0은 빈 칸 예약값.
+        private int _pieceID;
         
         [Header("Sorting")]
         [Tooltip("드래그 중 기물이 올라갈 소팅 레이어")]
         [SerializeField] private SortingLayerType _draggingLayer = SortingLayerType.Dragging;
-        
         
         // 드래그 사이클 동안만 유효한 캐시 묶음.
         // OnGrabbed에서 채우고 OnReleased까지 참조.
@@ -55,9 +40,8 @@ namespace InGame.Sort
             public SlotCell OriginSlotCell;     // 출발 셀 — 데이터 이동 시 비우기 대상
         }
         
-        // 외부(Slot 정렬 판정 등) 접근용 — 미래 SO 도입 시 내부 구현만 _data.PieceID로 교체.
-        // enum 순서 = ID라 (int)_pieceType 캐스팅으로 충분 (None=0이 빈 칸과 일치).
-        public int PieceID => (int)_pieceType;
+        // 외부(Slot 정렬 판정 등) 접근용 — 보유한 ID 그대로 반환(데이터 체계 수용).
+        public int PieceID => _pieceID;
         
         void Awake()
         {
@@ -67,24 +51,21 @@ namespace InGame.Sort
                 _collider = GetComponent<Collider2D>();
         }
         
-        // 풀링 재사용 시 호출. PieceID → PieceType 매핑 + 스프라이트 교체 + 활성 토글.
-        // TODO(데이터 SO 도입 후) — PieceDatabase 조회 — 정식 DB 도입 시 출처만 교체
+        // 풀링 재사용 시 호출. PieceID 보유 + 스프라이트 교체 + 활성 토글
+        // 0은 빈 칸 예약값이라 끔. 그 외엔 DB 조회로 스프라이트 갱신(유효성은 DB 등록 여부로 판단).
         public void SetByID(int pieceID)
         {
-            // 유효 범위(0~6) 밖이면 None 취급 — 잘못된 ID 사고 방지.
-            _pieceType = System.Enum.IsDefined(typeof(PieceType), pieceID)
-                ? (PieceType)pieceID
-                : PieceType.None;
-
-            bool active = _pieceType != PieceType.None;
+            _pieceID = pieceID;
+            
+            bool active = pieceID != 0;  // 0 = 빈 칸 예약값
             gameObject.SetActive(active);
             
-            // 켜질 때만 스프라이트 교체 (None은 꺼지므로 갱신 불필요)
+            // 켜질 때만 스프라이트 교체 (0은 꺼지므로 갱신 불필요)
             if (active && _renderer != null && _pieceDatabase != null)
             {
                 PieceData data = _pieceDatabase.GetByID(pieceID);
                 if (data != null && data.Sprite != null)
-                    _renderer.sprite = data.Sprite;
+                    _renderer.sprite = data.Sprite; 
             }
         }
         
@@ -145,7 +126,7 @@ namespace InGame.Sort
             // 타겟 셀이 없거나 비어있지 않으면 배치 실패
             if (targetCell == null || !targetCell.IsEmpty) return;
             
-            // 옮길 PieceID 캐싱 — 아래 ClearCell이 자기 _pieceType을 None으로 바꾸기 전에 확보
+            // 옮길 PieceID 캐싱 — 아래 ClearCell이 자기 _pieceID를 0으로 바꾸기 전에 확보
             int movingPieceID = PieceID;
             
             // 도착 먼저 → 출발 나중 순서.

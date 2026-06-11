@@ -13,15 +13,11 @@ namespace InGame.Sort.Data
         [Tooltip("기물 식별자 — 정렬 판정·포탑 타입 결정의 기준. 0은 빈 칸 예약값이라 사용 안 함")]
         [SerializeField] private int _pieceID;
 
-        [Tooltip("기물 종류 — 인스펙터 가독성용. ID와 의미가 일치하도록 함께 지정")]
-        [SerializeField] private PieceType _pieceType;
-
         [Tooltip("기물 스프라이트 — SetByID 시 이 스프라이트로 교체")]
         [SerializeField] private Sprite _sprite;
 
         // 외부 접근용 프로퍼티
         public int PieceID => _pieceID;
-        public PieceType PieceType => _pieceType;
         public Sprite Sprite => _sprite;
         
         // ── 정식 SO 도입 시 추가될 자리 ──
