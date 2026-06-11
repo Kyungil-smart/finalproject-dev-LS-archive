@@ -23,6 +23,9 @@ namespace Core
         bool _isWin = false;
         bool _isDefeat = false;
 
+        int _curStageID;
+        StageData _stageData;
+
         protected override void Init()
         {
             TestMonsterSpawner[] spawners = FindObjectsByType<TestMonsterSpawner>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
@@ -31,6 +34,8 @@ namespace Core
             {
                 _targetKillNum += spawner.MaxMonsterCount;
             }
+
+            // _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
         }
 
         private void FixedUpdate()
