@@ -42,11 +42,14 @@ TagManager:
   - name: Board
     uniqueID: 3826363277
     locked: 0
-  - name: Piece
-    uniqueID: 2734753105
-    locked: 0
   - name: Frame
     uniqueID: 3430156937
+    locked: 0
+  - name: Monster
+    uniqueID: 2906703955
+    locked: 0
+  - name: Piece
+    uniqueID: 2734753105
     locked: 0
   - name: SlotUI
     uniqueID: 837417751
