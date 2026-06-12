@@ -64,7 +64,7 @@ namespace InGame.Slot
         }
 
         // HP 0 도달 시 내부 호출
-        public void Dead()
+        private void Dead()
         {
             OnDead?.Invoke(this);
             // TODO(데모 후) — 슬롯 비활성·파괴 연출·게임오버 판정 연결

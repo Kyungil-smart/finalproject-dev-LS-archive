@@ -12,8 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7719614bd8472fd4baf7186a620e3adb, type: 3}
   m_Name: SlotData
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotData
-  _slotID: 0
-  _maxHP: 100
+  _slotDataID: 0
+  _maxHP: 400
   _healOnSortValue: 10
   _requiredRepairCount: 3
   _reviveHPValue: 0
+  _slotSprites:
+  - {fileID: -4865506469525511713, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: 8843225531015679251, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: 5325337160552637437, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: -2608298720112880513, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: -8030418942539017387, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: -3546055733029565394, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: -32983059421308247, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: -8253117892722662609, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
