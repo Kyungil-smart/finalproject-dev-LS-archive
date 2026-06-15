@@ -19,6 +19,9 @@ namespace InGame.Slot
         // 최대 체력 — Awake에서 SlotData로부터 주입. 데이터 출처는 DataManager로 일원화.
         private int _maxHealth = FallbackMaxHealth;
         
+        // 정렬 성공 시 회복량 — Awake에서 SlotData로부터 주입.
+        private int _healOnSort;
+        
         // 현재 체력 — 외부는 읽기만, 변경은 TakeDamage로만.
         private int _health;
         
@@ -43,7 +46,10 @@ namespace InGame.Slot
             // SlotData(SO)에서 최대 체력 주입 — 슬롯별 SlotDataID로 조회. 미조회 시 폴백.
             var data = SlotQuery.Get(slotDataID);
             if (data != null)
+            {
                 _maxHealth = data.MaxHP;
+                _healOnSort = data.HealOnSortValue;
+            }
             else
                 Debug.LogWarning($"[SlotHealth] SlotData({slotDataID}) 미조회 — 폴백 MaxHealth 사용");
 
@@ -87,6 +93,22 @@ namespace InGame.Slot
         public void Revive(int hp)
         {
             _health = Mathf.Clamp(hp, 1, _maxHealth); // 최소 1 — 0이면 다시 파괴
+            OnHealthChanged?.Invoke(_health, _maxHealth);
+        }
+        
+        // 정렬 성공 회복 — HealOnSort만큼. 정상 슬롯 정렬 시 호출
+        // 정렬 전용 진입점 — 범용 Heal은 외부 노출 안 함(현재 회복 경로가 정렬 뿐).
+        public void HealOnSort()
+        {
+            Heal(_healOnSort);
+        }
+        
+        // 회복 내부 처리 — 클램프·파괴 가드. 파괴 상태면 무시(수리로 부활해야 함).
+        private void Heal(int amount)
+        {
+            if (amount <= 0 || _health <= 0) return;  // 음수·파괴 상태 무시
+
+            _health = Mathf.Min(_maxHealth, _health + amount);
             OnHealthChanged?.Invoke(_health, _maxHealth);
         }
     }

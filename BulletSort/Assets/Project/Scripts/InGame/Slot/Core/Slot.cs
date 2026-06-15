@@ -188,7 +188,10 @@ namespace InGame.Slot
             if (_slotHealth != null && _slotHealth.isDead)
                 OnRepairProgress?.Invoke();
             else
+            {
                 OnSortSuccess?.Invoke(_slotID, sortedPieceID);
+                _slotHealth?.HealOnSort();   // 정상 슬롯 정렬 성공 → HP 회복(기획)
+            }
             
             // 셀 3개 비우기 — 다음 정렬 사이클 준비(파괴·정상 공통, 수리 정렬 반복 가능)
             ClearAllCells();
