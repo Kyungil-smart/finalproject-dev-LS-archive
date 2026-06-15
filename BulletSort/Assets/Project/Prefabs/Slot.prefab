@@ -60,6 +60,7 @@ MonoBehaviour:
   _slotDataID: 0
   _slotHealth: {fileID: 5892617180485562619}
   _slotVisual: {fileID: 7259941450890908886}
+  _displayController: {fileID: 893007241043439068}
 --- !u!114 &5892617180485562619
 MonoBehaviour:
   m_ObjectHideFlags: 0
