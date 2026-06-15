@@ -16,9 +16,6 @@ namespace InGame.Slot
         // 데이터 미로드 시 폴백 — 정상 경로는 SlotData(SO)에서 MaxHP를 받음.
         private const int FallbackMaxHealth = 100;
 
-        [Tooltip("이 슬롯이 참조할 SlotData ID — 보드 배치 시 부여. 공통 const로 고정하지 않음")]
-        [SerializeField] private int _slotDataID;
-
         // 최대 체력 — Awake에서 SlotData로부터 주입. 데이터 출처는 DataManager로 일원화.
         private int _maxHealth = FallbackMaxHealth;
         
@@ -40,14 +37,29 @@ namespace InGame.Slot
 
         private void Awake()
         {
+            // SlotDataID는 슬롯에서 받아옴 — 단일 출처(Slot). 자기 필드로 안 듦.
+            int slotDataID = GetSlotDataID();
+            
             // SlotData(SO)에서 최대 체력 주입 — 슬롯별 SlotDataID로 조회. 미조회 시 폴백.
-            var data = SlotQuery.Get(_slotDataID);
+            var data = SlotQuery.Get(slotDataID);
             if (data != null)
                 _maxHealth = data.MaxHP;
             else
-                Debug.LogWarning($"[SlotHealth] SlotData({_slotDataID}) 미조회 — 폴백 MaxHealth 사용");
+                Debug.LogWarning($"[SlotHealth] SlotData({slotDataID}) 미조회 — 폴백 MaxHealth 사용");
 
             _health = _maxHealth;
+        }
+        
+        // 부모 Slot에서 SlotDataID pull. Slot 없으면 0(폴백 유도).
+        private int GetSlotDataID()
+        {
+            var slot = GetComponentInParent<Slot>();
+            if (slot == null)
+            {
+                Debug.LogWarning($"[SlotHealth] 부모 Slot 없음 — SlotDataID 0으로 폴백");
+                return 0;
+            }
+            return slot.SlotDataID;
         }
         
         // 외부(전투 시스템)가 데미지를 넣는 유일한 진입점.
@@ -68,6 +80,14 @@ namespace InGame.Slot
         {
             OnDead?.Invoke(this);
             // TODO(데모 후) — 슬롯 비활성·파괴 연출·게임오버 판정 연결
+        }
+        
+        // 부활 — HP를 지정값으로 복구. SlotRevive가 수리 완료 시 호출.
+        // 상태 전환(파괴→정상) 이벤트는 SlotRevie가 발행 — 여기선 HP만.
+        public void Revive(int hp)
+        {
+            _health = Mathf.Clamp(hp, 1, _maxHealth); // 최소 1 — 0이면 다시 파괴
+            OnHealthChanged?.Invoke(_health, _maxHealth);
         }
     }
 }

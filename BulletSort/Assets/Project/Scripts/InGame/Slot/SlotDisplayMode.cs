@@ -1,0 +1,22 @@
+namespace InGame.Slot
+{
+    // 슬롯 표시 모드 — SlotState + 포탑 보유(Active/Queue)의 조합으로 *어떻게 그릴지* 결정.
+    // 정렬 시 동작(연출·HP회복·탄환소모)과는 다른 축 — 여긴 순수 표시.
+    // 작성자: 이성규
+    public enum SlotDisplayMode
+    {
+        Normal,                  // 일반 슬롯 UI, HP바, 피격 연출
+        NormalWithActive,        // + 가동 포탑 테두리·아이콘·잔탄
+        NormalWithActiveQueue,   // + 대기열 포탑 아이콘까지
+        Destroyed,               // 파괴 — Destroyed UI
+    }
+
+    // 포탑 보유 상태 입력 — 포탑 시스템(안정연)이 구현해 컨트롤러에 주입.
+    // 컨트롤러가 포탑 시스템을 직접 참조하지 않도록 인터페이스로 끊음(결합 회피).
+    // 미주입(null) 시 컨트롤러는 포탑 없음으로 간주 — Normal/Destroyed만 동작.
+    public interface ITurretPresence
+    {
+        bool HasActiveTurret { get; }
+        bool HasQueueTurret { get; }
+    }
+}

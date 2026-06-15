@@ -142,9 +142,8 @@ MonoBehaviour:
   _cellLayer:
     serializedVersion: 2
     m_Bits: 256
-  _pieceType: 0
-  _pieceDatabase: {fileID: 11400000, guid: 735534ef0a22628498a19b326e0158b1, type: 2}
-  _draggingLayer: 4
+  _pieceID: 0
+  _draggingLayer: 6
 --- !u!70 &3450532317090284595
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -180,5 +179,5 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.84, y: 1.25}
+  m_Size: {x: 0.9, y: 1.8}
   m_Direction: 0

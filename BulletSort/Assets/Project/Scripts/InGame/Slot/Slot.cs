@@ -16,6 +16,9 @@ namespace InGame.Slot
     {
         [Header("Identity")]
         [SerializeField] private int _slotID;
+        
+        [Tooltip("SlotData(SO) 참조 ID — 슬롯 단일 출처. 하위 컴포넌트가 여기서 읽음")]
+        [SerializeField] private int _slotDataID;
 
         [Header("Health")]
         [Tooltip("슬롯 체력 컴포넌트 — 전투 피격 처리. 비우면 Awake에서 탐색")]
@@ -24,6 +27,10 @@ namespace InGame.Slot
         [Header("Visual")]
         [Tooltip("슬롯 표시 비주얼 — 가동 포탑 타입 이미지 교체. 비우면 Awake에서 탐색")]
         [SerializeField] private SlotVisual _slotVisual;
+        
+        [Header("Display")]
+        [Tooltip("슬롯 표시 컨트롤러 — 포탑 유무 주입·표시 모드 지휘. 비우면 Awake에서 탐색")]
+        [SerializeField] private SlotDisplayController _displayController;
         
         // 셀 3개의 런타임 상태. 인덱스 0~2로 접근.
         // 매치-3에서 가져온 SGrid1D<T>로 보드 표현 (2차원은 오버스펙이라 1차원 개조).
@@ -34,12 +41,19 @@ namespace InGame.Slot
         
         public int SlotID => _slotID;
         
+        // SlotData 참조 ID — 하위 컴포넌트(Health·Visual·Revive)가 Awake에서 pull.
+        // 슬롯당 단일 출처로 두어 ID 중복·동기화 사고 차단.
+        public int SlotDataID => _slotDataID;
+        
         // 체력 컴포넌트 노출 — 외부가 slot.Health.TakeDamage()로 접근 가능.
         // (전투가 콜라이더로 IDamageable 직접 접근도 가능 — 양쪽 다 열어둠)
         public SlotHealth Health => _slotHealth;
         
         // 표시 비주얼 노출 — 외부(보드 매니저·추후 포탑 시스템)가 slot.Visual.SetTowerType()로 접근.
         public SlotVisual Visual => _slotVisual;
+        
+        // 표시 컨트롤러 노출 — 외부(포탑 시스템)가 slot.Display.SetTurretPresence()로 접근.
+        public SlotDisplayController Display => _displayController;
         
         // 3-Sort 정렬 성공 이벤트 — (slotID, pieceID).
         // 외부(포탑 소환 시스템 등)가 구독해 후속 처리.
@@ -48,6 +62,10 @@ namespace InGame.Slot
         // 셀 변경 이벤트 — Place/Clear 호출 시 발행.
         // 보드 관리자가 빈 칸 감지·보충 흐름에 사용.
         public event Action<Slot, int> OnCellChanged;  // (this, cellIndex)
+
+        // 파괴 상태 정렬 성공 — SlotRevive가 구독해 수리 카운트 누적.
+        // OnSortSuccess(포탑)와 분리 — 파괴 슬롯은 포탑 대신 수리로 감.
+        public event Action OnRepairProgress;
         
         #region 유니티 라이프사이클
         
@@ -66,6 +84,11 @@ namespace InGame.Slot
             if (_slotVisual == null)
                 _slotVisual = GetComponent<SlotVisual>()
                               ?? GetComponentInChildren<SlotVisual>(includeInactive: true);
+            
+            // SlotDisplayController 탐색 — 인스펙터 미지정 시. Health·Visual과 동일 패턴.
+            if (_displayController == null)
+                _displayController = GetComponent<SlotDisplayController>()
+                                     ?? GetComponentInChildren<SlotDisplayController>(includeInactive: true);
             
             // 자식 SlotCell들을 cellIndex 기준으로 정렬 캐싱
             var cells = GetComponentsInChildren<SlotCell>();
@@ -160,10 +183,14 @@ namespace InGame.Slot
             
             int sortedPieceID = GetSortedPieceID();
             
-            // 외부 발행 — 안정연 영역(포탑 소환)이 구독
-            OnSortSuccess?.Invoke(_slotID, sortedPieceID);
+            // 파괴 상태면 수리로, 정상이면 포탑 소환으로 분기.
+            // 파괴 슬롯의 정렬은 포탑을 안 뽑고 수리 카운트만 올림.
+            if (_slotHealth != null && _slotHealth.isDead)
+                OnRepairProgress?.Invoke();
+            else
+                OnSortSuccess?.Invoke(_slotID, sortedPieceID);
             
-            // 셀 3개 비우기 — 다음 정렬 사이클 준비
+            // 셀 3개 비우기 — 다음 정렬 사이클 준비(파괴·정상 공통, 수리 정렬 반복 가능)
             ClearAllCells();
         }
 

@@ -23,8 +23,10 @@ namespace Core
     public enum SortingLayerType
     {
         Board,
-        Piece,
+        DestroyedUnderlay,  // 파괴 슬롯 잔해 — Monster 아래로 깔림
         Frame,
+        Monster,
+        Piece,
         SlotUI,    // 슬롯 안 월드 UI (HP·웨폰패널)
         Dragging,  // 드래그 중인 기물
         ScreenUI,  // HUD·모달 (CBT 단계)
@@ -36,12 +38,14 @@ namespace Core
     {
         public static string ToName(this SortingLayerType type) => type switch
         {
-            SortingLayerType.Board    => "Board",
-            SortingLayerType.Piece    => "Piece",
-            SortingLayerType.Frame    => "Frame",
-            SortingLayerType.SlotUI   => "SlotUI",
-            SortingLayerType.Dragging => "Dragging",
-            SortingLayerType.ScreenUI => "ScreenUI",
+            SortingLayerType.Board             => "Board",
+            SortingLayerType.DestroyedUnderlay => "Destroyed Underlay",
+            SortingLayerType.Frame             => "Frame",
+            SortingLayerType.Monster           => "Monster",
+            SortingLayerType.Piece             => "Piece",
+            SortingLayerType.SlotUI            => "SlotUI",
+            SortingLayerType.Dragging          => "Dragging",
+            SortingLayerType.ScreenUI          => "ScreenUI",
             _ => "Default",
         };
     }

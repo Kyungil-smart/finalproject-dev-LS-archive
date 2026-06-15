@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PieceData_LongRange_Temp
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Data.PieceData
   _pieceID: 8003
-  _sprite: {fileID: 1960944477512924465, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  _sprite: {fileID: -4851825434126095193, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
   _connectTowerID: 3
