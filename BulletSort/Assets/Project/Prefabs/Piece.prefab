@@ -143,7 +143,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _pieceID: 0
-  _draggingLayer: 4
+  _draggingLayer: 6
 --- !u!70 &3450532317090284595
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
