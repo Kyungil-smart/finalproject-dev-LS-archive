@@ -28,6 +28,10 @@ namespace InGame.Slot
         [Tooltip("슬롯 표시 비주얼 — 가동 포탑 타입 이미지 교체. 비우면 Awake에서 탐색")]
         [SerializeField] private SlotVisual _slotVisual;
         
+        [Header("Display")]
+        [Tooltip("슬롯 표시 컨트롤러 — 포탑 유무 주입·표시 모드 지휘. 비우면 Awake에서 탐색")]
+        [SerializeField] private SlotDisplayController _displayController;
+        
         // 셀 3개의 런타임 상태. 인덱스 0~2로 접근.
         // 매치-3에서 가져온 SGrid1D<T>로 보드 표현 (2차원은 오버스펙이라 1차원 개조).
         private SGrid1D<CellRuntimeData> _cells;
@@ -47,6 +51,9 @@ namespace InGame.Slot
         
         // 표시 비주얼 노출 — 외부(보드 매니저·추후 포탑 시스템)가 slot.Visual.SetTowerType()로 접근.
         public SlotVisual Visual => _slotVisual;
+        
+        // 표시 컨트롤러 노출 — 외부(포탑 시스템)가 slot.Display.SetTurretPresence()로 접근.
+        public SlotDisplayController Display => _displayController;
         
         // 3-Sort 정렬 성공 이벤트 — (slotID, pieceID).
         // 외부(포탑 소환 시스템 등)가 구독해 후속 처리.
@@ -77,6 +84,11 @@ namespace InGame.Slot
             if (_slotVisual == null)
                 _slotVisual = GetComponent<SlotVisual>()
                               ?? GetComponentInChildren<SlotVisual>(includeInactive: true);
+            
+            // SlotDisplayController 탐색 — 인스펙터 미지정 시. Health·Visual과 동일 패턴.
+            if (_displayController == null)
+                _displayController = GetComponent<SlotDisplayController>()
+                                     ?? GetComponentInChildren<SlotDisplayController>(includeInactive: true);
             
             // 자식 SlotCell들을 cellIndex 기준으로 정렬 캐싱
             var cells = GetComponentsInChildren<SlotCell>();
