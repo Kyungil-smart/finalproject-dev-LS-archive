@@ -17,6 +17,8 @@ namespace Core
     class StageManager : Singleton<StageManager>
     {
         [SerializeField] private SlotBoardManager _slotBoardManager;
+        TestMonsterSpawner[] spawners;
+
         int _targetKillNum = 0;
         int _killCount = 0;
 
@@ -26,9 +28,11 @@ namespace Core
         int _curStageID;
         StageData _stageData;
 
+        int _waveIdx = 0;
+
         protected override void Init()
         {
-            TestMonsterSpawner[] spawners = FindObjectsByType<TestMonsterSpawner>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
+            spawners = FindObjectsByType<TestMonsterSpawner>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
 
             foreach (TestMonsterSpawner spawner in spawners)
             {
@@ -38,11 +42,43 @@ namespace Core
             // _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
         }
 
+        private void ResetState()
+        {
+            _waveIdx = 0;
+            _isWin = false;
+            _isDefeat = false;
+
+            _killCount = 0;
+            _targetKillNum = 0;
+
+            foreach (TestMonsterSpawner spawner in spawners)
+            {
+                _targetKillNum += spawner.MaxMonsterCount;
+            }
+        }
+
+        private void LoadWaveData()
+        {
+            //WaveData;
+            //WavePatterData;
+            //MonsterSpawn;
+        }
+
+        private void WaveClearHandler()
+        {
+            // Process Perks System;
+        }
+
+        private void WaveFailHandler()
+        {
+            // 
+        }
+
         private void FixedUpdate()
         {
             while (_isWin == false && _isDefeat == false)
             {
-                if (_targetKillNum == _killCount)
+                if (_targetKillNum == _killCount)   // 제한 시간이 종료되었을 때도 클리어.
                 {
                     _isWin = true;
                 }
@@ -52,6 +88,7 @@ namespace Core
                 if (_isWin)
                 {
                     // 승리 처리
+                    // 다음 웨이브 진행
                     break;
                 }
 
