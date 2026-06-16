@@ -41,11 +41,11 @@ namespace Core
                 return;
             }
 
-            Dictionary<string, T> subTable = new Dictionary<string, T>();
+            Dictionary<int, T> subTable = new Dictionary<int, T>();
 
             foreach (T asset in assets)
             {
-                string id = GetIdStringFromSO(asset);
+                int id = GetIdFromSO(asset);
 
                 if (!subTable.ContainsKey(id))
                 {
@@ -62,7 +62,7 @@ namespace Core
         }
 
 
-        private string GetIdStringFromSO(object soInstance)
+        private int GetIdFromSO(object soInstance)
         {
             FieldInfo[] fields = soInstance.GetType().GetFields();
 
@@ -70,11 +70,11 @@ namespace Core
             {
                 if (field.Name.EndsWith("ID"))
                 {
-                    return field.GetValue(soInstance).ToString();
+                    return (int)field.GetValue(soInstance);
                 }
             }
 
-            return string.Empty;
+            return 0;
         }
 
 
