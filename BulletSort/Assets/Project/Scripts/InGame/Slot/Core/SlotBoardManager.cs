@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Core;
 using InGame.Sort.Data;
 using UnityEngine;
 using Logger = Core.Logger;
@@ -39,6 +40,8 @@ namespace InGame.Slot
         private void Awake()
         {
             ValidateSlots();
+            ValidatePieceCount();
+            
             _supplier = new PieceSupplier();
             // DB가 가진 기물 ID 목록으로 대기 그룹 생성 — ID 체계(8001 등)는 데이터가 정함.
             _supplier.Initialize(PieceQuery.GetAllIDs());
@@ -84,6 +87,24 @@ namespace InGame.Slot
                     Logger.Instance.LogWarning(
                         $"SlotBoardManager — _slots[{i}]의 SlotID={_slots[i].SlotID} (인덱스 불일치)");
             }
+        }
+        
+        // 기물 수량 제약 검증 — 시작 시 1회. 종류·개수·대기열 규모를 바꿔도 사이클이 깨지지 않는지 확인.
+        private void ValidatePieceCount()
+        {
+            int totalPieces = Define.PIECE_TYPE_COUNT * Define.PIECE_PER_TYPE;
+
+            // 종류당 개수가 SORT_COUNT(3)의 배수 — 종류별 3소트가 남김없이 떨어짐.
+            if (Define.PIECE_PER_TYPE % Define.SORT_COUNT != 0)
+                Logger.Instance.LogWarning(
+                    $"[수량 검증] Define.PIECE_PER_TYPE({Define.PIECE_PER_TYPE})를 SORT_COUNT({Define.SORT_COUNT})의 배수로 바꾸세요 " +
+                    $"(현재 종류마다 {Define.PIECE_PER_TYPE % Define.SORT_COUNT}개씩 남아 3소트 안 됨). 예: {Define.PIECE_PER_TYPE / Define.SORT_COUNT * Define.SORT_COUNT} 또는 {(Define.PIECE_PER_TYPE / Define.SORT_COUNT + 1) * Define.SORT_COUNT}");
+
+            // 전체가 보충 단위(REFILL_PER_SLOT=2)의 배수 — 대기 그룹을 2개씩 빼다 1개 남는 사고 방지.
+            if (totalPieces % Define.REFILL_PER_SLOT != 0)
+                Logger.Instance.LogWarning(
+                    $"[수량 검증] 전체 기물 {totalPieces}개가 보충 단위 {Define.REFILL_PER_SLOT}로 안 나눠짐 — 대기 끝에 {totalPieces % Define.REFILL_PER_SLOT}개 남아 보충 안 됨. " +
+                    $"Define.PIECE_TYPE_COUNT({Define.PIECE_TYPE_COUNT}) 또는 PIECE_PER_TYPE({Define.PIECE_PER_TYPE})를 조정해 전체를 짝수로 만드세요");
         }
         
         #endregion
