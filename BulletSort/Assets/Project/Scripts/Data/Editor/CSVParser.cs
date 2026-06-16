@@ -19,7 +19,6 @@ using UnityEngine;
 public class CSVParser
 {
     [MenuItem("Data Tools/Parse CSV Files")]
-
     public static void ParseCSV()
     {
         string csvDirectoryPath = Path.Combine(Application.dataPath, "Resources/CSVTables");
@@ -36,8 +35,45 @@ public class CSVParser
         foreach (string csvFile in csvFiles)
         {
             string className = Path.GetFileNameWithoutExtension(csvFile);
+            Debug.Log($"<color=Green>Begin Parse {className}</color>");
 
-            // csv 파일 이름(확장자 제외)와 SO 클래스의 이름이 완전히 일치해야 함.
+            // Read Each Line of CSV File
+            string[] lines = File.ReadAllLines(csvFile);
+            if (lines.Length <= 2)
+            {
+                Debug.LogWarning($"CSVParser : Invalid File : {csvFile}");
+                continue;
+            }
+
+            // Auto Generate SO Class
+            string[] types = lines[0].Split(',');
+            string[] rawHeaders = lines[1].Split(',');
+
+            List<string> validTypes = new List<string>();
+            List<string> headers = new List<string>();
+
+            for (int iCnt = 0; iCnt < rawHeaders.Length; ++iCnt)
+            {
+                string type = types[iCnt].Trim();
+                string header = rawHeaders[iCnt].Trim();
+
+                if (type == "*" || header == "*")
+                {
+                    break;
+                }
+
+                if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(header))
+                {
+                    continue;
+                }
+
+                validTypes.Add(type);
+                headers.Add(header);
+            }
+
+            GenerateSOClass(className, validTypes, headers);
+
+            // Auto Generate SO Assets
             Type soType = Type.GetType(className);
 
             if (soType == null)
@@ -45,7 +81,8 @@ public class CSVParser
                 soType = GetTypeFromName(className);
                 if (soType == null)
                 {
-                    Debug.LogWarning($"CSVParser : SO Class is Not Found, Skipped Parsing : {soType}");
+                    AssetDatabase.Refresh();
+                    Debug.LogWarning($"<color=Red>CSVParser : {soType} Class is Not Compiled Yet. Try Again.</color>");
                     continue;
                 }
             }
@@ -56,33 +93,10 @@ public class CSVParser
             {
                 if (!AssetDatabase.IsValidFolder(outputPath))
                 {
-                    AssetDatabase.CreateFolder("Assets/Data", "SO");
+                    AssetDatabase.CreateFolder("Assets/Resources", "SO");
                 }
 
                 AssetDatabase.CreateFolder(outputPath, className);
-            }
-
-            // Read Each Line of CSV File
-            string[] lines = File.ReadAllLines(csvFile);
-            if (lines.Length <= 2)
-            {
-                Debug.LogWarning($"CSVParser : Invalid File : {csvFile}");
-                continue;
-            }
-
-            string[] rawHeaders = lines[1].Split(',');
-            List<string> headers = new List<string>();
-
-            foreach (string rawHeader in rawHeaders)
-            {
-                string header = rawHeader.Trim();
-
-                if (header == "*")
-                {
-                    break;
-                }
-
-                headers.Add(header);
             }
 
             for (int lineIdx = 2; lineIdx < lines.Length; ++lineIdx)
@@ -96,14 +110,14 @@ public class CSVParser
 
                 if (row.Length == 0 || row[0].Trim() == "" || row[0].Trim() == "*")
                 {
-                    continue;
+                    break;
                 }
 
                 string idStr = row[0].Trim();
 
                 // 에셋 파일 명 예시 : Assets/Resources/SO/DataTypeName/DataTypeName_ID.asset
                 string assetPath = $"{targetFolder}/{className}_{idStr}.asset";
-                Debug.Log($"Asset Path : {assetPath}");
+                Debug.Log($"Asset Name : {className}_{idStr}");
 
                 // SO 로드 or 생성
                 ScriptableObject soInstance = AssetDatabase.LoadAssetAtPath(assetPath, soType) as ScriptableObject;
@@ -137,22 +151,22 @@ public class CSVParser
                     }
                     else
                     {
-                        Debug.LogWarning($"CSVParser : Invalid Field Name : {csvFile}, {fieldName}");
+                        Debug.LogWarning($"<color=Red>CSVParser : Invalid Field Name : {csvFile}, {fieldName}</color>");
                     }
                 }
 
                 EditorUtility.SetDirty(soInstance);
 
-                Debug.Log($"CSVParser : Parsing Success : Row {lineIdx} in {csvFile} to {assetPath}");
+                Debug.Log($"CSVParser : Parsing Success : {className}_{idStr}");
             }
 
-            Debug.Log($"CSVParser : Parsing one File is Done : {csvFile}");
+            Debug.Log($"<color=Yellow>CSVParser : Parsing one File is Done : {csvFile}</color>");
         }
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        Debug.Log($"CSVParser : All Files are Done");
+        Debug.Log($"<color=Blue>CSVParser : All Files are Done</color>");
 
         GenerateDataManagerPaths();
     }
@@ -195,6 +209,30 @@ public class CSVParser
         }
 
         return Convert.ChangeType(value, targetType);
+    }
+
+    private static void GenerateSOClass(string className, List<string> types, List<string> headers)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine("using UnityEngine;");
+        sb.AppendLine();
+        sb.AppendLine($"// [AUTO GENERATED CLASS] written by GenerateSOClass(CSVParser.cs)");
+        sb.AppendLine($"public partial class {className} : ScriptableObject");
+        sb.AppendLine("{");
+        for (int i = 0; i < headers.Count; i++)
+        {
+            sb.AppendLine($"    public {types[i]} {headers[i]};");
+        }
+        sb.AppendLine("}");
+
+        string scriptFolder = Path.Combine(Application.dataPath, "Project/Scripts/Data");
+        if (!Directory.Exists(scriptFolder))
+        {
+            Directory.CreateDirectory(scriptFolder);
+        }
+
+        string scriptPath = Path.Combine(scriptFolder, $"{className}.cs");
+        File.WriteAllText(scriptPath, sb.ToString(), Encoding.UTF8);
     }
 
     private static void GenerateDataManagerPaths()
