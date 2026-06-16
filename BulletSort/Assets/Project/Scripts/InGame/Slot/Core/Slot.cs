@@ -204,6 +204,18 @@ namespace InGame.Slot
         // 슬롯의 셀에 인덱스로 직접 접근.
         public SlotCell GetSlotCellByIndex(int cellIndex) => _slotCells[cellIndex];
 
+        // 자기 셀의 기물을 카운트 딕셔너리에 누적 — 보드 전체 기물 집계용(PieceSelector 우선순위).
+        // 빈 칸(0)은 제외. 슬롯이 _cells를 단독 소유하므로 순회도 여기서.
+        public void AccumulatePieceCounts(Dictionary<int, int> counts)
+        {
+            for (int i = 0; i < Define.SORT_COUNT; i++)
+            {
+                int id = _cells[i].PieceID;
+                if (id == 0) continue;
+                counts[id] = counts.TryGetValue(id, out int c) ? c + 1 : 1;
+            }
+        }
+
         #endregion
 
         #region 디버그
