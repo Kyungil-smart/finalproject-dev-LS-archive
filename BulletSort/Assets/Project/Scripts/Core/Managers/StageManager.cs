@@ -1,18 +1,18 @@
-using InGame.Slot;
+ï»¿using InGame.Slot;
 using UnityEngine;
 
 namespace Core
 {
     /// <summary>
-    /// ÇöÀç Ingame¿¡¼­ ÁøÇàÁßÀÎ StageÀÇ ÁøÇàÀ» °ü¸®ÇÏ´Â Å¬·¡½ºÀÌ´Ù.
-    /// Lobby¿¡¼­ Stage ¼±ÅÃ ½Ã ÇØ´ç StageÀÇ index Á¤º¸¸¦ ¹Ş°í,
-    /// StageData SOÀÇ id·Î Á¤º¸¸¦ Á¢±ÙÇÔ.
+    /// í˜„ì¬ Ingameì—ì„œ ì§„í–‰ì¤‘ì¸ Stageì˜ ì§„í–‰ì„ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤ì´ë‹¤.
+    /// Lobbyì—ì„œ Stage ì„ íƒ ì‹œ í•´ë‹¹ Stageì˜ index ì •ë³´ë¥¼ ë°›ê³ ,
+    /// StageData SOì˜ idë¡œ ì •ë³´ë¥¼ ì ‘ê·¼í•¨.
     /// 
-    /// ÀÛ¼ºÀÚ : ±è°æ¹Î
+    /// ì‘ì„±ì : ê¹€ê²½ë¯¼
     /// </summary>
 
-    // DataManager·ÎºÎÅÍ Çö Stage¿¡ ¸Â´Â SO instance¸¦ °¡Á®¿À°í
-    // Monster Spawner¿¡ ¿äÃ»ÇÏ´Â ÇüÅÂ?
+    // DataManagerë¡œë¶€í„° í˜„ Stageì— ë§ëŠ” SO instanceë¥¼ ê°€ì ¸ì˜¤ê³ 
+    // Monster Spawnerì— ìš”ì²­í•˜ëŠ” í˜•íƒœ?
 
     class StageManager : Singleton<StageManager>
     {
@@ -78,7 +78,7 @@ namespace Core
         {
             while (_isWin == false && _isDefeat == false)
             {
-                if (_targetKillNum == _killCount)   // Á¦ÇÑ ½Ã°£ÀÌ Á¾·áµÇ¾úÀ» ¶§µµ Å¬¸®¾î.
+                if (_targetKillNum == _killCount)   // ì œí•œ ì‹œê°„ì´ ì¢…ë£Œë˜ì—ˆì„ ë•Œë„ í´ë¦¬ì–´.
                 {
                     _isWin = true;
                 }
@@ -87,14 +87,14 @@ namespace Core
 
                 if (_isWin)
                 {
-                    // ½Â¸® Ã³¸®
-                    // ´ÙÀ½ ¿şÀÌºê ÁøÇà
+                    // ìŠ¹ë¦¬ ì²˜ë¦¬
+                    // ë‹¤ìŒ ì›¨ì´ë¸Œ ì§„í–‰
                     break;
                 }
 
                 if (_isDefeat)
                 {
-                    // ÆĞ¹è Ã³¸®
+                    // íŒ¨ë°° ì²˜ë¦¬
                     break;
                 }
             }
@@ -102,7 +102,7 @@ namespace Core
 
         private bool CheckDefeatCondition()
         {
-            foreach (Slot slot in _slotBoardManager._slots)
+            foreach (Slot slot in _slotBoardManager.Slots)
             {
                 if (slot.Health.isDead == false)
                 {
