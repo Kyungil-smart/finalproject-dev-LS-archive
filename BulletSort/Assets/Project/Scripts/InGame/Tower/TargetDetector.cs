@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Core.Manager.SpawnManager;
+using Monster.Controll;
 using UnityEngine;
 
 public class TargetDetector : MonoBehaviour
@@ -28,7 +29,7 @@ public class TargetDetector : MonoBehaviour
 
    private void Update()
    {
-      if(target != null && target.GetComponent<TestMonsterMove>().isDead)
+      if(target != null && target.GetComponent<MonsterController>().isDead)
          KillTarget();
    }
 
