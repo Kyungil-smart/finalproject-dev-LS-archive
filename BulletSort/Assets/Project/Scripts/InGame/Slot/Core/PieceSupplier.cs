@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Core;
+using InGame.Sort;
 using UnityEngine;
 
 namespace InGame.Slot
@@ -27,19 +28,34 @@ namespace InGame.Slot
             // 생성 시점을 매니저가 제어.
             Regenerate();
         }
-
-        // 슬롯에 기물 배치 — 빈 칸 중 REFILL_PER_SLOT칸 셔플 선정 후 대기 그룹에서 꺼내 채움.
+        
+        // 슬롯 보충 — 종류는 PieceSelector 우선순위로, 칸 위치는 빈 칸 셔플 랜덤.
+        //   (정렬이 슬롯 내 동일 3개 판정이라 칸 위치·순서 무관 → 칸은 우선순위 불필요)
         // 정원 못 채우는 상황(대기 부족·빈 칸 부족)이면 아예 채우지 않음 — 1개짜리 슬롯 방지.
-        public void RefillSlot(Slot slot)
+        // boardCounts: 매니저가 집계한 현재 보드 전체 기물 카운트
+        public void RefillSlot(Slot slot, IReadOnlyDictionary<int, int> boardCounts)
         {
             var emptyCells = slot.GetEmptyCellIndices();
             
             // 슬롯당 정원이 원칙 — 정원 못 채울 상황이면 보충 보류.
             if (_waitingGroup.Count < Define.REFILL_PER_SLOT || emptyCells.Count < Define.REFILL_PER_SLOT) return;
+
+            var picked = PieceSelector.Select(boardCounts, _waitingGroup, Define.REFILL_PER_SLOT);
+            if (picked.Count < Define.REFILL_PER_SLOT) return;  // 못 채우면 보류(1개짜리 슬롯 방지)
             
             Shuffle(emptyCells);
             for (int i = 0; i < Define.REFILL_PER_SLOT; i++)
-                slot.PlacePiece(emptyCells[i], Dequeue());
+            {
+                RemoveFromWaiting(picked[i]);
+                slot.PlacePiece(emptyCells[i], picked[i]);
+            }
+        }
+        
+        // 대기 그룹에서 특정 ID 1개 제거
+        private void RemoveFromWaiting(int pieceID)
+        {
+            int idx = _waitingGroup.IndexOf(pieceID);
+            if (idx >= 0) _waitingGroup.RemoveAt(idx);
         }
         
         // 대기 그룹 재생성 — 호출 판단(보드 전체 클리어 여부)은 매니저가.
@@ -57,15 +73,6 @@ namespace InGame.Slot
             
             // 종류별로 뭉쳐 들어간 걸 섞어 Dequeue 시 골고루 나오게.
             Shuffle(_waitingGroup);
-        }
-        
-        // 대기 그룹 앞에서 기물 ID 1개 꺼냄.
-        // TODO(PieceSelector 도입 후) — 단순 Dequeue를 우선순위 선정으로 교체.
-        private int Dequeue()
-        {
-            int pieceID = _waitingGroup[0];
-            _waitingGroup.RemoveAt(0);
-            return pieceID;
         }
         
         // 리스트 인덱스 셔플 (Fisher-Yates) — 채울 칸을 랜덤 선정.

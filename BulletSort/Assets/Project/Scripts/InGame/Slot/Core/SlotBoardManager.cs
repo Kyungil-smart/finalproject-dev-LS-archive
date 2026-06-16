@@ -139,7 +139,7 @@ namespace InGame.Slot
         private void InitialPlacement()
         {
             foreach (var slot in _slots)
-                _supplier.RefillSlot(slot);
+                _supplier.RefillSlot(slot, CountBoardPieces());
         }
         
         #endregion
@@ -172,7 +172,7 @@ namespace InGame.Slot
             if (IsAllSlotsEmpty())
                 RegenerateBoard();   // 보드 전체 클리어 → 재생성 + 전체 재배치
             else
-                _supplier.RefillSlot(slot);  // 일부 슬롯만 빔 → 그 슬롯만 보충
+                _supplier.RefillSlot(slot, CountBoardPieces());  // 일부 슬롯만 빔 → 그 슬롯만 보충
         }
         
         #endregion
@@ -190,7 +190,7 @@ namespace InGame.Slot
             Logger.Instance.LogInfo("보드 매니저 — 보드 전체 클리어, 대기 그룹 재생성 + 전체 재배치");
             
             foreach (var slot in _slots)
-                _supplier.RefillSlot(slot);
+                _supplier.RefillSlot(slot, CountBoardPieces());
         }
         
         // 모든 슬롯이 비어있는지 — 보드 전체 클리어 판단.
@@ -215,6 +215,15 @@ namespace InGame.Slot
         public int GetConnectTowerID(int pieceID)
         {
             return PieceQuery.GetConnectTowerID(pieceID);
+        }
+        
+        // 보드 전체 기물 카운트 집계 — 9슬롯 순회, PieceSelector 우선순위 판정용.
+        private Dictionary<int, int> CountBoardPieces()
+        {
+            var counts = new Dictionary<int, int>();
+            foreach (var slot in _slots)
+                slot?.AccumulatePieceCounts(counts);
+            return counts;
         }
         
         #endregion
