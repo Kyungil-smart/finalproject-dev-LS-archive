@@ -22,7 +22,7 @@ namespace Monster.Spawn
 
         private void Start()
         {
-            _slots = _slotBoardManager._slots;
+            _slots = _slotBoardManager.Slots;
             _target = SelectTarget();
         }
 

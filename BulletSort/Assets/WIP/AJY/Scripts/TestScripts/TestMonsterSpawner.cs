@@ -33,7 +33,7 @@ public class TestMonsterSpawner : MonoBehaviour
     private void Start()
     {
         //_slots = _slotBoardManager.Slots;
-        _slots = _slotBoardManager._slots;
+        _slots = _slotBoardManager.Slots;
         _target = SelectTarget();
     }
 
