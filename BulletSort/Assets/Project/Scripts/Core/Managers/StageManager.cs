@@ -102,7 +102,7 @@ namespace Core
 
         private bool CheckDefeatCondition()
         {
-            foreach (Slot slot in _slotBoardManager._slots)
+            foreach (Slot slot in _slotBoardManager.Slots)
             {
                 if (slot.Health.isDead == false)
                 {
