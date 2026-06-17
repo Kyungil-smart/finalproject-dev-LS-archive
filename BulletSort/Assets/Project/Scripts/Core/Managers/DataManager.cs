@@ -1,8 +1,9 @@
-﻿using System;
+﻿using InGame.Slot.Data;
+using InGame.Sort.Data;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-
 
 namespace Core
 {
@@ -23,7 +24,13 @@ namespace Core
 
             // Auto Written Code By GenerateDataMangerPaths in CSVParser.cs
             // [AUTO GENERATED START]
+            LoadTable<MonsterData>("SO/MonsterData");
+            LoadTable<MonsterGroupData>("SO/MonsterGroupData");
+            LoadTable<PieceData>("SO/PieceData");
+            LoadTable<SlotData>("SO/SlotData");
             LoadTable<StageData>("SO/StageData");
+            LoadTable<WaveData>("SO/WaveData");
+            LoadTable<WavePatternData>("SO/WavePatternData");
             // [AUTO GENERATED END]
             // ==========================================
             // Auto Written End
@@ -41,11 +48,11 @@ namespace Core
                 return;
             }
 
-            Dictionary<string, T> subTable = new Dictionary<string, T>();
+            Dictionary<int, T> subTable = new Dictionary<int, T>();
 
             foreach (T asset in assets)
             {
-                string id = GetIdStringFromSO(asset);
+                int id = GetIdFromSO(asset);
 
                 if (!subTable.ContainsKey(id))
                 {
@@ -62,7 +69,7 @@ namespace Core
         }
 
 
-        private string GetIdStringFromSO(object soInstance)
+        private int GetIdFromSO(object soInstance)
         {
             FieldInfo[] fields = soInstance.GetType().GetFields();
 
@@ -70,11 +77,11 @@ namespace Core
             {
                 if (field.Name.EndsWith("ID"))
                 {
-                    return field.GetValue(soInstance).ToString();
+                    return (int)field.GetValue(soInstance);
                 }
             }
 
-            return string.Empty;
+            return 0;
         }
 
 
@@ -96,6 +103,20 @@ namespace Core
             Debug.LogError($"DataManager : {id} is Not Found in {type.Name} Dict");
             return null;
         }
-    }
 
+        // 특정 타입의 전체 테이블 반환 — 도메인 Query가 목록·필터·키 순회에 사용.
+        // GetData가 단건이라면, 이건 테이블 통째로.
+        public IReadOnlyDictionary<int, T> GetTable<T>() where T : ScriptableObject
+        {
+            Type type = typeof(T);
+            if (_rootDict.TryGetValue(type, out object obj))
+            {
+                Dictionary<int, T> subTable = obj as Dictionary<int, T>;
+                if (subTable != null)
+                    return subTable;
+            }
+            Debug.LogError($"DataManager : {type.Name} Table is Not Found");
+            return null;
+        }
+    }
 }

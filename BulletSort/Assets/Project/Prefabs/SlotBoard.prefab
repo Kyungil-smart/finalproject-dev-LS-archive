@@ -103,12 +103,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1760770089006415204}
     m_Modifications:
+    - target: {fileID: 28084976102706079, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Name
       value: Slot (8)
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484824801892427415, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
@@ -167,9 +175,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1846952356716666167, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3096295840989390296, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: _slotID
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518740442919512179, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179915434333799383, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4892486598305455399, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Size.x
@@ -190,6 +210,22 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296418571105355334, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646871210943582374, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779715039797697537, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430449384242581821, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -236,12 +272,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1760770089006415204}
     m_Modifications:
+    - target: {fileID: 28084976102706079, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Name
       value: Slot (7)
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484824801892427415, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
@@ -300,9 +344,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1846952356716666167, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3096295840989390296, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: _slotID
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518740442919512179, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179915434333799383, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4892486598305455399, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Size.x
@@ -323,6 +379,22 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296418571105355334, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646871210943582374, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779715039797697537, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430449384242581821, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -369,12 +441,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1760770089006415204}
     m_Modifications:
+    - target: {fileID: 28084976102706079, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Name
       value: Slot (5)
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484824801892427415, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
@@ -433,9 +513,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1846952356716666167, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3096295840989390296, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: _slotID
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518740442919512179, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179915434333799383, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4892486598305455399, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Size.x
@@ -456,6 +548,22 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296418571105355334, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646871210943582374, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779715039797697537, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430449384242581821, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -502,12 +610,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1760770089006415204}
     m_Modifications:
+    - target: {fileID: 28084976102706079, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Name
       value: Slot (1)
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484824801892427415, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
@@ -566,9 +682,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1846952356716666167, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3096295840989390296, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: _slotID
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518740442919512179, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179915434333799383, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4892486598305455399, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Size.x
@@ -589,6 +717,22 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296418571105355334, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646871210943582374, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779715039797697537, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430449384242581821, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -635,12 +779,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1760770089006415204}
     m_Modifications:
+    - target: {fileID: 28084976102706079, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Name
       value: Slot (4)
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484824801892427415, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
@@ -699,9 +851,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1846952356716666167, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3096295840989390296, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: _slotID
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518740442919512179, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179915434333799383, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4892486598305455399, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Size.x
@@ -722,6 +886,22 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296418571105355334, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646871210943582374, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779715039797697537, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430449384242581821, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -768,12 +948,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1760770089006415204}
     m_Modifications:
+    - target: {fileID: 28084976102706079, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Name
       value: Slot (2)
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484824801892427415, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
@@ -832,9 +1020,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1846952356716666167, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3096295840989390296, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: _slotID
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518740442919512179, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179915434333799383, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4892486598305455399, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Size.x
@@ -855,6 +1055,22 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296418571105355334, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646871210943582374, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779715039797697537, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430449384242581821, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -901,12 +1117,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1760770089006415204}
     m_Modifications:
+    - target: {fileID: 28084976102706079, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Name
       value: Slot (3)
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484824801892427415, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
@@ -965,9 +1189,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1846952356716666167, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3096295840989390296, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: _slotID
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518740442919512179, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179915434333799383, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4892486598305455399, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Size.x
@@ -988,6 +1224,22 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296418571105355334, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646871210943582374, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779715039797697537, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430449384242581821, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -1034,12 +1286,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1760770089006415204}
     m_Modifications:
+    - target: {fileID: 28084976102706079, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Name
       value: Slot (6)
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484824801892427415, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1783962189566400482, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
@@ -1098,9 +1358,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1846952356716666167, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3096295840989390296, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: _slotID
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518740442919512179, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179915434333799383, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4892486598305455399, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Size.x
@@ -1121,6 +1393,22 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296418571105355334, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646871210943582374, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779715039797697537, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430449384242581821, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -1167,12 +1455,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1760770089006415204}
     m_Modifications:
+    - target: {fileID: 28084976102706079, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Name
       value: Slot (0)
       objectReference: {fileID: 0}
     - target: {fileID: 140998026832287425, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484824801892427415, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 942905945033743639, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
@@ -1235,6 +1531,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1846952356716666167, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518740442919512179, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179915434333799383, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4892486598305455399, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_Size.x
       value: 2.6
@@ -1254,6 +1562,22 @@ PrefabInstance:
     - target: {fileID: 5457467605124510989, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296418571105355334, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646871210943582374, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779715039797697537, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430449384242581821, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7909480769282540530, guid: dac4b300520af4b479eab4bfdf3eb384, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x

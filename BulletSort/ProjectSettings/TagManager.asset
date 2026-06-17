@@ -39,8 +39,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2409018143
+    locked: 0
   - name: Board
     uniqueID: 3826363277
+    locked: 0
+  - name: DestroyedUnderlay
+    uniqueID: 826617203
+    locked: 0
+  - name: Monster
+    uniqueID: 2906703955
     locked: 0
   - name: Piece
     uniqueID: 2734753105

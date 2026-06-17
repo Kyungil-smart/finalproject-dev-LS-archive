@@ -142,13 +142,8 @@ MonoBehaviour:
   _cellLayer:
     serializedVersion: 2
     m_Bits: 256
-  _pieceType: 0
-  _typeSprites:
-  - {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  - {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  - {fileID: -4803371626618953921, guid: e995ef4484d5b704b9528b75785ea199, type: 3}
-  - {fileID: 1960944477512924465, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  _draggingLayer: 4
+  _pieceID: 0
+  _draggingLayer: 6
 --- !u!70 &3450532317090284595
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -184,5 +179,5 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.84, y: 1.25}
+  m_Size: {x: 0.9, y: 1.8}
   m_Direction: 0

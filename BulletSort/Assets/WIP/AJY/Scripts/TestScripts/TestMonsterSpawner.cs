@@ -15,6 +15,7 @@ public class TestMonsterSpawner : MonoBehaviour
 
     private int _spawnCount;
     private int _maxMonsterCount;
+    public int MaxMonsterCount => _maxMonsterCount;
 
     private Timer _spawnTimer;
     private float _spawnLate;
@@ -79,9 +80,9 @@ public class TestMonsterSpawner : MonoBehaviour
         }
 
         Debug.Log($"<color=Green>{mindistance}</color>");
-        
+
         if (atkTarget == null) return null;
-        
+
         _slotHealth = atkTarget.Health;
         _slotHealth.OnDead += DeadEvent;
 
@@ -95,7 +96,7 @@ public class TestMonsterSpawner : MonoBehaviour
         Debug.Log("[TestMSP] Dead");
         Debug.Log($"Target {_target.gameObject.name} is Dead");
         _target = SelectTarget();
-        
+
         // 모든 슬롯 파괴 — 더 줄 타겟 없음 = 게임오버 시점
         if (_target == null)
         {
@@ -103,7 +104,7 @@ public class TestMonsterSpawner : MonoBehaviour
             // 게임오버 이벤트 연결 (게임플로우)
             return;   // 아래 몬스터 타겟 갱신 안 함
         }
-        
+
         Debug.Log($"새 타겟 {_target.gameObject.name}");
         
         MonsterController[] monsters= GetComponentsInChildren<MonsterController>();
