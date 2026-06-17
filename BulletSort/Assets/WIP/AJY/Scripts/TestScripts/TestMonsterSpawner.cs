@@ -1,6 +1,7 @@
 using Core.Manager.SpawnManager;
 using InGame.Slot;
 using System.Collections.Generic;
+using Monster.Controll;
 using UnityEngine;
 
 public class TestMonsterSpawner : MonoBehaviour
@@ -31,6 +32,7 @@ public class TestMonsterSpawner : MonoBehaviour
 
     private void Start()
     {
+        //_slots = _slotBoardManager.Slots;
         _slots = _slotBoardManager._slots;
         _target = SelectTarget();
     }
@@ -48,7 +50,7 @@ public class TestMonsterSpawner : MonoBehaviour
         {
             GameObject spawnObj = Instantiate(monsterPrefab, transform.position, transform.rotation);
             spawnObj.transform.parent = transform;
-            spawnObj.GetComponentInChildren<TestMonsterMove>().target = _target.gameObject;
+            //spawnObj.GetComponentInChildren<MonsterController>().target = _target.gameObject;
             SpawnManager.Instance.Monsters.Add(spawnObj);
 
             _spawnTimer.ResetTimer(_spawnLate);
@@ -104,11 +106,11 @@ public class TestMonsterSpawner : MonoBehaviour
         }
 
         Debug.Log($"새 타겟 {_target.gameObject.name}");
-
-        TestMonsterMove[] monsters = GetComponentsInChildren<TestMonsterMove>();
+        
+        MonsterController[] monsters= GetComponentsInChildren<MonsterController>();
         foreach (var monster in monsters)
         {
-            monster.target = _target.gameObject;
+            //monster.target = _target.gameObject;
         }
     }
 
