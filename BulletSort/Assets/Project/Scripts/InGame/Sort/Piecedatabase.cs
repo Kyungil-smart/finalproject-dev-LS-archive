@@ -8,8 +8,9 @@ namespace InGame.Sort.Data
     // 나중에 조회 출처만 바꾸면 되도록 구조를 미리 잡아둠.
     // 사용: Piece 프리팹(또는 보드 매니저)에 이 SO 하나를 꽂아두고 GetByID(pieceID)로 조회.
     // 프리팹 1개에만 꽂으면 27개 풀링 인스턴스가 같은 DB를 공유.
+    // 현재는 사용하지 않는 레거시 코드
     // 작성자: 이성규
-    [CreateAssetMenu(fileName = "PieceDatabase", menuName = "Scriptable Objects/Temp/PieceDatabase")]
+    // [CreateAssetMenu(fileName = "PieceDatabase", menuName = "Scriptable Objects/Temp/PieceDatabase")]
     public class PieceDatabase : ScriptableObject
     {
         [Tooltip("기물 데이터 목록 — PieceID 순서 무관, GetByID가 ID로 찾음")]
