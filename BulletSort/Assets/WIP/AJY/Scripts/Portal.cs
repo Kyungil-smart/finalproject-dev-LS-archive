@@ -23,7 +23,7 @@ namespace Monster.Portal
             _spawnTimer = new Timer(5);
             _spawnPase = 0;
             //임시
-            _spawnCount = 20;
+            _spawnCount = 5;
         }
 
         private void Update()
