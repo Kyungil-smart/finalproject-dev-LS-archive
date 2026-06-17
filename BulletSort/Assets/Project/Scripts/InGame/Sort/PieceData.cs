@@ -10,8 +10,10 @@ namespace InGame.Sort.Data
     [CreateAssetMenu(fileName = "PieceData", menuName = "Scriptable Objects/Temp/PieceData")]
     public class PieceData : ScriptableObject
     {
+        // ID는 DataManager.GetIdFromSO가 public 필드로 읽음(자동 생성 SO 컨벤션과 동일).
+        // private+프로퍼티는 NonPublic 리플렉션 의존이라, 자동 생성이 DataManager를 덮으면 깨짐 → public 필드로 통일.
         [Tooltip("기물 식별자 — 정렬 판정·포탑 타입 결정의 기준. 0은 빈 칸 예약값이라 사용 안 함")]
-        [SerializeField] private int _pieceID;
+        public int PieceID;
 
         [Tooltip("기물 스프라이트 — SetByID 시 이 스프라이트로 교체")]
         [SerializeField] private Sprite _sprite;
@@ -20,7 +22,6 @@ namespace InGame.Sort.Data
         [SerializeField] private int _connectTowerID;
 
         // 외부 접근용 프로퍼티
-        public int PieceID => _pieceID;
         public Sprite Sprite => _sprite;
         public int ConnectTowerID => _connectTowerID;
         
