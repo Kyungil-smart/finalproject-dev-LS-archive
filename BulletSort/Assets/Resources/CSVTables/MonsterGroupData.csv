@@ -1,4 +1,4 @@
-string,int,int,int,*,string,,,,,,,
+int,int,int,int,*,string,,,,,,,
 MonsterGroupID,MonsterID_1,MonsterID_2,MonsterID_3,*,Desc,,,,,,,
 11011,4111,4121,4131,*,Normal_Stage1,,주의사항,,,,,
 11061,4111,4121,4131,*,Normal_Stage6,,1,동일한 MonsterGroup에 포함되어있는 몬스터들은 모두 등장할 확률이 같다고 가정하기때문에 그룹 내 등장 가중치를 조절하는 칼럼은 사용하지 않는다.,,,,
