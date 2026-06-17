@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e213c7f89a285044fbe8e6e06a57bcbf, type: 3}
   m_Name: PieceData_Shotgun_Temp
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Data.PieceData
-  _pieceID: 8002
+  PieceID: 8002
   _sprite: {fileID: 1960944477512924465, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
   _connectTowerID: 2

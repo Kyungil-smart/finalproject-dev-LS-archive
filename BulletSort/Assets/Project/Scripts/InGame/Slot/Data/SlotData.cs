@@ -8,8 +8,10 @@ namespace InGame.Slot.Data
     [CreateAssetMenu(fileName = "SlotData", menuName = "Scriptable Objects/Temp/SlotData")]
     public class SlotData : ScriptableObject
     {
+        // ID는 DataManager.GetIdFromSO가 public 필드로 읽음(자동 생성 SO 컨벤션과 동일).
+        // private+프로퍼티는 NonPublic 리플렉션 의존이라, 자동 생성이 DataManager를 덮으면 깨짐 → public 필드로 통일.
         [Tooltip("슬롯 데이터 식별자 — DataManager 테이블 키. 데이터 담당 협의 후 확정(임시값)")]
-        [SerializeField] private int _slotDataID;
+        public int SlotDataID;
 
         [Tooltip("슬롯 최대 체력(MaxHP) — 회복해도 이 값을 못 넘음")]
         [SerializeField] private int _maxHP = 100;
@@ -31,7 +33,6 @@ namespace InGame.Slot.Data
         [SerializeField] private Sprite[] _slotSprites;
 
         // 외부 접근용 프로퍼티 (읽기 전용)
-        public int SlotDataID => _slotDataID;
         public int MaxHP => _maxHP;
         public int HealOnSortValue => _healOnSortValue;
         public int RequiredRepairCount => _requiredRepairCount;
