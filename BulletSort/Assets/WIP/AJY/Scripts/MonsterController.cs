@@ -7,30 +7,26 @@ namespace Monster.Controll
 {
     public class MonsterController : MonoBehaviour, IDamageable
     {
-        private float _moveSpeed;
-        private int atk;
-        private int _atkSpeed;
-
+        [Tooltip("몬스터 이동속도")]
+        [SerializeField]private float _moveSpeed;
+        
+        [Tooltip("몬스터 공격력")]
+        [SerializeField]private int _atk;
+        
+        [Tooltip("몬스터 공격속도")]
+        [SerializeField]private float _atkSpeed;
+        
+        [Tooltip("몬스터 최대 체력")]
+        [SerializeField]private int _maxHealth = 50;
+        
+        [Tooltip("몬스터 현재 체력")]
         [SerializeField] private int _health;
-        private int _maxHealth = 50;
 
         public bool isDead;
 
         private Timer atkTimer;
 
         public Slot target;
-
-        private void Awake()
-        {
-            _moveSpeed = 2.5f;
-            atk = 10;
-            _atkSpeed = 2;
-            atkTimer = new Timer(_atkSpeed);
-
-            _health = _maxHealth;
-
-            isDead = false;
-        }
 
         private void Update()
         {
@@ -64,7 +60,7 @@ namespace Monster.Controll
 
         private void Attack()
         {
-            target.GetComponent<IDamageable>().TakeDamage(atk);
+            target.GetComponent<IDamageable>().TakeDamage(_atk);
         }
 
         private void Move()
@@ -101,9 +97,16 @@ namespace Monster.Controll
             isDead = true;
         }
 
-        public void Init()
+        public void Init(MonsterData monsterData)
         {
-            
+            _moveSpeed = monsterData.MonsterMoveSpeed;
+            _atk = monsterData.MonsterAtk;
+            _atkSpeed = monsterData.MonsterAtkSpeed;
+            atkTimer = new Timer(_atkSpeed);
+
+            _health = _maxHealth;
+
+            isDead = false;
         }
     }
 

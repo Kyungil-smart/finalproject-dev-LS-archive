@@ -1,3 +1,4 @@
+using Core;
 using Core.Manager.SpawnManager;
 using Monster.Controll;
 using Monster.Spawn;
@@ -12,31 +13,33 @@ namespace Monster.Factory
         {
             GameObject instance = new GameObject();
             MonsterController monsterctr = instance.AddComponent<MonsterController>();
+            
             // 몬스터 데이터 불러오기
-
+            MonsterData monsterData = DataManager.Instance.GetData<MonsterData>(04111);
             // 몬스터 데이터 저장하기
             // 체력, 공격력, 공격속도, 이동속도, 경험치
-            monsterctr.Init();
+            monsterctr.Init(monsterData);
 
             // 임시 코드
-            instance.name = "Normal";
+            instance.name = monsterData.name;
+            SpriteRenderer spriteRenderer = instance.gameObject.AddComponent<SpriteRenderer>();
 
             // 스프라이트 설정을 위한 스위치문
-            //int monsterType = MonsterID%10;
-            // 임시코드
-            int monsterType = 1;
-
+            int monsterType = monsterData.MonsterID%10;
+            // 타입에 따른 스프라이트 설정
             switch (monsterType)
             {
                 case 1:
-                    //Normal
-                    //instance.gameObject.GetComponent<SpriteRenderer>().sprite = 
+                    spriteRenderer.sprite =
+                        Resources.Load<Sprite>("Test_Monster_Sprites/Test_NormalMonster_Sprite");
                     break;
                 case 2:
-                    //Speedy
+                    spriteRenderer.sprite =
+                        Resources.Load<Sprite>("Test_Monster_Sprites/Test_SpeedyMonster_Sprite");
                     break;
                 case 3:
-                    //Tank
+                    spriteRenderer.sprite =
+                        Resources.Load<Sprite>("Test_Monster_Sprites/Test_TankMonster_Sprite");
                     break;
             }
 
