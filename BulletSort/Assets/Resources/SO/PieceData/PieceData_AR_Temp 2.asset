@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e213c7f89a285044fbe8e6e06a57bcbf, type: 3}
   m_Name: PieceData_AR_Temp 2
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Data.PieceData
-  PieceID: 8001
+  PieceID: 8101
   PieceName: "\uC138\uB9B0"
   PieceType: 1
   PieceGrade: 2
   PieceLv: 1
   ConnectTower: 1
-  PieceSprite: Character_Sprite_01_6
+  PieceSprite: Character_Sprite_01_0
   Portrait: Character_Sprite_02_0
