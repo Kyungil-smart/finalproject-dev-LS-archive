@@ -19,6 +19,11 @@ namespace InGame.Slot
         [Tooltip("자식으로 둔 슬롯 9개를 SlotID 순서로 등록")]
         [SerializeField] private List<Slot> _slots;
         
+        [Header("Deck (임시)")]
+        [Tooltip("인게임에 투입할 덱 기물 ID. 비우면 전체(GetAllIDs) 폴백. " +
+                 "정식 덱 편성 시스템 들어오면 이 자리를 덱 데이터 주입으로 교체")]
+        [SerializeField] private List<int> _deckPieceIDs = new List<int>();
+        
         // 기물 데이터는 PieceQuery 경유로 조회 — DB 직접 참조 없음(DataManager 데이터)
         
         [Header("Debug")]
@@ -43,8 +48,15 @@ namespace InGame.Slot
             ValidatePieceCount();
             
             _supplier = new PieceSupplier();
-            // DB가 가진 기물 ID 목록으로 대기 그룹 생성 — ID 체계(8001 등)는 데이터가 정함.
-            _supplier.Initialize(PieceQuery.GetAllIDs());
+            // 덱이 지정돼 있으면 그 6개로, 비면 전체(GetAllIDs) 폴백 — 검증·디버그용.
+            // 덱이 고른 ID만 대기 그룹 종류가 됨(고른 6종 × PIECE_PER_TYPE).
+            // (임시) 정식은 덱 6개 필수 — 6개 미만 입장 불가 검증이 들어갈 자리. 지금은 폴백.
+            // 정식 덱 편성 들어오면 _deckPieceIDs 대신 덱 데이터에서 ID 목록을 받음.
+            IReadOnlyList<int> pieceIDs =
+                (_deckPieceIDs != null && _deckPieceIDs.Count > 0)
+                    ? _deckPieceIDs
+                    : PieceQuery.GetAllIDs();
+            _supplier.Initialize(pieceIDs);
         }
         
         private void Start()
