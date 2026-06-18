@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e213c7f89a285044fbe8e6e06a57bcbf, type: 3}
-  m_Name: PieceData_Shotgun_Temp
+  m_Name: PieceData_LongRange_Temp 1
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Data.PieceData
-  PieceID: 8002
-  _sprite: {fileID: 1960944477512924465, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  _connectTowerID: 2
+  PieceID: 8011
+  PieceName: "\uC720\uC9C4"
+  PieceType: 3
+  PieceGrade: 1
+  PieceLv: 1
+  ConnectTower: 3
+  PieceSprite: Character_Sprite_01_8
+  Portrait: Character_Sprite_02_4

@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b308c08ba056af42915129fabeff611, type: 3}
+  m_Name: PieceSpriteTable
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Data.PieceSpriteTable
+  _entries:
+  - Name: Character_Sprite_01_0
+    Sprite: {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_1
+    Sprite: {fileID: 1960944477512924465, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_2
+    Sprite: {fileID: -4851825434126095193, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_3
+    Sprite: {fileID: 9197641502506625523, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_4
+    Sprite: {fileID: 2811034543993936900, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_5
+    Sprite: {fileID: -8848733089012088071, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_6
+    Sprite: {fileID: 7139110170170564235, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_7
+    Sprite: {fileID: 6124909209387422030, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_8
+    Sprite: {fileID: 1050704504380585594, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_9
+    Sprite: {fileID: -8972189503787325258, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_10
+    Sprite: {fileID: 6571171455904627830, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_11
+    Sprite: {fileID: 5371583334927216672, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_12
+    Sprite: {fileID: 4472361088335511687, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_13
+    Sprite: {fileID: 9145844559838742210, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_14
+    Sprite: {fileID: -5376285050798616640, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_15
+    Sprite: {fileID: -4996438406837666904, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_16
+    Sprite: {fileID: -7805203336824659005, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_01_17
+    Sprite: {fileID: 6786211201479157399, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
+  - Name: Character_Sprite_02_0
+    Sprite: {fileID: 1712940309419603891, guid: ee9d29de755e62d41a3167de796b4489, type: 3}
+  - Name: Character_Sprite_02_1
+    Sprite: {fileID: -6782720658164388521, guid: ee9d29de755e62d41a3167de796b4489, type: 3}
+  - Name: Character_Sprite_02_2
+    Sprite: {fileID: 6620097240295665162, guid: ee9d29de755e62d41a3167de796b4489, type: 3}
+  - Name: Character_Sprite_02_3
+    Sprite: {fileID: -4243448444042081764, guid: ee9d29de755e62d41a3167de796b4489, type: 3}
+  - Name: Character_Sprite_02_4
+    Sprite: {fileID: -7498108616586246331, guid: ee9d29de755e62d41a3167de796b4489, type: 3}
+  - Name: Character_Sprite_02_5
+    Sprite: {fileID: -1068156468984581057, guid: ee9d29de755e62d41a3167de796b4489, type: 3}

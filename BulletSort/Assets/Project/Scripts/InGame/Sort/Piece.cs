@@ -61,11 +61,12 @@ namespace InGame.Sort
             gameObject.SetActive(active);
             
             // 켜질 때만 스프라이트 교체 (0은 꺼지므로 갱신 불필요)
+            // PieceData는 이름(string)만 들고, PieceQuery가 SpriteTable에서 이름→객체로 변환.
             if (active && _renderer != null)
             {
-                PieceData data = PieceQuery.Get(pieceID);   // ← static 호출, 참조 불필요
-                if (data != null && data.Sprite != null)
-                    _renderer.sprite = data.Sprite;
+                Sprite sprite = PieceQuery.GetSprite(_pieceID);
+                if (sprite != null)
+                    _renderer.sprite = sprite;
             }
         }
         

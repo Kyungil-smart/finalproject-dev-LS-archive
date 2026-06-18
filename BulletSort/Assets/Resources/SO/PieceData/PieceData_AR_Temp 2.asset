@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e213c7f89a285044fbe8e6e06a57bcbf, type: 3}
-  m_Name: PieceData_Basic_Temp
+  m_Name: PieceData_AR_Temp 2
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Data.PieceData
   PieceID: 8001
-  _sprite: {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
-  _connectTowerID: 1
+  PieceName: "\uC138\uB9B0"
+  PieceType: 1
+  PieceGrade: 2
+  PieceLv: 1
+  ConnectTower: 1
+  PieceSprite: Character_Sprite_01_6
+  Portrait: Character_Sprite_02_0
