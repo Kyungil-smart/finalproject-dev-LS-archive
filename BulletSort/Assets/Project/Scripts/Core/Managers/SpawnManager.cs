@@ -103,13 +103,18 @@ namespace Core.Manager.SpawnManager
 
       public void SpawnMonster(int spawnCount)
       {
-         // 웨이브 정보 불러오기
-
+         
          for (int i = 0; i < spawnCount; i++)
          {
+            // 보스웨이브가 아닐 때
+            //if()
             SpawnPoint spawnTr = RandomPoint();
-
             _monsterFactory.CreateMonster(spawnTr);
+            
+            //보스 웨이브 일 때
+            //int index = Random.Range(0, _topSpawnPoints.Length);
+            //_monsterFactory.CreateMonster(_topSpawnPoints[index]);
+
             Debug.Log("몬스터 생성");
          }
       }

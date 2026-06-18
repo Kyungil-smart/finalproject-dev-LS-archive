@@ -15,15 +15,23 @@ namespace Monster.Portal
         
         // 웨이브 종료시 초기화 필요
         private int _spawnPase;
+        
         private int _spawnCount;
+        private int _maxMonsterCount;
+        
+        public int MaxMonsterCount => _maxMonsterCount;
 
         private void Awake()
         {
             spawnPoints = gameObject.GetComponentsInChildren<SpawnPoint>();
             _spawnTimer = new Timer(5);
+            
+            // 웨이브 정보 불러오기
+            //StageManager.Instance
             _spawnPase = 0;
             //임시
             _spawnCount = 5;
+           
         }
 
         private void Update()
