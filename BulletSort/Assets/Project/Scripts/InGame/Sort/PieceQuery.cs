@@ -18,7 +18,7 @@ namespace InGame.Sort.Data
         private static PieceSpriteTable _spriteTable;
         private static PieceSpriteTable SpriteTable =>
             _spriteTable != null ? _spriteTable
-                : (_spriteTable = Resources.Load<PieceSpriteTable>("SO/PieceSpriteTable"));
+                : (_spriteTable = Resources.Load<PieceSpriteTable>("SO/PieceSpriteTable/PieceSpriteTable"));
         
         // PieceID로 기물 데이터 조회. 없으면 null (호출 측에서 빈 칸 처리).
         public static PieceData Get(int pieceID)
