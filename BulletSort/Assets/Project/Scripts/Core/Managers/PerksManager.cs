@@ -8,6 +8,12 @@ class PerkData : ScriptableObject
 {
     public int PerkID;
     public int PerkRarityType;
+
+    public string PerkName;
+    public string PercDesc;
+    public int MaxLevel;
+    public int PerkTarget;
+    public string PerkTargetText;
 }
 class EffectData : ScriptableObject
 {
