@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 // 임시 Data 클래스
 class PerkData : ScriptableObject
 {
+    public int PerkID;
     public int PerkRarityType;
 }
 class EffectData : ScriptableObject
@@ -33,8 +35,15 @@ struct RarityWeightRange
 
 namespace Core
 {
-    class PerksManager : Singleton<StageManager>
+    class PerksManager : Singleton<PerksManager>
     {
+        // UI는 이 이벤트를 구독하여 선택된 특전들을 띄운다.
+        public event Action<int[]> OnPerksRolled;
+
+        // 특전을 선택하였을 때 invoke되는 이벤트
+        // 조건에 따라 특전 UI를 종료하거나 스테이지를 재개한다.
+        public event Action OnPerkSelected;
+
         IReadOnlyDictionary<int, PerkData> _perksPool;
         Dictionary<int, List<PerkData>> _perksByRarity;
 
@@ -132,6 +141,7 @@ namespace Core
             _perksSlot = _perksSet.ToArray();
 
             // UI 출력
+            OnPerksRolled(_perksSlot);
         }
 
         private int RollRarityID()
@@ -154,7 +164,22 @@ namespace Core
 
         private int PickRandomPerkID(int rarityID)
         {
-            return -1;
+            int length = _perksByRarity[rarityID].Count;
+
+            int randIndex = UnityEngine.Random.Range(0, length);
+
+            // 중복 허용 여부 체크 필요
+            int pickedId = _perksByRarity[rarityID][randIndex].PerkID;
+
+            return pickedId;
+        }
+
+        public void SelectPerk(int index)
+        {
+            PerkData perk = _perksPool[_perksSlot[index]];
+            // perk effect 적용
+
+            OnPerkSelected();
         }
     }
 }
