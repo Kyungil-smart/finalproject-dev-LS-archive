@@ -49,5 +49,13 @@ namespace InGame.Sort.Data
             if (data == null || SpriteTable == null) return null;
             return SpriteTable.GetByName(data.PieceSprite);
         }
+        
+        // 기물 초상화 — PieceData의 Portrait(이름)를 SpriteTable에서 객체로 변환. 덱 카드용.
+        public static Sprite GetPortrait(int pieceID)
+        {
+            var data = Get(pieceID);
+            if (data == null || SpriteTable == null) return null;
+            return SpriteTable.GetByName(data.Portrait);
+        }
     }
 }

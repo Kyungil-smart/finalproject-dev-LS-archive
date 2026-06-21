@@ -907,6 +907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1047718364958377093}
+  - component: {fileID: 1943924460257448133}
   m_Layer: 5
   m_Name: DeckWindow
   m_TagString: Untagged
@@ -936,6 +937,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1943924460257448133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731797755649697045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d63aacdffb9784296b2cb9f9eafa58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckBuilder
+  _slots:
+  - {fileID: 1097387970599052180}
+  - {fileID: 4043718355704413772}
+  - {fileID: 8470393200464171960}
+  - {fileID: 4039021803599466335}
+  - {fileID: 9024503823332627143}
+  - {fileID: 2947838097500579190}
+  _ownedContent: {fileID: 4116147480484684603}
+  _ownedCardPrefab: {fileID: 3191299268076651894, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}
 --- !u!1 &5935054841265965189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,6 +2001,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6185200022303799721, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
   m_PrefabInstance: {fileID: 2316888753114515896}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9024503823332627143 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6708749784743172991, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
+  m_PrefabInstance: {fileID: 2316888753114515896}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547dce493338c1d48890c2027676d966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckSlot
 --- !u!1001 &2924707383661119687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2076,6 +2109,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
+--- !u!114 &8470393200464171960 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6708749784743172991, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
+  m_PrefabInstance: {fileID: 2924707383661119687}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547dce493338c1d48890c2027676d966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckSlot
 --- !u!224 &9025384596995486062 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6185200022303799721, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
@@ -2183,6 +2227,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6185200022303799721, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
   m_PrefabInstance: {fileID: 5917994798023686379}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1097387970599052180 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6708749784743172991, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
+  m_PrefabInstance: {fileID: 5917994798023686379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547dce493338c1d48890c2027676d966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckSlot
 --- !u!1001 &7279057289861178675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2285,6 +2340,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6185200022303799721, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
   m_PrefabInstance: {fileID: 7279057289861178675}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4043718355704413772 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6708749784743172991, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
+  m_PrefabInstance: {fileID: 7279057289861178675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547dce493338c1d48890c2027676d966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckSlot
 --- !u!1001 &7284353097265239072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2387,6 +2453,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6185200022303799721, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
   m_PrefabInstance: {fileID: 7284353097265239072}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4039021803599466335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6708749784743172991, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
+  m_PrefabInstance: {fileID: 7284353097265239072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547dce493338c1d48890c2027676d966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckSlot
 --- !u!1001 &8499021764552752649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2489,3 +2566,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6185200022303799721, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
   m_PrefabInstance: {fileID: 8499021764552752649}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2947838097500579190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6708749784743172991, guid: ad06e520e3247d44bae2ab4a10eee29b, type: 3}
+  m_PrefabInstance: {fileID: 8499021764552752649}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547dce493338c1d48890c2027676d966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckSlot

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6185200022303799721}
+  - component: {fileID: 6708749784743172991}
   m_Layer: 5
   m_Name: DeckSlot
   m_TagString: Untagged
@@ -38,6 +39,22 @@ RectTransform:
   m_AnchoredPosition: {x: 306, y: -203.5}
   m_SizeDelta: {x: 204, y: 328}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6708749784743172991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505147353010352762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547dce493338c1d48890c2027676d966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckSlot
+  _emptyBG: {fileID: 4616694458693835708}
+  _card: {fileID: 314887354247308921}
+  _pieceVisual: {fileID: 2020717169348458844}
+  _pieceImage: {fileID: 567931107443288691}
 --- !u!1 &1865112929400765162
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &538993061969532901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -344,9 +361,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1809158508165513270}
     m_Modifications:
+    - target: {fileID: 1110293265847815635, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1371875763113060602}
     - target: {fileID: 1947553216773656360, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}
       propertyPath: m_Name
       value: DeckCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947553216773656360, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8712422088724149222, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}
       propertyPath: m_Pivot.x
@@ -433,6 +458,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}
+--- !u!114 &314887354247308921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3191299268076651894, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}
+  m_PrefabInstance: {fileID: 2888902652140200719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a151e77240fb7b64abeef89d005fefe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckCard
+--- !u!114 &1371875763113060602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4260000743241698293, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}
+  m_PrefabInstance: {fileID: 2888902652140200719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!224 &5836608068098150633 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8712422088724149222, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace InGame.Lobby
+namespace Lobby
 {
     // 하단 탭바 — 탭 클릭 시 (윈도우 전환 + 탭 활성표시 + 상단 라벨 갱신)을 한 번에.
     // 탭 하나에 묶이는 요소를 TabEntry로 묶어 인덱스로 일괄 토글.
