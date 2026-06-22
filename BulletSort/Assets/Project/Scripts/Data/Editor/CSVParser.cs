@@ -264,7 +264,7 @@ public class CSVParser
 
         if (!Directory.Exists(soRootPath))
         {
-            Debug.LogError($"CSV Parser : Path Error, DataManager.cs File is Not Found. Wrong Path : {soRootPath}");
+            Debug.LogError($"CSV Parser : Path Error, SO Directory is Not Found. Wrong Path : {soRootPath}");
         }
 
         if (!File.Exists(dataManagerPath))
