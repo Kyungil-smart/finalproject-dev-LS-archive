@@ -182,10 +182,9 @@ namespace InGame.Slot
             // ── 임시: 슬롯 비주얼 교체를 정렬 성공에 직결 ──
             // 정식 흐름은 포탑 시스템이 가동 포탑(ActiveTurret) 확정 시 SetTowerType 호출.
             // 지금은 ActiveTurret 신호가 없어, 정렬 성공 즉시 연결 타워 이미지로 바꿔 검증만.
-            // towerType은 임시로 ConnectTowerID 직접 사용 — 현재 1·2·3이 TowerType(1~6) 범위와 겹쳐 동작.
-            // 타워 DB 정식화 시 ConnectTowerID는 실제 타워 ID(7001 등)가 되므로,
-            //   GetConnectTowerID → TowerData.TowerType 변환 단계를 끼워야 함.
-            int towerType = GetConnectTowerID(pieceID);
+            // towerType은 GetConnectTowerType으로 ConnectTower(타워 ID) → TowerData.TowerType 변환해 구함.
+            //   (타워 DB 연결 완료 — 이전의 "ID를 타입처럼 임시 사용"은 해소됨)
+            int towerType = GetConnectTowerType(pieceID);
             GetSlotByID(slotID)?.Visual?.SetTowerType(towerType);
         }
         
@@ -243,6 +242,11 @@ namespace InGame.Slot
             return PieceQuery.GetConnectTowerID(pieceID);
         }
         
+        public int GetConnectTowerType(int pieceID)
+        {
+            return PieceQuery.GetConnectTowerType(pieceID);
+        }
+        
         // 보드 전체 기물 카운트 집계 — 9슬롯 순회, PieceSelector 우선순위 판정용.
         private Dictionary<int, int> CountBoardPieces()
         {
@@ -252,8 +256,9 @@ namespace InGame.Slot
             return counts;
         }
         
-        // 이번 판 덱이 쓸 포탑 종류 — 미리 풀링용. 기물 ID → ConnectTower 변환 + 중복 제거.
-        public IReadOnlyList<int> GetActiveTowerTypes()
+        // 이번 판 덱이 쓸 포탑 ID 목록 — 풀링용. 기물 ID → ConnectTower(타워 ID) 변환 + 중복 제거.
+        //   타입이 아니라 타워 ID를 넘김(타워에게 전할 정보 — 타입 변환은 타워 도메인이 처리).
+        public IReadOnlyList<int> GetActiveTowerIDs()
         {
             var set = new HashSet<int>();
             if (_activePieceIDs == null) return new List<int>();   // 가드

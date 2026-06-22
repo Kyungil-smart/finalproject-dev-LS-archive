@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Core;
+using InGame.Tower.Data;
 using UnityEngine;
 
 namespace InGame.Sort.Data
@@ -39,6 +40,16 @@ namespace InGame.Sort.Data
         {
             var data = Get(pieceID);
             return data != null ? data.ConnectTower : 0;
+        }
+        
+        // 기물 → 연결 포탑 타입 — 슬롯 비주얼이 조회.
+        public static int GetConnectTowerType(int pieceID)
+        {
+            var piece = Get(pieceID);
+            if (piece == null) return 0;
+
+            var tower = DataManager.Instance.GetData<TowerData>(piece.ConnectTower);
+            return tower != null ? tower.TowerType : 0;
         }
         
         // 기물 인게임 스프라이트 — PieceData의 이름(PieceSprite)을 SpriteTable에서 객체로 변환.
