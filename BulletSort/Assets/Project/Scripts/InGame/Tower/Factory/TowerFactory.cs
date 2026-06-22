@@ -39,6 +39,7 @@ namespace Towers.Factory
             // 풀방식으로 변경할 수도 있다.
             GameObject instance = Instantiate(prefab, pos, Quaternion.identity);
             instance.transform.SetParent(spawnTransform);
+            instance.GetComponent<ITower>().SetData(data);
             
             return instance.GetComponent<ITower>();
         }

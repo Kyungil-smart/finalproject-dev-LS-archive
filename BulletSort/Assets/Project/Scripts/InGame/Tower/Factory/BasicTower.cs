@@ -2,6 +2,7 @@ using System.Collections;
 using Core.Manager.SpawnManager;
 using Core.ObjectPool;
 using Core.ObjectPool.Interface;
+using InGame.Tower.Data;
 using Projectile.Interface;
 using Towers.Interface.Tower;
 using Towers.Struct.TowerInfo;
@@ -21,9 +22,6 @@ namespace Towers.Factory
         private void Awake()
         {
             _targetDetector = gameObject.GetComponent<TargetDetector>();
-            
-            // 테스트용 하드코드
-            _towerInfo = new STowerInfo("기본형 타워");
         }
 
         private void Start()
@@ -32,12 +30,6 @@ namespace Towers.Factory
             _projectile = SpawnManager.Instance.SpawnProjectile(_towerInfo.ProjectileType, _towerInfo.TowerMaxAmmo);
             
             _atkCoroutine = StartCoroutine(Attack());
-        }
-
-        // SO데이터 불러오기 구현 필요
-        private void Init()
-        {
-            
         }
 
         public IEnumerator Attack()
@@ -54,6 +46,12 @@ namespace Towers.Factory
             }
             
             Destroy(gameObject);
+        }
+
+        // SO 데이터 저장
+        public void SetData(TowerData towerData)
+        {
+            _towerInfo = new STowerInfo(towerData);
         }
 
         private void OnDestroy()
