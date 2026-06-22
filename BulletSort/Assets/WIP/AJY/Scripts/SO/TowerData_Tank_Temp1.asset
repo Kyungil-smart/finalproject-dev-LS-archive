@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7bd37e1800bec14794dcf2719542df5, type: 3}
+  m_Name: TowerData_Tank_Temp1
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Tower.Data.TowerData
+  TowerID: 7016
+  TowerType: 4
+  TowerAIType: 1
+  TowerAtk: 7
+  TowerAtkSpeed: 0.5
+  TowerMaxLange: 10
+  TowerMaxAmmo: 20
+  TowerProjectile: 6003
+  ProjectileCount: 1
+  ProjectileSize: 0.25
+  PiercingCount: 0
+  SplashRadius: 0
+  CurrentHp: 0

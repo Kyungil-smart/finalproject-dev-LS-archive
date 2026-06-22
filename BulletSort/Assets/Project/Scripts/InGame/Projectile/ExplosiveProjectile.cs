@@ -1,0 +1,79 @@
+using Core.Interface.IDamageable;
+using Core.ObjectPool;
+using Projectile.Interface;
+using Core.ObjectPool.Interface;
+using UnityEngine;
+
+namespace Projectile
+{
+    public class ExplosiveProjectile : MonoBehaviour, IProjectile, IPoolable
+    {
+        private GameObject _target;
+        private GameObject _keyObj;
+
+        private float _moveSpeed;
+        private int _atk;
+
+        public GameObject KeyObject
+        {
+            get { return _keyObj; }
+            set { _keyObj = value; }
+        }
+
+        private void FixedUpdate()
+        {
+            MoveToTarget(_target);
+        }
+
+        public void MoveToTarget(GameObject target)
+        {
+            if (target == null) return;
+
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,
+                _target.transform.position, _moveSpeed * Time.deltaTime);
+        }
+
+        // 투사체가 몬스터에 도달 시
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.tag == "Monster")
+            {
+                AtkTarget(other.gameObject);
+            }
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (other.gameObject.tag == "Monster")
+            {
+                AtkTarget(other.gameObject);
+            }
+        }
+
+        public void AtkTarget(GameObject target)
+        {
+            // 피해 계산
+            target.GetComponent<IDamageable>().TakeDamage(_atk);
+            PoolManager.Instance.Release(_keyObj, gameObject);
+        }
+
+        // 데이터 받아오기
+        public void Init(GameObject target, GameObject keyObj, int atk, float moveSpeed)
+        {
+            _target = target;
+            _keyObj = keyObj;
+            _atk = atk;
+            _moveSpeed = moveSpeed;
+        }
+
+        public void OnSpawn()
+        {
+
+        }
+
+        public void OnDespawn()
+        {
+            _target = null;
+        }
+    }
+}

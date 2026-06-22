@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7bd37e1800bec14794dcf2719542df5, type: 3}
+  m_Name: TowerData_Wide_Temp3
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Tower.Data.TowerData
+  TowerID: 7023
+  TowerType: 5
+  TowerAIType: 2
+  TowerAtk: 60
+  TowerAtkSpeed: 1.5
+  TowerMaxLange: 10
+  TowerMaxAmmo: 10
+  TowerProjectile: 6004
+  ProjectileCount: 1
+  ProjectileSize: 0.38
+  PiercingCount: 0
+  SplashRadius: 80
+  CurrentHp: 0

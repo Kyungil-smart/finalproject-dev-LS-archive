@@ -1,4 +1,5 @@
-using Towers.Factory.Type;
+using Core;
+using InGame.Tower.Data;
 using Towers.Interface.Tower;
 using UnityEngine;
 
@@ -6,24 +7,17 @@ namespace Towers.Factory
 {
     public class TowerFactory : MonoBehaviour
     {
-        [SerializeField] private GameObject _basicPrefab;
-        [SerializeField] private GameObject _nonBasicPrefab;
-        [SerializeField] private GameObject _shoutGunPrefab;
-
-        public ITower CreateTower(ETowerType type, Transform spawnTransform)
+        [SerializeField] private GameObject _towerPrefab;
+        
+        public ITower CreateTower(int TowerID, Transform spawnTransform)
         {
-            GameObject prefab = type switch
-            {
-                ETowerType.Basic => _basicPrefab,
-                ETowerType.NonBasic => _nonBasicPrefab,
-                ETowerType.Shotgun => _shoutGunPrefab,
-                _ => throw new System.ArgumentException($"잘못된 타입 : {type}")
-            };
-
+            TowerData data = DataManager.Instance.GetData<TowerData>(TowerID);
+            
             var pos = spawnTransform.position;
             // 풀방식으로 변경할 수도 있다.
-            GameObject instance = Instantiate(prefab, pos, Quaternion.identity);
+            GameObject instance = Instantiate(_towerPrefab, pos, Quaternion.identity);
             instance.transform.SetParent(spawnTransform);
+            instance.GetComponent<ITower>().SetData(data);
             
             return instance.GetComponent<ITower>();
         }

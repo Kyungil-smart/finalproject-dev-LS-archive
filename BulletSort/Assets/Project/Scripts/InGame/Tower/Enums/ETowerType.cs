@@ -2,7 +2,7 @@ namespace Towers.Factory.Type
 {
     public enum ETowerType
     {
-        None, Basic, NonBasic, Shotgun
+        None, Basic, Shotgun, LongRange, Tank, Wide, Buffer
     }    
 }
 
