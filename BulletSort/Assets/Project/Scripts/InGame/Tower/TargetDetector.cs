@@ -1,16 +1,15 @@
 using System.Collections.Generic;
-using Core;
 using Core.Manager.SpawnManager;
 using Monster.Controll;
 using UnityEngine;
 
 public class TargetDetector : MonoBehaviour
 {
-   [Header("사거리"), SerializeField]
    private float _bulletDuration;
 
    private float _bulletSpeed;
    private float _detectRange;
+   public float DetectRange { get => _detectRange; set  => _detectRange = value; }
    
    [SerializeField]public GameObject target;
    [SerializeField]public List<GameObject> _detectedMonsters;
@@ -20,11 +19,6 @@ public class TargetDetector : MonoBehaviour
    {
       _bulletSpeed = 1f;
       _detectedMonsters = new List<GameObject>();
-   }
-
-   private void Start()
-   {
-      _detectRange = _bulletSpeed * _bulletDuration;
    }
 
    private void Update()

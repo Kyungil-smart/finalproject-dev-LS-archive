@@ -232,6 +232,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1f36ccc5c331941a3e0e1e9fafbe6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotBoardManager
+--- !u!1001 &496796986
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794522443537094219, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7112643014078815991, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_Name
+      value: BG_InGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135025001996530094, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa8a82e6680cc28439e9ae2a9fe7396e, type: 3}
 --- !u!1 &499347006
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,8 +872,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileFactory
   _normalPrefab: {fileID: 618198340853767477, guid: ab24a4c5dd1f0af47ba3f863ea4dcb78, type: 3}
-  _explosivePrefab: {fileID: 0}
-  _snipePrefab: {fileID: 0}
+  _snipePrefab: {fileID: 618198340853767477, guid: 0af74f44ea9f1134d8aeeff1559268cb, type: 3}
+  _tankPrefab: {fileID: 618198340853767477, guid: 2c7d2d94803b3ff4195731add8f89916, type: 3}
+  _explosivePrefab: {fileID: 618198340853767477, guid: eae2a0fffc1a5c5439aedadaf4bfe6bc, type: 3}
+  _healPrefab: {fileID: 618198340853767477, guid: 2e4b132c7b56a9249a53ec1cf50af19c, type: 3}
 --- !u!4 &1372060142
 Transform:
   m_ObjectHideFlags: 0
@@ -831,9 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6238be00b73bcba4b8e64e44cb2d408b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Towers.Factory.TowerFactory
-  _basicPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
-  _nonBasicPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
-  _shoutGunPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
+  _towerPrefab: {fileID: 0}
 --- !u!4 &1388435584
 Transform:
   m_ObjectHideFlags: 0
@@ -878,9 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6238be00b73bcba4b8e64e44cb2d408b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Towers.Factory.TowerFactory
-  _basicPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
-  _nonBasicPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
-  _shoutGunPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
+  _towerPrefab: {fileID: 0}
 --- !u!4 &1514316268
 Transform:
   m_ObjectHideFlags: 0
@@ -1427,6 +1526,7 @@ SceneRoots:
   - {fileID: 6348066378005556175}
   - {fileID: 2470810986791007378}
   - {fileID: 4782242637426716872}
+  - {fileID: 496796986}
   - {fileID: 1650842468}
   - {fileID: 1388435584}
   - {fileID: 1372060142}

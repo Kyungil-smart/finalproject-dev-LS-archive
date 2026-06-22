@@ -1,23 +1,24 @@
 using InGame.Slot;
+using Monster.Portal;
 using UnityEngine;
 
 namespace Core
 {
     /// <summary>
-    /// ÇöÀç Ingame¿¡¼­ ÁøÇàÁßÀÎ StageÀÇ ÁøÇàÀ» °ü¸®ÇÏ´Â Å¬·¡½ºÀÌ´Ù.
-    /// Lobby¿¡¼­ Stage ¼±ÅÃ ½Ã ÇØ´ç StageÀÇ index Á¤º¸¸¦ ¹Þ°í,
-    /// StageData SOÀÇ id·Î Á¤º¸¸¦ Á¢±ÙÇÔ.
+    /// ï¿½ï¿½ï¿½ï¿½ Ingameï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Stageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
+    /// Lobbyï¿½ï¿½ï¿½ï¿½ Stage ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ø´ï¿½ Stageï¿½ï¿½ index ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ°ï¿½,
+    /// StageData SOï¿½ï¿½ idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
     /// 
-    /// ÀÛ¼ºÀÚ : ±è°æ¹Î
+    /// ï¿½Û¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
     /// </summary>
 
-    // DataManager·ÎºÎÅÍ Çö Stage¿¡ ¸Â´Â SO instance¸¦ °¡Á®¿À°í
-    // Monster Spawner¿¡ ¿äÃ»ÇÏ´Â ÇüÅÂ?
+    // DataManagerï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ Stageï¿½ï¿½ ï¿½Â´ï¿½ SO instanceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    // Monster Spawnerï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½?
 
     class StageManager : Singleton<StageManager>
     {
         [SerializeField] private SlotBoardManager _slotBoardManager;
-        TestMonsterSpawner[] spawners;
+        Portal[] spawners;
 
         int _targetKillNum = 0;
         int _killCount = 0;
@@ -32,9 +33,9 @@ namespace Core
 
         protected override void Init()
         {
-            spawners = FindObjectsByType<TestMonsterSpawner>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
+            spawners = FindObjectsByType<Portal>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
 
-            foreach (TestMonsterSpawner spawner in spawners)
+            foreach (Portal spawner in spawners)
             {
                 _targetKillNum += spawner.MaxMonsterCount;
             }
@@ -51,7 +52,7 @@ namespace Core
             _killCount = 0;
             _targetKillNum = 0;
 
-            foreach (TestMonsterSpawner spawner in spawners)
+            foreach (Portal spawner in spawners)
             {
                 _targetKillNum += spawner.MaxMonsterCount;
             }
@@ -78,7 +79,7 @@ namespace Core
         {
             while (_isWin == false && _isDefeat == false)
             {
-                if (_targetKillNum == _killCount)   // Á¦ÇÑ ½Ã°£ÀÌ Á¾·áµÇ¾úÀ» ¶§µµ Å¬¸®¾î.
+                if (_targetKillNum == _killCount)   // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½.
                 {
                     _isWin = true;
                 }
@@ -87,14 +88,14 @@ namespace Core
 
                 if (_isWin)
                 {
-                    // ½Â¸® Ã³¸®
-                    // ´ÙÀ½ ¿þÀÌºê ÁøÇà
+                    // ï¿½Â¸ï¿½ Ã³ï¿½ï¿½
+                    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
                     break;
                 }
 
                 if (_isDefeat)
                 {
-                    // ÆÐ¹è Ã³¸®
+                    // ï¿½Ð¹ï¿½ Ã³ï¿½ï¿½
                     break;
                 }
             }

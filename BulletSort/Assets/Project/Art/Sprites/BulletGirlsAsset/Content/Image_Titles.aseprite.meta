@@ -241,10 +241,10 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 1505
-      y: 856
-      width: 470
-      height: 233
+      x: 1539
+      y: 812
+      width: 312
+      height: 314
     spriteID: dcb3cb3fa16f5674baa12debb825a9f2
     spriteBone: []
     spriteOutline: []
@@ -456,6 +456,48 @@ ScriptedImporter:
       width: 137
       height: 35
     spriteID: d02bd165f580555428ad86e4fb97d68f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Image_Titles_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1747
+      y: 625
+      width: 101
+      height: 37
+    spriteID: 137a6554f68610a4780938f883542124
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Image_Titles_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1761
+      y: 579
+      width: 75
+      height: 34
+    spriteID: d7ca8fbc9de5dea42bda2df847832f56
     spriteBone: []
     spriteOutline: []
     vertices: []

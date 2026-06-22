@@ -1,5 +1,5 @@
 using System.Collections;
-using UnityEngine;
+using InGame.Tower.Data;
 
 namespace Towers.Interface.Tower
 {
@@ -7,10 +7,11 @@ namespace Towers.Interface.Tower
     {
         // 투사체 생성
         public IEnumerator Attack();
-        
+
+        // 데이터 저장
+        public void SetData(TowerData towerData);
+
         // 탄배출
-        
-        // 디텍터 불러오기
     }    
 }
 

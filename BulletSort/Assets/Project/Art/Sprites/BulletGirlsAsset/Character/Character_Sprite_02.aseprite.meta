@@ -294,9 +294,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 0
-        width: 1024
-        height: 1024
+        y: 348
+        width: 369
+        height: 634
       spriteId: 26b8d1276782c6340b89298aca6c9dbf
     linkedCells: []
     tileCells: []
