@@ -191,6 +191,13 @@ namespace Core
             _remainSelectNum--;
 
             OnPerkSelected();
+
+            if (_remainSelectNum == 0)
+            {
+                return;
+            }
+
+            ChoosePerks();
         }
 
         private void Update()
