@@ -1,4 +1,4 @@
-using Core.Manager.SpawnManager;
+﻿using Core.Manager.SpawnManager;
 
 namespace Core
 {
@@ -22,7 +22,8 @@ namespace Core
             RegisterManager<InputManager>();
             RegisterManager<ScreenWatcher>();
             RegisterManager<SpawnManager>();
-            
+            RegisterManager<PerksManager>();
+
             if (Logger.Instance != null)
             {
                 Logger.Instance.LogInfo("GameManager 초기화 및 매니저 등록 완료");

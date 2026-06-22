@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 struct RarityWeightRange
 {
@@ -29,6 +30,8 @@ namespace Core
         // 조건에 따라 특전 UI를 종료하거나 스테이지를 재개한다.
         public event Action OnPerkSelected;
 
+        public event Action OnRerolled;
+
         IReadOnlyDictionary<int, PerkData> _perksPool;
         Dictionary<int, List<PerkData>> _perksByRarity;
 
@@ -39,20 +42,27 @@ namespace Core
         HashSet<int> _perksSet;
 
         const int DEFAULT_REROLL_NUM = 1;
-        int _rerollCnt;
+        int _remainRerollNum;
+        public int RemainRerollNum { get { return _remainRerollNum; } }
+
+
+        const int DEFAULT_SELECT_NUM = 2;
+        int _remainSelectNum;
+        public int RemainSelectNum { get { return _remainSelectNum; } }
 
         const int MAX_PERKS_NUM = 3;
         int[] _perksSlot;
+
 
         protected override void Init()
         {
             //DataManager.Instance.GetData<PerksData>(...);
             _perksPool = DataManager.Instance.GetTable<PerkData>();
 
-            _rerollCnt = DEFAULT_REROLL_NUM;
-
             // Rarity Info 초기화 & Weight 최대치 계산
             _rarityInfo = DataManager.Instance.GetTable<RarityData>();
+
+            _rarityWeightRangeInfo = new Dictionary<int, RarityWeightRange>();
 
             _maxWeight = 0;
             foreach (var pair in _rarityInfo)
@@ -81,6 +91,17 @@ namespace Core
             }
 
             _perksSet = new HashSet<int>();
+
+
+            // 임시 코드
+            // StageManager에서 Wave 당 Perks Manager 활성화 시 State를 초기화하고 PerksPhase 진입.
+            InitState();
+        }
+
+        public void InitState()
+        {
+            _remainRerollNum = DEFAULT_REROLL_NUM;
+            _remainSelectNum = DEFAULT_SELECT_NUM;
         }
 
         public void EnterPerksPhase()
@@ -88,15 +109,17 @@ namespace Core
             ChoosePerks();
         }
 
-        private void Reroll()
+        public void Reroll()
         {
-            if (_rerollCnt <= 0)
+            if (_remainRerollNum <= 0)
             {
                 // 애초에 UI에서 비활성화 되어야 함.
                 return;
             }
 
-            _rerollCnt--;
+            _remainRerollNum--;
+
+            OnRerolled();
 
             ChoosePerks();
         }
@@ -164,7 +187,25 @@ namespace Core
             PerkData perk = _perksPool[_perksSlot[index]];
             // perk effect 적용
 
+            Debug.Log($"[PerksManager] : Perk {perk.PerkID} is Selected");
+            _remainSelectNum--;
+
             OnPerkSelected();
+
+            if (_remainSelectNum == 0)
+            {
+                return;
+            }
+
+            ChoosePerks();
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+            {
+                ChoosePerks();
+            }
         }
     }
 }
