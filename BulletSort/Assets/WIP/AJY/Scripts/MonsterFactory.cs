@@ -23,8 +23,9 @@ namespace Monster.Factory
             // 임시 코드
             instance.name = monsterData.name;
             SpriteRenderer spriteRenderer = instance.gameObject.AddComponent<SpriteRenderer>();
-
-            // 스프라이트 설정을 위한 스위치문
+            spriteRenderer.sortingLayerName = "Monster";
+            instance.tag = "Monster";
+            instance.AddComponent<CircleCollider2D>();
             int monsterType = monsterData.MonsterID%10;
             // 타입에 따른 스프라이트 설정
             switch (monsterType)

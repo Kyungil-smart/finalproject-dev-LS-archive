@@ -48,7 +48,7 @@ public class TargetDetector : MonoBehaviour
          if (enemy == null) continue;
          // 포탑과 몬스터 사이의 거리 계산
          float distance = GetDistance(enemy.transform.position);
-         Debug.Log($"<color=Red>{distance}</color>");
+         // Debug.Log($"<color=Red>{distance}</color>");
          
          // 탐지된 적인지 확인
          if (_detectedMonsters.Contains(enemy))
@@ -78,7 +78,7 @@ public class TargetDetector : MonoBehaviour
    {
       GameObject atkTarget = null;
       float mindistance = float.MaxValue;
-      Debug.Log($"<color=Green>{mindistance}</color>");
+      // Debug.Log($"<color=Green>{mindistance}</color>");
       
       foreach (GameObject monster in _detectedMonsters)
       {
@@ -94,12 +94,12 @@ public class TargetDetector : MonoBehaviour
       if (atkTarget == null) return;
 
       target = atkTarget;
-      Debug.Log("타겟선정");
+      // Debug.Log("타겟선정");
    }
 
    private void KillTarget()
    {
-      Debug.Log("목표제거");
+      // Debug.Log("목표제거");
       _detectedMonsters.Remove(target);
       Destroy(target);
       target = null;
