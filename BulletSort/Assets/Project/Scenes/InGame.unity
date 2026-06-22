@@ -837,6 +837,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Logger
       objectReference: {fileID: 0}
+    - target: {fileID: 3125145709205108230, guid: f8302ccd86d743441be552f68efc5f90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1372,7 +1376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4060128181838744797, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
       propertyPath: _debugMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5857488100814291629, guid: 9fe77fb6fb319d74299e35fb573879d7, type: 3}
       propertyPath: m_Name
