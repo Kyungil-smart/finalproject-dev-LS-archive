@@ -88,10 +88,10 @@ namespace Core.Manager.SpawnManager
       }
 
       // 3sorting시 호출하여 타워 스폰
-      public void SpawnTower(ETowerType towerType, Slot slot)
+      public void SpawnTower(int towerID, Slot slot)
       {
          Transform spawnTr = slot.transform;
-         _towerFactory.CreateTower(towerType, spawnTr);
+         _towerFactory.CreateTower(towerID, spawnTr);
       }
 
       public GameObject SpawnProjectile(EProjectileType projectileType, int count)
@@ -121,11 +121,11 @@ namespace Core.Manager.SpawnManager
 
       private SpawnPoint RandomPoint()
       {
-          int topbottom = Random.Range(0, 1);
+          int topbottom = Random.Range(0, 10);
           Debug.Log($"상하단 넘버 : {topbottom}");
           int index = Random.Range(0, _topSpawnPoints.Length);
           Debug.Log($"스폰포인트 넘버 : {index}");  
-          if (topbottom == 0) return _topSpawnPoints[index];
+          if (topbottom < 5) return _topSpawnPoints[index];
           
           return _bottomSpawnPoints[index];
       }

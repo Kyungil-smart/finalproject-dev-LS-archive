@@ -31,11 +31,10 @@ namespace Towers.Spawner.Handler
             int towerID = _slotBoardManager.GetConnectTowerID(pieceID);
 
             // 3. towerID → ETowerType (타워 영역 매핑 — 추후 타워 SO 조회로 교체)
-            ETowerType type = (ETowerType)towerID;
-            Logger.Instance?.LogInfo($"{pieceID} 기물의 {type.ToString()} 포탑 소환 요청");
+            Logger.Instance?.LogInfo($"{pieceID} 기물의 {towerID.ToString()} 포탑 소환 요청");
             
             // 4. 소환
-            SpawnManager.Instance.SpawnTower(type, slot);
+            SpawnManager.Instance.SpawnTower(towerID, slot);
         }
     }
 }

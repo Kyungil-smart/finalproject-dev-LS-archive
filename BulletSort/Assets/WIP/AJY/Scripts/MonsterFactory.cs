@@ -46,6 +46,7 @@ namespace Monster.Factory
             var pos = spawnPoint.transform.position;
             
             instance.transform.position = pos;
+            instance.transform.SetParent(spawnPoint.transform);
             monsterctr.target = spawnPoint.Target;
             SpawnManager.Instance.Monsters.Add(instance);
             Debug.Log("몬스터오브젝트생성");
