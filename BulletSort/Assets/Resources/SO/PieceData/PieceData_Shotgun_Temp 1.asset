@@ -17,6 +17,6 @@ MonoBehaviour:
   PieceType: 2
   PieceGrade: 1
   PieceLv: 1
-  ConnectTower: 2
+  ConnectTower: 7006
   PieceSprite: Character_Sprite_01_7
   Portrait: Character_Sprite_02_2

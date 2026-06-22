@@ -21,11 +21,20 @@ namespace InGame.Tower.Data
 
         public float TowerAtkSpeed;
 
-        public int TowerMaxAmmo;
-
         public int TowerMaxLange;
         
-        public int ProjectileCount;
+        public int TowerMaxAmmo;
+
+        public int TowerProjectile;
         
+        public int ProjectileCount;
+
+        public float ProjectileSize;
+
+        public int PiercingCount;
+
+        public float SplashRadius;
+
+        public int CurrentHp;
     }
 }

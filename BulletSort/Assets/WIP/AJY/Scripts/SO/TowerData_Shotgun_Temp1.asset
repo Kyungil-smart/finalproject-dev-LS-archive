@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bd37e1800bec14794dcf2719542df5, type: 3}
   m_Name: TowerData_Shotgun_Temp1
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Tower.Data.TowerData
-  TowerID: 0
-  TowerType: 0
-  TowerAIType: 0
-  TowerAtk: 0
-  TowerAtkSpeed: 0
-  TowerMaxAmmo: 0
-  TowerMaxLange: 0
-  ProjectileCount: 0
+  TowerID: 7006
+  TowerType: 2
+  TowerAIType: 3
+  TowerAtk: 3
+  TowerAtkSpeed: 0.6
+  TowerMaxLange: 8
+  TowerMaxAmmo: 20
+  TowerProjectile: 6001
+  ProjectileCount: 5
+  ProjectileSize: 0.15
+  PiercingCount: 0
+  SplashRadius: 0
+  CurrentHp: 0
