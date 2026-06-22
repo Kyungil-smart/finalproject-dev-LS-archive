@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -8,12 +8,12 @@ using UnityEngine;
 
 
 /// <summary>
-/// CSV ÆÄÀÏÀ» ParsingÇÏ¿© µ¥ÀÌÅÍ¸¦ SO ÆÄÀÏ·Î ÀúÀåÇÏ±â À§ÇÑ Editor ÄÚµå.
-/// SOÆÄÀÏÀÇ ÀÌ¸§Àº CSV ÆÄÀÏÀÇ ÀÌ¸§°ú ¿ÏÀüÈ÷ ÀÏÄ¡ÇØ¾ß ÇÔ.
+/// CSV íŒŒì¼ì„ Parsingí•˜ì—¬ ë°ì´í„°ë¥¼ SO íŒŒì¼ë¡œ ì €ì¥í•˜ê¸° ìœ„í•œ Editor ì½”ë“œ.
+/// SOíŒŒì¼ì˜ ì´ë¦„ì€ CSV íŒŒì¼ì˜ ì´ë¦„ê³¼ ì™„ì „íˆ ì¼ì¹˜í•´ì•¼ í•¨.
 /// 
-/// Unity ÇÁ·Î¼¼½º ½ÇÇà ½Ã SO ÆÄÀÏÀ» ·±Å¸ÀÓ ÀÎ½ºÅÏ½º·Î ¸¸µå´Â ±â´ÉÀº ¿©±â¿¡ Æ÷ÇÔµÇÁö ¾ÊÀ½.
+/// Unity í”„ë¡œì„¸ìŠ¤ ì‹¤í–‰ ì‹œ SO íŒŒì¼ì„ ëŸ°íƒ€ì„ ì¸ìŠ¤í„´ìŠ¤ë¡œ ë§Œë“œëŠ” ê¸°ëŠ¥ì€ ì—¬ê¸°ì— í¬í•¨ë˜ì§€ ì•ŠìŒ.
 /// 
-/// ÀÛ¼ºÀÚ : ±è°æ¹Î
+/// ì‘ì„±ì : ê¹€ê²½ë¯¼
 /// </summary>
 
 public class CSVParser
@@ -115,11 +115,11 @@ public class CSVParser
 
                 string idStr = row[0].Trim();
 
-                // ¿¡¼Â ÆÄÀÏ ¸í ¿¹½Ã : Assets/Resources/SO/DataTypeName/DataTypeName_ID.asset
+                // ì—ì…‹ íŒŒì¼ ëª… ì˜ˆì‹œ : Assets/Resources/SO/DataTypeName/DataTypeName_ID.asset
                 string assetPath = $"{targetFolder}/{className}_{idStr}.asset";
                 Debug.Log($"Asset Name : {className}_{idStr}");
 
-                // SO ·Îµå or »ı¼º
+                // SO ë¡œë“œ or ìƒì„±
                 ScriptableObject soInstance = AssetDatabase.LoadAssetAtPath(assetPath, soType) as ScriptableObject;
                 if (soInstance == null)
                 {
@@ -127,7 +127,7 @@ public class CSVParser
                     AssetDatabase.CreateAsset(soInstance, assetPath);
                 }
 
-                // csv¿¡¼­ °ª Ã£°í SO¿¡ ³Ö¾îÁÖ±â
+                // csvì—ì„œ ê°’ ì°¾ê³  SOì— ë„£ì–´ì£¼ê¸°
                 for (int headerIdx = 0; headerIdx < headers.Count; ++headerIdx)
                 {
                     if (headerIdx >= row.Length)
@@ -195,17 +195,38 @@ public class CSVParser
 
         if (targetType == typeof(int))
         {
+            if (string.IsNullOrEmpty(value))
+            {
+                return 0;
+            }
+
             return int.Parse(value);
         }
 
         if (targetType == typeof(float))
         {
+            if (string.IsNullOrEmpty(value))
+            {
+                return 0f;
+            }
+
             return float.Parse(value);
         }
 
         if (targetType == typeof(bool))
         {
-            return bool.Parse(value);
+            if (value == "0")
+            {
+                return false;
+            }
+            else if (value == "1")
+            {
+                return true;
+            }
+            else
+            {
+                return bool.Parse(value);
+            }
         }
 
         return Convert.ChangeType(value, targetType);

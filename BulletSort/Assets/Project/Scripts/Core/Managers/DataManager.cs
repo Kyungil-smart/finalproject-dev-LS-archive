@@ -24,9 +24,12 @@ namespace Core
 
             // Auto Written Code By GenerateDataMangerPaths in CSVParser.cs
             // [AUTO GENERATED START]
+            LoadTable<EffectData>("SO/EffectData");
             LoadTable<MonsterData>("SO/MonsterData");
             LoadTable<MonsterGroupData>("SO/MonsterGroupData");
+            LoadTable<PerkData>("SO/PerkData");
             LoadTable<PieceData>("SO/PieceData");
+            LoadTable<RarityData>("SO/RarityData");
             LoadTable<SlotData>("SO/SlotData");
             LoadTable<StageData>("SO/StageData");
             LoadTable<WaveData>("SO/WaveData");

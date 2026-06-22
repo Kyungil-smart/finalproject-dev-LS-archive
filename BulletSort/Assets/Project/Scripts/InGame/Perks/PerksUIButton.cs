@@ -17,7 +17,7 @@ namespace Ingame.Perks
             // ...
 
             _name = perk.PerkName;
-            _desc = perk.PercDesc;
+            _desc = perk.PerkDesc;
             //_curLevel = perk.     // partial class로 cur level 저장할 예정.
 
             _targetText = perk.PerkTargetText;
