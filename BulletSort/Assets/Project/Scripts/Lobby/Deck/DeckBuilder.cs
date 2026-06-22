@@ -29,6 +29,8 @@ namespace Lobby.Deck
 
         private void Start()
         {
+            DeckHolder.Clear();
+            
             InitSlots();
             BuildOwnedList();
 

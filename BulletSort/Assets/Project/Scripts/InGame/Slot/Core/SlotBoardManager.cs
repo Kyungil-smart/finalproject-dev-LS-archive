@@ -63,6 +63,7 @@ namespace InGame.Slot
                 // 디버그 표시용 — 로비에서 넘어온 덱을 인스펙터에도 채워 플레이 중 눈으로 확인.
                 //   (런타임 대입이라 에디터에 영구 저장은 안 됨, 플레이 중 표시용)
                 _deckPieceIDs = new List<int>(pieceIDs);
+                Lobby.Deck.DeckHolder.Clear();
             }
             else if (_deckPieceIDs != null && _deckPieceIDs.Count > 0)
                 pieceIDs = _deckPieceIDs;
