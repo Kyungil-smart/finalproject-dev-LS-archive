@@ -23,7 +23,6 @@ namespace Towers.Factory
         private void Awake()
         {
             _targetDetector = gameObject.GetComponent<TargetDetector>();
-            _targetDetector.DetectRange = _towerInfo.TowerMaxLange;
         }
 
         private void Start()
@@ -56,6 +55,7 @@ namespace Towers.Factory
         public void SetData(TowerData towerData)
         {
             _towerInfo = new STowerInfo(towerData);
+            _targetDetector.DetectRange = _towerInfo.TowerMaxLange;
         }
 
         private void OnDestroy()
