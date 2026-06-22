@@ -44,7 +44,7 @@ namespace InGame.Slot.Data
         // 파괴 상태 이미지(Destroyed)
         public Sprite DestroyedSprite => GetSprite(7);
 
-        // 가동 포탑 타입(TowerType 1~6)에 해당하는 슬롯 이미지. 호출부가 타입을 구해 넘김.
+        // 가동 포탑 타입(TowerType)에 해당하는 슬롯 이미지. 호출부가 타입을 구해 넘김.
         public Sprite GetTowerTypeSprite(int towerType) => GetSprite(towerType);
 
         // 인덱스로 슬롯 이미지 조회. 범위 밖이면 null.

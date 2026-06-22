@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bd37e1800bec14794dcf2719542df5, type: 3}
   m_Name: TowerData_Tank_Temp3
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Tower.Data.TowerData
-  TowerID: 7078
+  TowerID: 7018
   TowerType: 4
   TowerAIType: 1
   TowerAtk: 12

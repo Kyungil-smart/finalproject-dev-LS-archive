@@ -3,6 +3,7 @@ using InGame.Sort.Data;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using InGame.Tower.Data;
 using UnityEngine;
 
 namespace Core
@@ -31,6 +32,7 @@ namespace Core
             LoadTable<PieceData>("SO/PieceData");
             LoadTable<RarityData>("SO/RarityData");
             LoadTable<SlotData>("SO/SlotData");
+            LoadTable<TowerData>("SO/TowerData");
             LoadTable<StageData>("SO/StageData");
             LoadTable<WaveData>("SO/WaveData");
             LoadTable<WavePatternData>("SO/WavePatternData");
