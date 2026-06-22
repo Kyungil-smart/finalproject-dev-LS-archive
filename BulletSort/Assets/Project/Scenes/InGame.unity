@@ -934,7 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6238be00b73bcba4b8e64e44cb2d408b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Towers.Factory.TowerFactory
-  _towerPrefab: {fileID: 0}
+  _towerPrefab: {fileID: 2450335344404448109, guid: 39ec4c4b6eb2c7d4c8eb1bd71b23be28, type: 3}
 --- !u!4 &1388435584
 Transform:
   m_ObjectHideFlags: 0
