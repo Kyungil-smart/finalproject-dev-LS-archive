@@ -20,7 +20,8 @@ namespace InGame.Slot
         [SerializeField] private List<Slot> _slots;
         
         [Header("Deck (임시)")]
-        [Tooltip("인게임에 투입할 덱 기물 ID. 비우면 전체(GetAllIDs) 폴백. " +
+        [Tooltip("에디터에서 인게임 씬 직접 실행 시 쓸 디버그용 덱. " +
+                 "정상 플레이는 로비 편성(DeckHolder)이 우선. 둘 다 비면 전체(GetAllIDs) 폴백. " +
                  "정식 덱 편성 시스템 들어오면 이 자리를 덱 데이터 주입으로 교체")]
         [SerializeField] private List<int> _deckPieceIDs = new List<int>();
         
@@ -37,7 +38,8 @@ namespace InGame.Slot
         private PieceSupplier _supplier;
         
         private GUIStyle _debugStyle;
-        
+        private IReadOnlyList<int> _activePieceIDs;
+
         public List<Slot> Slots => _slots;
         
         #region 유니티 라이프사이클
@@ -48,14 +50,26 @@ namespace InGame.Slot
             ValidatePieceCount();
             
             _supplier = new PieceSupplier();
-            // 덱이 지정돼 있으면 그 6개로, 비면 전체(GetAllIDs) 폴백 — 검증·디버그용.
-            // 덱이 고른 ID만 대기 그룹 종류가 됨(고른 6종 × PIECE_PER_TYPE).
-            // (임시) 정식은 덱 6개 필수 — 6개 미만 입장 불가 검증이 들어갈 자리. 지금은 폴백.
-            // 정식 덱 편성 들어오면 _deckPieceIDs 대신 덱 데이터에서 ID 목록을 받음.
-            IReadOnlyList<int> pieceIDs =
-                (_deckPieceIDs != null && _deckPieceIDs.Count > 0)
-                    ? _deckPieceIDs
-                    : PieceQuery.GetAllIDs();
+            // 대기 그룹 ID 목록 — 우선순위:
+            //   1) 로비에서 편성한 덱(DeckHolder, 런타임) — 정상 플레이 경로(시작 버튼이 저장)
+            //   2) 인스펙터 _deckPieceIDs — 에디터에서 인게임 씬 직접 실행 시 디버그·검증용
+            //   3) 전체(GetAllIDs) — 둘 다 없을 때 폴백
+            // 덱이 고른 ID만 대기 그룹 종류가 됨(고른 종류 × PIECE_PER_TYPE).
+            // 정식 덱 편성 들어오면 DeckHolder를 덱/세이브 데이터 경유로 교체.
+            IReadOnlyList<int> pieceIDs;
+            if (Lobby.Deck.DeckHolder.HasDeck)
+            {
+                pieceIDs = Lobby.Deck.DeckHolder.Get();
+                // 디버그 표시용 — 로비에서 넘어온 덱을 인스펙터에도 채워 플레이 중 눈으로 확인.
+                //   (런타임 대입이라 에디터에 영구 저장은 안 됨, 플레이 중 표시용)
+                _deckPieceIDs = new List<int>(pieceIDs);
+            }
+            else if (_deckPieceIDs != null && _deckPieceIDs.Count > 0)
+                pieceIDs = _deckPieceIDs;
+            else
+                pieceIDs = PieceQuery.GetAllIDs();
+            
+            _activePieceIDs = pieceIDs;
             _supplier.Initialize(pieceIDs);
         }
         
@@ -236,6 +250,19 @@ namespace InGame.Slot
             foreach (var slot in _slots)
                 slot?.AccumulatePieceCounts(counts);
             return counts;
+        }
+        
+        // 이번 판 덱이 쓸 포탑 종류 — 미리 풀링용. 기물 ID → ConnectTower 변환 + 중복 제거.
+        public IReadOnlyList<int> GetActiveTowerTypes()
+        {
+            var set = new HashSet<int>();
+            if (_activePieceIDs == null) return new List<int>();   // 가드
+            foreach (var id in _activePieceIDs)
+            {
+                int tower = GetConnectTowerID(id);   // 이미 있는 메서드 재사용
+                if (tower != 0) set.Add(tower);
+            }
+            return new List<int>(set);
         }
         
         #endregion

@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 8135025001996530094}
   - component: {fileID: 4420726494236904061}
   m_Layer: 5
-  m_Name: BG
+  m_Name: BG_InGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
