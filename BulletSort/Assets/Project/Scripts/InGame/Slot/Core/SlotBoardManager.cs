@@ -38,7 +38,8 @@ namespace InGame.Slot
         private PieceSupplier _supplier;
         
         private GUIStyle _debugStyle;
-        
+        private IReadOnlyList<int> _activePieceIDs;
+
         public List<Slot> Slots => _slots;
         
         #region 유니티 라이프사이클
@@ -67,6 +68,8 @@ namespace InGame.Slot
                 pieceIDs = _deckPieceIDs;
             else
                 pieceIDs = PieceQuery.GetAllIDs();
+            
+            _activePieceIDs = pieceIDs;
             _supplier.Initialize(pieceIDs);
         }
         
@@ -247,6 +250,19 @@ namespace InGame.Slot
             foreach (var slot in _slots)
                 slot?.AccumulatePieceCounts(counts);
             return counts;
+        }
+        
+        // 이번 판 덱이 쓸 포탑 종류 — 미리 풀링용. 기물 ID → ConnectTower 변환 + 중복 제거.
+        public IReadOnlyList<int> GetActiveTowerTypes()
+        {
+            var set = new HashSet<int>();
+            if (_activePieceIDs == null) return new List<int>();   // 가드
+            foreach (var id in _activePieceIDs)
+            {
+                int tower = GetConnectTowerID(id);   // 이미 있는 메서드 재사용
+                if (tower != 0) set.Add(tower);
+            }
+            return new List<int>(set);
         }
         
         #endregion
