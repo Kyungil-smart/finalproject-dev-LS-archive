@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7914607826626402435}
   - component: {fileID: 2335606156070790881}
   - component: {fileID: -6120891432112853358}
-  - component: {fileID: 8968512097513181937}
   - component: {fileID: 8089763677332470587}
+  - component: {fileID: 510821239829758714}
   m_Layer: 0
-  m_Name: TestNormalPro
+  m_Name: TankPro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,18 +130,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &8968512097513181937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618198340853767477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872977d6bab604246b8b95dfc233d339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NormalProjectile
 --- !u!50 &8089763677332470587
 Rigidbody2D:
   serializedVersion: 5
@@ -169,3 +157,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &510821239829758714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618198340853767477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acce2cc6236f1940a09e6579f4dbd2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile.TankProjectile

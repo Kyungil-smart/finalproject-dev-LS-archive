@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Projectile
 {
-    public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
+    public class SnipeProjectile : MonoBehaviour, IProjectile, IPoolable
     {
         private GameObject _target;
         private GameObject _keyObj;

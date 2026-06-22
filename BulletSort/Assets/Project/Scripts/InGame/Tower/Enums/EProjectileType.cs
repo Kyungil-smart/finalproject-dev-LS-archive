@@ -2,7 +2,7 @@ namespace Towers
 {
     public enum EProjectileType
     {
-        Normal, Explosive, Snipe
+        Normal = 6001, Snipe, Tank, Explosive, Heal 
     }    
 }
 
