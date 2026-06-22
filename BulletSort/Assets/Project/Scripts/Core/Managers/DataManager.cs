@@ -30,10 +30,11 @@ namespace Core
             LoadTable<MonsterGroupData>("SO/MonsterGroupData");
             LoadTable<PerkData>("SO/PerkData");
             LoadTable<PieceData>("SO/PieceData");
+            LoadTable<PieceSpriteTable>("SO/PieceSpriteTable");
             LoadTable<RarityData>("SO/RarityData");
             LoadTable<SlotData>("SO/SlotData");
-            LoadTable<TowerData>("SO/TowerData");
             LoadTable<StageData>("SO/StageData");
+            LoadTable<TowerData>("SO/TowerData");
             LoadTable<WaveData>("SO/WaveData");
             LoadTable<WavePatternData>("SO/WavePatternData");
             // [AUTO GENERATED END]

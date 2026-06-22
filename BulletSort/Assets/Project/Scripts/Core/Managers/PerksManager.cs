@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 struct RarityWeightRange
 {
@@ -53,6 +54,8 @@ namespace Core
 
             // Rarity Info 초기화 & Weight 최대치 계산
             _rarityInfo = DataManager.Instance.GetTable<RarityData>();
+
+            _rarityWeightRangeInfo = new Dictionary<int, RarityWeightRange>();
 
             _maxWeight = 0;
             foreach (var pair in _rarityInfo)
@@ -164,7 +167,16 @@ namespace Core
             PerkData perk = _perksPool[_perksSlot[index]];
             // perk effect 적용
 
+            Debug.Log($"[PerksManager] : Perk {perk.PerkID} is Called");
             OnPerkSelected();
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+            {
+                ChoosePerks();
+            }
         }
     }
 }

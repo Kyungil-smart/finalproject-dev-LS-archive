@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 1929565493360250858}
   - component: {fileID: 3776368129877801544}
   - component: {fileID: 8723528660776471118}
+  - component: {fileID: 3105475885303363268}
   m_Layer: 5
   m_Name: PerkCanvas
   m_TagString: Untagged
@@ -442,6 +443,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3105475885303363268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108104187226338393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab545044859fdd438d2ba2efa324064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ingame.Perks.PerksUI
+  _uiRoot: {fileID: 2108104187226338393}
+  _perkButtons:
+  - {fileID: 7701438210644973497}
+  - {fileID: 6310148665733616303}
+  - {fileID: 1131178989986999732}
 --- !u!1 &3082001960497414936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,6 +1250,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b6b3cba2b1a4ba4ebb17a70cb8a9727, type: 3}
+--- !u!114 &1131178989986999732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4418950068535274400, guid: 2b6b3cba2b1a4ba4ebb17a70cb8a9727, type: 3}
+  m_PrefabInstance: {fileID: 3666355474144740884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961854d681c43c848a5ebc398100cb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ingame.Perks.PerksUIButton
 --- !u!224 &6195496496780333825 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7429622023958041877, guid: 2b6b3cba2b1a4ba4ebb17a70cb8a9727, type: 3}
@@ -1430,6 +1459,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
+--- !u!114 &6310148665733616303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7527457660130244410, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
+  m_PrefabInstance: {fileID: 4604015943174989205}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961854d681c43c848a5ebc398100cb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ingame.Perks.PerksUIButton
 --- !u!224 &6413004676142084224 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7429622023958041877, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
@@ -1633,3 +1673,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7429622023958041877, guid: 50e038cda11c1b845b4fcf2400a8d1f7, type: 3}
   m_PrefabInstance: {fileID: 7624758052225070172}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7701438210644973497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 230128001196598245, guid: 50e038cda11c1b845b4fcf2400a8d1f7, type: 3}
+  m_PrefabInstance: {fileID: 7624758052225070172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961854d681c43c848a5ebc398100cb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ingame.Perks.PerksUIButton
