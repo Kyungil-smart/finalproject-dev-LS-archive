@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Lobby.Deck
 {
@@ -11,6 +12,14 @@ namespace Lobby.Deck
     public static class DeckHolder
     {
         private static List<int> _deckPieceIDs;
+        
+        // 플레이 시작 시 static 강제 초기화 — 도메인 리로드를 꺼도 이전 세션 잔여가 안 남게.
+        //   빌드는 매번 프로세스가 새로 떠 무방하나, 에디터(도메인 리로드 off) 반복 테스트 대비.
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void Init()
+        {
+            _deckPieceIDs = null;
+        }
 
         // 편성된 덱이 있나 (6칸 중 하나라도 채워졌나)
         public static bool HasDeck => _deckPieceIDs != null && _deckPieceIDs.Count > 0;
