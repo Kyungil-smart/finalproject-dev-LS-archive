@@ -1,6 +1,4 @@
-﻿using InGame.Slot;
-using Monster.Portal;
-using UnityEngine;
+﻿using Monster.Portal;
 
 namespace Core
 {
@@ -17,7 +15,8 @@ namespace Core
 
     class StageManager : Singleton<StageManager>
     {
-        [SerializeField] private SlotBoardManager _slotBoardManager;
+        //[SerializeField] SlotBoardManager _slotBoardManager;
+
         Portal[] spawners;
 
         int _targetKillNum = 0;
@@ -31,43 +30,54 @@ namespace Core
 
         int _waveIdx = 0;
 
+        private Timer _waveTimer; // 40초;
+
         protected override void Init()
         {
-            spawners = FindObjectsByType<Portal>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
+            //spawners = FindObjectsByType<Portal>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
 
-            foreach (Portal spawner in spawners)
-            {
-                _targetKillNum += spawner.MaxMonsterCount;
-            }
+            _waveTimer = new Timer(5);
 
-            // _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
+            // 임시 ID
+            _curStageID = 1001;
+
+            _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
+
+            PerksManager.Instance.OnPerkPhaseEnded += ResetState;
         }
 
         private void ResetState()
         {
-            _waveIdx = 0;
+            _waveIdx++;
+
+            // _waveIdx가 max가 되면 Stage Clear.
+            /*
+                Todo.
+             */
+            //
+
             _isWin = false;
             _isDefeat = false;
 
             _killCount = 0;
             _targetKillNum = 0;
 
-            foreach (Portal spawner in spawners)
-            {
-                _targetKillNum += spawner.MaxMonsterCount;
-            }
+            //foreach (Portal spawner in spawners)
+            //{
+            //    _targetKillNum += spawner.MaxMonsterCount;
+            //}
         }
 
         private void LoadWaveData()
         {
-            //WaveData;
-            //WavePatterData;
+            //WaveData waveData = ;
+            //WavePatternData;
             //MonsterSpawn;
         }
 
         private void WaveClearHandler()
         {
-            // Process Perks System;
+            PerksManager.Instance.EnterPerksPhase();
         }
 
         private void WaveFailHandler()
@@ -77,41 +87,47 @@ namespace Core
 
         private void FixedUpdate()
         {
-            while (_isWin == false && _isDefeat == false)
+            if (_isWin)
             {
-                if (_targetKillNum == _killCount)   // ���� �ð��� ����Ǿ��� ���� Ŭ����.
-                {
-                    _isWin = true;
-                }
-
-                _isDefeat = CheckDefeatCondition();
-
-                if (_isWin)
-                {
-                    // �¸� ó��
-                    // ���� ���̺� ����
-                    break;
-                }
-
-                if (_isDefeat)
-                {
-                    // �й� ó��
-                    break;
-                }
+                WaveClearHandler();
+                return;
             }
+
+            if (_isDefeat)
+            {
+                // 패배 처리
+                return;
+            }
+
+            _waveTimer.UpdateTimer();
+
+            if (_waveTimer.IsEnabled)
+            {
+                _isWin = true;
+                _waveTimer.ResetTimer(5);
+            }
+
+            //if (_targetKillNum == _killCount)   // ���� �ð��� ����Ǿ��� ���� Ŭ����.
+            //{
+            //    _isWin = true;
+            //}
+
+            _isDefeat = CheckDefeatCondition();
         }
 
         private bool CheckDefeatCondition()
         {
-            foreach (Slot slot in _slotBoardManager.Slots)
-            {
-                if (slot.Health.isDead == false)
-                {
-                    return false;
-                }
-            }
+            //foreach (Slot slot in _slotBoardManager.Slots)
+            //{
+            //    if (slot.Health.isDead == false)
+            //    {
+            //        return false;
+            //    }
+            //}
 
-            return true;
+            //return true;
+
+            return false;
         }
 
         public void IncrementKillCount()

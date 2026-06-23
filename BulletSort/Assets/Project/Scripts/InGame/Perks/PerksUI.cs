@@ -15,6 +15,7 @@ namespace Ingame.Perks
         {
             PerksManager.Instance.OnPerksRolled += OpenWindow;
             PerksManager.Instance.OnPerkSelected += UpdateRemainSelectNum;
+            PerksManager.Instance.OnPerkPhaseEnded += CloseWindow;
 
             _uiRoot.SetActive(false);
         }
@@ -44,12 +45,6 @@ namespace Ingame.Perks
 
         private void UpdateRemainSelectNum()
         {
-            if (PerksManager.Instance.RemainSelectNum == 0)
-            {
-                CloseWindow();
-                return;
-            }
-
             UpdateRemainSelectNumText();
         }
 

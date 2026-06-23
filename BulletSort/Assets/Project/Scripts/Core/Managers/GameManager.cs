@@ -23,6 +23,7 @@ namespace Core
             RegisterManager<ScreenWatcher>();
             RegisterManager<SpawnManager>();
             RegisterManager<PerksManager>();
+            RegisterManager<StageManager>();
 
             if (Logger.Instance != null)
             {

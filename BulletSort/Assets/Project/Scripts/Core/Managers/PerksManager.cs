@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 struct RarityWeightRange
 {
@@ -31,6 +30,8 @@ namespace Core
         public event Action OnPerkSelected;
 
         public event Action OnRerolled;
+
+        public event Action OnPerkPhaseEnded;
 
         IReadOnlyDictionary<int, PerkData> _perksPool;
         Dictionary<int, List<PerkData>> _perksByRarity;
@@ -91,11 +92,6 @@ namespace Core
             }
 
             _perksSet = new HashSet<int>();
-
-
-            // 임시 코드
-            // StageManager에서 Wave 당 Perks Manager 활성화 시 State를 초기화하고 PerksPhase 진입.
-            InitState();
         }
 
         public void InitState()
@@ -106,6 +102,9 @@ namespace Core
 
         public void EnterPerksPhase()
         {
+            InitState();
+
+            Time.timeScale = 0;
             ChoosePerks();
         }
 
@@ -190,22 +189,18 @@ namespace Core
             Debug.Log($"[PerksManager] : Perk {perk.PerkID} is Selected");
             _remainSelectNum--;
 
-            OnPerkSelected();
-
             if (_remainSelectNum == 0)
             {
+                Time.timeScale = 1;
+                OnPerkPhaseEnded();
                 return;
+            }
+            else
+            {
+                OnPerkSelected();
             }
 
             ChoosePerks();
-        }
-
-        private void Update()
-        {
-            if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
-            {
-                ChoosePerks();
-            }
         }
     }
 }
