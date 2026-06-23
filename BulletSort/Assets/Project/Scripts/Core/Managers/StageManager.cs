@@ -36,7 +36,7 @@ namespace Core
         {
             //spawners = FindObjectsByType<Portal>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
 
-            _waveTimer = new Timer(5);
+            _waveTimer = new Timer(40);
 
             // 임시 ID
             _curStageID = 1001;
@@ -104,7 +104,7 @@ namespace Core
             if (_waveTimer.IsEnabled)
             {
                 _isWin = true;
-                _waveTimer.ResetTimer(5);
+                _waveTimer.ResetTimer(40);
             }
 
             //if (_targetKillNum == _killCount)   // ���� �ð��� ����Ǿ��� ���� Ŭ����.
