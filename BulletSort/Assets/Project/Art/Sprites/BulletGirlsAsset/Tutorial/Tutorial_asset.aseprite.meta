@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fec542613e3cf4a46a9294f9a06e608f
+guid: 92c4c001e18eb50488baa5d5ae1a58b5
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 128
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639161155193133226
+  platformSettingsDirtyTick: 639177366399213360
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Charater_Large_Sprite_02
+  - name: Tutorial_monster
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 768
-      height: 768
-    spriteID: f0f6be5f7ab8e1c4b83826ef078965bb
+      width: 891
+      height: 694
+    spriteID: f94fc21db36891544987ee72e58d69b5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2189827179
+      value0: 2895778859
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Charater_Large_Sprite_02
+    name: Tutorial_monster
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Image_Doi_01
+    - name: Tutorial_asset
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 768
-        height: 768
-      spriteId: f0f6be5f7ab8e1c4b83826ef078965bb
+        width: 891
+        height: 694
+      spriteId: f94fc21db36891544987ee72e58d69b5
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,7 +181,7 @@ ScriptedImporter:
   - name: DefaultTexturePlatform
     overridden: 0
     ignorePlatformSupport: 0
-    maxTextureSize: 4096
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -217,5 +217,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 768, y: 768}
+  canvasSize: {x: 891, y: 694}
   previousTextureSize: {x: 1024, y: 1024}
