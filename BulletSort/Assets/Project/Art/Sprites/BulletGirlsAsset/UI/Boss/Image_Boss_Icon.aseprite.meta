@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fec542613e3cf4a46a9294f9a06e608f
+guid: 015576f89ebc06346b454bc2ef9d9845
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 128
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639161155193133226
+  platformSettingsDirtyTick: 639178101497610501
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Charater_Large_Sprite_02
+  - name: Image_Boss_Icon
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.6847826, y: -3.0317461}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 768
-      height: 768
-    spriteID: f0f6be5f7ab8e1c4b83826ef078965bb
+      width: 184
+      height: 63
+    spriteID: 70f8d79a0b246f7438181e258875503f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,30 +148,93 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  spriteSheetImportData: []
+  spriteSheetImportData:
+  - name: Image_Boss_Icon_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 59
+      height: 63
+    spriteID: d19d6f9292e65a344a6edb2066b9ac0f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Image_Boss_Icon_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 7
+      width: 56
+      height: 51
+    spriteID: 4b735efd8a6e92243ac718eaddb502ae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Image_Boss_Icon_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 143
+      y: 11
+      width: 45
+      height: 53
+    spriteID: 04eb4482ea30876438bd780be050d299
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2189827179
+      value0: 4117656509
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Charater_Large_Sprite_02
+    name: Image_Boss_Icon
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Image_Doi_01
+    - name: Image_Boss_Icon
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 768
-        height: 768
-      spriteId: f0f6be5f7ab8e1c4b83826ef078965bb
+        x: 2
+        y: 191
+        width: 184
+        height: 63
+      spriteId: 70f8d79a0b246f7438181e258875503f
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,7 +244,7 @@ ScriptedImporter:
   - name: DefaultTexturePlatform
     overridden: 0
     ignorePlatformSupport: 0
-    maxTextureSize: 4096
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -217,5 +280,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 768, y: 768}
-  previousTextureSize: {x: 1024, y: 1024}
+  canvasSize: {x: 256, y: 256}
+  previousTextureSize: {x: 256, y: 128}
