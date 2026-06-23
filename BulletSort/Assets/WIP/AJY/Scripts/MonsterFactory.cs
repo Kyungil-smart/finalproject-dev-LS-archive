@@ -13,6 +13,7 @@ namespace Monster.Factory
         {
             GameObject instance = new GameObject();
             MonsterController monsterctr = instance.AddComponent<MonsterController>();
+            instance.AddComponent<CircleCollider2D>();
             
             // 몬스터 데이터 불러오기
             MonsterData monsterData = DataManager.Instance.GetData<MonsterData>(04111);
@@ -20,12 +21,10 @@ namespace Monster.Factory
             // 체력, 공격력, 공격속도, 이동속도, 경험치
             monsterctr.Init(monsterData);
 
-            // 임시 코드
             instance.name = monsterData.name;
+            instance.tag = "Monster";
             SpriteRenderer spriteRenderer = instance.gameObject.AddComponent<SpriteRenderer>();
             spriteRenderer.sortingLayerName = "Monster";
-            instance.tag = "Monster";
-            instance.AddComponent<CircleCollider2D>();
             int monsterType = monsterData.MonsterID%10;
             // 타입에 따른 스프라이트 설정
             switch (monsterType)

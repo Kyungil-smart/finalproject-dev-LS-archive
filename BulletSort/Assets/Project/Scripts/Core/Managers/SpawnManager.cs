@@ -30,7 +30,8 @@ namespace Core.Manager.SpawnManager
       public ProjectileFactory ProjectileFactory => _projectileFactory;
       public List<GameObject> Monsters => _monsters;
       
-
+      public Portal[] Portals => _portals;
+      
       private void OnEnable()
       {
          SceneManager.sceneLoaded += OnSceneLoaded;

@@ -31,7 +31,8 @@ namespace Monster.Portal
             _spawnPase = 0;
             //임시
             _spawnCount = 5;
-           
+            // 총 소환할 몬스터 / 8 
+            // 40
         }
 
         private void Update()
@@ -49,6 +50,12 @@ namespace Monster.Portal
                 
                 _spawnTimer.ResetTimer(5);
             }
+        }
+
+        // 스폰페이즈 초기화
+        public void ResetPhase()
+        {
+            _spawnPase = 0;
         }
     }
 }
