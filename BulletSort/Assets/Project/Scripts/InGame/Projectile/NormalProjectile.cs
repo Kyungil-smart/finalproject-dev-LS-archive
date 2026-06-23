@@ -22,6 +22,9 @@ namespace Projectile
 
         private void FixedUpdate()
         {
+            if(_target == null)
+            PoolManager.Instance.Release(_keyObj, gameObject);
+            
             MoveToTarget(_target);
         }
 
