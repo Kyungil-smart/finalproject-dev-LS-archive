@@ -6,6 +6,7 @@ using Monster.Spawn;
 using Towers;
 using Towers.Factory;
 using Towers.Factory.Type;
+using Towers.Interface.Tower;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -89,10 +90,10 @@ namespace Core.Manager.SpawnManager
       }
 
       // 3sorting시 호출하여 타워 스폰
-      public void SpawnTower(int towerID, Slot slot)
+      public ITower SpawnTower(int towerID, Slot slot)
       {
          Transform spawnTr = slot.transform;
-         _towerFactory.CreateTower(towerID, spawnTr);
+         return _towerFactory.CreateTower(towerID, spawnTr);   // 반환만 추가
       }
 
       public GameObject SpawnProjectile(EProjectileType projectileType, int count)
