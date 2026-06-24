@@ -62,7 +62,7 @@ namespace InGame.Slot
             Refresh();  // 초기 표시 1회 — Awake 후 상태 확정 시점.
         }
 
-        // 포탑 시스템(안정연)이 주입 — 가동/대기 포탑 유무 입력 연결.
+        // 포탑 시스템이 주입 — 가동/대기 포탑 유무 입력 연결.
         // 주입 후 Refresh로 모드 재판정. 미호출이면 포탑 없는 Normal/Destroyed만.
         public void SetTurretPresence(ITurretPresence presence)
         {
@@ -81,7 +81,7 @@ namespace InGame.Slot
         // 상태 전환(SlotRevive) 수신 → 재판정.
         private void HandleStateChanged(SlotState state) => Refresh();
 
-        // SlotState + 포탑 유무 → 표시 모드 판정(기획 2.1).
+        // SlotState + 포탑 유무 → 표시 모드 판정
         private SlotDisplayMode ResolveMode()
         {
             // 파괴면 포탑 유무 무관 Destroyed.
