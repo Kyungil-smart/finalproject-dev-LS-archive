@@ -11,8 +11,9 @@ namespace InGame.Slot
         Destroyed,               // 파괴 — Destroyed UI
     }
 
-    // 포탑 보유 상태 입력 — 포탑 시스템(안정연)이 구현해 컨트롤러에 주입.
-    // 컨트롤러가 포탑 시스템을 직접 참조하지 않도록 인터페이스로 끊음(결합 회피).
+    // 포탑 보유 상태 입력 — 슬롯측 SlotTurretQueue가 구현해 컨트롤러에 주입.
+    //   큐가 가동/대기 포탑 참조를 들고 HasActive/HasQueue로 보유 여부를 보고.
+    // 컨트롤러가 큐를 직접 참조하지 않도록 인터페이스로 끊음(결합 회피).
     // 미주입(null) 시 컨트롤러는 포탑 없음으로 간주 — Normal/Destroyed만 동작.
     public interface ITurretPresence
     {
