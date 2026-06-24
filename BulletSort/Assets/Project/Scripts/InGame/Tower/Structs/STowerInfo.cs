@@ -58,14 +58,10 @@ namespace Towers.Struct.TowerInfo
             _currentHp = towerData.CurrentHp;
         }
 
-        // 디버그용 코드
-        public void ShowData()
+        public void OversortingData()
         {
-            Debug.Log($"타워 공격력 : {_towerAtk}");
-            Debug.Log($"타워 공격속도 : {_towerAtkSpeed}");
-            Debug.Log($"타워 투사체발사개수 : {_projectileCount}");
-            Debug.Log($"타워 투사체종류 : {_towerAIType}");
-            Debug.Log($"타워 최대발사횟수 : {_towerMaxAmmo}");
+            _towerAtkSpeed = 0.1f;
+            _towerAtk /= 2;
         }
     }
 }
