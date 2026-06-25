@@ -61,6 +61,11 @@ namespace InGame.Slot
         
         // 포탑 대기열 노출 — 외부(포탑 소환 핸들러)가 slot.TurretQueue.RegisterTurret()로 접근.
         public SlotTurretQueue TurretQueue => _turretQueue;
+
+        // 슬롯 입력 락 — 오버소팅(잔탄 과열 사격) 중이면 true.
+        //   입력단(Piece 잡기·놓기)이 이걸 보고 터치·드래그·정렬을 차단(기획 락 규칙).
+        //   큐의 IsLocked(=오버소팅 상태) 패스스루. 큐 없으면 false.
+        public bool IsLocked => _turretQueue != null && _turretQueue.IsLocked;
         
         // 3-Sort 정렬 성공 이벤트 — (slotID, pieceID).
         // 외부(포탑 소환 시스템 등)가 구독해 후속 처리.
