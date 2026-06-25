@@ -35,6 +35,11 @@ namespace InGame.Slot
         public int ActiveTowerType => GetTowerType(_active);
         public int QueueTowerType  => GetTowerType(_queue);
 
+        // 가동 포탑 잔탄(현재/최대) — 잔탄보드 표시용. 잔탄 관리는 포탑 영역, 큐는 읽어 노출만.
+        //   포탑 캐스팅은 GetAmmo 헬퍼에 가둠(컨트롤러·보드는 int만). 가동 없으면 0.
+        public int ActiveAmmoCurrent => _active is Towers.Factory.Towers t ? t.CurrentAmmo : 0;
+        public int ActiveAmmoMax     => _active is Towers.Factory.Towers t ? t.TowerInfo.TowerMaxAmmo : 0;
+
         // 외부(포탑 시스템·디버그·UI) 조회용 — 비주얼·잔탄은 여기서 TowerInfo를 읽어 처리.
         public ITower ActiveTurret => _active;
         public ITower QueueTurret  => _queue;
@@ -158,32 +163,18 @@ namespace InGame.Slot
         private void DespawnIfTower(ITower turret)
         {
             if (turret == null) return;
-
-            // TODO(포탑 담당이 ITower.Despawn 추가 후): turret.Despawn();
+            
             if (turret is Towers.Factory.Towers t)
                 Destroy(t.gameObject);
         }
 
         // 큐 변화 → 표시 갱신.
-        //   모드(Normal/+Active/+ActiveQueue)는 컨트롤러가 HasActive/HasQueue로 재판정.
-        //   아이콘·테두리·잔탄은 UI 요소 신규 확정 후 연결(현재 미존재) — 아래 TODO.
+        //   모드(Normal/+Active/+ActiveQueue)·프레임·아이콘·잔탄보드 ON/OFF·총 그림은
+        //   컨트롤러가 Refresh→Apply에서 ITurretPresence(HasActive/타입) 보고 재판정.
+        //   잔탄 *숫자*는 발사마다 줄어 구조 변화로 안 잡히므로 SlotAmmoBoard가 Update로 폴링(여기 아님).
         private void RefreshVisual()
         {
             _display?.Refresh();
-
-            if (_active is Towers.Factory.Towers active)
-            {
-                int cur = active.CurrentAmmo;             // Towers에 이미 열림
-                int max = active.TowerInfo.TowerMaxAmmo;  // 구조체 게터로 읽힘
-                // _ammoBar.Set(cur, max);  // UI 요소 붙은 뒤
-            }
-
-            // TODO(UI 요소 신규 확정 후): 보유 포탑의 TowerInfo에서 읽어 표시.
-            //   - 잔탄 바 ← (_active as Towers).CurrentAmmo / .TowerInfo.TowerMaxAmmo  (using Towers.Factory)
-            //   - ActiveTurretIcon / QueueTurretIcon ← 포탑 타입
-            //       ※ 타입은 현재 STowerInfo에 없음(TowerMaxAmmo 등만 노출) — 아이콘 작업 시 포탑 담당이 TowerType 노출 필요.
-            //   - 가동 테두리 on/off ← HasActiveTurret
-            //   - 오버소팅 락 연출 ← IsLocked
         }
     }
 }

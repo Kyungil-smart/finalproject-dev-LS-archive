@@ -24,5 +24,10 @@ namespace InGame.Slot
         // 가동/대기 포탑 타입(TowerType 1~6) — 프레임·아이콘 스프라이트 선택용. 포탑 없으면 0.
         int ActiveTowerType { get; }
         int QueueTowerType { get; }
+        
+        // 가동 포탑 잔탄 — 잔탄보드 표시용(현재/최대). 잔탄 관리는 포탑 영역, 여긴 읽기만.
+        //   포탑 없으면 0/0. current는 발사마다 줄어 매 프레임 폴링 대상.
+        int ActiveAmmoCurrent { get; }
+        int ActiveAmmoMax { get; }
     }
 }

@@ -43,6 +43,18 @@ namespace InGame.Sort
         // 외부(Slot 정렬 판정 등) 접근용 — 보유한 ID 그대로 반환.
         public int PieceID => _pieceID;
         
+        // 잡기 가능 여부 — 자기 현재 위치 셀의 슬롯이 락(오버소팅) 중이면 false
+        //   PointerHandler가 OnGrabbed 전에 확인 → 락 슬롯 기물은 터치 자체가 안 먹힘(기획 락 규칙).
+        //   셀 밖(슬롯 소속 아님)이면 잡기 허용(락 대상 아님).
+        public bool CanGrab
+        {
+            get
+            {
+                SlotCell cell = FindOriginCell();
+                return cell == null || cell.Slot == null || !cell.Slot.IsLocked;
+            }
+        }
+        
         void Awake()
         {
             if(_renderer == null) 
@@ -126,6 +138,10 @@ namespace InGame.Sort
         {
             // 타겟 셀이 없거나 비어있지 않으면 배치 실패
             if (targetCell == null || !targetCell.IsEmpty) return;
+            
+            // 도착 슬롯이 락(오버소팅) 중이면 배치 거부 — 외부 기물이 락 슬롯에 못 들어옴(기획 락 규칙).
+            //   (잡기는 출발 슬롯 락으로 막고, 여긴 도착 슬롯 락으로 막아 양방향 차단)
+            if (targetCell.Slot != null && targetCell.Slot.IsLocked) return;
             
             // 옮길 PieceID 캐싱 — 아래 ClearCell이 자기 _pieceID를 0으로 바꾸기 전에 확보
             int movingPieceID = PieceID;

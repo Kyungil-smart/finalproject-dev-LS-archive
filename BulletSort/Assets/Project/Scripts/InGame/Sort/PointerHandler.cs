@@ -54,6 +54,9 @@ namespace InGame.Sort
             // 잡힌 콜라이더가 IDraggable을 구현했는지 확인.
             if (hit.TryGetComponent<IDraggable>(out var target))
             {
+                // 잡기 차단 — 락 슬롯의 기물 등 CanGrab false면 무시(터치 자체 차단)
+                if (!target.CanGrab) return;
+                
                 _draggedTarget = target;
                 _draggedTarget.OnGrabbed(worldPos);
             }
