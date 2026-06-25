@@ -30,12 +30,24 @@ namespace InGame.Slot
         public bool HasActiveTurret => _active != null;
         public bool HasQueueTurret  => _queue  != null;
 
+        // 가동/대기 포탑 타입(TowerType 1~6) — 컨트롤러가 프레임·아이콘 스프라이트 선택에 사용.
+        //   포탑 객체에서 타입을 꺼내는 캐스팅은 큐 안에 가둠(컨트롤러는 int만 받음). 없으면 0.
+        public int ActiveTowerType => GetTowerType(_active);
+        public int QueueTowerType  => GetTowerType(_queue);
+
         // 외부(포탑 시스템·디버그·UI) 조회용 — 비주얼·잔탄은 여기서 TowerInfo를 읽어 처리.
         public ITower ActiveTurret => _active;
         public ITower QueueTurret  => _queue;
 
         // 슬롯 락 — 오버소팅 상태를 그대로 패스스루. 슬롯 입력/정렬이 이걸 보고 차단.
         public bool IsLocked => _overSorting.IsLocked;
+
+        // 포탑 객체 → TowerType(1~6). ITower엔 타입 seam이 없어 Towers 캐스팅 후 TowerInfo에서 읽음.
+        //   포탑 담당이 ITower에 TowerType 노출하면 캐스팅 제거. 없거나 캐스팅 실패 시 0.
+        private static int GetTowerType(ITower turret)
+        {
+            return turret is Towers.Factory.Towers t ? t.TowerInfo.TowerType : 0;
+        }
 
         private void Awake()
         {
