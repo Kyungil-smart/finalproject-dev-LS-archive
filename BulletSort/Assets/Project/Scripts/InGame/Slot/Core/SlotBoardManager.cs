@@ -179,14 +179,11 @@ namespace InGame.Slot
         {
             Logger.Instance.LogInfo($"보드 매니저 — 슬롯 {slotID} 정렬 성공, PieceID={pieceID}");
             OnSortSuccess?.Invoke(slotID, pieceID);
-            
-            // ── 임시: 슬롯 비주얼 교체를 정렬 성공에 직결 ──
-            // 정식 흐름은 포탑 시스템이 가동 포탑(ActiveTurret) 확정 시 SetTowerType 호출.
-            // 지금은 ActiveTurret 신호가 없어, 정렬 성공 즉시 연결 타워 이미지로 바꿔 검증만.
-            // towerType은 GetConnectTowerType으로 ConnectTower(타워 ID) → TowerData.TowerType 변환해 구함.
-            //   (타워 DB 연결 완료 — 이전의 "ID를 타입처럼 임시 사용"은 해소됨)
-            int towerType = GetConnectTowerType(pieceID);
-            GetSlotByID(slotID)?.Visual?.SetTowerType(towerType);
+
+            // 슬롯 비주얼(프레임·아이콘)은 여기서 직접 안 건드림.
+            //   포탑 핸들러가 OnSortSuccess 받아 큐에 등록 → 큐 RefreshVisual → 컨트롤러가
+            //   ActiveTowerType(가동 포탑) 보고 프레임 갱신하는 경로로 일원화.
+            //   (이전 CBT 임시 직결은 큐 상태 무관하게 정렬 즉시 덮어써, 활성 있는데도 새 포탑으로 바뀌는 버그가 있었음)
         }
         
         // 슬롯 셀 변경 응답 — 슬롯이 완전히 비었을 때만 처리.
