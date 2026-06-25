@@ -3,15 +3,15 @@
 namespace Core
 {
     /// <summary>
-    /// ���� Ingame���� �������� Stage�� ������ �����ϴ� Ŭ�����̴�.
-    /// Lobby���� Stage ���� �� �ش� Stage�� index ������ �ް�,
-    /// StageData SO�� id�� ������ ������.
+    /// 현재 Ingame에서 진행중인 Stage의 진행을 관리하는 클래스이다.
+    /// Lobby에서 Stage 선택 시 해당 Stage의 index 정보를 받고,
+    /// StageData SO의 id로 정보를 접근함.
     /// 
-    /// �ۼ��� : ����
+    /// 작성자 : 김경민
     /// </summary>
 
-    // DataManager�κ��� �� Stage�� �´� SO instance�� ��������
-    // Monster Spawner�� ��û�ϴ� ����?
+    // DataManager로부터 현 Stage에 맞는 SO instance를 가져오고
+    // MonsterGroup을 Spawner에 요청하는 형태
 
     class StageManager : Singleton<StageManager>
     {
@@ -27,8 +27,9 @@ namespace Core
 
         int _curStageID;
         StageData _stageData;
+        WaveData _waveData;
 
-        int _waveIdx = 0;
+        int _waveIdx;
 
         private Timer _waveTimer; // 40초;
 
@@ -42,19 +43,30 @@ namespace Core
             _curStageID = 1001;
 
             _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
+            _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
+
+            _waveIdx = 0;
 
             PerksManager.Instance.OnPerkPhaseEnded += ResetState;
         }
 
+        // Lobby에서 선택 시 호출할 것
+        public void SetStageID(int stageID)
+        {
+            _curStageID = stageID;
+        }
+
         private void ResetState()
         {
-            _waveIdx++;
+            if (_waveIdx == 9)
+            {
+                // Boss Wave;
+            }
 
-            // _waveIdx가 max가 되면 Stage Clear.
-            /*
-                Todo.
-             */
-            //
+            if (_waveIdx > 9)
+            {
+                // Stage Clear
+            }
 
             _isWin = false;
             _isDefeat = false;
@@ -68,21 +80,24 @@ namespace Core
             //}
         }
 
-        private void LoadWaveData()
+        private void SpawnCurWavePattern()
         {
-            //WaveData waveData = ;
-            //WavePatternData;
-            //MonsterSpawn;
+            WavePatternData curPattern = DataManager.Instance.GetData<WavePatternData>(_waveData[_waveIdx]);
+
+            //SpawnManager.Instance.SpawnMonster(_stageData.MonsterGroupID_Normal, curPattern.Normal_Count);
+            //SpawnManager.Instance.SpawnMonster(_stageData.MonsterGroupID_Speedy, curPattern.Speedy_Count);
+            //SpawnManager.Instance.SpawnMonster(_stageData.MonsterGroupID_Tanker, curPattern.Tanker_Count);
         }
 
         private void WaveClearHandler()
         {
+            _waveIdx++;
             PerksManager.Instance.EnterPerksPhase();
         }
 
         private void WaveFailHandler()
         {
-            // 
+            // 패배 UI 띄우기
         }
 
         private void FixedUpdate()
@@ -95,7 +110,7 @@ namespace Core
 
             if (_isDefeat)
             {
-                // 패배 처리
+                WaveFailHandler();
                 return;
             }
 
@@ -106,11 +121,6 @@ namespace Core
                 _isWin = true;
                 _waveTimer.ResetTimer(40);
             }
-
-            //if (_targetKillNum == _killCount)   // ���� �ð��� ����Ǿ��� ���� Ŭ����.
-            //{
-            //    _isWin = true;
-            //}
 
             _isDefeat = CheckDefeatCondition();
         }
