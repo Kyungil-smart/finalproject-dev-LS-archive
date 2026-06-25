@@ -18,6 +18,9 @@ namespace InGame.Slot
         [Tooltip("표시 컨트롤러 — 큐 변화 시 모드 재판정 대상. 비우면 Awake에서 탐색")]
         [SerializeField] private SlotDisplayController _display;
 
+        [Tooltip("슬롯 상태 — 파괴(Destroyed) 시 보유 포탑 일괄 정리(ClearAll) 트리거. 비우면 Awake에서 탐색")]
+        [SerializeField] private SlotRevive _slotRevive;
+
         // 오버소팅 메커니즘 — 탄배출·락·pending 위임. 일반 C# 클래스라 큐가 직접 new로 소유(씬에 컴포넌트로 안 붙임).
         private readonly SlotOverSorting _overSorting = new SlotOverSorting();
 
@@ -59,6 +62,31 @@ namespace InGame.Slot
             if (_display == null)
                 _display = GetComponent<SlotDisplayController>()
                            ?? GetComponentInChildren<SlotDisplayController>(includeInactive: true);
+            if (_slotRevive == null)
+                _slotRevive = GetComponent<SlotRevive>()
+                              ?? GetComponentInChildren<SlotRevive>(includeInactive: true);
+        }
+
+        private void OnEnable()
+        {
+            // 슬롯 파괴(Destroyed) 시 보유 포탑 일괄 정리 — 상태 단일 출처(SlotRevive) 구독.
+            //   컨트롤러·HP바·게이지가 같은 이벤트 구독하는 패턴과 일관.
+            if (_slotRevive != null)
+                _slotRevive.OnSlotStateChanged += HandleSlotStateChanged;
+        }
+
+        private void OnDisable()
+        {
+            if (_slotRevive != null)
+                _slotRevive.OnSlotStateChanged -= HandleSlotStateChanged;
+        }
+
+        // 슬롯 상태 전환 수신 — 파괴 진입 시에만 ClearAll(가동·대기·pending 정리·락 해제).
+        //   Normal 복귀(부활)는 큐가 이미 비어있어 할 일 없음 — 부활 후 새 정렬로 다시 포탑이 얹힘.
+        private void HandleSlotStateChanged(SlotState state)
+        {
+            if (state == SlotState.Destroyed)
+                ClearAll();
         }
 
         private void Start()
@@ -143,7 +171,8 @@ namespace InGame.Slot
 
         // 슬롯 파괴(HP 0) 일괄 정리용 — 가동·대기·pending 모두 Despawn + 비움.
         //   오버소팅 중이면 보관 pending까지 정리(락 걸린 채 슬롯 죽으면 데드락 → 강제 해제).
-        //   슬롯 Destroyed 상태(SlotRevive 등)가 이걸 호출하도록 연결.
+        //   SlotRevive.OnSlotStateChanged(Destroyed) 구독으로 자동 호출(HandleSlotStateChanged).
+        //   전투 종료(스테이지 종료/중단) 시에도 호출 필요 — 그 이벤트 연결은 게임 플로우 측에서(미연결).
         public void ClearAll()
         {
             DespawnIfTower(_active);
