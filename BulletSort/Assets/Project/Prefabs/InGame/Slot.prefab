@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 291792312549174916}
   - component: {fileID: 7092114303326642372}
   - component: {fileID: 880831245563764145}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   _slotHealth: {fileID: 5892617180485562619}
   _slotVisual: {fileID: 7259941450890908886}
   _displayController: {fileID: 893007241043439068}
-  _turretQueue: {fileID: 0}
+  _turretQueue: {fileID: 7092114303326642372}
 --- !u!114 &5892617180485562619
 MonoBehaviour:
   m_ObjectHideFlags: 0
