@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2247119639271516740}
   - component: {fileID: 291792312549174916}
   - component: {fileID: 7092114303326642372}
+  - component: {fileID: 5638513759220766518}
   - component: {fileID: 880831245563764145}
   m_Layer: 7
   m_Name: Slot
@@ -138,6 +139,7 @@ MonoBehaviour:
   _repairGauge: {fileID: 8301408649756213933}
   _activeTurretIcon: {fileID: 6845297202585176472}
   _queueTurretIcon: {fileID: 8175446287759002289}
+  _ammoBoardView: {fileID: 5638513759220766518}
 --- !u!114 &2247119639271516740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +189,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotTurretQueue
   _display: {fileID: 893007241043439068}
+--- !u!114 &5638513759220766518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140998026832287425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617e24b0460515e4d8382a16b22f68ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotAmmoBoard
+  _fillInfo: {fileID: 225263025438908263}
+  _weapon: {fileID: 848904442302535048}
+  _bulletText: {fileID: 8456670801305214484}
 --- !u!61 &880831245563764145
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -545,7 +562,7 @@ MonoBehaviour:
   m_text: "\xD7 12"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ca3e0e0e51ef344083440cb28b370b5, type: 2}
-  m_sharedMaterial: {fileID: 6144711128849985430, guid: 5ca3e0e0e51ef344083440cb28b370b5, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6719f90e82ec77e4082191d12272596c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1693,10 +1710,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4693775360293456636}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0.15, y: 0}
-  m_SizeDelta: {x: 0.3, y: 0.3}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.2, y: 0}
+  m_SizeDelta: {x: 0.2, y: -0.10000001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5114324758498739566
 CanvasRenderer:
@@ -1726,7 +1743,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7073845641842750575, guid: def12a7a4dd48b84ba9c1c25fdeff526, type: 3}
+  m_Sprite: {fileID: -2157556850044806838, guid: 9c0def3a146208c4da396e72dc14b078, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

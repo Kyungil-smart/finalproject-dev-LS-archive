@@ -36,6 +36,10 @@ namespace InGame.Slot
         [Tooltip("대기 포탑 아이콘(다음 미리보기) — NormalWithActiveQueue에서만 ON")]
         [SerializeField] private SpriteRenderer _queueTurretIcon;
 
+        [Header("잔탄보드 — 가동 포탑 총 그림·잔탄 수")]
+        [Tooltip("잔탄보드 표시 컴포넌트 — Fill_info 토글·총 그림·잔탄 폴링 일임. 비우면 Awake에서 탐색")]
+        [SerializeField] private SlotAmmoBoard _ammoBoardView;
+
         // 포탑 유무 입력 — 포탑 시스템이 주입. null이면 포탑 없음으로 간주.
         private ITurretPresence _turretPresence;
 
@@ -57,6 +61,8 @@ namespace InGame.Slot
             if (_slotVisual == null)
                 _slotVisual = GetComponent<SlotVisual>()
                               ?? GetComponentInChildren<SlotVisual>(includeInactive: true);
+            if (_ammoBoardView == null)
+                _ammoBoardView = GetComponentInChildren<SlotAmmoBoard>(includeInactive: true);
         }
 
         private void OnEnable()
@@ -94,6 +100,7 @@ namespace InGame.Slot
         public void SetTurretPresence(ITurretPresence presence)
         {
             _turretPresence = presence;
+            _ammoBoardView?.SetPresence(presence);   // 잔탄보드도 같은 presence로 폴링
             Refresh();
         }
 
@@ -168,6 +175,7 @@ namespace InGame.Slot
             {
                 SetIcon(_activeTurretIcon, 0);
                 SetIcon(_queueTurretIcon, 0);
+                SetAmmoBoard(0);   // 잔탄보드 OFF
                 if (!destroyed) _slotVisual?.SetDefault();
                 return;
             }
@@ -185,11 +193,20 @@ namespace InGame.Slot
                 SetIcon(_activeTurretIcon, 0);
             }
 
+            // 잔탄보드 — 가동 있으면 ON + 그 타입 총 그림, 없으면 OFF(비워짐). 잔탄 수는 보드가 폴링.
+            SetAmmoBoard(activeType);
+
             // 대기 포탑 — NormalWithActiveQueue에서만 대기 아이콘 ON(다음 미리보기).
             int queueType = mode == SlotDisplayMode.NormalWithActiveQueue
                 ? _turretPresence.QueueTowerType
                 : 0;
             SetIcon(_queueTurretIcon, queueType);
+        }
+
+        // 잔탄보드 — 가동 타입(1~6)이면 보드 ON + 총 그림, 0이면 OFF. Fill_info 토글은 보드가 일임.
+        private void SetAmmoBoard(int towerType)
+        {
+            _ammoBoardView?.Show(towerType);
         }
 
         // 아이콘 1개 갱신 — towerType 0이면 OFF, 1~6이면 ON + 해당 타입 스프라이트.
