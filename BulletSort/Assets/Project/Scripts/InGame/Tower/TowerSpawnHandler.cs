@@ -36,11 +36,9 @@ namespace Towers.Spawner.Handler
             // 3. towerID → ETowerType (타워 영역 매핑 — 추후 타워 SO 조회로 교체)
             Logger.Instance?.LogInfo($"{pieceID} 기물의 {towerID.ToString()} 포탑 소환 요청");
             
-            // 4. 소환
-            // SpawnManager.Instance.SpawnTower(towerID, slot);
-            ITower turret = SpawnManager.Instance.SpawnTower(towerID, slot);   // 한 번만(기존 중복 호출 제거)
-            var pushedOut = queue.RegisterTurret(turret);
-            // TODO: (pushedOut as global::Towers.Factory.Towers)?.FastConsume();
+            // 4. 소환 → 큐 등록(가동/대기/오버소팅 판단은 큐가)
+            ITower turret = SpawnManager.Instance.SpawnTower(towerID, slot);
+            queue.RegisterTurret(turret);
         }
     }
 }
