@@ -9,6 +9,8 @@ namespace Towers.Struct.TowerInfo
     public struct STowerInfo
     {
         private int _towerID;
+        
+        private int _towerType;
 
         // 타겟팅 조건
         private int _towerAIType;
@@ -37,6 +39,7 @@ namespace Towers.Struct.TowerInfo
         
         public EProjectileType ProjectileType => _towerProjectile;
         
+        public int TowerType => _towerType;
         public int TowerAtk => _towerAtk;
         public float TowerAtkSpeed => _towerAtkSpeed;
         public int TowerMaxLange => _towerMaxLange;
@@ -45,6 +48,7 @@ namespace Towers.Struct.TowerInfo
         public STowerInfo(TowerData towerData)
         {
             _towerID = towerData.TowerID;
+            _towerType = towerData.TowerType;
             _towerAIType = towerData.TowerAIType;
             _towerProjectile = (EProjectileType)towerData.TowerProjectile;
             _towerAtk = towerData.TowerAtk;
