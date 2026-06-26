@@ -513,7 +513,11 @@ MonoBehaviour:
   _perkLevel: {fileID: 4787122519382905860}
   _perkDesc: {fileID: 4195673811263025978}
   _perkEffect: {fileID: 660822144518078340}
-  _index: 1
+  _index: 0
+  _normalPanel: {fileID: 21300000, guid: 2091b581267c6d54eaaddc4673ed910c, type: 3}
+  _rarePanel: {fileID: 21300000, guid: 2edbf976ecc703246a456c84ca8fb98c, type: 3}
+  _uniquePanel: {fileID: 21300000, guid: dc3deae89e1f2224189b9c04ffb497dc, type: 3}
+  _legendaryPanel: {fileID: 21300000, guid: 81f63ad5d55f30c4c840cd99650d4f95, type: 3}
 --- !u!1 &4286961563514235842
 GameObject:
   m_ObjectHideFlags: 0
