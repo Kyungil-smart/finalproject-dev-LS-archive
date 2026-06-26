@@ -31,7 +31,7 @@ namespace Monster.Portal
 
             else
             {
-                while (_spawnPase > 7)
+                while (_spawnPase < 7)
                 {
                      Spawn();
                     yield return new WaitForSeconds(5);
