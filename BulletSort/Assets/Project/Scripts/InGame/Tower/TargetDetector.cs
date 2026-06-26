@@ -11,7 +11,7 @@ public class TargetDetector : MonoBehaviour
    private float _detectRange;
    public float DetectRange { get => _detectRange; set  => _detectRange = value; }
    
-   [SerializeField]public GameObject target;
+   [SerializeField]public MonsterController target;
    [SerializeField]public List<GameObject> _detectedMonsters;
    
 
@@ -23,7 +23,7 @@ public class TargetDetector : MonoBehaviour
 
    private void Update()
    {
-      if(target != null && target.GetComponent<MonsterController>().isDead)
+      if(target != null && target.isDead)
          KillTarget();
    }
 
@@ -76,7 +76,7 @@ public class TargetDetector : MonoBehaviour
    // 기본은 가까운 거리
    private void SelectTarget()
    {
-      GameObject atkTarget = null;
+      MonsterController atkTarget = null;
       float mindistance = float.MaxValue;
       // Debug.Log($"<color=Green>{mindistance}</color>");
       
@@ -86,7 +86,7 @@ public class TargetDetector : MonoBehaviour
          float targetDistance = GetDistance(monster.transform.position);
          if (mindistance > targetDistance)
          {
-            atkTarget = monster;
+            atkTarget = monster.GetComponent<MonsterController>();
             mindistance = targetDistance;
          }
       }
@@ -100,7 +100,7 @@ public class TargetDetector : MonoBehaviour
    private void KillTarget()
    {
       // Debug.Log("목표제거");
-      _detectedMonsters.Remove(target);
+      _detectedMonsters.Remove(target.gameObject);
       Destroy(target);
       target = null;
    }

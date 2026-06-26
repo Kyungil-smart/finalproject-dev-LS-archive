@@ -2,13 +2,14 @@ using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
 using Core.ObjectPool.Interface;
+using Monster.Controll;
 using UnityEngine;
 
 namespace Projectile
 {
     public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
     {
-        private GameObject _target;
+        private MonsterController _target;
         private GameObject _keyObj;
 
         private float _moveSpeed;
@@ -22,10 +23,12 @@ namespace Projectile
 
         private void FixedUpdate()
         {
-            if(_target == null)
-            PoolManager.Instance.Release(_keyObj, gameObject);
+            if (_target.isDead) _target = null;
             
-            MoveToTarget(_target);
+            if(_target == null)
+                PoolManager.Instance.Release(_keyObj, gameObject);
+            
+            MoveToTarget(_target.gameObject);
         }
 
         public void MoveToTarget(GameObject target)
@@ -61,7 +64,7 @@ namespace Projectile
         }
 
         // 데이터 받아오기
-        public void Init(GameObject target, GameObject keyObj, int atk, float moveSpeed)
+        public void Init(MonsterController target, GameObject keyObj, int atk, float moveSpeed)
         {
             _target = target;
             _keyObj = keyObj;
