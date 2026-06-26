@@ -1,13 +1,16 @@
 using Core;
 using Core.Manager.SpawnManager;
+using Monster.Boss;
 using Monster.Controll;
 using Monster.Spawn;
 using UnityEngine;
 
 namespace Monster.Factory
 {
+    
     public class MonsterFactory : MonoBehaviour
     {
+        [SerializeField] private GameObject _bossPrefab;
         // 몬스터 오브젝트 생성
         public void CreateMonster(SpawnPoint spawnPoint)
         {
@@ -25,7 +28,7 @@ namespace Monster.Factory
             instance.tag = "Monster";
             SpriteRenderer spriteRenderer = instance.gameObject.AddComponent<SpriteRenderer>();
             spriteRenderer.sortingLayerName = "Monster";
-            int monsterType = monsterData.MonsterID%10;
+            int monsterType = monsterData.MonsterType;
             // 타입에 따른 스프라이트 설정
             switch (monsterType)
             {
@@ -50,6 +53,13 @@ namespace Monster.Factory
             monsterctr.target = spawnPoint.Target;
             SpawnManager.Instance.Monsters.Add(instance);
             Debug.Log("몬스터오브젝트생성");
+        }
+
+        public void CreateBoss(Transform spawnPoint, int bossID)
+        {
+            MonsterData bossData = DataManager.Instance.GetData<MonsterData>(bossID);
+            GameObject instance = Instantiate(_bossPrefab);
+            instance.GetComponent<BossMonster>().Init(bossData);
         }
     }
 }
