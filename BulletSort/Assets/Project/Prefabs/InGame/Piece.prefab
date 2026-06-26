@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1560214191
-  m_SortingLayer: -3
+  m_SortingLayer: -4
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3132188885224195047, guid: 91f976395e1586f47b0cdf54cb616970, type: 3}
@@ -101,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1746991953642516983}
   - component: {fileID: 5265692148909929344}
+  - component: {fileID: 4558549709808228114}
   - component: {fileID: 3450532317090284595}
   m_Layer: 6
   m_Name: Piece
@@ -142,8 +143,21 @@ MonoBehaviour:
   _cellLayer:
     serializedVersion: 2
     m_Bits: 256
+  _highlighter: {fileID: 0}
   _pieceID: 0
   _draggingLayer: 6
+--- !u!114 &4558549709808228114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8311515589943430100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846b6467e7737334da866b7b9a2cb076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.CellHighlighter
 --- !u!70 &3450532317090284595
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

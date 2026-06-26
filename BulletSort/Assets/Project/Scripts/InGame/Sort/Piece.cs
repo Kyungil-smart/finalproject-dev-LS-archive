@@ -15,6 +15,9 @@ namespace InGame.Sort
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private Collider2D _collider;
         [SerializeField] private LayerMask _cellLayer;
+
+        [Tooltip("셀 하이라이트 — 드래그 중 호버 셀 강조. 비우면 Awake에서 탐색")]
+        [SerializeField] private CellHighlighter _highlighter;
         
         
         [Header("Piece Data")]
@@ -61,6 +64,11 @@ namespace InGame.Sort
                 _renderer = GetComponentInChildren<SpriteRenderer>();
             if(_collider == null) 
                 _collider = GetComponent<Collider2D>();
+
+            // 하이라이터 — 미지정 시 탐색. 셀 레이어를 넘겨 공유(중복 지정 방지).
+            if (_highlighter == null)
+                _highlighter = GetComponent<CellHighlighter>();
+            _highlighter?.Init(_cellLayer);
         }
         
         // 풀링 재사용 시 호출. PieceID 보유 + 스프라이트 교체 + 활성 토글
@@ -105,10 +113,15 @@ namespace InGame.Sort
             // z는 원래 값 유지 — 카메라 거리에 영향 받지 않게.
             Vector2 newPos = worldPos + _dragState.DragOffset;
             transform.position = new Vector3(newPos.x, newPos.y, _dragState.OriginalPos.z);
+
+            // 호버 셀 하이라이트 갱신 — 배치 가능 빈 셀 강조(한 칸).
+            _highlighter?.UpdateHover(worldPos);
         }
         
         public void OnReleased(Vector2 worldPos)
         {
+            _highlighter?.Clear();   // 하이라이트 정리(놓는 순간)
+
             PlaceOnCell(FindCellAt(worldPos));
             
             // 원위치 복귀 (성공·실패 무관)
