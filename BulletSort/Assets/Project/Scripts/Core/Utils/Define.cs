@@ -23,6 +23,7 @@ namespace Core
     public enum SortingLayerType
     {
         Board,
+        DestroyedBoard,     // 파괴 슬롯 바닥 — Monster 아래로(파괴 슬롯 넘어가는 몬스터가 바닥 위에 그려짐)
         DestroyedUnderlay,  // 파괴 슬롯 잔해 — Monster 아래로 깔림
         Frame,
         Monster,
@@ -39,6 +40,7 @@ namespace Core
         public static string ToName(this SortingLayerType type) => type switch
         {
             SortingLayerType.Board             => "Board",
+            SortingLayerType.DestroyedBoard    => "DestroyedBoard",
             SortingLayerType.DestroyedUnderlay => "Destroyed Underlay",
             SortingLayerType.Frame             => "Frame",
             SortingLayerType.Monster           => "Monster",
