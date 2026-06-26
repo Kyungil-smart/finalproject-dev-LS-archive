@@ -1,4 +1,6 @@
-﻿using Monster.Portal;
+﻿using InGame.Slot;
+using Monster.Portal;
+using UnityEngine;
 
 namespace Core
 {
@@ -15,7 +17,7 @@ namespace Core
 
     class StageManager : Singleton<StageManager>
     {
-        //[SerializeField] SlotBoardManager _slotBoardManager;
+        [SerializeField] SlotBoardManager _slotBoardManager;
 
         Portal[] spawners;
 
@@ -49,6 +51,7 @@ namespace Core
             _waveTimer = new Timer(40);
 
             PerksManager.Instance.OnPerkPhaseEnded += ResetState;
+            _slotBoardManager.OnAllSlotsDestroyed += DefeatEvent;
         }
 
         // Lobby에서 선택 시 호출할 것
@@ -57,6 +60,8 @@ namespace Core
             _curStageID = stageID;
 
             _waveIdx = 0;
+            _killCount = 0;
+            _targetKillNum = 0;
 
             _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
             _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
@@ -68,8 +73,6 @@ namespace Core
         {
             _isWin = false;
             _isDefeat = false;
-            _killCount = 0;
-            _targetKillNum = 0;
 
             if (_waveIdx == 9)
             {
@@ -96,6 +99,9 @@ namespace Core
             NormalSpawnCount = curPattern.Normal_Count;
             SpeedySpawnCount = curPattern.Speedy_Count;
             TankerSpawnCount = curPattern.Tanker_Count;
+
+            _targetKillNum += (NormalSpawnCount + SpeedySpawnCount + TankerSpawnCount);
+            Debug.Log($"Target Kill Num in This Wave : {_targetKillNum}");
         }
 
         private void WaveClearHandler()
@@ -106,6 +112,7 @@ namespace Core
 
         private void WaveFailHandler()
         {
+            Time.timeScale = 0;
             // 패배 UI 띄우기
         }
 
@@ -125,33 +132,22 @@ namespace Core
 
             _waveTimer.UpdateTimer();
 
-            if (_waveTimer.IsEnabled)
+            if (_waveTimer.IsEnabled || _killCount >= _targetKillNum)
             {
                 _isWin = true;
                 _waveTimer.ResetTimer(40);
             }
-
-            _isDefeat = CheckDefeatCondition();
         }
 
-        private bool CheckDefeatCondition()
+        private void DefeatEvent()
         {
-            //foreach (Slot slot in _slotBoardManager.Slots)
-            //{
-            //    if (slot.Health.isDead == false)
-            //    {
-            //        return false;
-            //    }
-            //}
-
-            //return true;
-
-            return false;
+            _isDefeat = true;
         }
 
         public void IncrementKillCount()
         {
             _killCount++;
+            Debug.Log($"Kill Count : {_killCount}/{_targetKillNum}");
         }
     }
 }

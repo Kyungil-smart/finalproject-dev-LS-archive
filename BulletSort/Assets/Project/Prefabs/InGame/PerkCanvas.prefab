@@ -730,8 +730,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2123420680610506958, guid: 21bb5bdbcbf3c1145b8ef55b9e72c45f, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: e0cab16059f5c3d4b9cc49fa6d731c0e, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -759,7 +759,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -770,7 +770,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 3b93e251ad89e8641bba79d3d75d3ef0, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1165,22 +1165,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7493244207507749714, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8746796522214687143, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4cc3ba35f0938d34c98bdfce11e71531, type: 3}
-    - target: {fileID: 9090213079543582856, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090213079543582856, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1294,22 +1278,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7493244207507749714, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8746796522214687143, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f5abab96da3be8740a31f1d3ff6223c3, type: 3}
-    - target: {fileID: 9090213079543582856, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090213079543582856, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1421,22 +1389,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7429622023958041877, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7493244207507749714, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8746796522214687143, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8ffef4bdca96d9846a9ce009a198ee11, type: 3}
-    - target: {fileID: 9090213079543582856, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9090213079543582856, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
