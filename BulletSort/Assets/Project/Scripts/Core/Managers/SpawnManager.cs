@@ -25,6 +25,7 @@ namespace Core.Manager.SpawnManager
       private SpawnPoint[] _bottomSpawnPoints;
       
       private List<GameObject> _monsters;
+      private List<int> _monsterIDs;
       
       public TowerFactory TowerFactory => _towerFactory;
       public ProjectileFactory ProjectileFactory => _projectileFactory;
@@ -145,26 +146,26 @@ namespace Core.Manager.SpawnManager
 
       private int RandomID(MonsterGroupData groupData)
       {
-         List<int> ids = new List<int>();
+         _monsterIDs = new List<int>();
 
-         AddList(groupData.MonsterID_1, groupData.NormalRate_1, ids);
-         AddList(groupData.MonsterID_2, groupData.NormalRate_2, ids);
-         AddList(groupData.MonsterID_3, groupData.NormalRate_3, ids);
+         AddList(groupData.MonsterID_1, groupData.NormalRate_1);
+         AddList(groupData.MonsterID_2, groupData.NormalRate_2);
+         AddList(groupData.MonsterID_3, groupData.NormalRate_3);
 
-         int index = Random.Range(0, ids.Count);
+         int index = Random.Range(0, _monsterIDs.Count);
          
-         int id = ids[index];  
+         int id = _monsterIDs[index];  
 
          return id;
       }
 
-      private void AddList(int monsterID, int Rate, List<int> monsterids)
+      private void AddList(int monsterID, int Rate)
       {
          if (monsterID == 0 || Rate == 0) return;
          
          for (int i = 0; i < Rate; i++)
          {
-            monsterids.Add(monsterID);
+            _monsterIDs.Add(monsterID);
          }
       }
    }
