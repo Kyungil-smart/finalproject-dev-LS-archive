@@ -25,10 +25,10 @@ namespace Projectile
         {
             if (_target.isDead) _target = null;
             
-            if(_target == null)
+            if(_target.gameObject == null)
                 PoolManager.Instance.Release(_keyObj, gameObject);
             
-            MoveToTarget(_target.gameObject);
+            MoveToTarget(_target?.gameObject);
         }
 
         public void MoveToTarget(GameObject target)
