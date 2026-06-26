@@ -99,7 +99,10 @@ namespace Monster.Controll
 
         public void Init(MonsterData monsterData)
         {
-            _moveSpeed = monsterData.MonsterMoveSpeed;
+            if (monsterData.MonsterType == 4) _moveSpeed = 0;
+            
+            else _moveSpeed = monsterData.MonsterMoveSpeed;
+            
             _atk = monsterData.MonsterAtk;
             _atkSpeed = monsterData.MonsterAtkSpeed;
             atkTimer = new Timer(_atkSpeed);
