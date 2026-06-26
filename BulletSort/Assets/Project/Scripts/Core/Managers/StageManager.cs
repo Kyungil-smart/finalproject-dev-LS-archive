@@ -22,10 +22,12 @@ namespace Core
         int _targetKillNum = 0;
         int _killCount = 0;
 
+        bool _isRunning = false;
+
         bool _isWin = false;
         bool _isDefeat = false;
 
-        int _curStageID;
+        int _curStageID = 1001;
         StageData _stageData;
         WaveData _waveData;
 
@@ -70,6 +72,11 @@ namespace Core
             BossID = _stageData.BossID;
 
             ResetState();
+        }
+
+        public void EnterStage()
+        {
+            _isRunning = true;
         }
 
         private void ResetState()
@@ -127,24 +134,27 @@ namespace Core
 
         private void FixedUpdate()
         {
-            if (_isWin)
+            if (_isRunning)
             {
-                WaveClearHandler();
-                return;
-            }
+                if (_isWin)
+                {
+                    WaveClearHandler();
+                    return;
+                }
 
-            if (_isDefeat)
-            {
-                WaveFailHandler();
-                return;
-            }
+                if (_isDefeat)
+                {
+                    WaveFailHandler();
+                    return;
+                }
 
-            _waveTimer.UpdateTimer();
+                _waveTimer.UpdateTimer();
 
-            if (_waveTimer.IsEnabled || _killCount >= _targetKillNum)
-            {
-                _isWin = true;
-                _waveTimer.ResetTimer(40);
+                if (_waveTimer.IsEnabled || _killCount >= _targetKillNum)
+                {
+                    _isWin = true;
+                    _waveTimer.ResetTimer(40);
+                }
             }
         }
 

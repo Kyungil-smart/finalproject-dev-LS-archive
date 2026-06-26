@@ -15,7 +15,7 @@ namespace InGame.Slot.Data
         private static SlotTurretSpriteTable _spriteTable;
         private static SlotTurretSpriteTable SpriteTable =>
             _spriteTable != null ? _spriteTable
-                : (_spriteTable = Resources.Load<SlotTurretSpriteTable>("SO/SpriteTables/SlotTurretSpriteTable"));
+                : (_spriteTable = Resources.Load<SlotTurretSpriteTable>("SpriteTables/SlotTurretSpriteTable"));
         
         // SlotData ID로 조회. 없으면 null (호출 측에서 폴백 처리).
         public static SlotData Get(int slotDataID)

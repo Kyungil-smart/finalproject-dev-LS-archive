@@ -1,6 +1,6 @@
-using System.Collections.Generic;
-using Core;
+﻿using Core;
 using InGame.Sort.Data;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -30,7 +30,7 @@ namespace Lobby.Deck
         private void Start()
         {
             DeckHolder.Clear();
-            
+
             InitSlots();
             BuildOwnedList();
 
@@ -83,6 +83,8 @@ namespace Lobby.Deck
         //   TODO: 폴백 대신 경고창("덱을 모두 채워주세요")으로 교체 — 6칸 미만 입장 불가.
         public void OnTapStart()
         {
+            // 임시로 1001 Stage를 넣어둠.
+            StageManager.Instance.SetStageID(1001);
             var deck = CollectDeckIDs();
             DeckHolder.Set(deck);
             SceneManager.LoadScene(Define.SCENE_INGAME);
