@@ -3,15 +3,15 @@
 namespace Core
 {
     /// <summary>
-    /// ���� Ingame���� �������� Stage�� ������ �����ϴ� Ŭ�����̴�.
-    /// Lobby���� Stage ���� �� �ش� Stage�� index ������ �ް�,
-    /// StageData SO�� id�� ������ ������.
+    /// 현재 Ingame에서 진행중인 Stage의 진행을 관리하는 클래스이다.
+    /// Lobby에서 Stage 선택 시 해당 Stage의 index 정보를 받고,
+    /// StageData SO의 id로 정보를 접근함.
     /// 
-    /// �ۼ��� : ����
+    /// 작성자 : 김경민
     /// </summary>
 
-    // DataManager�κ��� �� Stage�� �´� SO instance�� ��������
-    // Monster Spawner�� ��û�ϴ� ����?
+    // DataManager로부터 현 Stage에 맞는 SO instance를 가져오고
+    // MonsterGroup을 Spawner에 요청하는 형태
 
     class StageManager : Singleton<StageManager>
     {
@@ -27,10 +27,19 @@ namespace Core
 
         int _curStageID;
         StageData _stageData;
+        WaveData _waveData;
 
-        int _waveIdx = 0;
+        int _waveIdx;
 
         private Timer _waveTimer; // 40초;
+
+        public int NormalMonsterGroup { get; private set; }
+        public int SpeedyMonsterGroup { get; private set; }
+        public int TankerMonsterGroup { get; private set; }
+
+        public int NormalSpawnCount { get; private set; }
+        public int SpeedySpawnCount { get; private set; }
+        public int TankerSpawnCount { get; private set; }
 
         protected override void Init()
         {
@@ -38,51 +47,65 @@ namespace Core
 
             _waveTimer = new Timer(40);
 
-            // 임시 ID
-            _curStageID = 1001;
+            PerksManager.Instance.OnPerkPhaseEnded += ResetState;
+        }
+
+        // Lobby에서 선택 시 호출할 것
+        public void SetStageID(int stageID)
+        {
+            _curStageID = stageID;
+
+            _waveIdx = 0;
 
             _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
+            _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
 
-            PerksManager.Instance.OnPerkPhaseEnded += ResetState;
+            ResetState();
         }
 
         private void ResetState()
         {
-            _waveIdx++;
-
-            // _waveIdx가 max가 되면 Stage Clear.
-            /*
-                Todo.
-             */
-            //
-
             _isWin = false;
             _isDefeat = false;
-
             _killCount = 0;
             _targetKillNum = 0;
 
-            //foreach (Portal spawner in spawners)
-            //{
-            //    _targetKillNum += spawner.MaxMonsterCount;
-            //}
+            if (_waveIdx == 9)
+            {
+                // Boss Wave;
+            }
+            else if (_waveIdx > 9)
+            {
+                // Stage Clear
+            }
+            else
+            {
+                SetValueByCurWavePattern();
+            }
         }
 
-        private void LoadWaveData()
+        private void SetValueByCurWavePattern()
         {
-            //WaveData waveData = ;
-            //WavePatternData;
-            //MonsterSpawn;
+            WavePatternData curPattern = DataManager.Instance.GetData<WavePatternData>(_waveData[_waveIdx]);
+
+            NormalMonsterGroup = _stageData.MonsterGroupID_Normal;
+            SpeedyMonsterGroup = _stageData.MonsterGroupID_Speedy;
+            TankerMonsterGroup = _stageData.MonsterGroupID_Tanker;
+
+            NormalSpawnCount = curPattern.Normal_Count;
+            SpeedySpawnCount = curPattern.Speedy_Count;
+            TankerSpawnCount = curPattern.Tanker_Count;
         }
 
         private void WaveClearHandler()
         {
+            _waveIdx++;
             PerksManager.Instance.EnterPerksPhase();
         }
 
         private void WaveFailHandler()
         {
-            // 
+            // 패배 UI 띄우기
         }
 
         private void FixedUpdate()
@@ -95,7 +118,7 @@ namespace Core
 
             if (_isDefeat)
             {
-                // 패배 처리
+                WaveFailHandler();
                 return;
             }
 
@@ -106,11 +129,6 @@ namespace Core
                 _isWin = true;
                 _waveTimer.ResetTimer(40);
             }
-
-            //if (_targetKillNum == _killCount)   // ���� �ð��� ����Ǿ��� ���� Ŭ����.
-            //{
-            //    _isWin = true;
-            //}
 
             _isDefeat = CheckDefeatCondition();
         }
