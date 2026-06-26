@@ -101,7 +101,7 @@ public class TargetDetector : MonoBehaviour
     {
         // Debug.Log("목표제거");
         _detectedMonsters.Remove(target.gameObject);
-        Destroy(target);
+        Destroy(target.gameObject);
         target = null;
     }
 
