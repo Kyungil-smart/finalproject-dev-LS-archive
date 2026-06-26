@@ -103,7 +103,7 @@ namespace Core.Manager.SpawnManager
         return projectile;
       }
 
-      public void SpawnMonster(int spawnCount)
+      public void SpawnMonster(int monsterID, int spawnCount)
       {
          
          for (int i = 0; i < spawnCount; i++)
@@ -114,8 +114,7 @@ namespace Core.Manager.SpawnManager
             _monsterFactory.CreateMonster(spawnTr);
             
             //보스 웨이브 일 때
-            //int index = Random.Range(0, _topSpawnPoints.Length);
-            //_monsterFactory.CreateMonster(_topSpawnPoints[index]);
+            //_monsterFactory.CreateBoss(_topPortal.bossZone, monsterID);
 
             Debug.Log("몬스터 생성");
          }

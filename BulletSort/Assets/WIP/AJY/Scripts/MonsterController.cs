@@ -17,7 +17,7 @@ namespace Monster.Controll
         [SerializeField]private float _atkSpeed;
         
         [Tooltip("몬스터 최대 체력")]
-        [SerializeField]private int _maxHealth = 50;
+        [SerializeField]private int _maxHealth;
         
         [Tooltip("몬스터 현재 체력")]
         [SerializeField] private int _health;
@@ -103,6 +103,7 @@ namespace Monster.Controll
             _atk = monsterData.MonsterAtk;
             _atkSpeed = monsterData.MonsterAtkSpeed;
             atkTimer = new Timer(_atkSpeed);
+            _maxHealth = monsterData.MonsterHp;
 
             _health = _maxHealth;
 
