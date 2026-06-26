@@ -7,6 +7,7 @@ namespace Towers.Interface.Tower
     {
         // 투사체 생성
         public IEnumerator Attack();
+        public void StartAttack();
 
         // 데이터 저장
         public void SetData(TowerData towerData);
