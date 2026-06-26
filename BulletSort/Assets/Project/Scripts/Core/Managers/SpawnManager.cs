@@ -115,15 +115,6 @@ namespace Core.Manager.SpawnManager
       public void SpawnMonster(int monsterGroupID, int spawnCount)
       {
          MonsterGroupData groupdata = DataManager.Instance.GetData<MonsterGroupData>(monsterGroupID);
-         
-         //보스 웨이브 일 때
-         if (StageManager.Instance.IsBossWave)
-         {
-            _monsterFactory.CreateBoss(_topPortal.bossZone, StageManager.Instance.BossID);
-         }
-
-         // 보스웨이브가 아닐 때
-         else
          {
             for (int i = 0; i < spawnCount; i++)
             {
@@ -131,6 +122,15 @@ namespace Core.Manager.SpawnManager
                SpawnPoint spawnTr = RandomPoint();
                _monsterFactory.CreateMonster(spawnTr, monsterID);
             }
+         }
+      }
+
+      public void SpawnBoss()
+      {
+         //보스 웨이브 일 때
+         if (StageManager.Instance.IsBossWave)
+         {
+            _monsterFactory.CreateBoss(_topPortal.bossZone, StageManager.Instance.BossID);
          }
       }
 
