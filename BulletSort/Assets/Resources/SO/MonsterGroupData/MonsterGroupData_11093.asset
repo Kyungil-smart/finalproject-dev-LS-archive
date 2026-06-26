@@ -17,5 +17,5 @@ MonoBehaviour:
   MonsterID_2: 4423
   MonsterID_3: 4433
   NormalRate_1: 0
-  NormalRate_2: 0
+  NormalRate_2: 100
   NormalRate_3: 0

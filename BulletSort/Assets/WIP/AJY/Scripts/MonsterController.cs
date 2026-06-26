@@ -86,7 +86,7 @@ namespace Monster.Controll
         {
             _health -= Damage;
 
-            if (_health <= 0)
+            if (_health <= 0 && !isDead)
             {
                 Dead();
             }
