@@ -84,6 +84,8 @@ namespace Core
             _isWin = false;
             _isDefeat = false;
 
+            _waveTimer.ResetTimer(40);
+
             if (_waveIdx > 9)
             {
                 // Stage Clear
@@ -115,13 +117,17 @@ namespace Core
             SpeedySpawnCount = curPattern.Speedy_Count;
             TankerSpawnCount = curPattern.Tanker_Count;
 
-            _targetKillNum += (NormalSpawnCount + SpeedySpawnCount + TankerSpawnCount) * 8;
+            Debug.Log(NormalSpawnCount);
+            Debug.Log(SpeedySpawnCount);
+            Debug.Log(TankerSpawnCount);
+            _targetKillNum += ((NormalSpawnCount + SpeedySpawnCount + TankerSpawnCount) * 8);
 
             Debug.Log($"Target Kill Num in This Wave : {_targetKillNum}");
         }
 
         private void WaveClearHandler()
         {
+            _isWin = false;
             SpawnManager.Instance.WaveEnd();
             _waveIdx++;
             PerksManager.Instance.EnterPerksPhase();
@@ -151,10 +157,9 @@ namespace Core
 
                 _waveTimer.UpdateTimer();
 
-                if (_waveTimer.IsEnabled || _killCount >= _targetKillNum)
+                if (_waveTimer.IsEnabled)
                 {
                     _isWin = true;
-                    _waveTimer.ResetTimer(40);
                 }
             }
         }
@@ -168,6 +173,11 @@ namespace Core
         {
             _killCount++;
             Debug.Log($"Kill Count : {_killCount}/{_targetKillNum}");
+
+            if (_killCount == _targetKillNum)
+            {
+                _isWin = true;
+            }
         }
     }
 }
