@@ -52,14 +52,13 @@ namespace Monster.Factory
             instance.transform.SetParent(spawnPoint.transform);
             monsterctr.target = spawnPoint.Target;
             SpawnManager.Instance.Monsters.Add(instance);
-            Debug.Log("몬스터오브젝트생성");
         }
 
         public void CreateBoss(Transform spawnPoint, int bossID)
         {
             MonsterData bossData = DataManager.Instance.GetData<MonsterData>(bossID);
-            GameObject instance = Instantiate(_bossPrefab);
-            instance.GetComponent<BossMonster>().Init(bossData);
+            GameObject instance = Instantiate(_bossPrefab, spawnPoint);
+            instance.GetComponent<MonsterController>().Init(bossData);
         }
     }
 }
