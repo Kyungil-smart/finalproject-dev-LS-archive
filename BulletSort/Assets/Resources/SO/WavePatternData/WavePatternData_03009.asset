@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WavePatternData
   WavePatternID: 3009
   WaveType: 3
-  Normal_Count: 20
-  Speedy_Count: 5
-  Tanker_Count: 5
+  Normal_Count: 25
+  Speedy_Count: 15
+  Tanker_Count: 10
