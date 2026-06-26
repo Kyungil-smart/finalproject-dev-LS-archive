@@ -71,13 +71,12 @@ namespace Core
             _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
 
             BossID = _stageData.BossID;
-
-            ResetState();
         }
 
         public void EnterStage()
         {
             _isRunning = true;
+            ResetState();
         }
 
         private void ResetState()

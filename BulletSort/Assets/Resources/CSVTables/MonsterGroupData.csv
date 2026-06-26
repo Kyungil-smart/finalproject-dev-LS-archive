@@ -14,7 +14,7 @@ MonsterGroupID,MonsterID_1,MonsterID_2,MonsterID_3,NormalRate_1,NormalRate_2,Nor
 11121,0,04212,04213,0,60,40,*,Normal_Stage12,,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
 11022,04212,0,0,,,,*,Speedy_Stage2,,,MonsterGroupID,PK,,몬스터 후보군의 고유ID. 어떤 몬스터 종류가 나오게 할 지 결정.,P1
 11072,0,04222,0,,,,*,Speedy_Stage7,,,MonsterID_1,,MonsterData.MonsterID,웨이브의 타입. 추가 보상 여부나 연출 등을 결정.,P1
-11122,0,0,04223,이거 왜 0에 붉은색 딱지가 붙습니까? 시온님 도와주세요,,,*,Speedy_Stage12,,,MonsterID_2,,MonsterData.MonsterID,웨이브의 타입. 추가 보상 여부나 연출 등을 결정.,P2
+11122,0,0,04223,,,,*,Speedy_Stage12,,,MonsterID_2,,MonsterData.MonsterID,웨이브의 타입. 추가 보상 여부나 연출 등을 결정.,P2
 11023,04213,0,0,,,,*,Tanker_Stage2,,,MonsterID_3,,MonsterData.MonsterID,웨이브의 타입. 추가 보상 여부나 연출 등을 결정.,P3
 11073,0,04223,0,,,,*,Tanker_Stage7,,,Desc,,,시트에서 데이터 부연설명을 위한 칼럼으로 인게임에서 사용되지 않음.,P4
 11123,0,0,04233,,,,*,Tanker_Stage12,,,,,,,
