@@ -1,5 +1,5 @@
 int,int,int,int,int,int,int,*,string,,,,,,,
-MonsterGroupID,MonsterID_1,MonsterID_2,MonsterID_3,NomalRate_1,NomalRate_2,NomalRate_3,*,Desc,,,,,,,
+MonsterGroupID,MonsterID_1,MonsterID_2,MonsterID_3,NormalRate_1,NormalRate_2,NormalRate_3,*,Desc,,,,,,,
 11011,04111,04121,0,70,30,0,*,Normal_Stage1,,주의사항,,,,,
 11061,04111,04121,0,50,50,0,*,Normal_Stage6,,1,동일한 MonsterGroup에 포함되어있는 몬스터들은 모두 등장할 확률이 같다고 가정하기때문에 그룹 내 등장 가중치를 조절하는 칼럼은 사용하지 않는다.,,,,
 11111,0,04121,04131,0,60,40,*,Normal_Stage11,,2,MonsterGroupID는 아래 규칙을 바탕으로 세부적인 정규화가 되어있다.,,,,
