@@ -57,6 +57,14 @@ namespace InGame.Slot
             return turret is Towers.Factory.Towers t ? t.TowerInfo.TowerType : 0;
         }
 
+        // 가동 승격 — _active 설정 + 발사 시작(StartAttack)을 한 묶음으로.
+        //   포탑은 생성 시 발사 안 함(대기 상태) → 가동이 되는 순간 큐가 발사 시작을 통지.
+        private void PromoteToActive(ITower turret)
+        {
+            _active = turret;
+            turret?.StartAttack();
+        }
+
         private void Awake()
         {
             if (_display == null)
@@ -115,7 +123,7 @@ namespace InGame.Slot
 
             if (_active == null)
             {
-                _active = turret;
+                PromoteToActive(turret);   // 첫 포탑 — 가동 + 발사 시작
                 RefreshVisual();
                 return;
             }
@@ -148,13 +156,13 @@ namespace InGame.Slot
                 if (_overSorting.IsActive)
                 {
                     // 탄배출 완료 — 최종 동작은 큐가. 대기 승격, 오버소팅에서 pending 받아 대기로.
-                    _active = _queue;
-                    _queue  = _overSorting.Complete();
+                    PromoteToActive(_queue);
+                    _queue = _overSorting.Complete();
                 }
                 else
                 {
-                    _active = _queue;   // 대기 승격(없으면 null)
-                    _queue  = null;
+                    PromoteToActive(_queue);   // 대기 승격(+발사 시작). 없으면 null → 발사 호출 안 됨
+                    _queue = null;
                 }
             }
             else if (turret == _queue)
