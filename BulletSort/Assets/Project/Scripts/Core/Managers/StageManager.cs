@@ -42,6 +42,8 @@ namespace Core
         public int SpeedySpawnCount { get; private set; }
         public int TankerSpawnCount { get; private set; }
 
+        public int BossID { get; private set; }
+
         private SlotBoardManager _slotBoardManager;
 
         protected override void Init()
@@ -64,6 +66,8 @@ namespace Core
 
             _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
             _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
+
+            BossID = _stageData.BossID;
 
             ResetState();
         }
