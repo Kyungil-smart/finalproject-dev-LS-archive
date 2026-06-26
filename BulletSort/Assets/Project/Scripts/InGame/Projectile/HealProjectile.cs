@@ -53,6 +53,7 @@ namespace Projectile
 
         public void AtkTarget(GameObject target)
         {
+            if(target == null) return;
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
             PoolManager.Instance.Release(_keyObj, gameObject);
