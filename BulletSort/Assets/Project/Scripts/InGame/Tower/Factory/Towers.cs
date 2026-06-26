@@ -38,7 +38,12 @@ namespace Towers.Factory
             _projectile = SpawnManager.Instance.SpawnProjectile(_towerInfo.ProjectileType, _towerInfo.TowerMaxAmmo);
         }
 
-        public void StartAttack() => StartCoroutine(Attack());
+        public void StartAttack()
+        {
+            if(!gameObject.activeInHierarchy) return;
+            
+            StartCoroutine(Attack());   
+        }
 
         // 공격 코루틴
         public IEnumerator Attack()
