@@ -1,4 +1,6 @@
-﻿using Core.Manager.SpawnManager;
+﻿using System.Collections;
+using Core;
+using Core.Manager.SpawnManager;
 using Monster.Spawn;
 using UnityEngine;
 
@@ -20,6 +22,7 @@ namespace Monster.Portal
         private int _maxMonsterCount;
 
         public int MaxMonsterCount => _maxMonsterCount;
+        public void StartSpawn() => StartCoroutine(Spawncouroutine());
 
         private void Awake()
         {
@@ -36,21 +39,28 @@ namespace Monster.Portal
             // 40
         }
 
-        private void Update()
+        private IEnumerator Spawncouroutine()
         {
-            if (_spawnPase >= 7) return;
+            if(_spawnPase >= 7)yield break;
+            
+            Spawn();
+            yield return new WaitForSeconds(5);
+        }
 
-            _spawnTimer.UpdateTimer();
-
-            if (_spawnTimer.IsEnabled)
-            {
-                // 일정 주기마다 스폰
-               // SpawnManager.Instance.SpawnMonster(_spawnCount);
-                _spawnPase++;
-                Debug.Log("스폰 시작");
-
-                _spawnTimer.ResetTimer(5);
-            }
+        private void Spawn()
+        {
+            int normalgroupID = StageManager.Instance.NormalMonsterGroup;
+            int normalspawnCount = StageManager.Instance.NormalSpawnCount;
+            int speedygroupID = StageManager.Instance.SpeedyMonsterGroup;
+            int speedyspawnCount = StageManager.Instance.SpeedySpawnCount;
+            int tankergroupID = StageManager.Instance.TankerMonsterGroup;
+            int tankerspawnCount = StageManager.Instance.TankerSpawnCount;
+            
+            // 일정 주기마다 스폰
+            SpawnManager.Instance.SpawnMonster(normalgroupID, normalspawnCount);
+            SpawnManager.Instance.SpawnMonster(speedygroupID, speedyspawnCount);
+            SpawnManager.Instance.SpawnMonster(tankergroupID, tankerspawnCount);
+            _spawnPase++;
         }
 
         // 스폰페이즈 초기화
