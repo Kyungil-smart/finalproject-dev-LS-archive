@@ -88,9 +88,14 @@ namespace Core.Manager.SpawnManager
          }
       }
 
-      public void WaveSpawn()
+      public void WaveStart()
       {
          _topPortal.StartSpawn();
+      }
+
+      public void WaveEnd()
+      {
+         _topPortal.ResetPhase();
       }
 
       // 3sorting시 호출하여 타워 스폰
