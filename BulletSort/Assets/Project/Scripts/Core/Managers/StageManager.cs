@@ -33,19 +33,19 @@ namespace Core
 
         private Timer _waveTimer; // 40초;
 
+        public int NormalMonsterGroup { get; private set; }
+        public int SpeedyMonsterGroup { get; private set; }
+        public int TankerMonsterGroup { get; private set; }
+
+        public int NormalSpawnCount { get; private set; }
+        public int SpeedySpawnCount { get; private set; }
+        public int TankerSpawnCount { get; private set; }
+
         protected override void Init()
         {
             //spawners = FindObjectsByType<Portal>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
 
             _waveTimer = new Timer(40);
-
-            // 임시 ID
-            _curStageID = 1001;
-
-            _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
-            _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
-
-            _waveIdx = 0;
 
             PerksManager.Instance.OnPerkPhaseEnded += ResetState;
         }
@@ -54,39 +54,47 @@ namespace Core
         public void SetStageID(int stageID)
         {
             _curStageID = stageID;
+
+            _waveIdx = 0;
+
+            _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
+            _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
+
+            ResetState();
         }
 
         private void ResetState()
         {
+            _isWin = false;
+            _isDefeat = false;
+            _killCount = 0;
+            _targetKillNum = 0;
+
             if (_waveIdx == 9)
             {
                 // Boss Wave;
             }
-
-            if (_waveIdx > 9)
+            else if (_waveIdx > 9)
             {
                 // Stage Clear
             }
-
-            _isWin = false;
-            _isDefeat = false;
-
-            _killCount = 0;
-            _targetKillNum = 0;
-
-            //foreach (Portal spawner in spawners)
-            //{
-            //    _targetKillNum += spawner.MaxMonsterCount;
-            //}
+            else
+            {
+                SetValueByCurWavePattern();
+            }
         }
 
-        private void SpawnCurWavePattern()
+        private void SetValueByCurWavePattern()
         {
             WavePatternData curPattern = DataManager.Instance.GetData<WavePatternData>(_waveData[_waveIdx]);
 
-            //SpawnManager.Instance.SpawnMonster(_stageData.MonsterGroupID_Normal, curPattern.Normal_Count);
-            //SpawnManager.Instance.SpawnMonster(_stageData.MonsterGroupID_Speedy, curPattern.Speedy_Count);
-            //SpawnManager.Instance.SpawnMonster(_stageData.MonsterGroupID_Tanker, curPattern.Tanker_Count);
+            NormalMonsterGroup = _stageData.MonsterGroupID_Normal;
+            SpeedyMonsterGroup = _stageData.MonsterGroupID_Speedy;
+            TankerMonsterGroup = _stageData.MonsterGroupID_Tanker;
+
+            NormalSpawnCount = curPattern.Normal_Count;
+            SpeedySpawnCount = curPattern.Speedy_Count;
+            TankerSpawnCount = curPattern.Tanker_Count;
         }
 
         private void WaveClearHandler()
