@@ -48,11 +48,13 @@ namespace Towers.Factory
             
             for (int i = 0; i < _towerInfo.TowerMaxAmmo; i++)
             {
-                GameObject valueObj = PoolManager.Instance.Get(_projectile, gameObject.transform.position, Quaternion.identity);
-                
-                if(_targetDetector.target != null)
+                if (_targetDetector.target != null)
+                {
+                    GameObject valueObj = PoolManager.Instance.Get(_projectile, gameObject.transform.position, Quaternion.identity);
+                    
                     valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, _towerInfo.TowerAtk,
                         10f);
+                }
                 
                 _currentAmmo--;
                 yield return new WaitForSeconds(_towerInfo.TowerAtkSpeed);
