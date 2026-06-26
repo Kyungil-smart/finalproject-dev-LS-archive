@@ -26,10 +26,17 @@ namespace Monster.Portal
 
         private IEnumerator Spawncouroutine()
         {
-            if(_spawnPase >= 7)yield break;
-            
-            Spawn();
-            yield return new WaitForSeconds(5);
+            if(StageManager.Instance.IsBossWave)
+                SpawnManager.Instance.SpawnBoss();
+
+            else
+            {
+                while (_spawnPase < 8)
+                {
+                     Spawn();
+                    yield return new WaitForSeconds(5);
+                }
+            }
         }
 
         private void Spawn()
@@ -52,6 +59,7 @@ namespace Monster.Portal
         public void ResetPhase()
         {
             _spawnPase = 0;
+            StopCoroutine(Spawncouroutine());
         }
     }
 }

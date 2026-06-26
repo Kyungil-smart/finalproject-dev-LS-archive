@@ -1,4 +1,5 @@
-﻿using InGame.Slot;
+﻿using Core.Manager.SpawnManager;
+using InGame.Slot;
 using Monster.Portal;
 using UnityEngine;
 
@@ -22,15 +23,17 @@ namespace Core
         int _targetKillNum = 0;
         int _killCount = 0;
 
+        bool _isRunning = false;
+
         bool _isWin = false;
         bool _isDefeat = false;
 
-        int _curStageID;
+        int _curStageID = 1001;
         StageData _stageData;
         WaveData _waveData;
 
         int _waveIdx;
-        bool IsBossWave { get { return _waveIdx == 9; } }
+        public bool IsBossWave { get { return _waveIdx == 9; } }
 
         private Timer _waveTimer; // 40초;
 
@@ -68,7 +71,11 @@ namespace Core
             _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
 
             BossID = _stageData.BossID;
+        }
 
+        public void EnterStage()
+        {
+            _isRunning = true;
             ResetState();
         }
 
@@ -77,11 +84,9 @@ namespace Core
             _isWin = false;
             _isDefeat = false;
 
-            if (_waveIdx == 9)
-            {
-                // Boss Wave;
-            }
-            else if (_waveIdx > 9)
+            _waveTimer.ResetTimer(40);
+
+            if (_waveIdx > 9)
             {
                 // Stage Clear
             }
@@ -89,6 +94,8 @@ namespace Core
             {
                 SetValueByCurWavePattern();
             }
+
+            SpawnManager.Instance.WaveStart();
         }
 
         public void BindSlotBoardManager(SlotBoardManager slotBoardManager)
@@ -99,6 +106,7 @@ namespace Core
 
         private void SetValueByCurWavePattern()
         {
+            Debug.Log($"Wave{_waveIdx}");
             WavePatternData curPattern = DataManager.Instance.GetData<WavePatternData>(_waveData[_waveIdx]);
 
             NormalMonsterGroup = _stageData.MonsterGroupID_Normal;
@@ -109,12 +117,18 @@ namespace Core
             SpeedySpawnCount = curPattern.Speedy_Count;
             TankerSpawnCount = curPattern.Tanker_Count;
 
-            _targetKillNum += (NormalSpawnCount + SpeedySpawnCount + TankerSpawnCount);
+            Debug.Log(NormalSpawnCount);
+            Debug.Log(SpeedySpawnCount);
+            Debug.Log(TankerSpawnCount);
+            _targetKillNum += ((NormalSpawnCount + SpeedySpawnCount + TankerSpawnCount) * 8);
+
             Debug.Log($"Target Kill Num in This Wave : {_targetKillNum}");
         }
 
         private void WaveClearHandler()
         {
+            _isWin = false;
+            SpawnManager.Instance.WaveEnd();
             _waveIdx++;
             PerksManager.Instance.EnterPerksPhase();
         }
@@ -127,24 +141,26 @@ namespace Core
 
         private void FixedUpdate()
         {
-            if (_isWin)
+            if (_isRunning)
             {
-                WaveClearHandler();
-                return;
-            }
+                if (_isWin)
+                {
+                    WaveClearHandler();
+                    return;
+                }
 
-            if (_isDefeat)
-            {
-                WaveFailHandler();
-                return;
-            }
+                if (_isDefeat)
+                {
+                    WaveFailHandler();
+                    return;
+                }
 
-            _waveTimer.UpdateTimer();
+                _waveTimer.UpdateTimer();
 
-            if (_waveTimer.IsEnabled || _killCount >= _targetKillNum)
-            {
-                _isWin = true;
-                _waveTimer.ResetTimer(40);
+                if (_waveTimer.IsEnabled)
+                {
+                    _isWin = true;
+                }
             }
         }
 
@@ -157,6 +173,11 @@ namespace Core
         {
             _killCount++;
             Debug.Log($"Kill Count : {_killCount}/{_targetKillNum}");
+
+            if (_killCount == _targetKillNum)
+            {
+                _isWin = true;
+            }
         }
     }
 }

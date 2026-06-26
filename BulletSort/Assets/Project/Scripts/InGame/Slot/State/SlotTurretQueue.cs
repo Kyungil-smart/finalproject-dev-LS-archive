@@ -183,14 +183,21 @@ namespace InGame.Slot
         //   전투 종료(스테이지 종료/중단) 시에도 호출 필요 — 그 이벤트 연결은 게임 플로우 측에서(미연결).
         public void ClearAll()
         {
-            DespawnIfTower(_active);
-            DespawnIfTower(_queue);
-
-            // 오버소팅 진행 중이면 보관 pending도 회수해 정리(상태·락도 같이 리셋).
-            DespawnIfTower(_overSorting.Clear());
-
+            // 참조 먼저 확보 후 비움 → 그 다음 Destroy. 순서가 핵심:
+            //   DespawnIfTower가 Destroy를 부르면 Towers.OnDestroy → NotifyTurretDestroyed가 재진입하는데,
+            //   _active/_queue가 *이미 null*이어야 그 통보가 turret != _active/_queue → no-op로 빠짐.
+            //   (먼저 Destroy하면 재진입 시 _active가 살아있어 PromoteToActive→inactive 대기에 StartAttack 사고)
+            var prevActive  = _active;
+            var prevQueue   = _queue;
+            var prevPending = _overSorting.Clear();
+            
             _active = null;
             _queue  = null;
+            
+            DespawnIfTower(prevActive);
+            DespawnIfTower(prevQueue);
+            DespawnIfTower(prevPending);
+            
             RefreshVisual();
         }
 

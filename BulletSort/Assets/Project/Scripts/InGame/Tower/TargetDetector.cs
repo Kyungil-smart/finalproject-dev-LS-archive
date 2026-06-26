@@ -1,5 +1,4 @@
-﻿using Core;
-using Core.Manager.SpawnManager;
+﻿using Core.Manager.SpawnManager;
 using Monster.Controll;
 using System.Collections.Generic;
 using UnityEngine;
@@ -102,9 +101,8 @@ public class TargetDetector : MonoBehaviour
     {
         // Debug.Log("목표제거");
         _detectedMonsters.Remove(target.gameObject);
-        Destroy(target);
+        Destroy(target.gameObject);
         target = null;
-        StageManager.Instance.IncrementKillCount();
     }
 
     // 직선거리 구하기

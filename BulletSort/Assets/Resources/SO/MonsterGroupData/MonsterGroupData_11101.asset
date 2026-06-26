@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38825584988a6d74db8768e84eee6ce6, type: 3}
-  m_Name: MonsterGroupData_11122
+  m_Name: MonsterGroupData_11101
   m_EditorClassIdentifier: Assembly-CSharp::MonsterGroupData
-  MonsterGroupID: 11122
-  MonsterID_1: 0
-  MonsterID_2: 0
-  MonsterID_3: 4223
+  MonsterGroupID: 11101
+  MonsterID_1: 4511
+  MonsterID_2: 4521
+  MonsterID_3: 0
   NormalRate_1: 0
   NormalRate_2: 0
-  NormalRate_3: 100
+  NormalRate_3: 0

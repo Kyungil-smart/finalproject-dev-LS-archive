@@ -23,7 +23,15 @@ namespace Projectile
 
         private void FixedUpdate()
         {
-            MoveToTarget(_target.gameObject);
+            if (_target.isDead) _target = null;
+
+            if (_target == null)
+            {
+                PoolManager.Instance.Release(_keyObj, gameObject);
+                return;
+            }
+            
+            MoveToTarget(_target?.gameObject);
         }
 
         public void MoveToTarget(GameObject target)
@@ -53,8 +61,10 @@ namespace Projectile
 
         public void AtkTarget(GameObject target)
         {
+            if(target == null) return;
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
+            PoolManager.Instance.Release(_keyObj, gameObject);
             PoolManager.Instance.Release(_keyObj, gameObject);
         }
 

@@ -1,3 +1,4 @@
+﻿using Core;
 using Core.Interface.IDamageable;
 using Core.Manager.SpawnManager;
 using InGame.Slot;
@@ -8,17 +9,17 @@ namespace Monster.Controll
     public class MonsterController : MonoBehaviour, IDamageable
     {
         [Tooltip("몬스터 이동속도")]
-        [SerializeField]private float _moveSpeed;
-        
+        [SerializeField] private float _moveSpeed;
+
         [Tooltip("몬스터 공격력")]
-        [SerializeField]private int _atk;
-        
+        [SerializeField] private int _atk;
+
         [Tooltip("몬스터 공격속도")]
-        [SerializeField]private float _atkSpeed;
-        
+        [SerializeField] private float _atkSpeed;
+
         [Tooltip("몬스터 최대 체력")]
-        [SerializeField]private int _maxHealth;
-        
+        [SerializeField] private int _maxHealth;
+
         [Tooltip("몬스터 현재 체력")]
         [SerializeField] private int _health;
 
@@ -85,7 +86,7 @@ namespace Monster.Controll
         {
             _health -= Damage;
 
-            if (_health <= 0)
+            if (_health <= 0 && !isDead)
             {
                 Dead();
             }
@@ -94,12 +95,16 @@ namespace Monster.Controll
         public void Dead()
         {
             SpawnManager.Instance.Monsters.Remove(gameObject);
+            StageManager.Instance.IncrementKillCount();
             isDead = true;
         }
 
         public void Init(MonsterData monsterData)
         {
-            _moveSpeed = monsterData.MonsterMoveSpeed;
+            if (monsterData.MonsterType == 4) _moveSpeed = 0;
+
+            else _moveSpeed = monsterData.MonsterMoveSpeed;
+
             _atk = monsterData.MonsterAtk;
             _atkSpeed = monsterData.MonsterAtkSpeed;
             atkTimer = new Timer(_atkSpeed);

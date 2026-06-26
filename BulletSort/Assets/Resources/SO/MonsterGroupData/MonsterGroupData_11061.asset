@@ -15,4 +15,7 @@ MonoBehaviour:
   MonsterGroupID: 11061
   MonsterID_1: 4111
   MonsterID_2: 4121
-  MonsterID_3: 4131
+  MonsterID_3: 0
+  NormalRate_1: 50
+  NormalRate_2: 50
+  NormalRate_3: 0

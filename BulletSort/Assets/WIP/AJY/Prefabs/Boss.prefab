@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5435831882185150843}
   - component: {fileID: 571936335704924631}
   - component: {fileID: -7829966742574250240}
+  - component: {fileID: 3935310459040259799}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -104,3 +105,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce23100a25c11f547afe78cb7a7ef2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMonster
+--- !u!114 &3935310459040259799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752370374940052464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765423438f6e4524d861c852b58e7afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Monster.Controll.MonsterController
+  _moveSpeed: 0
+  _atk: 0
+  _atkSpeed: 0
+  _maxHealth: 0
+  _health: 0
+  isDead: 0
+  target: {fileID: 0}

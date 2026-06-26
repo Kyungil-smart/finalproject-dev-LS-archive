@@ -13,6 +13,6 @@ class StageStateInitializer : MonoBehaviour
 
     private void Start()
     {
-
+        StageManager.Instance.EnterStage();
     }
 }
