@@ -17,8 +17,6 @@ namespace Core
 
     class StageManager : Singleton<StageManager>
     {
-        [SerializeField] SlotBoardManager _slotBoardManager;
-
         Portal[] spawners;
 
         int _targetKillNum = 0;
@@ -44,6 +42,8 @@ namespace Core
         public int SpeedySpawnCount { get; private set; }
         public int TankerSpawnCount { get; private set; }
 
+        private SlotBoardManager _slotBoardManager;
+
         protected override void Init()
         {
             //spawners = FindObjectsByType<Portal>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None);
@@ -51,7 +51,6 @@ namespace Core
             _waveTimer = new Timer(40);
 
             PerksManager.Instance.OnPerkPhaseEnded += ResetState;
-            _slotBoardManager.OnAllSlotsDestroyed += DefeatEvent;
         }
 
         // Lobby에서 선택 시 호출할 것
@@ -86,6 +85,12 @@ namespace Core
             {
                 SetValueByCurWavePattern();
             }
+        }
+
+        public void BindSlotBoardManager(SlotBoardManager slotBoardManager)
+        {
+            _slotBoardManager = slotBoardManager;
+            _slotBoardManager.OnAllSlotsDestroyed += DefeatEvent;
         }
 
         private void SetValueByCurWavePattern()
