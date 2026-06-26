@@ -33,6 +33,13 @@ namespace InGame.Slot
         // 정렬 성공 통합 발행 — 9슬롯의 정렬 이벤트를 한 곳으로 모아 외부(포탑 소환 등)에 전달.
         // 외부는 슬롯 9개 각각이 아니라 이 이벤트 하나만 구독하면 됨.
         public event Action<int, int> OnSortSuccess;  // (slotID, pieceID)
+
+        // 전멸 발행 — 모든 슬롯이 Destroyed가 된 순간 1회. 게임 플로우(StageManager 등)가 받아 게임오버 처리.
+        //   여긴 *판정·발행*만. 실제 게임오버 연출·정지·결과는 받는 쪽(미연결, 게임 플로우 작업 때).
+        public event Action OnAllSlotsDestroyed;
+
+        // 전멸 1회 발행 가드 — 한 번 게임오버면 끝. 중복·재진입 발행 방지.
+        private bool _allDestroyedFired;
         
         // 기물 공급기 — 대기 그룹·보충·재생성 담당.
         private PieceSupplier _supplier;
@@ -143,8 +150,13 @@ namespace InGame.Slot
             foreach (var slot in _slots)
             {
                 if (slot == null) continue;
+
                 slot.OnSortSuccess += HandleSlotSorted;
                 slot.OnCellChanged += HandleCellChanged;
+
+                // 슬롯 파괴 추적 — 상태 전환(SlotRevive)을 단일 출처로 구독. 전멸 판정에 사용.
+                if (slot.Revive != null)
+                    slot.Revive.OnSlotStateChanged += HandleSlotStateChanged;
             }
         }
         
@@ -155,9 +167,42 @@ namespace InGame.Slot
                 if (slot == null) continue;
                 slot.OnSortSuccess -= HandleSlotSorted;
                 slot.OnCellChanged -= HandleCellChanged;
+
+                if (slot.Revive != null)
+                    slot.Revive.OnSlotStateChanged -= HandleSlotStateChanged;
             }
         }
         
+        // 슬롯 상태 전환 수신 — Destroyed가 올 때만 전멸 판정. Normal(부활)은 무시(전멸 아님 자명).
+        private void HandleSlotStateChanged(SlotState state)
+        {
+            if (state != SlotState.Destroyed) return;
+            if (_allDestroyedFired) return;          // 이미 게임오버 — 중복 발행 차단
+
+            if (!AreAllSlotsDestroyed()) return;     // 아직 살아있는 슬롯 있음
+
+            _allDestroyedFired = true;
+            
+            // 검증용 임시 로그 — 정식 연결 후 제거
+            Debug.Log("[SlotBoardManager] 전멸 — OnAllSlotsDestroyed 발행");
+            OnAllSlotsDestroyed?.Invoke();           // 전멸 — 게임오버(받는 쪽은 게임 플로우)
+        }
+
+        // 모든 슬롯이 Destroyed인지 — 하나라도 Normal이면 false. 순회 9개라 부담 없음.
+        //   부활로 상태가 오가도 매번 실측이라 정확(카운트 누적 방식의 부활 누락 위험 회피).
+        private bool AreAllSlotsDestroyed()
+        {
+            if (_slots == null || _slots.Count == 0) return false;
+
+            foreach (var slot in _slots)
+            {
+                // 슬롯·revive 없으면(구독 불가) 죽을 수 없으니 전멸 아님으로 간주(보수적).
+                if (slot == null || slot.Revive == null || slot.Revive.State != SlotState.Destroyed)
+                    return false;
+            }
+            return true;
+        }
+
         #endregion
         
         #region 초기 배치

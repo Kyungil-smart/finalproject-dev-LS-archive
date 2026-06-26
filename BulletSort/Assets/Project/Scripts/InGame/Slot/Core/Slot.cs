@@ -35,6 +35,8 @@ namespace InGame.Slot
         [Header("Turret")]
         [Tooltip("슬롯 포탑 대기열 — 가동/대기 포탑 보유·표시 갱신. 비우면 Awake에서 탐색")]
         [SerializeField] private SlotTurretQueue _turretQueue;
+
+        [SerializeField] private SlotRevive _slotRevive;
         
         // 셀 3개의 런타임 상태. 인덱스 0~2로 접근.
         // 매치-3에서 가져온 SGrid1D<T>로 보드 표현 (2차원은 오버스펙이라 1차원 개조).
@@ -61,6 +63,9 @@ namespace InGame.Slot
         
         // 포탑 대기열 노출 — 외부(포탑 소환 핸들러)가 slot.TurretQueue.RegisterTurret()로 접근.
         public SlotTurretQueue TurretQueue => _turretQueue;
+
+        // 부활·상태(Normal/Destroyed) — 전멸 판정 등 외부가 슬롯 상태 구독·조회 시 사용.
+        public SlotRevive Revive => _slotRevive;
 
         // 슬롯 입력 락 — 오버소팅(잔탄 과열 사격) 중이면 true.
         //   입력단(Piece 잡기·놓기)이 이걸 보고 터치·드래그·정렬을 차단(기획 락 규칙).
@@ -106,6 +111,9 @@ namespace InGame.Slot
             if (_turretQueue == null)
                 _turretQueue = GetComponent<SlotTurretQueue>()
                                ?? GetComponentInChildren<SlotTurretQueue>(includeInactive: true);
+            if (_slotRevive == null)
+                _slotRevive = GetComponent<SlotRevive>()
+                              ?? GetComponentInChildren<SlotRevive>(includeInactive: true);
             
             // 자식 SlotCell들을 cellIndex 기준으로 정렬 캐싱
             var cells = GetComponentsInChildren<SlotCell>();
