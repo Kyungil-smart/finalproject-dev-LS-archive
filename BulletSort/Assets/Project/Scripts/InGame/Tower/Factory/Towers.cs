@@ -34,9 +34,9 @@ namespace Towers.Factory
         {
             _slotTurretQueue = GetComponentInParent<SlotTurretQueue>();
             _projectile = SpawnManager.Instance.SpawnProjectile(_towerInfo.ProjectileType, _towerInfo.TowerMaxAmmo);
-            
-            _atkCoroutine = StartCoroutine(Attack());
         }
+
+        public void StartAttack() => StartCoroutine(Attack());
 
         // 공격 코루틴
         public IEnumerator Attack()

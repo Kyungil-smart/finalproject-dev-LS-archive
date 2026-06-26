@@ -93,7 +93,7 @@ namespace Core.Manager.SpawnManager
       public ITower SpawnTower(int towerID, Slot slot)
       {
          Transform spawnTr = slot.transform;
-         return _towerFactory.CreateTower(towerID, spawnTr);   // 반환만 추가
+         return _towerFactory.CreateTower(towerID, spawnTr);
       }
 
       public GameObject SpawnProjectile(EProjectileType projectileType, int count)
