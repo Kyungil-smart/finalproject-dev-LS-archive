@@ -23,6 +23,11 @@ namespace Projectile
 
         private void FixedUpdate()
         {
+            if (_target.isDead) _target = null;
+            
+            if(_target == null)
+                PoolManager.Instance.Release(_keyObj, gameObject);
+            
             MoveToTarget(_target.gameObject);
         }
 
