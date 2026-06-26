@@ -2,13 +2,14 @@ using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
 using Core.ObjectPool.Interface;
+using Monster.Controll;
 using UnityEngine;
 
 namespace Projectile
 {
     public class SnipeProjectile : MonoBehaviour, IProjectile, IPoolable
     {
-        private GameObject _target;
+        private MonsterController _target;
         private GameObject _keyObj;
 
         private float _moveSpeed;
@@ -22,7 +23,7 @@ namespace Projectile
 
         private void FixedUpdate()
         {
-            MoveToTarget(_target);
+            MoveToTarget(_target.gameObject);
         }
 
         public void MoveToTarget(GameObject target)
@@ -58,7 +59,7 @@ namespace Projectile
         }
 
         // 데이터 받아오기
-        public void Init(GameObject target, GameObject keyObj, int atk, float moveSpeed)
+        public void Init(MonsterController target, GameObject keyObj, int atk, float moveSpeed)
         {
             _target = target;
             _keyObj = keyObj;
