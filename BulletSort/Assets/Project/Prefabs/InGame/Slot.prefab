@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotTurretQueue
   _display: {fileID: 893007241043439068}
+  _slotRevive: {fileID: 2338573330281102510}
 --- !u!114 &5638513759220766518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,6 +867,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotCell
   _cellIndex: 0
   _cellPivot: {fileID: 2161326930870800521}
+  _cellVisual: {fileID: 28084976102706079}
+  _highlightColor: {r: 1, g: 0.92, b: 0.3, a: 0.7}
 --- !u!61 &1600668225806384863
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1497,6 +1500,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotCell
   _cellIndex: 2
   _cellPivot: {fileID: 3830217226727734368}
+  _cellVisual: {fileID: 4179915434333799383}
+  _highlightColor: {r: 1, g: 0.92, b: 0.3, a: 0.7}
 --- !u!61 &8281570704997925737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2056,6 +2061,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotCell
   _cellIndex: 1
   _cellPivot: {fileID: 2221988417443515237}
+  _cellVisual: {fileID: 6646871210943582374}
+  _highlightColor: {r: 1, g: 0.92, b: 0.3, a: 0.7}
 --- !u!61 &7758255741047211343
 BoxCollider2D:
   m_ObjectHideFlags: 0
