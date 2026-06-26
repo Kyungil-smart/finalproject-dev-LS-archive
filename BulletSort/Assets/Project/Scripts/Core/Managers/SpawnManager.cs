@@ -110,16 +110,22 @@ namespace Core.Manager.SpawnManager
       public void SpawnMonster(int monsterGroupID, int spawnCount)
       {
          MonsterGroupData groupdata = DataManager.Instance.GetData<MonsterGroupData>(monsterGroupID);
-         for (int i = 0; i < spawnCount; i++)
+         
+         //보스 웨이브 일 때
+         if (StageManager.Instance.IsBossWave)
          {
-            int monsterID = RandomID(groupdata);
-            // 보스웨이브가 아닐 때
-            //if(StageManager.Instance.)
-            SpawnPoint spawnTr = RandomPoint();
-            _monsterFactory.CreateMonster(spawnTr, monsterID);
-            
-            //보스 웨이브 일 때
-            //_monsterFactory.CreateBoss(_topPortal.bossZone, monsterID);
+            _monsterFactory.CreateBoss(_topPortal.bossZone, StageManager.Instance.BossID);
+         }
+
+         // 보스웨이브가 아닐 때
+         else
+         {
+            for (int i = 0; i < spawnCount; i++)
+            {
+               int monsterID = RandomID(groupdata);
+               SpawnPoint spawnTr = RandomPoint();
+               _monsterFactory.CreateMonster(spawnTr, monsterID);
+            }
          }
       }
 
@@ -135,19 +141,26 @@ namespace Core.Manager.SpawnManager
       private int RandomID(MonsterGroupData groupData)
       {
          List<int> ids = new List<int>();
-         
-         for(int i =0; i < groupData.NormalRate_1; i++)
-            ids.Add(groupData.MonsterID_1);
-         for(int i =0; i < groupData.NormalRate_2; i++)
-            ids.Add(groupData.MonsterID_2);
-         for(int i =0; i < groupData.NormalRate_3; i++)
-            ids.Add(groupData.MonsterID_3);
-         
+
+         AddList(groupData.MonsterID_1, groupData.NormalRate_1, ids);
+         AddList(groupData.MonsterID_2, groupData.NormalRate_2, ids);
+         AddList(groupData.MonsterID_3, groupData.NormalRate_3, ids);
+
          int index = Random.Range(0, ids.Count);
          
          int id = ids[index];  
 
          return id;
+      }
+
+      private void AddList(int monsterID, int Rate, List<int> monsterids)
+      {
+         if (monsterID == 0 || Rate == 0) return;
+         
+         for (int i = 0; i < Rate; i++)
+         {
+            monsterids.Add(monsterID);
+         }
       }
    }
 }
