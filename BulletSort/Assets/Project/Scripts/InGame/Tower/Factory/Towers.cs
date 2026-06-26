@@ -15,6 +15,7 @@ namespace Towers.Factory
         private STowerInfo _towerInfo;
         private TargetDetector _targetDetector;
         private int _currentAmmo;
+        private bool _isOverSorting;
         
         private GameObject _projectile;
         
@@ -27,6 +28,7 @@ namespace Towers.Factory
         
         private void Awake()
         {
+            _isOverSorting = false;
             _targetDetector = gameObject.GetComponent<TargetDetector>();
         }
 
@@ -41,17 +43,22 @@ namespace Towers.Factory
         // 공격 코루틴
         public IEnumerator Attack()
         {
-            yield return new WaitUntil(() => _targetDetector.target != null);
+            if(!_isOverSorting)
+                yield return new WaitUntil(() => _targetDetector.target != null);
             
             for (int i = 0; i < _towerInfo.TowerMaxAmmo; i++)
             {
                 GameObject valueObj = PoolManager.Instance.Get(_projectile, gameObject.transform.position, Quaternion.identity);
                 
-                valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, _towerInfo.TowerAtk,
-                    10f);
+                if(_targetDetector.target != null)
+                    valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, _towerInfo.TowerAtk,
+                        10f);
+                
                 _currentAmmo--;
                 yield return new WaitForSeconds(_towerInfo.TowerAtkSpeed);
-                yield return new WaitUntil(() => _targetDetector.target != null);
+                
+                if(!_isOverSorting)
+                    yield return new WaitUntil(() => _targetDetector.target != null);
             }
             
             Destroy(gameObject);
@@ -63,6 +70,7 @@ namespace Towers.Factory
         {
             // 공격속도 0.1 , 공격력 반감 변경
             _towerInfo.OversortingData();
+            _isOverSorting = true;
         }
 
         // 타워 데이터 셋팅
