@@ -1,4 +1,5 @@
-﻿using InGame.Slot;
+﻿using Core.Manager.SpawnManager;
+using InGame.Slot;
 using Monster.Portal;
 using UnityEngine;
 
@@ -84,11 +85,7 @@ namespace Core
             _isWin = false;
             _isDefeat = false;
 
-            if (_waveIdx == 9)
-            {
-                // Boss Wave;
-            }
-            else if (_waveIdx > 9)
+            if (_waveIdx > 9)
             {
                 // Stage Clear
             }
@@ -96,6 +93,8 @@ namespace Core
             {
                 SetValueByCurWavePattern();
             }
+
+            SpawnManager.Instance.WaveStart();
         }
 
         public void BindSlotBoardManager(SlotBoardManager slotBoardManager)
@@ -122,6 +121,7 @@ namespace Core
 
         private void WaveClearHandler()
         {
+            SpawnManager.Instance.WaveEnd();
             _waveIdx++;
             PerksManager.Instance.EnterPerksPhase();
         }
