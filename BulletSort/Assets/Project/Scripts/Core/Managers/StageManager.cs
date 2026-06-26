@@ -30,7 +30,7 @@ namespace Core
         WaveData _waveData;
 
         int _waveIdx;
-        bool IsBossWave { get { return _waveIdx == 9; } }
+        public bool IsBossWave { get { return _waveIdx == 9; } }
 
         private Timer _waveTimer; // 40초;
 

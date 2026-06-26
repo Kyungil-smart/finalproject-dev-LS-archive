@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: MonsterGroupData_11072
   m_EditorClassIdentifier: Assembly-CSharp::MonsterGroupData
   MonsterGroupID: 11072
-  MonsterID_1: 4212
+  MonsterID_1: 0
   MonsterID_2: 4222
-  MonsterID_3: 4223
+  MonsterID_3: 0
+  NormalRate_1: 0
+  NormalRate_2: 0
+  NormalRate_3: 0

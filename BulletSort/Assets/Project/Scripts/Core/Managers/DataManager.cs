@@ -1,9 +1,9 @@
 ﻿using InGame.Slot.Data;
 using InGame.Sort.Data;
+using InGame.Tower.Data;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using InGame.Tower.Data;
 using UnityEngine;
 
 namespace Core
@@ -30,9 +30,9 @@ namespace Core
             LoadTable<MonsterGroupData>("SO/MonsterGroupData");
             LoadTable<PerkData>("SO/PerkData");
             LoadTable<PieceData>("SO/PieceData");
-            LoadTable<PieceSpriteTable>("SO/PieceSpriteTable");
             LoadTable<RarityData>("SO/RarityData");
             LoadTable<SlotData>("SO/SlotData");
+            LoadTable<SpriteTables>("SO/SpriteTables");
             LoadTable<StageData>("SO/StageData");
             LoadTable<TowerData>("SO/TowerData");
             LoadTable<WaveData>("SO/WaveData");
