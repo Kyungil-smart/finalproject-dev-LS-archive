@@ -104,6 +104,7 @@ namespace Core
 
         private void SetValueByCurWavePattern()
         {
+            Debug.Log($"Wave{_waveIdx}");
             WavePatternData curPattern = DataManager.Instance.GetData<WavePatternData>(_waveData[_waveIdx]);
 
             NormalMonsterGroup = _stageData.MonsterGroupID_Normal;
@@ -114,7 +115,8 @@ namespace Core
             SpeedySpawnCount = curPattern.Speedy_Count;
             TankerSpawnCount = curPattern.Tanker_Count;
 
-            _targetKillNum += (NormalSpawnCount + SpeedySpawnCount + TankerSpawnCount);
+            _targetKillNum += (NormalSpawnCount + SpeedySpawnCount + TankerSpawnCount) * 8;
+
             Debug.Log($"Target Kill Num in This Wave : {_targetKillNum}");
         }
 
