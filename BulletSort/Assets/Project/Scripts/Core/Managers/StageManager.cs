@@ -94,7 +94,7 @@ namespace Core
                 SetValueByCurWavePattern();
             }
 
-            SpawnManager.Instance.WaveSpawn();
+            SpawnManager.Instance.WaveStart();
         }
 
         public void BindSlotBoardManager(SlotBoardManager slotBoardManager)
@@ -121,6 +121,7 @@ namespace Core
 
         private void WaveClearHandler()
         {
+            SpawnManager.Instance.WaveEnd();
             _waveIdx++;
             PerksManager.Instance.EnterPerksPhase();
         }
