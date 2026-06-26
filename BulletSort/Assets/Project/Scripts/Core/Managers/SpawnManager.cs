@@ -5,7 +5,6 @@ using Monster.Portal;
 using Monster.Spawn;
 using Towers;
 using Towers.Factory;
-using Towers.Factory.Type;
 using Towers.Interface.Tower;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -89,6 +88,11 @@ namespace Core.Manager.SpawnManager
          }
       }
 
+      public void WaveSpawn()
+      {
+         _topPortal.StartSpawn();
+      }
+
       // 3sorting시 호출하여 타워 스폰
       public ITower SpawnTower(int towerID, Slot slot)
       {
@@ -103,32 +107,47 @@ namespace Core.Manager.SpawnManager
         return projectile;
       }
 
-      public void SpawnMonster(int monsterID, int spawnCount)
+      public void SpawnMonster(int monsterGroupID, int spawnCount)
       {
-         
+         MonsterGroupData groupdata = DataManager.Instance.GetData<MonsterGroupData>(monsterGroupID);
          for (int i = 0; i < spawnCount; i++)
          {
+            int monsterID = RandomID(groupdata);
             // 보스웨이브가 아닐 때
-            //if()
+            //if(StageManager.Instance.)
             SpawnPoint spawnTr = RandomPoint();
-            _monsterFactory.CreateMonster(spawnTr);
+            _monsterFactory.CreateMonster(spawnTr, monsterID);
             
             //보스 웨이브 일 때
             //_monsterFactory.CreateBoss(_topPortal.bossZone, monsterID);
-
-            Debug.Log("몬스터 생성");
          }
       }
 
       private SpawnPoint RandomPoint()
       {
           int topbottom = Random.Range(0, 10);
-          Debug.Log($"상하단 넘버 : {topbottom}");
           int index = Random.Range(0, _topSpawnPoints.Length);
-          Debug.Log($"스폰포인트 넘버 : {index}");  
           if (topbottom < 5) return _topSpawnPoints[index];
           
           return _bottomSpawnPoints[index];
+      }
+
+      private int RandomID(MonsterGroupData groupData)
+      {
+         List<int> ids = new List<int>();
+         
+         for(int i =0; i < groupData.NormalRate_1; i++)
+            ids.Add(groupData.MonsterID_1);
+         for(int i =0; i < groupData.NormalRate_2; i++)
+            ids.Add(groupData.MonsterID_2);
+         for(int i =0; i < groupData.NormalRate_3; i++)
+            ids.Add(groupData.MonsterID_3);
+         
+         int index = Random.Range(0, ids.Count);
+         
+         int id = ids[index];  
+
+         return id;
       }
    }
 }
