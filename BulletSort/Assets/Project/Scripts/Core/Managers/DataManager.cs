@@ -32,7 +32,7 @@ namespace Core
             LoadTable<PieceData>("SO/PieceData");
             LoadTable<RarityData>("SO/RarityData");
             LoadTable<SlotData>("SO/SlotData");
-            LoadTable<SpriteTables>("SO/SpriteTables");
+            // LoadTable<SpriteTables>("SO/SpriteTables");
             LoadTable<StageData>("SO/StageData");
             LoadTable<TowerData>("SO/TowerData");
             LoadTable<WaveData>("SO/WaveData");
