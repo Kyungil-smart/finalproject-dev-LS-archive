@@ -1,5 +1,6 @@
 ﻿using Core;
 using InGame.Sort.Data;
+using Lobby.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -98,42 +99,39 @@ namespace Lobby.Deck
             SetOwnedInDeck(pieceID, false);  // 보유 카드 다시 누를 수 있게
         }
 
-        // 시작 — 편성 덱을 DeckHolder에 넘기고 인게임 진입.
-        // 6칸이 다 안 찼으면 (임시) 기초 폴백으로 빈 칸을 채워 진입.
-        //   TODO: 폴백 대신 경고창("덱을 모두 채워주세요")으로 교체 — 6칸 미만 입장 불가.
+        // 시작 — 6칸 다 편성됐으면 인게임 진입, 미달이면 경고(입장 불가).
         public void OnTapStart()
         {
+            // 미편성(6칸 미만) — 경고 팝업 띄우고 입장 막음(기획: 6칸 필수).
+            if (!IsDeckFull())
+            {
+                PopupManager.Instance.ShowAlert("캐릭터 편성이 부족합니다.\n6개의 캐릭터를 편성해 주세요.");
+                return;
+            }
+
             // 임시로 1001 Stage를 넣어둠.
             StageManager.Instance.SetStageID(1001);
+
             var deck = CollectDeckIDs();
             DeckHolder.Set(deck);
             SceneManager.LoadScene(Define.SCENE_INGAME);
         }
 
-        // 편성된 ID 수집. 빈 칸은 (임시) 폴백 ID로 채움.
+        // 편성 슬롯 6칸이 모두 찼는지 — 하나라도 비면 false.
+        private bool IsDeckFull()
+        {
+            foreach (var slot in _slots)
+                if (slot.IsEmpty) return false;
+            return true;
+        }
+
+        // 편성된 6칸의 PieceID 수집 — OnTapStart에서 6칸 보장 후 호출(폴백 불필요).
         private List<int> CollectDeckIDs()
         {
             var deck = new List<int>();
             foreach (var slot in _slots)
                 if (!slot.IsEmpty) deck.Add(slot.PieceID);
-
-            // (임시) 6칸 미만이면 기초 폴백으로 채움 — 전체 풀에서 미편성 ID를 끌어옴.
-            //   정식은 여기서 막고 경고창. 지금은 진입은 되게.
-            if (deck.Count < _slots.Length)
-                FillFallback(deck);
-
             return deck;
-        }
-
-        // 부족분을 전체 풀의 미편성 ID로 채움 (임시 폴백)
-        private void FillFallback(List<int> deck)
-        {
-            var all = PieceQuery.GetAllIDs();
-            foreach (var id in all)
-            {
-                if (deck.Count >= _slots.Length) break;
-                if (!deck.Contains(id)) deck.Add(id);
-            }
         }
 
         // PieceID로 보유 카드 찾아 편성 상태 갱신
