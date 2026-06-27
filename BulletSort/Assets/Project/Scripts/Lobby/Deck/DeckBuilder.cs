@@ -57,17 +57,37 @@ namespace Lobby.Deck
             }
         }
 
-        // 보유 카드 탭 → 빈 슬롯에 편성 + 그 카드 "편성 중" 잠금
+        // 보유 카드 탭 → 편성 안 됐으면 빈 슬롯에 편성, 이미 편성됐으면 해제(재터치).
+        //   편성 중 카드는 오버레이 위 _inDeckButton이 클릭을 받아 여기로 옴(재터치 해제 경로).
         private void OnTapOwnedCard(DeckCard card)
         {
-            // 편성 중 카드는 오버레이가 클릭을 흡수해 여기 안 옴(이중 가드).
-            if (IsEquipped(card.PieceID)) return;
+            // 이미 편성 중이면 재터치 → 해제. 그 카드가 든 슬롯을 찾아 비우고 잠금 해제.
+            if (IsEquipped(card.PieceID))
+            {
+                UnequipByPieceID(card.PieceID);
+                return;
+            }
 
             var empty = FindEmptySlot();
             if (empty == null) return;   // 6칸 다 참 → 무시(정식은 안내)
 
             empty.SetPiece(card.PieceID);
             card.SetInDeck(true);        // 보유 카드 잠금(편성 중 오버레이 ON)
+        }
+
+        // PieceID로 편성 슬롯을 역추적해 해제 — 보유 카드 재터치 해제용.
+        //   슬롯 탭 해제(OnTapEquippedSlot)와 같은 결과(슬롯 비움 + 보유 카드 잠금 해제).
+        private void UnequipByPieceID(int pieceID)
+        {
+            foreach (var slot in _slots)
+            {
+                if (!slot.IsEmpty && slot.PieceID == pieceID)
+                {
+                    slot.SetEmpty();
+                    SetOwnedInDeck(pieceID, false);  // 보유 카드 다시 누를 수 있게
+                    return;
+                }
+            }
         }
 
         // 편성 슬롯 탭 → 해제 + 해당 보유 카드 잠금 해제

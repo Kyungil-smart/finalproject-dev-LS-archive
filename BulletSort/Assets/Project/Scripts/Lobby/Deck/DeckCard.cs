@@ -9,7 +9,8 @@ namespace Lobby.Deck
     // 덱 카드 — 편성 슬롯·보유 목록 공용 프리팹. PieceID로 자기 비주얼을 채우고(Setup),
     // 탭하면 등록된 콜백을 호출(편성/해제는 호출부가 결정).
     // 편성 중 표시는 Status_Overlay 토글 — 그 오버레이 Image의 Raycast Target ON이라
-    // 켜지면 카드를 덮어 아래 버튼 클릭을 흡수(별도 interactable 제어 없이 클릭 차단).
+    // 켜지면 카드를 덮어 아래 버튼 클릭을 흡수. 단 오버레이 위 _inDeckButton이 그 클릭을
+    //   받아 같은 _onTap을 호출 — 보유 목록에선 편성 중 카드 재터치로 해제 가능(호출부가 분기).
     // 작성자: 이성규
     public class DeckCard : MonoBehaviour
     {
@@ -22,6 +23,9 @@ namespace Lobby.Deck
         [SerializeField] private GameObject _statusNotOwned;// "미보유" (후순위)
         [SerializeField] private Button _button;
 
+        [Tooltip("편성 중 오버레이 버튼 — '편성 중'(Status_InDeck)을 재터치하면 해제. 카드 버튼과 같은 _onTap으로.")]
+        [SerializeField] private Button _inDeckButton;
+
         public int PieceID { get; private set; }
 
         // 탭 콜백 — 호출부(DeckBuilder)가 자기 처리를 등록. 카드는 누가 눌렸는지만 전달.
@@ -31,6 +35,11 @@ namespace Lobby.Deck
         {
             if (_button == null) _button = GetComponent<Button>();
             _button.onClick.AddListener(() => _onTap?.Invoke(this));
+
+            // 편성 중 오버레이 버튼 — 카드 버튼과 같은 콜백. 편성 중(오버레이 ON)일 때 이게 클릭 받음.
+            //   보유 목록: 편성 중 재터치 → 해제(호출부 분기). 슬롯 안 카드: 오버레이 안 켜져 무관.
+            if (_inDeckButton != null)
+                _inDeckButton.onClick.AddListener(() => _onTap?.Invoke(this));
         }
 
         // PieceID로 비주얼 채움. 호출부는 이 한 줄 + 탭 콜백만.
