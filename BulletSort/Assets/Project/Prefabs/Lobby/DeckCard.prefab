@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckCard
   _portrait: {fileID: 1437387815636798823}
+  _frame: {fileID: 2836484943979223538}
+  _background: {fileID: 2327530445156413754}
   _lvText: {fileID: 5559785519006440570}
   _stars:
   - {fileID: 8022940545910126139}

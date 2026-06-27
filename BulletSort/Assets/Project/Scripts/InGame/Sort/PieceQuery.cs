@@ -20,6 +20,12 @@ namespace InGame.Sort.Data
         private static PieceSpriteTable SpriteTable =>
             _spriteTable != null ? _spriteTable
                 : (_spriteTable = Resources.Load<PieceSpriteTable>("SpriteTables/PieceSpriteTable"));
+
+        // 덱 카드 프레임·배경 테이블 — PieceType(1~6) 인덱스. 위 SpriteTable과 별개(키가 이름 아닌 타입).
+        private static PieceCardTable _cardTable;
+        private static PieceCardTable CardTable =>
+            _cardTable != null ? _cardTable
+                : (_cardTable = Resources.Load<PieceCardTable>("SpriteTables/PieceCardTable"));
         
         // PieceID로 기물 데이터 조회. 없으면 null (호출 측에서 빈 칸 처리).
         public static PieceData Get(int pieceID)
@@ -67,6 +73,23 @@ namespace InGame.Sort.Data
             var data = Get(pieceID);
             if (data == null || SpriteTable == null) return null;
             return SpriteTable.GetByName(data.Portrait);
+        }
+
+        // 덱 카드 프레임 — PieceType(1~6)으로 카드 테이블에서 조회. 프레임은 타입별로 동일.
+        //   초상화(이름 기반)와 달리 타입 인덱스 — 기물마다 이름 안 들고 PieceType만으로.
+        public static Sprite GetCardFrame(int pieceID)
+        {
+            var data = Get(pieceID);
+            if (data == null || CardTable == null) return null;
+            return CardTable.GetFrame(data.PieceType);
+        }
+
+        // 덱 카드 배경 — PieceType(1~6)으로 카드 테이블에서 조회. 배경도 타입별로 동일.
+        public static Sprite GetCardBackground(int pieceID)
+        {
+            var data = Get(pieceID);
+            if (data == null || CardTable == null) return null;
+            return CardTable.GetBackground(data.PieceType);
         }
     }
 }
