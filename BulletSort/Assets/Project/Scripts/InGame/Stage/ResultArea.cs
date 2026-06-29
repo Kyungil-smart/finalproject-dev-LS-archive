@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class ResultArea : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _resultText;
-    private Button _button;
+    [SerializeField] private TextMeshProUGUI _resultText;
+    [SerializeField] private Button _button;
 
     public void SetUpText(string text)
     {
@@ -16,8 +16,6 @@ public class ResultArea : MonoBehaviour
 
     private void Awake()
     {
-        _button = GetComponent<Button>();
-
         if (_button != null)
         {
             _button.onClick.AddListener(OnClickResultButton);
@@ -26,6 +24,7 @@ public class ResultArea : MonoBehaviour
 
     private void OnClickResultButton()
     {
+        Debug.Log("[Result Button] : On Click");
         SceneManager.LoadScene(Define.SCENE_LOBBY);
     }
 }

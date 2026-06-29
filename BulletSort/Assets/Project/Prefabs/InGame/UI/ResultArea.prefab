@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultArea
   _resultText: {fileID: 2789068799467402801}
+  _button: {fileID: 835404991380009867}
 --- !u!1 &4936456568687784125
 GameObject:
   m_ObjectHideFlags: 0
