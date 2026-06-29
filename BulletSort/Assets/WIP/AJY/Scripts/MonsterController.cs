@@ -8,6 +8,7 @@ namespace Monster.Controll
 {
     public class MonsterController : MonoBehaviour, IDamageable
     {
+        // OnDead 이벤트 추가하기.
         private int _monsterType;
 
         [Tooltip("몬스터 이동속도")]
