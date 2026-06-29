@@ -37,6 +37,10 @@ namespace Core
         WaveData _waveData;
 
         int _waveIdx;
+
+        int _reward;
+        public int GainedReward { get { return _reward; } }
+
         public bool IsBossWave { get { return _waveIdx == 9; } }
 
         private Timer _waveTimer; // 40초;
@@ -70,6 +74,7 @@ namespace Core
             _waveIdx = 0;
             _killCount = 0;
             _targetKillNum = 0;
+            _reward = 0;
 
             _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
             _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
@@ -131,11 +136,13 @@ namespace Core
 
             if (_waveIdx > 9)
             {
+                _reward += _stageData.StageReward;
                 Time.timeScale = 0;
                 OnStageWin();
             }
             else
             {
+                _reward += _stageData.WaveReward;
                 PerksManager.Instance.EnterPerksPhase();
             }
         }
