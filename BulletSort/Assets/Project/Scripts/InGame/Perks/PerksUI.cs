@@ -11,12 +11,15 @@ namespace Ingame.Perks
 
         [SerializeField] private TextMeshProUGUI _remainSelectNumText;
 
-        private void Start()
+        private void Awake()
         {
             PerksManager.Instance.OnPerksRolled += OpenWindow;
             PerksManager.Instance.OnPerkSelected += UpdateRemainSelectNum;
             PerksManager.Instance.OnPerkPhaseEnded += CloseWindow;
+        }
 
+        private void Start()
+        {
             _uiRoot.SetActive(false);
         }
 
