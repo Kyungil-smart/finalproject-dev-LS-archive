@@ -12,11 +12,14 @@ namespace Ingame
         private string _winText = "승리";
         private string _defeatText = "패배";
 
-        private void Start()
+        private void Awake()
         {
             StageManager.Instance.OnStageWin += WinHandler;
             StageManager.Instance.OnStageDefeat += DefeatHandler;
+        }
 
+        private void Start()
+        {
             _uiRoot.SetActive(false);
         }
 
