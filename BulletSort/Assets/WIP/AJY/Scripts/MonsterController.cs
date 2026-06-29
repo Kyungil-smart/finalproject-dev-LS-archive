@@ -8,6 +8,8 @@ namespace Monster.Controll
 {
     public class MonsterController : MonoBehaviour, IDamageable
     {
+        private int _monsterType;
+
         [Tooltip("몬스터 이동속도")]
         [SerializeField] private float _moveSpeed;
 
@@ -104,6 +106,8 @@ namespace Monster.Controll
             if (monsterData.MonsterType == 4) _moveSpeed = 0;
 
             else _moveSpeed = monsterData.MonsterMoveSpeed;
+
+            _monsterType = monsterData.MonsterType;
 
             _atk = monsterData.MonsterAtk;
             _atkSpeed = monsterData.MonsterAtkSpeed;
