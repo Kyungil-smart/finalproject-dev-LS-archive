@@ -1,6 +1,7 @@
 ﻿using Core.Manager.SpawnManager;
 using InGame.Slot;
 using Monster.Portal;
+using System;
 using UnityEngine;
 
 namespace Core
@@ -18,6 +19,9 @@ namespace Core
 
     class StageManager : Singleton<StageManager>
     {
+        public event Action OnStageWin;
+        public event Action OnStageDefeat;
+
         Portal[] spawners;
 
         int _targetKillNum = 0;
@@ -81,19 +85,13 @@ namespace Core
 
         private void ResetState()
         {
+            _isRunning = true;
             _isWin = false;
             _isDefeat = false;
 
             _waveTimer.ResetTimer(40);
 
-            if (_waveIdx > 9)
-            {
-                // Stage Clear
-            }
-            else
-            {
-                SetValueByCurWavePattern();
-            }
+            SetValueByCurWavePattern();
 
             SpawnManager.Instance.WaveStart();
         }
@@ -127,16 +125,26 @@ namespace Core
 
         private void WaveClearHandler()
         {
-            _isWin = false;
+            _isRunning = false;
             SpawnManager.Instance.WaveEnd();
             _waveIdx++;
-            PerksManager.Instance.EnterPerksPhase();
+
+            if (_waveIdx > 9)
+            {
+                Time.timeScale = 0;
+                OnStageWin();
+            }
+            else
+            {
+                PerksManager.Instance.EnterPerksPhase();
+            }
         }
 
         private void WaveFailHandler()
         {
+            _isRunning = false;
             Time.timeScale = 0;
-            // 패배 UI 띄우기
+            OnStageDefeat();
         }
 
         private void FixedUpdate()
