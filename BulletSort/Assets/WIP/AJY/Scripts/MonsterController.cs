@@ -1,14 +1,14 @@
-﻿using Core;
-using Core.Interface.IDamageable;
+﻿using Core.Interface.IDamageable;
 using Core.Manager.SpawnManager;
 using InGame.Slot;
+using System;
 using UnityEngine;
 
 namespace Monster.Controll
 {
     public class MonsterController : MonoBehaviour, IDamageable
     {
-        // OnDead 이벤트 추가하기.
+        public static event Action<int> OnDead;
         private int _monsterType;
 
         [Tooltip("몬스터 이동속도")]
@@ -97,9 +97,9 @@ namespace Monster.Controll
 
         public void Dead()
         {
-            SpawnManager.Instance.Monsters.Remove(gameObject);
-            StageManager.Instance.IncrementKillCount();
             isDead = true;
+            SpawnManager.Instance.Monsters.Remove(gameObject);
+            OnDead(_monsterType);
         }
 
         public void Init(MonsterData monsterData)

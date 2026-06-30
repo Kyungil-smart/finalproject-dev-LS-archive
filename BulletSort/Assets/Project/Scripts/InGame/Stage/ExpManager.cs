@@ -1,5 +1,7 @@
 ﻿using Core;
+using Monster.Controll;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,8 +15,8 @@ namespace Ingame.ExpSystem
 
     class ExpManager : MonoBehaviour
     {
-        public event Action OnLevelUp;
-        public event Action<int> OnExpChanged;
+        public static event Action OnLevelUp;
+        public static event Action<int> OnExpChanged;
 
         int _curExp;
         int _curLevel;
@@ -27,6 +29,8 @@ namespace Ingame.ExpSystem
         private int _curLevelID { get { return _curLevel + 10; } }
         private int _nextLevelID { get { return _curLevel + 11; } }
 
+        private WaitForSeconds timer_5s;
+
         private void Awake()
         {
             _curExp = 0;
@@ -36,9 +40,31 @@ namespace Ingame.ExpSystem
             _eliteMonsterExp = DataManager.Instance.GetData<ExpData>((int)EXP_DATA_ID.ELITE).ExpAmount;
 
             _levelDataTable = DataManager.Instance.GetTable<LevelData>();
+
+            timer_5s = new WaitForSeconds(5.0f);
+        }
+        private void OnEnable()
+        {
+            MonsterController.OnDead += MonsterDeadHandler;
+        }
+        private void OnDisable()
+        {
+            MonsterController.OnDead += MonsterDeadHandler;
         }
 
-        public void IncrementExp(int monsterType)
+        private void MonsterDeadHandler(int monsterType)
+        {
+            StartCoroutine(DelayAndIncrementExp(monsterType));
+        }
+
+        private IEnumerator DelayAndIncrementExp(int monsterType)
+        {
+            yield return timer_5s;
+
+            IncrementExp(monsterType);
+        }
+
+        private void IncrementExp(int monsterType)
         {
             // MonsterType에 따라 증가하는 EXP 양 변화
             // 일반형 : normal, Speedy or Tanker : Elite
@@ -47,7 +73,14 @@ namespace Ingame.ExpSystem
 
             if (_levelDataTable[_curLevelID].IsMaxLevel == 0)
             {
-                _curExp += _normalMonsterExp;
+                if (monsterType == 0)
+                {
+                    _curExp += _normalMonsterExp;
+                }
+                else if (monsterType == 1 || monsterType == 2)
+                {
+                    _curExp += _eliteMonsterExp;
+                }
 
                 while (_curExp >= _levelDataTable[_nextLevelID].RequiredXP)
                 {
