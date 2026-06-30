@@ -42,11 +42,11 @@ namespace Monster.Portal
         private void Spawn()
         {
             int normalgroupID = StageManager.Instance.NormalMonsterGroup;
-            int normalspawnCount = StageManager.Instance.NormalSpawnCount;
+            int normalspawnCount = StageManager.Instance.CurWavePattern.Normal_Count;
             int speedygroupID = StageManager.Instance.SpeedyMonsterGroup;
-            int speedyspawnCount = StageManager.Instance.SpeedySpawnCount;
+            int speedyspawnCount = StageManager.Instance.CurWavePattern.Speedy_Count;
             int tankergroupID = StageManager.Instance.TankerMonsterGroup;
-            int tankerspawnCount = StageManager.Instance.TankerSpawnCount;
+            int tankerspawnCount = StageManager.Instance.CurWavePattern.Tanker_Count;
             
             // 일정 주기마다 스폰
             SpawnManager.Instance.SpawnMonster(normalgroupID, normalspawnCount);
