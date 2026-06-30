@@ -1,5 +1,6 @@
 ﻿using Core.Manager.SpawnManager;
 using InGame.Slot;
+using Monster.Controll;
 using Monster.Portal;
 using System;
 using UnityEngine;
@@ -64,7 +65,16 @@ namespace Core
             _waveTimer = new Timer(40);
 
             PerksManager.Instance.OnPerkPhaseEnded += ResetState;
+            MonsterController.OnDead += MonsterDeadHandler;
         }
+
+        protected override void OnDestroy()
+        {
+            MonsterController.OnDead -= MonsterDeadHandler;
+            base.OnDestroy();
+        }
+
+
 
         // Lobby에서 선택 시 호출할 것
         public void SetStageID(int stageID)
@@ -184,7 +194,14 @@ namespace Core
             _isDefeat = true;
         }
 
-        public void IncrementKillCount()
+        private void MonsterDeadHandler(int monsterType)
+        {
+            IncrementKillCount();
+
+            // 경험치 드롭 연출
+        }
+
+        private void IncrementKillCount()
         {
             _killCount++;
             Debug.Log($"Kill Count : {_killCount}/{_targetKillNum}");

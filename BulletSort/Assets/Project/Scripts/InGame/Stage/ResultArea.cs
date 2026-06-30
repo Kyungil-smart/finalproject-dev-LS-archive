@@ -25,6 +25,7 @@ public class ResultArea : MonoBehaviour
     private void OnClickResultButton()
     {
         Debug.Log("[Result Button] : On Click");
+        Time.timeScale = 1;
         SceneManager.LoadScene(Define.SCENE_LOBBY);
     }
 }

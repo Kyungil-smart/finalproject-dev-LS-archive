@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ingame.ExpSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -46,8 +47,6 @@ namespace Core
         int _remainRerollNum;
         public int RemainRerollNum { get { return _remainRerollNum; } }
 
-
-        const int DEFAULT_SELECT_NUM = 2;
         int _remainSelectNum;
         public int RemainSelectNum { get { return _remainSelectNum; } }
 
@@ -92,12 +91,26 @@ namespace Core
             }
 
             _perksSet = new HashSet<int>();
+
+            _remainSelectNum = 0;
+
+            ExpManager.OnLevelUp += LevelupHandler;
+        }
+
+        protected override void OnDestroy()
+        {
+            ExpManager.OnLevelUp -= LevelupHandler;
+            base.OnDestroy();
+        }
+
+        private void LevelupHandler()
+        {
+            _remainSelectNum++;
         }
 
         public void InitState()
         {
             _remainRerollNum = DEFAULT_REROLL_NUM;
-            _remainSelectNum = DEFAULT_SELECT_NUM;
         }
 
         public void EnterPerksPhase()
