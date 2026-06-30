@@ -420,9 +420,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 24
-        y: 149
-        width: 466
-        height: 340
+        y: 144
+        width: 469
+        height: 345
       spriteId: b0e9a5995a381ea439da90fe37614e47
     linkedCells: []
     tileCells: []

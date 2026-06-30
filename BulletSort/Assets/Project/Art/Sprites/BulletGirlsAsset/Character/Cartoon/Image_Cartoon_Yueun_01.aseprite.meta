@@ -167,10 +167,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 175
-        y: 12
-        width: 462
-        height: 815
+        x: 165
+        y: 42
+        width: 433
+        height: 755
       spriteId: b961c06ae7f0d2441b2a44be450b5a28
     linkedCells: []
     tileCells: []
