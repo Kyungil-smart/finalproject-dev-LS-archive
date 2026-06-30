@@ -40,14 +40,12 @@ namespace Core
         public bool IsBossWave { get { return _waveIdx == 9; } }
 
         private Timer _waveTimer; // 40초;
+        
+        public WavePatternData CurWavePattern { get; private set; }
 
         public int NormalMonsterGroup { get; private set; }
         public int SpeedyMonsterGroup { get; private set; }
         public int TankerMonsterGroup { get; private set; }
-
-        public int NormalSpawnCount { get; private set; }
-        public int SpeedySpawnCount { get; private set; }
-        public int TankerSpawnCount { get; private set; }
 
         public int BossID { get; private set; }
 
@@ -105,20 +103,17 @@ namespace Core
         private void SetValueByCurWavePattern()
         {
             Debug.Log($"Wave{_waveIdx}");
-            WavePatternData curPattern = DataManager.Instance.GetData<WavePatternData>(_waveData[_waveIdx]);
+            CurWavePattern = DataManager.Instance.GetData<WavePatternData>(_waveData[_waveIdx]);
 
             NormalMonsterGroup = _stageData.MonsterGroupID_Normal;
             SpeedyMonsterGroup = _stageData.MonsterGroupID_Speedy;
             TankerMonsterGroup = _stageData.MonsterGroupID_Tanker;
 
-            NormalSpawnCount = curPattern.Normal_Count;
-            SpeedySpawnCount = curPattern.Speedy_Count;
-            TankerSpawnCount = curPattern.Tanker_Count;
-
-            Debug.Log(NormalSpawnCount);
-            Debug.Log(SpeedySpawnCount);
-            Debug.Log(TankerSpawnCount);
-            _targetKillNum += ((NormalSpawnCount + SpeedySpawnCount + TankerSpawnCount) * 8);
+            int normalSpawnCount = CurWavePattern.Normal_Count;
+            int speedySpawnCount = CurWavePattern.Speedy_Count;
+            int tankerSpawnCount = CurWavePattern.Tanker_Count;
+            
+            _targetKillNum += ((normalSpawnCount + speedySpawnCount + tankerSpawnCount) * 8);
 
             Debug.Log($"Target Kill Num in This Wave : {_targetKillNum}");
         }

@@ -148,9 +148,9 @@ namespace Core.Manager.SpawnManager
       {
          _monsterIDs = new List<int>();
 
-         AddList(groupData.MonsterID_1, groupData.NormalRate_1);
-         AddList(groupData.MonsterID_2, groupData.NormalRate_2);
-         AddList(groupData.MonsterID_3, groupData.NormalRate_3);
+         AddList(groupData.MonsterID_1, StageManager.Instance.CurWavePattern.NormalRate_1);
+         AddList(groupData.MonsterID_2, StageManager.Instance.CurWavePattern.NormalRate_2);
+         AddList(groupData.MonsterID_3, StageManager.Instance.CurWavePattern.NormalRate_3);
 
          int index = Random.Range(0, _monsterIDs.Count);
          
