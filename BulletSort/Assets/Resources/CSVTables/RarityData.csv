@@ -1,7 +1,7 @@
-int,string,int,string,*,,,,,,
-PerkRarityID,PerkRarityName,Weight,Color,*,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
-00091,Perk_Normal,50,#FFB84A,*,,PerkRarityID,PK,,특전 희귀도 ID,P1
-00092,Perk_Rare,30,#B56CFF,*,,PerkRarityName,FK,Localize.Key,특전 희귀도 이름.로컬라이즈 필요,P3
-00093,Perk_Unique,20,#4AA3FF,*,,Weight,,,희귀도 등장 가중치,P1
-00094,Perk_Legend,0,#B8C0CC,*,,Color,,,희귀도 색상,P2
-,,,,*,,PerkRarityNameText,,,데이터 표현용 칼럼.,P3
+int,string,int,string,string,*,,,,,,
+PerkRarityID,PerkRarityName,Weight,PerkPanelCard,PerkIconBG,*,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
+00091,PerkRarityName_Normal,50,Skill_Panel,Image_Icon_Large_8,*,,PerkRarityID,PK,,특전 희귀도 ID,P1
+00092,PerkRarityName_Rare,30,Skill_Panel-1,Image_Icon_Large_9,*,,PerkRarityName,FK,Localize.Key,특전 희귀도 이름.로컬라이즈 필요,P3
+00093,PerkRarityName_Unique,20,Skill_Panel-2,Image_Icon_Large_10,*,,Weight,,,희귀도 등장 가중치,P1
+00094,PerkRarityName_Legend,0,Skill_Panel-3,Image_Icon_Large_11,*,,Color,,,희귀도 색상,P2
+,,,,,*,,PerkRarityNameText,,,데이터 표현용 칼럼.,P3

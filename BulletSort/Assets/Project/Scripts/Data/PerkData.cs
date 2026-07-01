@@ -7,11 +7,11 @@ public partial class PerkData : ScriptableObject
     public int EffectID;
     public string PerkName;
     public string PerkDesc;
-    public int TriggerID;
     public int MaxLevel;
     public int PerkRarityType;
     public int PerkTarget;
     public string PerkTargetText;
     public bool IsActive;
-    public int IconResourceID;
+    public string IconResourceKey;
+    public string PieceTypeIcon;
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 5
-  PerkTargetText: "\uBCF4\uC870\uD615"
+  PerkTargetText: TowerTypeName_Buffer
   IsActive: 0
   IconResourceID: 0
   CurLevel: 0

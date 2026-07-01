@@ -20,7 +20,7 @@ MonoBehaviour:
   MaxLevel: 3
   PerkRarityType: 93
   PerkTarget: 6
-  PerkTargetText: "\uBC94\uC704\uD615"
+  PerkTargetText: TowerTypeText_Boomer
   IsActive: 1
   IconResourceID: 0
   CurLevel: 0

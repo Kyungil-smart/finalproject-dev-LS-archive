@@ -1,36 +1,36 @@
-int,int,string,string,int,int,int,int,string,bool,int,*,string,,,,,,,
-PerkID,EffectID,PerkName,PerkDesc,TriggerID,MaxLevel,PerkRarityType,PerkTarget,PerkTargetText,IsActive,IconResourceID,*,Desc,,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
-10001,09001,PerkName_ATKUP_Basic,PerkDesc_ATKUP_Basic,0,3,00091,1,기본형,1,12001,*,기본형 공격력 강화,,,PerkID,PK,,특전 ID,P1
-10002,09002,PerkName_ATKSpeedUP_Basic,PerkDesc_ATKSpeedUP_Basic,0,3,00091,1,기본형,1,,*,기본형 공격 주기 강화 (%),,,EffectID,FK,EffectData.EffectID,특전 효과 ID,P1
-10003,09003,PerkName_ShotProjCountUP_Basic,PerkDesc_ShotProjCountUP_Basic,0,2,00091,1,기본형,0,,*,기본형 발사체 수 증가,,,PerkName,FK,Localize.Key,특전 이름.로컬라이즈 필요,P3
-10004,09004,PerkName_MaxProj_Basic,PerkDesc_MaxProj_Basic,0,3,00091,1,기본형,1,,*,기본형 포탑 탄창 증가,,,PerkDesc,FK,Localize.Key,특전 설명.로컬라이즈 필요,P3
-10005,09005,PerkName_ProjSize_Basic,PerkDesc_ProjSize_Basic,0,3,00091,1,기본형,0,,*,기본형 발사체 크기 증가 (%),,,IconResourceID,,,특전 아이콘 리소스 ID,P3
-10006,09006,PerkName_ProjPiercing_Basic,PerkDesc_ProjPiercing_Basic,0,3,00091,1,기본형,0,,*,기본형 관통력 증가,,,TriggerID,FK,,특전의 효과가 발동하는 조건,P1
-10007,09007,PerkName_BoomArea_Basic,PerkDesc_BoomArea_Basic,0,3,00091,1,기본형,0,,*,기본형 투사체 폭발 범위 증가(%),,,MaxLevel,,,특전의 최대 레벨,P2
-10008,09008,PerkName_ATKUP_Shotgun,PerkDesc_ATKUP_Shotgun,0,3,00091,2,샷건형,1,,*,샷건형 공격력 강화,,,PerkRarityType,FK,RarityData.PerkRarityID,특전 희귀도 타입 (등장 확률),P1
-10009,09009,PerkName_ATKSpeedUP_Shotgun,PerkDesc_ATKSpeedUP_Shotgun,0,3,00091,2,샷건형,1,,*,샷건형 공격 주기 강화 (%),,,PerkTarget,,,특전 적용 대상 포탑 구분. 적용 대상 아이콘을 판별할 때 사용.,P1
-10010,09010,PerkName_ShotProjCountUP_Shotgun,PerkDesc_ShotProjCountUP_Shotgun,0,3,00093,2,샷건형,1,,*,샷건형 발사체 수 증가 (고유),,,PerkTargetText,FK,Localize.Key,특전 적용 대상 유형 로컬라이즈. 포탑 유형에 따라 달라지지 않는 특전은 0.,P2
-10011,09011,PerkName_MaxProj_Shotgun,PerkDesc_MaxProj_Shotgun,0,3,00091,2,샷건형,1,,*,샷건형 포탑 탄창 증가,,,IsActive,,,특전 사용 여부,P1
-10012,09012,PerkName_BoomArea_Shotgun,PerkDesc_BoomArea_Shotgun,0,3,00091,2,샷건형,0,,*,샷건형 투사체 폭발 범위 증가(%),,,,,,,
-10013,09013,PerkName_ATKUP_Mortar,PerkDesc_ATKUP_Mortar,0,3,00093,3,탱커형,1,,*,탱커형 공격력 강화(%) (고유),,,"세션내 영구적인 값을 변환하는 경우 PerkData는 EffectData를 참조하고, 만일 조건 정보가 있다면 TriggerData를 통해 EffectData에 접근한다.",,,,
-10014,09014,PerkName_ATKSpeedUP_Mortar,PerkDesc_ATKSpeedUP_Mortar,0,3,00091,3,탱커형,1,,*,탱커형 공격 주기 강화 (%),,,,,,,
-10015,09015,PerkName_MaxProj_Mortar,PerkDesc_MaxProj_Mortar,0,3,00091,3,탱커형,1,,*,탱커형 포탑 탄창 증가,,,PerkTaget,적용대상,,,
-10016,09016,PerkName_ProjSize_Mortar,PerkDesc_ProjSize_Mortar,0,3,00091,3,탱커형,0,,*,탱커형 발사체 크기 증가 (%),,,1,AR,가장 가까운 적 타게팅 + 기본형 공격,,모든 종류 특전 등장
-10017,09017,PerkName_ATKUP_SR,PerkDesc_ATKUP_SR,0,3,00091,4,원거리형,1,,*,원거리형 공격력 강화,,,2,Shotgun,가장 가까운 적 타게팅 + 여러 탄환,,"발사체 크기 증가 x, 관통 x"
-10018,09018,PerkName_ATKSpeedUP_SR,PerkDesc_ATKSpeedUP_SR,0,3,00091,4,원거리형,1,,*,원거리형 공격 주기 강화 (%),,,3,Mortar,가장 가까운 적 타게임 + 체력 비례 데미지 + 느린 발사 주기,,"발사체수 증가 x, 관통x, 폭발x"
-10019,09019,PerkName_MaxProj_SR,PerkDesc_MaxProj_SR,0,3,00091,4,원거리형,1,,*,원거리형 포탑 탄창 증가,,,4,SR,가장 가까운 적 타게팅 + 기본형에 많이 약한 데미지 + 랜덤한 아군 정해진 숫자만큼 버프 적용,,"관통력x, 폭발x, 빌사체 크기/수 증가x"
-10020,09020,PerkName_ProjPiercing_SR,PerkDesc_ProjPiercing_SR,0,3,00093,4,원거리형,1,,*,원거리형 관통력 증가,,,5,Buffer,가장 먼 적 타게팅 + 높은 관통력,,"크기, 발사체 수 x"
-10021,09021,PerkName_BoomArea_SR,PerkDesc_BoomArea_SR,0,3,00091,4,원거리형,0,,*,원거리형 투사체 폭발 범위 증가(%),,,6,Boomer,가장 가까운 적 타게팅 + 목표 지점 범위 공격 + 관통력x 느린 발사 주기,,"관통력x, 발사체 크기 증가x, 폭발 x"
-10022,09022,PerkName_ATKUP_Buffer,PerkDesc_ATKUP_Buffer,0,3,00091,5,보조형,0,,*,보조형 공격력 강화,,,7,Slot,,,
-10023,09023,PerkName_ATKSpeedUP_Buffer,PerkDesc_ATKSpeedUP_Buffer,0,3,00091,5,보조형,1,,*,보조형 공격 주기 강화 (%),,,8,Combo,,,
-10024,09024,PerkName_MaxProj_Buffer,PerkDesc_MaxProj_Buffer,0,3,00091,5,보조형,1,,*,보조형 포탑 탄창 증가,,,,,,,
-10025,09025,PerkName_Heal_Buffer,PerkDesc_Heal_Buffer,0,2,00093,5,보조형,1,,*,보조형 힐량 증가,,,활성화 특전 수:,0,,,
-10026,09026,PerkName_ATKUP_Boomer,PerkDesc_ATKUP_Boomer,0,3,00091,6,범위형,1,,*,범위형 공격력 강화,,,,,,,
-10027,09027,PerkName_ATKSpeedUP_Boomer,PerkDesc_ATKSpeedUP_Boomer,0,3,00091,6,범위형,1,,*,범위형 공격 주기 강화 (%),,,,,,,
-10028,09028,PerkName_ShotProjCountUP_Boomer,PerkDesc_ShotProjCountUP_Boomer,0,3,00091,6,범위형,0,,*,범위형 발사체 수 증가,,,,,,,
-10029,09029,PerkName_MaxProj_Boomer,PerkDesc_MaxProj_Boomer,0,3,00091,6,범위형,1,,*,범위형 포탑 탄창 증가,,,,,,,
-10030,09030,PerkName_BoomArea_Boomer,PerkDesc_BoomArea_Boomer,0,3,00093,6,범위형,1,,*,범위형 투사체 폭발 범위 증가(%),,,,,,,
-10031,09101,PerkName_Heal_Slot,PerkDesc_Heal_Slot,0,1,00092,7,0,1,,*,즉시 전체 슬롯 % 회복,,,,,,,
-10032,09102,PerkName_MaxHPUP_Slot,PerkDesc_MaxHPUP_Slot,0,3,00092,7,0,1,,*,슬롯 최대 체력 증가,,,,,,,
-10033,09103,PerkName_ATKSpeedUp_Slot,PerkDesc_ATKSpeedUp_Slot,0,1,00092,7,0,1,,*,일정 시간동안 공격 주기 가속(%),,,,,,,
-10034,09105,PerkName_ComboDamage,PerkDesc_ComboDamage,05001,3,00092,8,0,1,,*,일정 콤보 달성시 지급하는 데미지에 추가 피해,,,,,,,
+int,int,string,string,int,int,int,string,bool,string,string,*,,string,,,,,,,
+PerkID,EffectID,PerkName,PerkDesc,MaxLevel,PerkRarityType,PerkTarget,PerkTargetText,IsActive,IconResourceKey,PieceTypeIcon,*,,Desc,,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
+10001,09001,PerkName_ATKUP_Basic,PerkDesc_ATKUP_Basic,3,00091,1,TowerTypeText_Basic,1,Image_icomSkill_Icon_5,Image_Icon_Type_ 0,*,,기본형 공격력 강화,,,PerkID,PK,,특전 ID,P1
+10002,09002,PerkName_ATKSpeedUP_Basic,PerkDesc_ATKSpeedUP_Basic,3,00091,1,TowerTypeText_Basic,1,Image_icomSkill_Icon_1,Image_Icon_Type_ 0,*,,기본형 공격 주기 강화 (%),,,EffectID,FK,EffectData.EffectID,특전 효과 ID,P1
+10003,09003,PerkName_ShotProjCountUP_Basic,PerkDesc_ShotProjCountUP_Basic,2,00091,1,TowerTypeName_Basic,0,0,0,*,,기본형 발사체 수 증가,,,PerkName,FK,Localize.Key,특전 이름.로컬라이즈 필요,P3
+10004,09004,PerkName_MaxProj_Basic,PerkDesc_MaxProj_Basic,3,00091,1,TowerTypeText_Basic,1,Image_icomSkill_Icon_8,Image_Icon_Type_ 0,*,,기본형 포탑 탄창 증가,,,PerkDesc,FK,Localize.Key,특전 설명.로컬라이즈 필요,P3
+10005,09005,PerkName_ProjSize_Basic,PerkDesc_ProjSize_Basic,3,00091,1,TowerTypeName_Basic,0,0,0,*,,기본형 발사체 크기 증가 (%),,,IconResourceID,,,특전 아이콘 리소스 ID,P3
+10006,09006,PerkName_ProjPiercing_Basic,PerkDesc_ProjPiercing_Basic,3,00091,1,TowerTypeName_Basic,0,0,0,*,,기본형 관통력 증가,,,TriggerID,FK,,특전의 효과가 발동하는 조건,P1
+10007,09007,PerkName_BoomArea_Basic,PerkDesc_BoomArea_Basic,3,00091,1,TowerTypeName_Basic,0,0,0,*,,기본형 투사체 폭발 범위 증가(%),,,MaxLevel,,,특전의 최대 레벨,P2
+10008,09008,PerkName_ATKUP_Shotgun,PerkDesc_ATKUP_Shotgun,3,00091,2,TowerTypeText_Shotgun,1,Image_icomSkill_Icon_5,Image_Icon_Type_ 1,*,,샷건형 공격력 강화,,,PerkRarityType,FK,RarityData.PerkRarityID,특전 희귀도 타입 (등장 확률),P1
+10009,09009,PerkName_ATKSpeedUP_Shotgun,PerkDesc_ATKSpeedUP_Shotgun,3,00091,2,TowerTypeText_Shotgun,1,Image_icomSkill_Icon_1,Image_Icon_Type_ 1,*,,샷건형 공격 주기 강화 (%),,,PerkTarget,,,특전 적용 대상 포탑 구분. 적용 대상 아이콘을 판별할 때 사용.,P1
+10010,09010,PerkName_ShotProjCountUP_Shotgun,PerkDesc_ShotProjCountUP_Shotgun,3,00093,2,TowerTypeText_Shotgun,1,Image_icomSkill_Icon_7,Image_Icon_Type_ 1,*,,샷건형 발사체 수 증가 (고유),,,PerkTargetText,FK,Localize.Key,특전 적용 대상 유형 로컬라이즈. 포탑 유형에 따라 달라지지 않는 특전은 0.,P2
+10011,09011,PerkName_MaxProj_Shotgun,PerkDesc_MaxProj_Shotgun,3,00091,2,TowerTypeText_Shotgun,1,Image_icomSkill_Icon_8,Image_Icon_Type_ 1,*,,샷건형 포탑 탄창 증가,,,IsActive,,,특전 사용 여부,P1
+10012,09012,PerkName_BoomArea_Shotgun,PerkDesc_BoomArea_Shotgun,3,00091,2,TowerTypeName_Shotgun,0,0,0,*,,샷건형 투사체 폭발 범위 증가(%),,,,,,,
+10013,09013,PerkName_ATKUP_Mortar,PerkDesc_ATKUP_Mortar,3,00093,3,TowerTypeText_Mortar,1,Image_icomSkill_Icon_5,Image_Icon_Type_ 3,*,,탱커형 공격력 강화(%) (고유),,,IconResourceKey,FK,,특전의 스킬 아이콘,P2
+10014,09014,PerkName_ATKSpeedUP_Mortar,PerkDesc_ATKSpeedUP_Mortar,3,00091,3,TowerTypeText_Mortar,1,Image_icomSkill_Icon_1,Image_Icon_Type_ 3,*,,탱커형 공격 주기 강화 (%),,,PieceTypeIcon,FK,,특전이 적용되는 포탑종류 아이콘,P3
+10015,09015,PerkName_MaxProj_Mortar,PerkDesc_MaxProj_Mortar,3,00091,3,TowerTypeText_Mortar,1,Image_icomSkill_Icon_8,Image_Icon_Type_ 3,*,,탱커형 포탑 탄창 증가,,,"세션내 영구적인 값을 변환하는 경우 PerkData는 EffectData를 참조하고, 만일 조건 정보가 있다면 TriggerData를 통해 EffectData에 접근한다.",,,,
+10016,09016,PerkName_ProjSize_Mortar,PerkDesc_ProjSize_Mortar,3,00091,3,PieceName_Mortar,0,0,0,*,,탱커형 발사체 크기 증가 (%),,,PerkTaget,적용대상,,,
+10017,09017,PerkName_ATKUP_SR,PerkDesc_ATKUP_SR,3,00091,4,TowerTypeText_SR,1,Image_icomSkill_Icon_5,Image_Icon_Type_ 2,*,,원거리형 공격력 강화,,,1,AR,가장 가까운 적 타게팅 + 기본형 공격,,모든 종류 특전 등장
+10018,09018,PerkName_ATKSpeedUP_SR,PerkDesc_ATKSpeedUP_SR,3,00091,4,TowerTypeText_SR,1,Image_icomSkill_Icon_1,Image_Icon_Type_ 2,*,,원거리형 공격 주기 강화 (%),,,2,Shotgun,가장 가까운 적 타겟팅 + 여러 탄환,,"발사체 크기 증가 x, 관통 x"
+10019,09019,PerkName_MaxProj_SR,PerkDesc_MaxProj_SR,3,00091,4,TowerTypeText_SR,1,Image_icomSkill_Icon_8,Image_Icon_Type_ 2,*,,원거리형 포탑 탄창 증가,,,3,Mortar,가장 가까운 적 타게팅 + 체력 비례 데미지 + 느린 발사 주기,,"발사체수 증가 x, 관통x, 폭발x"
+10020,09020,PerkName_ProjPiercing_SR,PerkDesc_ProjPiercing_SR,3,00093,4,TowerTypeText_SR,1,Image_icomSkill_Icon_0,Image_Icon_Type_ 2,*,,원거리형 관통력 증가,,,4,SR,,,
+10021,09021,PerkName_BoomArea_SR,PerkDesc_BoomArea_SR,3,00091,4,TowerTypeName_SR,0,0,0,*,,원거리형 투사체 폭발 범위 증가(%),,,5,Buffer,가장 먼 적 타겟팅 + 높은 관통력,,"크기, 발사체 수 x"
+10022,09022,PerkName_ATKUP_Buffer,PerkDesc_ATKUP_Buffer,3,00091,5,TowerTypeName_Buffer,0,0,0,*,,보조형 공격력 강화,,,6,Boomer,가장 가까운 적 타겟팅 + 목표 지점 범위 공격 + 관통력x 느린 발사 주기,,"관통력x, 발사체 크기 증가x, 폭발 x"
+10023,09023,PerkName_ATKSpeedUP_Buffer,PerkDesc_ATKSpeedUP_Buffer,3,00091,5,TowerTypeText_Buffer,1,Image_icomSkill_Icon_1,Image_Icon_Type_ 5,*,,보조형 공격 주기 강화 (%),,,5,Buffer,가장 가까운 적 타게팅 + 기본형에 많이 약한 데미지 + 랜덤한 아군 정해진 숫자만큼 버프 적용,,"관통력x, 폭발x, 빌사체 크기/수 증가x"
+10024,09024,PerkName_MaxProj_Buffer,PerkDesc_MaxProj_Buffer,3,00091,5,TowerTypeText_Buffer,1,Image_icomSkill_Icon_8,Image_Icon_Type_ 5,*,,보조형 포탑 탄창 증가,,,6,Boomer,,,
+10025,09025,PerkName_Heal_Buffer,PerkDesc_Heal_Buffer,2,00093,5,TowerTypeText_Buffer,1,Image_icomSkill_Icon_10,Image_Icon_Type_ 5,*,,보조형 힐량 증가,,,7,Slot,,,
+10026,09026,PerkName_ATKUP_Boomer,PerkDesc_ATKUP_Boomer,3,00091,6,TowerTypeText_Boomer,1,Image_icomSkill_Icon_5,Image_Icon_Type_ 4,*,,범위형 공격력 강화,,,8,Combo,,,
+10027,09027,PerkName_ATKSpeedUP_Boomer,PerkDesc_ATKSpeedUP_Boomer,3,00091,6,TowerTypeText_Boomer,1,Image_icomSkill_Icon_1,Image_Icon_Type_ 4,*,,범위형 공격 주기 강화 (%),,,,,,,
+10028,09028,PerkName_ShotProjCountUP_Boomer,PerkDesc_ShotProjCountUP_Boomer,3,00091,6,TowerTypeName_Boomer,0,0,0,*,,범위형 발사체 수 증가,,,활성화 특전 수:,25,,,
+10029,09029,PerkName_MaxProj_Boomer,PerkDesc_MaxProj_Boomer,3,00091,6,TowerTypeText_Boomer,1,Image_icomSkill_Icon_8,Image_Icon_Type_ 4,*,,범위형 포탑 탄창 증가,,,주석에 빨간색으로 표시된 특전은 해당 포탑 유형 전용 특전.,,,,
+10030,09030,PerkName_BoomArea_Boomer,PerkDesc_BoomArea_Boomer,3,00093,6,TowerTypeText_Boomer,1,Image_icomSkill_Icon_6,Image_Icon_Type_ 4,*,,범위형 투사체 폭발 범위 증가(%),,,,,,,
+10031,09101,PerkName_Heal_Slot,PerkDesc_Heal_Slot,1,00092,7,0,1,Image_icomSkill_Icon_3,0,*,,즉시 전체 슬롯 % 회복,,,,,,,
+10032,09102,PerkName_MaxHPUP_Slot,PerkDesc_MaxHPUP_Slot,3,00092,7,0,1,Image_icomSkill_Icon_2,0,*,,슬롯 최대 체력 증가,,,,,,,
+10033,09103,PerkName_ATKSpeedUp_Slot,PerkDesc_ATKSpeedUp_Slot,1,00092,7,0,1,Image_icomSkill_Icon_4,0,*,,일정 시간동안 공격 주기 가속(%),,,,,,,
+10034,09105,PerkName_ComboDamage,PerkDesc_ComboDamage,3,00092,8,0,1,Image_icomSkill_Icon_9,0,*,,콤보수 10 달성시 발동하는 콤보 스킬 추가 데미지,,,,,,,
