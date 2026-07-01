@@ -119,7 +119,16 @@ namespace Core.Manager.SpawnManager
          {
             for (int i = 0; i < spawnCount; i++)
             {
-               int monsterID = RandomID(groupdata);
+               int monsterID = groupdata.MonsterID_1;
+               if(DataManager.Instance.GetData<MonsterData>(monsterID).MonsterType == 1)
+               {  monsterID = RandomID(groupdata); }
+
+               else
+               {
+                  monsterID = groupdata.MonsterID_1 == 0 ?  groupdata.MonsterID_2 : groupdata.MonsterID_1;
+                  monsterID = monsterID == 0 ?  groupdata.MonsterID_3 : groupdata.MonsterID_2;
+               }
+               
                SpawnPoint spawnTr = RandomPoint();
                _monsterFactory.CreateMonster(spawnTr, monsterID);
             }
