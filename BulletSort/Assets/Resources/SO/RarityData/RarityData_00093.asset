@@ -15,4 +15,5 @@ MonoBehaviour:
   PerkRarityID: 93
   PerkRarityName: PerkRarityName_Unique
   Weight: 20
-  Color: '#4AA3FF'
+  PerkPanelCard: Skill_Panel-2
+  PerkIconBG: Image_Icon_Large_10

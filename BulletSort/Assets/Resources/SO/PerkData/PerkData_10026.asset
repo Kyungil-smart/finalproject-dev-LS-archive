@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9026
   PerkName: PerkName_ATKUP_Boomer
   PerkDesc: PerkDesc_ATKUP_Boomer
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 6
   PerkTargetText: TowerTypeText_Boomer
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_5
+  PieceTypeIcon: Image_Icon_Type_ 4
   CurLevel: 0
   isUnique: 0
   isSelected: 0

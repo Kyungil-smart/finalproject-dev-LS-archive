@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9002
   PerkName: PerkName_ATKSpeedUP_Basic
   PerkDesc: PerkDesc_ATKSpeedUP_Basic
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 1
   PerkTargetText: TowerTypeText_Basic
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_1
+  PieceTypeIcon: Image_Icon_Type_ 0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

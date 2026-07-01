@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9018
   PerkName: PerkName_ATKSpeedUP_SR
   PerkDesc: PerkDesc_ATKSpeedUP_SR
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 4
   PerkTargetText: TowerTypeText_SR
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_1
+  PieceTypeIcon: Image_Icon_Type_ 2
   CurLevel: 0
   isUnique: 0
   isSelected: 0

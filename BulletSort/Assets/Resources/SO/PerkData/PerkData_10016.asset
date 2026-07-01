@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9016
   PerkName: PerkName_ProjSize_Mortar
   PerkDesc: PerkDesc_ProjSize_Mortar
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 3
   PerkTargetText: PieceName_Mortar
   IsActive: 0
-  IconResourceID: 0
+  IconResourceKey: 0
+  PieceTypeIcon: 0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

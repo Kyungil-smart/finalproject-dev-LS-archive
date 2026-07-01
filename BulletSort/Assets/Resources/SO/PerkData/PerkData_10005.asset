@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9005
   PerkName: PerkName_ProjSize_Basic
   PerkDesc: PerkDesc_ProjSize_Basic
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 1
   PerkTargetText: TowerTypeName_Basic
   IsActive: 0
-  IconResourceID: 0
+  IconResourceKey: 0
+  PieceTypeIcon: 0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

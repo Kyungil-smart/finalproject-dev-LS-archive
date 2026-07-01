@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9028
   PerkName: PerkName_ShotProjCountUP_Boomer
   PerkDesc: PerkDesc_ShotProjCountUP_Boomer
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 6
   PerkTargetText: TowerTypeName_Boomer
   IsActive: 0
-  IconResourceID: 0
+  IconResourceKey: 0
+  PieceTypeIcon: 0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

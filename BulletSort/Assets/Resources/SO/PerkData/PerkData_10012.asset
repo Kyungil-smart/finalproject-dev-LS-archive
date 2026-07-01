@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9012
   PerkName: PerkName_BoomArea_Shotgun
   PerkDesc: PerkDesc_BoomArea_Shotgun
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 2
   PerkTargetText: TowerTypeName_Shotgun
   IsActive: 0
-  IconResourceID: 0
+  IconResourceKey: 0
+  PieceTypeIcon: 0
   CurLevel: 0
   isUnique: 0
   isSelected: 0
