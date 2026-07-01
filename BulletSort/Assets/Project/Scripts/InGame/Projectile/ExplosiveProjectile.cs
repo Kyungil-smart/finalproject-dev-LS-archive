@@ -3,6 +3,7 @@ using Core.ObjectPool;
 using Projectile.Interface;
 using Core.ObjectPool.Interface;
 using Monster.Controll;
+using Towers.Struct.TowerInfo;
 using UnityEngine;
 
 namespace Projectile
@@ -68,12 +69,12 @@ namespace Projectile
         }
 
         // 데이터 받아오기
-        public void Init(MonsterController target, GameObject keyObj, int atk, float moveSpeed)
+        public void Init(MonsterController target, GameObject keyObj, STowerInfo towerInfo)
         {
             _target = target;
             _keyObj = keyObj;
-            _atk = atk;
-            _moveSpeed = moveSpeed;
+            _atk = towerInfo.TowerAtk;
+            _moveSpeed = towerInfo.BulletSpeed;
         }
 
         public void OnSpawn()

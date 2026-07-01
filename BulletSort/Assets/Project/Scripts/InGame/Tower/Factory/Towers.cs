@@ -57,8 +57,7 @@ namespace Towers.Factory
                 {
                     GameObject valueObj = PoolManager.Instance.Get(_projectile, gameObject.transform.position, Quaternion.identity);
                     
-                    valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, _towerInfo.TowerAtk,
-                        10f);
+                    valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, _towerInfo);
                 }
                 
                 _currentAmmo--;
