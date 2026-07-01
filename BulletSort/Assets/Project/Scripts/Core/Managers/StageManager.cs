@@ -1,5 +1,6 @@
 ﻿using Core.Manager.SpawnManager;
 using InGame.Slot;
+using Monster.Controll;
 using Monster.Portal;
 using System;
 using UnityEngine;
@@ -37,6 +38,10 @@ namespace Core
         WaveData _waveData;
 
         int _waveIdx;
+
+        int _reward;
+        public int GainedReward { get { return _reward; } }
+
         public bool IsBossWave { get { return _waveIdx == 9; } }
 
         private Timer _waveTimer; // 40초;
@@ -58,7 +63,16 @@ namespace Core
             _waveTimer = new Timer(40);
 
             PerksManager.Instance.OnPerkPhaseEnded += ResetState;
+            MonsterController.OnDead += MonsterDeadHandler;
         }
+
+        protected override void OnDestroy()
+        {
+            MonsterController.OnDead -= MonsterDeadHandler;
+            base.OnDestroy();
+        }
+
+
 
         // Lobby에서 선택 시 호출할 것
         public void SetStageID(int stageID)
@@ -68,6 +82,7 @@ namespace Core
             _waveIdx = 0;
             _killCount = 0;
             _targetKillNum = 0;
+            _reward = 0;
 
             _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
             _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
@@ -126,11 +141,13 @@ namespace Core
 
             if (_waveIdx > 9)
             {
+                _reward += _stageData.StageReward;
                 Time.timeScale = 0;
                 OnStageWin();
             }
             else
             {
+                _reward += _stageData.WaveReward;
                 PerksManager.Instance.EnterPerksPhase();
             }
         }
@@ -172,7 +189,14 @@ namespace Core
             _isDefeat = true;
         }
 
-        public void IncrementKillCount()
+        private void MonsterDeadHandler(int monsterType)
+        {
+            IncrementKillCount();
+
+            // 경험치 드롭 연출
+        }
+
+        private void IncrementKillCount()
         {
             _killCount++;
             Debug.Log($"Kill Count : {_killCount}/{_targetKillNum}");

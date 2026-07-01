@@ -1,13 +1,16 @@
-﻿using Core;
-using Core.Interface.IDamageable;
+﻿using Core.Interface.IDamageable;
 using Core.Manager.SpawnManager;
 using InGame.Slot;
+using System;
 using UnityEngine;
 
 namespace Monster.Controll
 {
     public class MonsterController : MonoBehaviour, IDamageable
     {
+        public static event Action<int> OnDead;
+        private int _monsterType;
+
         [Tooltip("몬스터 이동속도")]
         [SerializeField] private float _moveSpeed;
 
@@ -94,9 +97,9 @@ namespace Monster.Controll
 
         public void Dead()
         {
-            SpawnManager.Instance.Monsters.Remove(gameObject);
-            StageManager.Instance.IncrementKillCount();
             isDead = true;
+            SpawnManager.Instance.Monsters.Remove(gameObject);
+            OnDead(_monsterType);
         }
 
         public void Init(MonsterData monsterData)
@@ -104,6 +107,8 @@ namespace Monster.Controll
             if (monsterData.MonsterType == 4) _moveSpeed = 0;
 
             else _moveSpeed = monsterData.MonsterMoveSpeed;
+
+            _monsterType = monsterData.MonsterType;
 
             _atk = monsterData.MonsterAtk;
             _atkSpeed = monsterData.MonsterAtkSpeed;
