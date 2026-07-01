@@ -115,6 +115,11 @@ namespace Core
 
         public void EnterPerksPhase()
         {
+            if (_remainSelectNum <= 0)
+            {
+                return;
+            }
+
             InitState();
 
             Time.timeScale = 0;
