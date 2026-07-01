@@ -148,28 +148,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: -46, y: -35}
-  spriteSheetImportData:
-  - name: Image_Cartoon_Serin_01_0
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 741
-      height: 762
-    spriteID: 1a1a298c9a090ff449e86214df877956
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
+  spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -188,10 +167,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 840
-        height: 840
+        x: 50
+        y: 39
+        width: 713
+        height: 762
       spriteId: 2316b35e99334ac4a99855709a6cf691
     linkedCells: []
     tileCells: []

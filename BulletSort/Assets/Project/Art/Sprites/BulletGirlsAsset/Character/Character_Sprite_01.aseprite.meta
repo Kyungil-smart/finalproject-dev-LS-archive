@@ -157,8 +157,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 342
+      x: 5
+      y: 333
       width: 100
       height: 146
     spriteID: e8201a4188e4f3540ac9d7f464b64ac8
@@ -178,8 +178,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 111
-      y: 341
+      x: 113
+      y: 336
       width: 100
       height: 146
     spriteID: 0ad1651ca36482b4badd8f63a2363249
@@ -199,8 +199,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 217
-      y: 341
+      x: 224
+      y: 335
       width: 100
       height: 146
     spriteID: 69aa8f37ce8ab31479c35915230270a7
@@ -220,8 +220,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 326
-      y: 340
+      x: 333
+      y: 335
       width: 100
       height: 146
     spriteID: 26ca3db3793235449816f631e4811cd4
@@ -241,8 +241,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 437
-      y: 340
+      x: 441
+      y: 333
       width: 100
       height: 146
     spriteID: ddeb7aedfa066dd439a4779d86acf44d
@@ -262,8 +262,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 541
-      y: 340
+      x: 546
+      y: 334
       width: 100
       height: 146
     spriteID: ec3de423b3e5f384d8c9dbe1d24b1ae9
@@ -283,8 +283,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 174
+      x: 2
+      y: 170
       width: 100
       height: 146
     spriteID: 60e84606d42fe6c4c8b335e90076c251
@@ -304,8 +304,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 115
-      y: 175
+      x: 116
+      y: 169
       width: 100
       height: 146
     spriteID: 36ab7ccd59e514444a3921f7b0cbecc2
@@ -325,8 +325,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 220
-      y: 173
+      x: 225
+      y: 168
       width: 100
       height: 146
     spriteID: 3fce2113bfaf595419926b3b69566542
@@ -346,8 +346,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 328
-      y: 173
+      x: 332
+      y: 167
       width: 100
       height: 146
     spriteID: 9d6e01199d7e6874082ec3668c117a80
@@ -367,7 +367,7 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 438
+      x: 445
       y: 171
       width: 100
       height: 146
@@ -388,8 +388,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 549
-      y: 177
+      x: 555
+      y: 168
       width: 100
       height: 146
     spriteID: 951909fe85f3e95458c908024d6f4684
@@ -409,8 +409,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 7
-      y: 8
+      x: 2
+      y: 2
       width: 100
       height: 146
     spriteID: 79f82b86909268241866553b35604dd7
@@ -430,8 +430,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 115
-      y: 17
+      x: 116
+      y: 10
       width: 100
       height: 146
     spriteID: c69f3374a58c9bf47aeabce2c757ee66
@@ -451,8 +451,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 226
-      y: 17
+      x: 228
+      y: 10
       width: 100
       height: 146
     spriteID: 01395a5fdb259714d8f76e99b1f68083
@@ -472,8 +472,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 334
-      y: 4
+      x: 337
+      y: 11
       width: 100
       height: 146
     spriteID: 89bd1cc451b4d2840b8d76863c84ec52
@@ -514,8 +514,8 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 550
-      y: 9
+      x: 564
+      y: 2
       width: 100
       height: 146
     spriteID: b4b7fa676981fbe4591c5e767f7eb019
@@ -545,10 +545,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 5
-        y: 536
-        width: 644
-        height: 482
+        x: 0
+        y: 544
+        width: 657
+        height: 475
       spriteId: 714809f5c6fd4e743875692282895cd3
     linkedCells: []
     tileCells: []
