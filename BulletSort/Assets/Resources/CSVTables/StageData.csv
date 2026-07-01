@@ -1,19 +1,44 @@
-int,string,int,int,int,int,int,int,int,string,*,string,,,,,,
-StageID,StageName,WaveDataID,MonsterGroupID_Normal,MonsterGroupID_Speedy,MonsterGroupID_Tanker,BossID,WaveReward,StageReward,BGID,*,Desc,,,,,,
-01001,StageName_1,2001,11011,11012,11013,4601,5,5,리소스 Key,*,1스테이지 _ 게임 조작과 클리어 조건 튜토리얼,,,,,,
-01002,StageName_2,2002,11021,11022,11023,4602,5,5,리소스 Key,*,.,,알림,,,,
-01003,StageName_3,2003,11031,11032,11033,4603,5,5,리소스 Key,*,.,,"같은 테마를 공유하는 스테이지끼리는 같은 웨이브 데이터를 사용하고, 몬스터 그룹 정보를 바꿔서 스테이지를 양산한다.",,,,
-01004,StageName_4,2004,11041,11042,11043,4604,5,5,리소스 Key,*,,,,,,,
-01005,StageName_5,2005,11051,11052,11053,4605,5,5,리소스 Key,*,,,칼럼 설명,,,,
-01006,StageName_6,2001,11061,11062,11063,4606,5,5,리소스 Key,*,,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
-01007,StageName_7,2002,11071,11072,11073,4607,5,5,리소스 Key,*,,,StageID,PK,,스테이지의 고유 식별 ID. 스테이지 버튼을 눌렀을 때 해당 스테이지의 정보를 불러오기 위함.,P1
-01008,StageName_8,2003,11081,11082,11083,4608,5,5,리소스 Key,*,,,StageName,FK,Localize.Key,스테이지의 이름. 로컬라이즈 필요,P3
-01009,StageName_9,2004,11091,11092,11093,4609,5,5,리소스 Key,*,,,WavwDataID,FK,WaveData.WaveID,보스 웨이브를 제외한 웨이브 순서 정보.,P1
-01010,StageName_10,2005,11101,11102,11103,4610,5,5,리소스 Key,*,,,MonsterGroupID_Normal,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 일반 몬스터들의 후보,P1
-01011,StageName_11,2001,11111,11112,11113,4611,5,5,리소스 Key,*,,,MonsterGroupID_Speedy,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 속도 강화 몬스터들의 후보,P2
-01012,StageName_12,2002,11121,11122,11123,4612,5,5,리소스 Key,*,,,MonsterGroupID_Tanker,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 체력 강화 몬스터들의 후보,P2
-01013,StageName_13,2003,11131,11132,11133,4613,5,5,리소스 Key,*,,,BossID,FK,MonsterData.MonsterID,마지막인 10 웨이브에서 나올 보스 몬스터 정보.,P2
-01014,StageName_14,2004,11141,11142,11143,4614,5,5,리소스 Key,*,,,WaveReward,,,웨이브를 클리어했을 때 주는 재화 수 (스타더스트),P3
-01015,StageName_15,2005,11151,11152,11153,4615,5,5,리소스 Key,*,,,StageReward,,,웨이브를 클리어했을 때 주는 재화 수 (스타더스트),P3
-,,,,,,,,,,*,,,BGID,FK,Resource.ID,스테이지의 배경 이미지.,P4
-,,,,,,,,,,*,,,Desc,,,시트에서 데이터 부연설명을 위한 칼럼으로 인게임에서 사용되지 않음.,P4
+int,string,int,int,int,int,int,int,int,string,string,*,,string,,칼럼 설명,,,,
+StageID,StageName,WaveDataID,MonsterGroupID_Normal,MonsterGroupID_Speedy,MonsterGroupID_Tanker,BossID,WaveReward,StageReward,StageIcon,BGID,*,최대 획득 보상,Desc,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
+01001,StageName_1,02001,11011,11012,11013,04601,5,5,Image_Stage_Board_0,Background_Stage_1,*,50,1스테이지 _ 게임 조작과 클리어 조건 튜토리얼,,StageID,PK,,스테이지의 고유 식별 ID. 스테이지 버튼을 눌렀을 때 해당 스테이지의 정보를 불러오기 위함.,P1
+01002,StageName_2,02001,11021,11022,11023,04602,5,5,Image_Stage_Board_1,Background_Stage_2,*,50,.,,StageName,FK,Localize.Key,스테이지의 이름. 로컬라이즈 필요,P3
+01003,StageName_3,02001,11031,11032,11033,04603,5,5,Image_Stage_Board_2,Background_Stage_3,*,50,.,,WavwDataID,FK,WaveData.WaveID,보스 웨이브를 제외한 웨이브 순서 정보.,P1
+01004,StageName_4,02001,11041,11042,11043,04604,5,5,Image_Stage_Board_4,Background_Stage_4,*,50,,,MonsterGroupID_Normal,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 일반 몬스터들의 후보,P1
+01005,StageName_5,02001,11051,11052,11053,04605,5,5,Image_Stage_Board_3,Background_Stage_5,*,50,,,MonsterGroupID_Speedy,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 속도 강화 몬스터들의 후보,P2
+01006,StageName_6,02001,11061,11062,11063,04606,5,5,Image_Stage_Board_0,Background_Stage_1,*,50,,,MonsterGroupID_Tanker,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 체력 강화 몬스터들의 후보,P2
+01007,StageName_7,02001,11071,11072,11073,04607,5,5,Image_Stage_Board_1,Background_Stage_2,*,50,,,BossID,FK,MonsterData.MonsterID,마지막인 10 웨이브에서 나올 보스 몬스터 정보.,P2
+01008,StageName_8,02001,11081,11082,11083,04608,5,5,Image_Stage_Board_2,Background_Stage_3,*,50,,,WaveReward,,,웨이브를 클리어했을 때 주는 재화 수 (스타더스트),P3
+01009,StageName_9,02001,11091,11092,11093,04609,5,5,Image_Stage_Board_4,Background_Stage_4,*,50,,,StageReward,,,웨이브를 클리어했을 때 주는 재화 수 (스타더스트),P3
+01010,StageName_10,02001,11101,11102,11103,04610,5,5,Image_Stage_Board_3,Background_Stage_5,*,50,,,StageIcon,FK,Resource.ID,스테이지의 배경 이미지.,P4
+01011,StageName_11,02001,11111,11112,11113,04611,5,5,Image_Stage_Board_0,Background_Stage_1,*,50,,,BGID,FK,Resource.ID,스테이지의 배경 이미지.,P4
+01012,StageName_12,02001,11121,11122,11123,04612,5,5,Image_Stage_Board_1,Background_Stage_2,*,50,,,Desc,,,시트에서 데이터 부연설명을 위한 칼럼으로 인게임에서 사용되지 않음.,P4
+01013,StageName_13,02001,11131,11132,11133,04613,5,5,Image_Stage_Board_2,Background_Stage_3,*,50,,,,,,,
+01014,StageName_14,02001,11141,11142,11143,04614,5,5,Image_Stage_Board_4,Background_Stage_4,*,50,,,알림,,,,
+01015,StageName_15,02001,11151,11152,11153,04615,5,5,Image_Stage_Board_3,Background_Stage_5,*,50,,,"같은 테마를 공유하는 스테이지끼리는 같은 웨이브 데이터를 사용하고, 몬스터 그룹 정보를 바꿔서 스테이지를 양산한다.",,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,            ,,,,,,,,,,,,,,

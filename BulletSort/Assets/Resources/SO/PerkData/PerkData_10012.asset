@@ -20,7 +20,7 @@ MonoBehaviour:
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 2
-  PerkTargetText: "\uC0F7\uAC74\uD615"
+  PerkTargetText: TowerTypeName_Shotgun
   IsActive: 0
   IconResourceID: 0
   CurLevel: 0

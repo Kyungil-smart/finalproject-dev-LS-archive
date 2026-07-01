@@ -6,5 +6,6 @@ public partial class RarityData : ScriptableObject
     public int PerkRarityID;
     public string PerkRarityName;
     public int Weight;
-    public string Color;
+    public string PerkPanelCard;
+    public string PerkIconBG;
 }

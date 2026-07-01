@@ -15,5 +15,5 @@ MonoBehaviour:
   WavePatternID: 3002
   WaveType: 2
   Normal_Count: 20
-  Speedy_Count: 10
-  Tanker_Count: 5
+  Speedy_Count: 0
+  Tanker_Count: 0

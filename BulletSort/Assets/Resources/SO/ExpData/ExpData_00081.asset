@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ExpData_00081
   m_EditorClassIdentifier: Assembly-CSharp::ExpData
   ExpTypeID: 81
-  ExpAmount: 50
-  BlockSpriteKey: ExpBlock_Normal
+  ExpAmount: 40
+  BlockSpriteKey: Image_Icon_InGame_02_2

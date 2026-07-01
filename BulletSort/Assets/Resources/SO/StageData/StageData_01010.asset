@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   StageID: 1010
   StageName: StageName_10
-  WaveDataID: 2005
+  WaveDataID: 2001
   MonsterGroupID_Normal: 11101
   MonsterGroupID_Speedy: 11102
   MonsterGroupID_Tanker: 11103
   BossID: 4610
   WaveReward: 5
   StageReward: 5
-  BGID: "\uB9AC\uC18C\uC2A4 Key"
+  BGID: Background_Stage_5

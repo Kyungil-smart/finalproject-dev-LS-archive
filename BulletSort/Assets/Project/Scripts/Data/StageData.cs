@@ -12,5 +12,6 @@ public partial class StageData : ScriptableObject
     public int BossID;
     public int WaveReward;
     public int StageReward;
+    public string StageIcon;
     public string BGID;
 }

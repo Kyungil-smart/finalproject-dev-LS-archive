@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RarityData_00091
   m_EditorClassIdentifier: Assembly-CSharp::RarityData
   PerkRarityID: 91
-  PerkRarityName: Perk_Normal
+  PerkRarityName: PerkRarityName_Normal
   Weight: 50
   Color: '#FFB84A'

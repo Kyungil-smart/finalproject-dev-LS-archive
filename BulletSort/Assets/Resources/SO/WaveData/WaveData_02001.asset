@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
   WaveID: 2001
   WavePattern_1: 3001
-  WavePattern_2: 3001
-  WavePattern_3: 3001
-  WavePattern_4: 3101
-  WavePattern_5: 3002
-  WavePattern_6: 3002
-  WavePattern_7: 3003
-  WavePattern_8: 3102
-  WavePattern_9: 3003
+  WavePattern_2: 3002
+  WavePattern_3: 3003
+  WavePattern_4: 3004
+  WavePattern_5: 3005
+  WavePattern_6: 3006
+  WavePattern_7: 3007
+  WavePattern_8: 3008
+  WavePattern_9: 3009
