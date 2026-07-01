@@ -1,6 +1,5 @@
 using System;
 using InGame.Tower.Data;
-using UnityEngine;
 
 namespace Towers.Struct.TowerInfo
 {
@@ -34,6 +33,8 @@ namespace Towers.Struct.TowerInfo
 
         private int _currentHp;
         
+        private float _bulletSpeed;
+        
         // 투사체 종류
         private EProjectileType _towerProjectile;
         
@@ -44,6 +45,10 @@ namespace Towers.Struct.TowerInfo
         public float TowerAtkSpeed => _towerAtkSpeed;
         public int TowerMaxLange => _towerMaxLange;
         public int TowerMaxAmmo => _towerMaxAmmo;
+        
+        public int CurrentHp => _currentHp;
+        
+        public float BulletSpeed => _bulletSpeed;
 
         public STowerInfo(TowerData towerData)
         {
@@ -60,6 +65,7 @@ namespace Towers.Struct.TowerInfo
             _piercingCount = towerData.PiercingCount;
             _splashRadius = towerData.SplashRadius;
             _currentHp = towerData.CurrentHp;
+            _bulletSpeed = 10f;
         }
 
         public void OversortingData()

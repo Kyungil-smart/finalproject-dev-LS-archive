@@ -26,6 +26,9 @@ namespace Monster.Controll
         [Tooltip("몬스터 현재 체력")]
         [SerializeField] private int _health;
 
+        public int CurrentHP => _health;
+        public int MaxHP => _maxHealth;
+        
         public bool isDead;
 
         private Timer atkTimer;
