@@ -2,6 +2,7 @@ using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
 using Core.ObjectPool.Interface;
+using InGame.Slot;
 using Monster.Controll;
 using Towers.Struct.TowerInfo;
 using UnityEngine;
@@ -65,7 +66,13 @@ namespace Projectile
             if(target == null) return;
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
+            HealSlot();
             PoolManager.Instance.Release(_keyObj, gameObject);
+        }
+
+        private void HealSlot()
+        {
+           
         }
 
         // 데이터 받아오기
