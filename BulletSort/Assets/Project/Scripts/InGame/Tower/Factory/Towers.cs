@@ -33,7 +33,7 @@ namespace Towers.Factory
 
         private int MaxAmmo { get { return _towerInfo.TowerMaxAmmo + _effectBonusValue.BonusMaxAmmo; } }
         private int Atk { get { return _towerInfo.TowerAtk + _effectBonusValue.BonusATK; } }
-        private float AtkSpeed { get { return _towerInfo.TowerAtkSpeed + _towerInfo.TowerAtkSpeed; } }
+        private float AtkSpeed { get { return _towerInfo.TowerAtkSpeed * (1 - _effectBonusValue.BonusATKSpeed); } }
 
         private void Awake()
         {
@@ -45,6 +45,7 @@ namespace Towers.Factory
         {
             _slotTurretQueue = GetComponentInParent<SlotTurretQueue>();
             _effectManager = FindAnyObjectByType<EffectManager>();
+            _effectBonusValue = _effectManager.GetBonusValueByTowerInfo(_towerInfo);
             _projectile = SpawnManager.Instance.SpawnProjectile(_towerInfo.ProjectileType, _towerInfo.TowerMaxAmmo);
         }
 
@@ -107,8 +108,6 @@ namespace Towers.Factory
             _towerInfo = new STowerInfo(towerData);
             _targetDetector.DetectRange = _towerInfo.TowerMaxLange;
             _currentAmmo = towerData.TowerMaxAmmo;
-
-            _effectBonusValue = _effectManager.GetBonusValueByTowerInfo(_towerInfo);
         }
 
         private void OnDestroy()
