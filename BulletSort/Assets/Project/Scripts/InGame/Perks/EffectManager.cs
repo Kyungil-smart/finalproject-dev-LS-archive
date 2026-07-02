@@ -1,26 +1,28 @@
 ﻿
+using Core;
 using System.Collections.Generic;
+using Towers.Struct.TowerInfo;
 using UnityEngine;
 
 namespace Ingame.Perks
 {
     public enum TowerGroupType
     {
-        Basic = 0,
-        Shotgun = 1,
-        Mortar = 2,
-        SR = 3,
-        Buffer = 4,
+        Basic = 1,
+        Shotgun = 2,
+        Mortar = 3,
+        SR = 4,
         Boomer = 5,
-        Global = 6
+        Buffer = 6,
+        Global = 9
     }
 
     public class EffectBonusValue
     {
-        public float BonusATK = 0;
+        public int BonusATK = 0;
         public float BonusATKSpeed = 0;
-        public float BonusShotProjCount = 0;
-        public float BonusMaxAmmo = 0;
+        public int BonusShotProjCount = 0;
+        public int BonusMaxAmmo = 0;
         public float BonusProjPiercing = 0;
         public float BonusBuffValue = 0;
         // ...
@@ -28,7 +30,9 @@ namespace Ingame.Perks
     class EffectManager : MonoBehaviour
     {
         private Dictionary<TowerGroupType, EffectBonusValue> _groupEffectBonus = new Dictionary<TowerGroupType, EffectBonusValue>();
+        public Dictionary<TowerGroupType, EffectBonusValue> GroupEffectBonus { get { return _groupEffectBonus; } }
 
+        private IReadOnlyDictionary<int, EffectData> _effectDict;
         private void Awake()
         {
             foreach (TowerGroupType type in System.Enum.GetValues(typeof(TowerGroupType)))
@@ -37,16 +41,29 @@ namespace Ingame.Perks
             }
         }
 
-        public void ApplyEffect(EffectData data)
+        private void Start()
         {
+            _effectDict = DataManager.Instance.GetTable<EffectData>();
+            PerksManager.Instance.BindEffectManager(this);
+        }
+
+        public EffectBonusValue GetBonusValueByTowerInfo(STowerInfo info)
+        {
+            return _groupEffectBonus[(TowerGroupType)info.TowerType];
+        }
+
+        public void ApplyEffect(int effectID)
+        {
+            EffectData data = _effectDict[effectID];
+
             TowerGroupType type = GetTowerType(data.EffectID);
 
             var bonus = _groupEffectBonus[type];
 
-            bonus.BonusATK += data.ATK;
+            bonus.BonusATK += (int)data.ATK;
             bonus.BonusATKSpeed += data.ATKSpeed;
-            bonus.BonusShotProjCount += data.ShotProjCount;
-            bonus.BonusMaxAmmo += data.MaxProj;
+            bonus.BonusShotProjCount += (int)data.ShotProjCount;
+            bonus.BonusMaxAmmo += (int)data.MaxProj;
             bonus.BonusProjPiercing += data.ProjPiercing;
             bonus.BonusBuffValue += data.BuffValue;
         }

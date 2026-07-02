@@ -1,4 +1,5 @@
 ﻿using Ingame.ExpSystem;
+using Ingame.Perks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,8 @@ namespace Core
 
         const int MAX_PERKS_NUM = 3;
         int[] _perksSlot;
+
+        private EffectManager _effectManager;
 
 
         protected override void Init()
@@ -197,7 +200,8 @@ namespace Core
         public void SelectPerk(int index)
         {
             PerkData perk = _perksPool[_perksSlot[index]];
-            // perk effect 적용
+
+            _effectManager.ApplyEffect(perk.EffectID);
 
             Debug.Log($"[PerksManager] : Perk {perk.PerkID} is Selected");
             _remainSelectNum--;
@@ -214,6 +218,11 @@ namespace Core
             }
 
             ChoosePerks();
+        }
+
+        public void BindEffectManager(EffectManager manager)
+        {
+            _effectManager = manager;
         }
     }
 }
