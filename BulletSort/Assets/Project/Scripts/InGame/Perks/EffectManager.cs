@@ -60,10 +60,10 @@ namespace Ingame.Perks
 
             var bonus = _groupEffectBonus[type];
 
-            bonus.BonusATK += (int)data.ATK;
+            bonus.BonusATK += data.ATK;
             bonus.BonusATKSpeed += data.ATKSpeed;
-            bonus.BonusShotProjCount += (int)data.ShotProjCount;
-            bonus.BonusMaxAmmo += (int)data.MaxProj;
+            bonus.BonusShotProjCount += data.ShotProjCount;
+            bonus.BonusMaxAmmo += data.MaxProj;
             bonus.BonusProjPiercing += data.ProjPiercing;
             bonus.BonusBuffValue += data.BuffValue;
         }
