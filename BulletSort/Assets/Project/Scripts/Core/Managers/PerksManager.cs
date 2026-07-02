@@ -109,6 +109,7 @@ namespace Core
         private void LevelupHandler()
         {
             _remainSelectNum++;
+            Debug.Log($"현 특전 선택 횟수 : {_remainSelectNum}");
         }
 
         public void InitState()
@@ -120,6 +121,7 @@ namespace Core
         {
             if (_remainSelectNum <= 0)
             {
+                OnPerkPhaseEnded();
                 return;
             }
 
