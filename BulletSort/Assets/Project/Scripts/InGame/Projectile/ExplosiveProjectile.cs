@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
@@ -12,15 +14,25 @@ namespace Projectile
     {
         private MonsterController _target;
         private GameObject _keyObj;
+        private CircleCollider2D _collider;
+        private List<GameObject> _atkList;
 
         private float _moveSpeed;
         private int _atk;
+        private float _radius;
 
         public GameObject KeyObject
         {
             get { return _keyObj; }
             set { _keyObj = value; }
         }
+
+        private void Awake()
+        {
+            _collider = GetComponent<CircleCollider2D>();
+            atkList = new List<GameObject>();
+        }
+
 
         private void FixedUpdate()
         {
@@ -48,15 +60,24 @@ namespace Projectile
         {
             if (other.gameObject.tag == "Monster")
             {
-                AtkTarget(other.gameObject);
+                Explosion();
             }
         }
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (other.gameObject.tag == "Monster")
+            _atkList.Add(other.gameObject);
+        }
+
+        // 폭발 이펙트 재생, 콜라이더 범위 확장
+        private void Explosion()
+        {
+            _collider.radius = _radius;
+
+            // 콜라이더 내 오브젝트 모두 공격
+            foreach (GameObject tar in _atkList)
             {
-                AtkTarget(other.gameObject);
+                AtkTarget(tar);
             }
         }
 
@@ -75,6 +96,7 @@ namespace Projectile
             _keyObj = keyObj;
             _atk = towerInfo.TowerAtk;
             _moveSpeed = towerInfo.BulletSpeed;
+            _radius = towerInfo.SplashRadius;
         }
 
         public void OnSpawn()
