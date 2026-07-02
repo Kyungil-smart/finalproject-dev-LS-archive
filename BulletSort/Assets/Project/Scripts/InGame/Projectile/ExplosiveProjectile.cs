@@ -30,7 +30,7 @@ namespace Projectile
         private void Awake()
         {
             _collider = GetComponent<CircleCollider2D>();
-            atkList = new List<GameObject>();
+            _atkList = new List<GameObject>();
         }
 
 
@@ -59,14 +59,13 @@ namespace Projectile
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.tag == "Monster")
-            {
                 Explosion();
-            }
         }
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            _atkList.Add(other.gameObject);
+            if(other.gameObject.tag == "Monster")
+                _atkList.Add(other.gameObject);
         }
 
         // 폭발 이펙트 재생, 콜라이더 범위 확장
