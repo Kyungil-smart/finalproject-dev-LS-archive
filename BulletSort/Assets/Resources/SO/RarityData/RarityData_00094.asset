@@ -15,4 +15,5 @@ MonoBehaviour:
   PerkRarityID: 94
   PerkRarityName: PerkRarityName_Legend
   Weight: 0
-  Color: '#B8C0CC'
+  PerkPanelCard: Skill_Panel-3
+  PerkIconBG: Image_Icon_Large_11

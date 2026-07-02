@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9014
   PerkName: PerkName_ATKSpeedUP_Mortar
   PerkDesc: PerkDesc_ATKSpeedUP_Mortar
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 3
   PerkTargetText: TowerTypeText_Mortar
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_1
+  PieceTypeIcon: Image_Icon_Type_ 3
   CurLevel: 0
   isUnique: 0
   isSelected: 0

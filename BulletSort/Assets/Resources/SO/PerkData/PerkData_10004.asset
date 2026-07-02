@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9004
   PerkName: PerkName_MaxProj_Basic
   PerkDesc: PerkDesc_MaxProj_Basic
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 1
   PerkTargetText: TowerTypeText_Basic
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_8
+  PieceTypeIcon: Image_Icon_Type_ 0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9102
   PerkName: PerkName_MaxHPUP_Slot
   PerkDesc: PerkDesc_MaxHPUP_Slot
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 92
   PerkTarget: 7
   PerkTargetText: 0
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_2
+  PieceTypeIcon: 0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

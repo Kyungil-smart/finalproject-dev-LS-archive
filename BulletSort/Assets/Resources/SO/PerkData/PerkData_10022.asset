@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9022
   PerkName: PerkName_ATKUP_Buffer
   PerkDesc: PerkDesc_ATKUP_Buffer
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 5
   PerkTargetText: TowerTypeName_Buffer
   IsActive: 0
-  IconResourceID: 0
+  IconResourceKey: 0
+  PieceTypeIcon: 0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

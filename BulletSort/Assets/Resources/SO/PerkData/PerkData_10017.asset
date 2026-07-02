@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9017
   PerkName: PerkName_ATKUP_SR
   PerkDesc: PerkDesc_ATKUP_SR
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 4
   PerkTargetText: TowerTypeText_SR
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_5
+  PieceTypeIcon: Image_Icon_Type_ 2
   CurLevel: 0
   isUnique: 0
   isSelected: 0

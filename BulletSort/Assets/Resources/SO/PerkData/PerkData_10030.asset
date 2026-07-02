@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9030
   PerkName: PerkName_BoomArea_Boomer
   PerkDesc: PerkDesc_BoomArea_Boomer
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 93
   PerkTarget: 6
   PerkTargetText: TowerTypeText_Boomer
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_6
+  PieceTypeIcon: Image_Icon_Type_ 4
   CurLevel: 0
   isUnique: 0
   isSelected: 0

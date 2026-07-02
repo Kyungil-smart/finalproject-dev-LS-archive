@@ -21,4 +21,5 @@ MonoBehaviour:
   BossID: 4601
   WaveReward: 5
   StageReward: 5
+  StageIcon: Image_Stage_Board_0
   BGID: Background_Stage_1

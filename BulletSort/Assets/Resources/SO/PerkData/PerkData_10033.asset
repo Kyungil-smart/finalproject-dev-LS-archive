@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9103
   PerkName: PerkName_ATKSpeedUp_Slot
   PerkDesc: PerkDesc_ATKSpeedUp_Slot
-  TriggerID: 0
   MaxLevel: 1
   PerkRarityType: 92
   PerkTarget: 7
   PerkTargetText: 0
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_4
+  PieceTypeIcon: 0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

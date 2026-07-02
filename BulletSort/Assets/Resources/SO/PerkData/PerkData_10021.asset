@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9021
   PerkName: PerkName_BoomArea_SR
   PerkDesc: PerkDesc_BoomArea_SR
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 4
   PerkTargetText: TowerTypeName_SR
   IsActive: 0
-  IconResourceID: 0
+  IconResourceKey: 0
+  PieceTypeIcon: 0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

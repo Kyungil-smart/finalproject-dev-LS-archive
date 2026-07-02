@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9010
   PerkName: PerkName_ShotProjCountUP_Shotgun
   PerkDesc: PerkDesc_ShotProjCountUP_Shotgun
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 93
   PerkTarget: 2
   PerkTargetText: TowerTypeText_Shotgun
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_7
+  PieceTypeIcon: Image_Icon_Type_ 1
   CurLevel: 0
   isUnique: 0
   isSelected: 0

@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9024
   PerkName: PerkName_MaxProj_Buffer
   PerkDesc: PerkDesc_MaxProj_Buffer
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 5
   PerkTargetText: TowerTypeText_Buffer
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_8
+  PieceTypeIcon: Image_Icon_Type_ 5
   CurLevel: 0
   isUnique: 0
   isSelected: 0

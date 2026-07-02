@@ -16,13 +16,13 @@ MonoBehaviour:
   EffectID: 9011
   PerkName: PerkName_MaxProj_Shotgun
   PerkDesc: PerkDesc_MaxProj_Shotgun
-  TriggerID: 0
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 2
   PerkTargetText: TowerTypeText_Shotgun
   IsActive: 1
-  IconResourceID: 0
+  IconResourceKey: Image_icomSkill_Icon_8
+  PieceTypeIcon: Image_Icon_Type_ 1
   CurLevel: 0
   isUnique: 0
   isSelected: 0
