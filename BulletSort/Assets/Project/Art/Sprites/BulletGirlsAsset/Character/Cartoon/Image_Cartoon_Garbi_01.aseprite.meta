@@ -148,7 +148,28 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: -127, y: -19}
-  spriteSheetImportData: []
+  spriteSheetImportData:
+  - name: Image_Cartoon_Garbi_01_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 501
+      height: 819
+    spriteID: 77307a5bd3845f4429c7ffd5cf2c621f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
