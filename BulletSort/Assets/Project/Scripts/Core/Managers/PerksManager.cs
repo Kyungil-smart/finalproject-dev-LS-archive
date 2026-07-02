@@ -146,14 +146,19 @@ namespace Core
 
             while (_perksSet.Count < MAX_PERKS_NUM)
             {
-                int rarityID = RollRarityID();
-
                 while (true)
                 {
+                    int rarityID = RollRarityID();
                     int perkID = PickRandomPerkID(rarityID);
+                    PerkData perk = _perksPool[perkID];
 
-                    if (!_perksSet.Contains(perkID))
+                    if (!_perksSet.Contains(perkID) && perk.CurLevel < perk.MaxLevel)
                     {
+                        if (perk.CurLevel == perk.MaxLevel)
+                        {
+                            _perksByRarity[rarityID].Remove(perk);  // 최대 레벨을 달성한 특전은 pool에서 제거
+                        }
+
                         _perksSet.Add(perkID);
                         break;
                     }
@@ -191,7 +196,6 @@ namespace Core
 
             int randIndex = UnityEngine.Random.Range(0, length);
 
-            // 중복 허용 여부 체크 필요
             int pickedId = _perksByRarity[rarityID][randIndex].PerkID;
 
             return pickedId;
@@ -200,10 +204,13 @@ namespace Core
         public void SelectPerk(int index)
         {
             PerkData perk = _perksPool[_perksSlot[index]];
+            perk.CurLevel++;
 
             _effectManager.ApplyEffect(perk.EffectID);
 
-            Debug.Log($"[PerksManager] : Perk {perk.PerkID} is Selected");
+            Debug.Log($"<color=green>[PerksManager] : Perk {perk.PerkID} is Selected</color>");
+            Debug.Log($"{perk.CurLevel - 1} → {perk.CurLevel}");
+
             _remainSelectNum--;
 
             if (_remainSelectNum == 0)

@@ -73,6 +73,8 @@ namespace Towers.Factory
                     valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, Atk, 10f);
                 }
 
+                Debug.Log($"<color=red> origin ATK : {_towerInfo.TowerAtk}, Total ATK : {Atk}</color>");
+
                 if (maxAmmo < MaxAmmo)
                 {
                     _currentAmmo += (MaxAmmo - maxAmmo);
