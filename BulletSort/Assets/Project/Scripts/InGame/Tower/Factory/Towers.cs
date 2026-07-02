@@ -71,7 +71,7 @@ namespace Towers.Factory
                 {
                     GameObject valueObj = PoolManager.Instance.Get(_projectile, gameObject.transform.position, Quaternion.identity);
 
-                    valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, Atk, 10f);
+                    valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, _towerInfo);
                 }
 
                 Debug.Log($"<color=red> origin ATK : {_towerInfo.TowerAtk}, Total ATK : {Atk}</color>");

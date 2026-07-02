@@ -3,6 +3,7 @@ using Core.ObjectPool;
 using Projectile.Interface;
 using Core.ObjectPool.Interface;
 using Monster.Controll;
+using Towers.Struct.TowerInfo;
 using UnityEngine;
 
 namespace Projectile
@@ -14,6 +15,7 @@ namespace Projectile
 
         private float _moveSpeed;
         private int _atk;
+        private int _currentHealth;
 
         public GameObject KeyObject
         {
@@ -51,30 +53,31 @@ namespace Projectile
             }
         }
 
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (other.gameObject.tag == "Monster")
-            {
-                AtkTarget(other.gameObject);
-            }
-        }
-
         public void AtkTarget(GameObject target)
         {
             if(target == null) return;
             // 피해 계산
-            target.GetComponent<IDamageable>().TakeDamage(_atk);
+            int hp = target.GetComponent<MonsterController>().CurrentHP;
+            
+            target.GetComponent<IDamageable>().TakeDamage(_atk+ 
+                                                          CurrentHpPerDamage(hp, _currentHealth));
             PoolManager.Instance.Release(_keyObj, gameObject);
             PoolManager.Instance.Release(_keyObj, gameObject);
         }
 
         // 데이터 받아오기
-        public void Init(MonsterController target, GameObject keyObj, int atk, float moveSpeed)
+        public void Init(MonsterController target, GameObject keyObj, STowerInfo towerInfo)
         {
             _target = target;
             _keyObj = keyObj;
-            _atk = atk;
-            _moveSpeed = moveSpeed;
+            _atk = towerInfo.TowerAtk;
+            _moveSpeed = towerInfo.BulletSpeed;
+            _currentHealth = towerInfo.CurrentHp;
+        }
+
+        public int CurrentHpPerDamage(int hP, int percentage)
+        {
+            return (hP/100)*percentage;
         }
 
         public void OnSpawn()
