@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EffectData
   EffectID: 9103
   ATK: 0
-  ATKSpeed: 20
+  ATKSpeed: 0.2
   ShotProjCount: 0
   MaxProj: 0
   ProjSize: 0

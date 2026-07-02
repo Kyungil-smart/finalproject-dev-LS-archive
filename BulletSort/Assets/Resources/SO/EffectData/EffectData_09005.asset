@@ -17,7 +17,7 @@ MonoBehaviour:
   ATKSpeed: 0
   ShotProjCount: 0
   MaxProj: 0
-  ProjSize: 10
+  ProjSize: 0.1
   ProjPiercing: 0
   BuffType: 0
   BuffValue: 0
