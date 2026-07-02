@@ -4,12 +4,12 @@
 public partial class EffectData : ScriptableObject
 {
     public int EffectID;
-    public float ATK;
+    public int ATK;
     public float ATKSpeed;
-    public float ShotProjCount;
-    public float MaxProj;
+    public int ShotProjCount;
+    public int MaxProj;
     public float ProjSize;
-    public float ProjPiercing;
+    public int ProjPiercing;
     public int BuffType;
     public float BuffValue;
     public bool IsOneOff;
