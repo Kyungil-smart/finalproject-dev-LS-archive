@@ -47,7 +47,7 @@ namespace Ingame.Perks
             _desc = perk.PerkDesc;
             _curLevel = perk.CurLevel;
 
-            _effectText = perk.PerkDesc;    // effect의 desc로 수정 필요. 임시값.
+            _effectText = perk.PerkDesc;    // 삭제 예정. 기획팀에서 텍스트 일원화한다고 함.
 
             _targetText = perk.PerkTargetText;
 
@@ -82,7 +82,7 @@ namespace Ingame.Perks
 
             if (_perkLevel != null)
             {
-                _perkLevel.text = $"Lv {_curLevel} -> {_curLevel + 1}";
+                _perkLevel.text = $"Lv {_curLevel} → {_curLevel + 1}";
             }
 
             if (_perkDesc != null)

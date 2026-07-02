@@ -43,7 +43,7 @@ namespace Ingame.Perks
 
         private void OnClickRerollButton()
         {
-            Debug.Log($"[Perk Button] : On Click");
+            Debug.Log($"[Perk Reroll Button] : On Click");
             PerksManager.Instance.Reroll();
         }
     }

@@ -1,9 +1,10 @@
-using System.Collections;
-using Core.Manager.SpawnManager;
+﻿using Core.Manager.SpawnManager;
 using Core.ObjectPool;
+using Ingame.Perks;
 using InGame.Slot;
 using InGame.Tower.Data;
 using Projectile.Interface;
+using System.Collections;
 using Towers.Interface.Tower;
 using Towers.Struct.TowerInfo;
 using UnityEngine;
@@ -16,16 +17,24 @@ namespace Towers.Factory
         private TargetDetector _targetDetector;
         private int _currentAmmo;
         private bool _isOverSorting;
-        
+
         private GameObject _projectile;
-        
+
         private SlotTurretQueue _slotTurretQueue;
-        
+
         private Coroutine _atkCoroutine;
-        
+
         public STowerInfo TowerInfo => _towerInfo;
         public int CurrentAmmo => _currentAmmo;
-        
+
+        private EffectManager _effectManager;
+
+        private EffectBonusValue _effectBonusValue;
+
+        private int MaxAmmo { get { return _towerInfo.TowerMaxAmmo + _effectBonusValue.BonusMaxAmmo; } }
+        private int Atk { get { return _towerInfo.TowerAtk + _effectBonusValue.BonusATK; } }
+        private float AtkSpeed { get { return _towerInfo.TowerAtkSpeed * (1 - _effectBonusValue.BonusATKSpeed); } }
+
         private void Awake()
         {
             _isOverSorting = false;
@@ -35,38 +44,51 @@ namespace Towers.Factory
         private void Start()
         {
             _slotTurretQueue = GetComponentInParent<SlotTurretQueue>();
+            _effectManager = FindAnyObjectByType<EffectManager>();
+            _effectBonusValue = _effectManager.GetBonusValueByTowerInfo(_towerInfo);
             _projectile = SpawnManager.Instance.SpawnProjectile(_towerInfo.ProjectileType, _towerInfo.TowerMaxAmmo);
         }
 
         public void StartAttack()
         {
-            if(!gameObject.activeInHierarchy) return;
-            
-            StartCoroutine(Attack());   
+            if (!gameObject.activeInHierarchy) return;
+
+            StartCoroutine(Attack());
         }
 
         // 공격 코루틴
         public IEnumerator Attack()
         {
-            if(!_isOverSorting)
+            if (!_isOverSorting)
                 yield return new WaitUntil(() => _targetDetector.target != null);
-            
-            for (int i = 0; i < _towerInfo.TowerMaxAmmo; i++)
+
+
+            int maxAmmo = MaxAmmo;
+
+            for (int i = 0; i < MaxAmmo; i++)
             {
                 if (_targetDetector.target != null)
                 {
                     GameObject valueObj = PoolManager.Instance.Get(_projectile, gameObject.transform.position, Quaternion.identity);
-                    
+
                     valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, _towerInfo);
                 }
-                
+
+                Debug.Log($"<color=red> origin ATK : {_towerInfo.TowerAtk}, Total ATK : {Atk}</color>");
+
+                if (maxAmmo < MaxAmmo)
+                {
+                    _currentAmmo += (MaxAmmo - maxAmmo);
+                    maxAmmo = MaxAmmo;
+                }
+
                 _currentAmmo--;
-                yield return new WaitForSeconds(_towerInfo.TowerAtkSpeed);
-                
-                if(!_isOverSorting)
+                yield return new WaitForSeconds(AtkSpeed);
+
+                if (!_isOverSorting)
                     yield return new WaitUntil(() => _targetDetector.target != null);
             }
-            
+
             Destroy(gameObject);
         }
 
