@@ -46,6 +46,7 @@ namespace Towers.Struct.TowerInfo
         public int TowerMaxLange => _towerMaxLange;
         public int TowerMaxAmmo => _towerMaxAmmo;
         
+        public int PiercingCount => _piercingCount;
         public float SplashRadius => _splashRadius;
         public int CurrentHp => _currentHp;
         

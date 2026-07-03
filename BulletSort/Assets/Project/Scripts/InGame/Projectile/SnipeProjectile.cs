@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
@@ -12,14 +14,23 @@ namespace Projectile
     {
         private MonsterController _target;
         private GameObject _keyObj;
+        private List<GameObject> _atkList;
+        private HashSet<GameObject> _atkedList;
 
         private float _moveSpeed;
         private int _atk;
+        private int _piercingcount;
 
         public GameObject KeyObject
         {
             get { return _keyObj; }
             set { _keyObj = value; }
+        }
+
+        private void Awake()
+        {
+            _atkList = new List<GameObject>();
+            _atkedList = new HashSet<GameObject>();
         }
 
         private void FixedUpdate()
@@ -48,15 +59,10 @@ namespace Projectile
         {
             if (other.gameObject.tag == "Monster")
             {
-                AtkTarget(other.gameObject);
-            }
-        }
-
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (other.gameObject.tag == "Monster")
-            {
-                AtkTarget(other.gameObject);
+                if(!_atkedList.Contains(other.gameObject))
+                    _atkList.Add(other.gameObject);
+                
+                AtkTarget(_atkList[0]);
             }
         }
 
@@ -65,7 +71,11 @@ namespace Projectile
             if(target == null) return;
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
-            PoolManager.Instance.Release(_keyObj, gameObject);
+            --_piercingcount;
+            _atkedList.Add(target);
+            _atkList.Remove(target);
+            if(_piercingcount == 0)
+                PoolManager.Instance.Release(_keyObj, gameObject);
         }
 
         // 데이터 받아오기
@@ -75,6 +85,7 @@ namespace Projectile
             _keyObj = keyObj;
             _atk = towerInfo.TowerAtk;
             _moveSpeed = towerInfo.BulletSpeed;
+            _piercingcount = towerInfo.PiercingCount;
         }
 
         public void OnSpawn()
