@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10027
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10027
-  EffectID: 9027
-  PerkName: PerkName_ATKSpeedUP_Boomer
-  PerkDesc: PerkDesc_ATKSpeedUP_Boomer
+  EffectID: 9022
+  PerkName: PerkName_ATKUP_Buffer
+  PerkDesc: PerkDesc_ATKUP_Buffer
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 6
-  PerkTargetText: TowerTypeText_Boomer
-  IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_1
-  PieceTypeIcon: Image_Icon_Type_ 4
+  PerkTargetText: TowerTypeText_Buffer
+  IsActive: 0
+  IconResourceKey: 0
+  PieceTypeIcon: Image_Icon_Type_5
   CurLevel: 0
   isUnique: 0
   isSelected: 0

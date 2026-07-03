@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10024
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10024
-  EffectID: 9024
-  PerkName: PerkName_MaxProj_Buffer
-  PerkDesc: PerkDesc_MaxProj_Buffer
+  EffectID: 9028
+  PerkName: PerkName_ShotProjCountUP_Boomer
+  PerkDesc: PerkDesc_ShotProjCountUP_Boomer
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 5
-  PerkTargetText: TowerTypeText_Buffer
-  IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_8
-  PieceTypeIcon: Image_Icon_Type_ 5
+  PerkTargetText: TowerTypeText_Boomer
+  IsActive: 0
+  IconResourceKey: 0
+  PieceTypeIcon: Image_Icon_Type_4
   CurLevel: 0
   isUnique: 0
   isSelected: 0

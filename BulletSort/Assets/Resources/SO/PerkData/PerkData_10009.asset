@@ -21,8 +21,8 @@ MonoBehaviour:
   PerkTarget: 2
   PerkTargetText: TowerTypeText_Shotgun
   IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_1
-  PieceTypeIcon: Image_Icon_Type_ 1
+  IconResourceKey: Image_iconSkill_Icon_1
+  PieceTypeIcon: Image_Icon_Type_1
   CurLevel: 0
   isUnique: 0
   isSelected: 0

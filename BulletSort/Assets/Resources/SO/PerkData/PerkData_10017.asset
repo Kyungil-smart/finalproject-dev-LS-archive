@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10017
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10017
-  EffectID: 9017
-  PerkName: PerkName_ATKUP_SR
-  PerkDesc: PerkDesc_ATKUP_SR
+  EffectID: 9021
+  PerkName: PerkName_BoomArea_SR
+  PerkDesc: PerkDesc_BoomArea_SR
   MaxLevel: 3
   PerkRarityType: 91
-  PerkTarget: 4
+  PerkTarget: 3
   PerkTargetText: TowerTypeText_SR
-  IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_5
-  PieceTypeIcon: Image_Icon_Type_ 2
+  IsActive: 0
+  IconResourceKey: 0
+  PieceTypeIcon: Image_Icon_Type_2
   CurLevel: 0
   isUnique: 0
   isSelected: 0
