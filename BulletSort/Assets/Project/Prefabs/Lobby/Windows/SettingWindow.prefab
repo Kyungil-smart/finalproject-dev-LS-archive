@@ -1013,6 +1013,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3486641052267921634}
+  - component: {fileID: 8432357421264136783}
   m_Layer: 5
   m_Name: SettingWindow
   m_TagString: Untagged
@@ -1040,6 +1041,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8432357421264136783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255151091607484073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa891cd2417b40409f97a13a266d55ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.UI.SettingController
+  _languageButton: {fileID: 5936176894564229883}
+  _creditButton: {fileID: 601313178877056133}
 --- !u!1 &3371266942421097645
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,17 +1,19 @@
 ﻿
 using Core;
+using System;
 using System.Collections.Generic;
 using Towers.Struct.TowerInfo;
 using UnityEngine;
 
 namespace Ingame.Perks
 {
+    // Effect ID 순서가 TowerType을 따르지 않음.
     public enum TowerGroupType
     {
         Basic = 1,
         Shotgun = 2,
-        Mortar = 3,
-        SR = 4,
+        SR = 3,
+        Mortar = 4,
         Boomer = 5,
         Buffer = 6,
         Global = 9
@@ -19,16 +21,19 @@ namespace Ingame.Perks
 
     public class EffectBonusValue
     {
+        public TowerGroupType type;
         public int BonusATK = 0;
         public float BonusATKSpeed = 0;
         public int BonusShotProjCount = 0;
         public int BonusMaxAmmo = 0;
-        public float BonusProjPiercing = 0;
+        public int BonusProjPiercing = 0;
         public float BonusBuffValue = 0;
         // ...
     }
     class EffectManager : MonoBehaviour
     {
+        public event Action<EffectBonusValue> OnEffectApply;
+
         private Dictionary<TowerGroupType, EffectBonusValue> _groupEffectBonus = new Dictionary<TowerGroupType, EffectBonusValue>();
         public Dictionary<TowerGroupType, EffectBonusValue> GroupEffectBonus { get { return _groupEffectBonus; } }
 
@@ -60,12 +65,15 @@ namespace Ingame.Perks
 
             var bonus = _groupEffectBonus[type];
 
+            bonus.type = type;
             bonus.BonusATK += data.ATK;
             bonus.BonusATKSpeed += data.ATKSpeed;
             bonus.BonusShotProjCount += data.ShotProjCount;
             bonus.BonusMaxAmmo += data.MaxProj;
             bonus.BonusProjPiercing += data.ProjPiercing;
             bonus.BonusBuffValue += data.BuffValue;
+
+            OnEffectApply(bonus);
         }
 
         private TowerGroupType GetTowerType(int id)
