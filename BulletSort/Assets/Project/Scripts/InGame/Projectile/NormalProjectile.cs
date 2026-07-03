@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
@@ -12,6 +13,7 @@ namespace Projectile
     {
         private MonsterController _target;
         private GameObject _keyObj;
+        private List<GameObject> _atkList;
 
         private float _moveSpeed;
         private int _atk;
@@ -20,6 +22,11 @@ namespace Projectile
         {
             get { return _keyObj; }
             set { _keyObj = value; }
+        }
+        
+        private void Awake()
+        {
+            _atkList = new List<GameObject>();
         }
 
         private void FixedUpdate()
@@ -48,21 +55,18 @@ namespace Projectile
         {
             if (other.gameObject.tag == "Monster")
             {
-                AtkTarget(other.gameObject);
-            }
-        }
-
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (other.gameObject.tag == "Monster")
-            {
-                AtkTarget(other.gameObject);
+                _atkList.Add(other.gameObject);
+                AtkTarget(_atkList[0]);
             }
         }
 
         public void AtkTarget(GameObject target)
         {
-            if(target == null) return;
+            if (target == null)
+            {
+                _atkList.Remove(target);
+                return;
+            }
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
             PoolManager.Instance.Release(_keyObj, gameObject);
