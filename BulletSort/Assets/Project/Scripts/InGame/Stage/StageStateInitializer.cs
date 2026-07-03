@@ -9,6 +9,7 @@ class StageStateInitializer : MonoBehaviour
     private void Awake()
     {
         StageManager.Instance.BindSlotBoardManager(_slotBoardManager);
+        PerksManager.Instance.BindSlotBoardManager(_slotBoardManager);
     }
 
     private void Start()
