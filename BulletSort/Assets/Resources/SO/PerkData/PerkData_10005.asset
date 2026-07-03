@@ -19,10 +19,10 @@ MonoBehaviour:
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 1
-  PerkTargetText: TowerTypeName_Basic
+  PerkTargetText: TowerTypeText_Basic
   IsActive: 0
   IconResourceKey: 0
-  PieceTypeIcon: 0
+  PieceTypeIcon: Image_Icon_Type_0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

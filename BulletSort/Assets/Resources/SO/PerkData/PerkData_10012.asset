@@ -19,10 +19,10 @@ MonoBehaviour:
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 2
-  PerkTargetText: TowerTypeName_Shotgun
+  PerkTargetText: TowerTypeText_Shotgun
   IsActive: 0
   IconResourceKey: 0
-  PieceTypeIcon: 0
+  PieceTypeIcon: Image_Icon_Type_1
   CurLevel: 0
   isUnique: 0
   isSelected: 0

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10030
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10030
-  EffectID: 9030
-  PerkName: PerkName_BoomArea_Boomer
-  PerkDesc: PerkDesc_BoomArea_Boomer
-  MaxLevel: 3
+  EffectID: 9025
+  PerkName: PerkName_Heal_Buffer
+  PerkDesc: PerkDesc_Heal_Buffer
+  MaxLevel: 2
   PerkRarityType: 93
   PerkTarget: 6
-  PerkTargetText: TowerTypeText_Boomer
+  PerkTargetText: TowerTypeText_Buffer
   IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_6
-  PieceTypeIcon: Image_Icon_Type_ 4
+  IconResourceKey: Image_iconSkill_Icon_10
+  PieceTypeIcon: Image_Icon_Type_5
   CurLevel: 0
   isUnique: 0
   isSelected: 0

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10028
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10028
-  EffectID: 9028
-  PerkName: PerkName_ShotProjCountUP_Boomer
-  PerkDesc: PerkDesc_ShotProjCountUP_Boomer
+  EffectID: 9023
+  PerkName: PerkName_ATKSpeedUP_Buffer
+  PerkDesc: PerkDesc_ATKSpeedUP_Buffer
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 6
-  PerkTargetText: TowerTypeName_Boomer
-  IsActive: 0
-  IconResourceKey: 0
-  PieceTypeIcon: 0
+  PerkTargetText: TowerTypeText_Buffer
+  IsActive: 1
+  IconResourceKey: Image_iconSkill_Icon_1
+  PieceTypeIcon: Image_Icon_Type_5
   CurLevel: 0
   isUnique: 0
   isSelected: 0

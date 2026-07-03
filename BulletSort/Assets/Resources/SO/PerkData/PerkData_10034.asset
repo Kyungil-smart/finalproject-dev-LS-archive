@@ -21,7 +21,7 @@ MonoBehaviour:
   PerkTarget: 8
   PerkTargetText: 0
   IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_9
+  IconResourceKey: Image_iconSkill_Icon_9
   PieceTypeIcon: 0
   CurLevel: 0
   isUnique: 0
