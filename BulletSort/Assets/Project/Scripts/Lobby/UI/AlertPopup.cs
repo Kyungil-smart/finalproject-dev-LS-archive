@@ -11,13 +11,11 @@ namespace Lobby.UI
     // 버튼 — 취소 콜백 유무로 단일/이중 분기. 취소 콜백 없으면 취소 버튼 OFF(확인 단일).
     //   버튼 영역은 HorizontalLayoutGroup — 취소 SetActive 토글이 레이아웃 자동 재배치.
     //   메시지 줄바꿈은 호출부가 \n으로(예: "...부족합니다.\n6개를...").
+    // 공통(root 토글·시작 비활성화·Close)은 PopupBase가 담당.
     // 작성자: 이성규
-    public class AlertPopup : MonoBehaviour
+    public class AlertPopup : PopupBase
     {
         [Header("References")]
-        [Tooltip("팝업 루트 — Show/Hide로 토글(이 컴포넌트가 붙은 오브젝트와 별개일 수 있어 분리)")]
-        [SerializeField] private GameObject _root;
-
         [SerializeField] private TMP_Text _titleText;
         [SerializeField] private TMP_Text _messageText;
 
@@ -31,15 +29,11 @@ namespace Lobby.UI
         private Action _onConfirm;
         private Action _onCancel;
 
-        private void Awake()
+        protected override void OnAwake()
         {
-            if (_root == null) _root = gameObject;
-
             _confirmButton.onClick.AddListener(OnConfirm);
             if (_cancelButton != null)
                 _cancelButton.onClick.AddListener(OnCancel);
-
-            _root.SetActive(false);   // 시작은 닫힌 상태
         }
 
         // 확인 단일 — 제목 "알림", 메시지만. 확인 누르면 닫기.
@@ -65,12 +59,13 @@ namespace Lobby.UI
             if (_cancelButton != null)
                 _cancelButton.gameObject.SetActive(onCancel != null);
 
-            _root.SetActive(true);
+            Open();
         }
 
-        public void Hide()
+        // 콜백 정리까지 — 공통 Close에 덧붙임.
+        public override void Close()
         {
-            _root.SetActive(false);
+            base.Close();
             _onConfirm = null;
             _onCancel = null;
         }
@@ -78,14 +73,14 @@ namespace Lobby.UI
         private void OnConfirm()
         {
             var cb = _onConfirm;
-            Hide();          // 먼저 닫고 콜백 — 콜백이 또 팝업 띄워도 상태 안 꼬이게
+            Close();          // 먼저 닫고 콜백 — 콜백이 또 팝업 띄워도 상태 안 꼬이게
             cb?.Invoke();
         }
 
         private void OnCancel()
         {
             var cb = _onCancel;
-            Hide();
+            Close();
             cb?.Invoke();
         }
     }
