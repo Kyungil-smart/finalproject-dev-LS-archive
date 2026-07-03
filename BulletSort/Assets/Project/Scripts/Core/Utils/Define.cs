@@ -5,7 +5,7 @@ namespace Core
         // 씬 이름
         public const string SCENE_LOBBY = "Lobby";
         public const string SCENE_INGAME = "InGame";
-        public const string SCENE_RESULT = "Result";
+        public const string SCENE_TUTORIAL = "Tutorial";
         // 게임 진행 고정 규칙 (기획 확정값 — 변동 가능성 있으면 데이터로)
         public const int WAVE_PER_STAGE = 10;     // 스테이지당 웨이브 수
         

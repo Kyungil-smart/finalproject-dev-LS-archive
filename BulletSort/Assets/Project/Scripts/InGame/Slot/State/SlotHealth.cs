@@ -85,7 +85,6 @@ namespace InGame.Slot
         private void Dead()
         {
             OnDead?.Invoke(this);
-            // TODO(데모 후) — 슬롯 비활성·파괴 연출·게임오버 판정 연결
         }
         
         // 부활 — HP를 지정값으로 복구. SlotRevive가 수리 완료 시 호출.
