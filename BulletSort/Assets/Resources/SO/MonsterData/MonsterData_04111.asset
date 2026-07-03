@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: MonsterData_04111
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   MonsterID: 4111
-  MonsterName: Normal_111
+  MonsterName: MonsterName_Normal_1_Stage1
   MonsterType: 1
-  ExpTypeID: 21
-  MonsterHp: 10
-  MonsterAtk: 1
+  ExpTypeID: 81
+  MonsterHp: 60
+  MonsterAtk: 62
   MonsterAtkSpeed: 1.2
   MonsterAtkRange: 1
-  MonsterMoveSpeed: 1
-  MonsterSprite: "\uC608\uC2DC\uC6A9 \uB354\uBBF8"
+  MonsterMoveSpeed: 15
+  MonsterSprite: Rookie Mushroom 0043 (1)

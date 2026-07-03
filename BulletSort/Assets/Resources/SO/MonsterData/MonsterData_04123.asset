@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: MonsterData_04123
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   MonsterID: 4123
-  MonsterName: Tanker_123
-  MonsterType: 3
-  ExpTypeID: 22
-  MonsterHp: 75
-  MonsterAtk: 1
-  MonsterAtkSpeed: 0.8
+  MonsterName: MonsterName_Normal_3_Stage2
+  MonsterType: 1
+  ExpTypeID: 81
+  MonsterHp: 65
+  MonsterAtk: 72
+  MonsterAtkSpeed: 1.2
   MonsterAtkRange: 1
-  MonsterMoveSpeed: 0.5
-  MonsterSprite: "\uC608\uC2DC\uC6A9 \uB354\uBBF8"
+  MonsterMoveSpeed: 15
+  MonsterSprite: Champion Sten 0006 (1)
