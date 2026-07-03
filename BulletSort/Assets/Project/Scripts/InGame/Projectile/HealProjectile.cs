@@ -74,7 +74,11 @@ namespace Projectile
 
         public void AtkTarget(GameObject target)
         {
-            if(target == null) return;
+            if (target == null)
+            {
+                _atkList.Remove(target);
+                return;
+            }
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
             HealSlot();
