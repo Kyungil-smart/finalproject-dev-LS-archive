@@ -102,6 +102,12 @@ namespace InGame.Slot
         {
             Heal(_healOnSort);
         }
+
+        // 힐 투사체 공격시 회복 Damage만큼, 공격 적중 시 호출
+        public void HealOnAttack(int Damage)
+        {
+            Heal(Damage);
+        }
         
         // 회복 내부 처리 — 클램프·파괴 가드. 파괴 상태면 무시(수리로 부활해야 함).
         private void Heal(int amount)

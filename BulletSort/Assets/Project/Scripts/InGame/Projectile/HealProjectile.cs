@@ -96,7 +96,7 @@ namespace Projectile
             }
             
             // 슬롯HP변경 기능 필요
-            //lowerHPSlot.
+            lowerHPSlot.Health.HealOnAttack(_atk);
         }
 
         // 데이터 받아오기
