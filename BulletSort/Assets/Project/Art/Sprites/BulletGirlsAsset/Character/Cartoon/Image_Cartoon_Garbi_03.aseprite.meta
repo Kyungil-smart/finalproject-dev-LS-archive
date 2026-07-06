@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: abc1e6130970d6747b38bb6c5bf0c2b4
+guid: 82edda4fb45cbdc49be696eb379f6276
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639161155193153376
+  platformSettingsDirtyTick: 639174656126526342
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Charater_Large_Sprite_06
+  - name: Image_Cartoon_Garbi_01
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.029003784}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 768
-      height: 768
-    spriteID: 4ec5799aec010b64780569d7301f9f99
+      width: 578
+      height: 793
+    spriteID: 069c7e228b77dc24e97e47d96083ba9f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,9 +147,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: -127, y: -19}
   spriteSheetImportData:
-  - name: Image_Lily_01_0
+  - name: Image_Cartoon_Garbi_03_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -159,9 +159,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 288
-      height: 627
-    spriteID: 4b24e06ce60aa2f489ec6892169a49ed
+      width: 555
+      height: 806
+    spriteID: 830e43b30dbfa7b4dbe873bc6d85d099
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -174,25 +174,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 4159195647
+      value0: 87458828
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Charater_Large_Sprite_06
+    name: Image_Cartoon_Garbi_01
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Image_Lily_01
+    - name: Image_Cartoon_Garbi_03
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 768
-        height: 768
-      spriteId: 4ec5799aec010b64780569d7301f9f99
+        x: 107
+        y: 14
+        width: 555
+        height: 806
+      spriteId: 069c7e228b77dc24e97e47d96083ba9f
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -202,7 +202,7 @@ ScriptedImporter:
   - name: DefaultTexturePlatform
     overridden: 0
     ignorePlatformSupport: 0
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -238,5 +238,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 768, y: 768}
-  previousTextureSize: {x: 512, y: 1024}
+  canvasSize: {x: 840, y: 840}
+  previousTextureSize: {x: 1024, y: 1024}

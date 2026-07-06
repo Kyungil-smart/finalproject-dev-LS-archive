@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 534355f39f9c6a24a8b99bb3c55588f4
+guid: 2dffc4f0cae7d904fbf40c91fa9f0620
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -148,7 +148,28 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  spriteSheetImportData: []
+  spriteSheetImportData:
+  - name: Image_Yueun_01_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 325
+      height: 618
+    spriteID: 63964bb5dbebcb542985eaee92e2b4a1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0

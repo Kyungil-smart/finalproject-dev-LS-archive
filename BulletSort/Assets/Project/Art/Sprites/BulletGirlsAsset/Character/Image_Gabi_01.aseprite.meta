@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e813788c29db5d641bc1739d2b423ab7
+guid: 635e7dc2104e14348a0027a76b5d72a7
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -148,7 +148,28 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  spriteSheetImportData: []
+  spriteSheetImportData:
+  - name: Image_Gabi_01_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 525
+      height: 749
+    spriteID: 4313d617b02d76144856b70cd6b0df23
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
