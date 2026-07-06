@@ -1,0 +1,32 @@
+int,string,int,int,int,string,string,string,*,string,,,,,,
+PieceID,PieceName,PieceGrade,PieceLv,ConnectTower,PieceSprite,PieceCartoon,PieceDetailIllust,*,Desc,,,,,,
+08001,PieceName_Basic,1,1,07101,Character_Sprite_01_6,Character_Sprite_02_0,Image_Serin_01,*,기본형 1성 1레벨,,칼럼 설명,,,,
+08002,PieceName_Basic,1,2,07102,Character_Sprite_01_6,Character_Sprite_02_0,Image_Serin_01,*,,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
+08003,PieceName_Basic,1,3,07103,Character_Sprite_01_6,Character_Sprite_02_0,Image_Serin_01,*,,,PieceID,PK,,기물 ID,P1
+08004,PieceName_Basic,1,4,07104,Character_Sprite_01_6,Character_Sprite_02_0,Image_Serin_01,*,,,PieceName,FK,Localize.Key,기물 이름.로컬라이즈 스트링키,P1
+08005,PieceName_Basic,1,5,07105,Character_Sprite_01_6,Character_Sprite_02_0,Image_Serin_01,*,,,PieceGrade,,,,P3
+08006,PieceName_Shotgun,1,1,07201,Character_Sprite_01_7,Character_Sprite_02_2,Image_Doi_01,*,,,PieceLv,,,,P2
+08007,PieceName_Shotgun,1,2,07202,Character_Sprite_01_7,Character_Sprite_02_2,Image_Doi_01,*,,,ConnectTower,FK,TowerData.TowerID,연결 포탑,P1
+08008,PieceName_Shotgun,1,3,07203,Character_Sprite_01_7,Character_Sprite_02_2,Image_Doi_01,*,,,PieceSprite,FK,Resource.ResourceKey,기물 스프라이트,P1
+08009,PieceName_Shotgun,1,4,07204,Character_Sprite_01_7,Character_Sprite_02_2,Image_Doi_01,*,,,PieceCartoon,FK,Resource.ResourceKey,캐릭터 선택카드의 캐릭터 이미지,P2
+08010,PieceName_Shotgun,1,5,07205,Character_Sprite_01_7,Character_Sprite_02_2,Image_Doi_01,*,,,PieceDetailIllust,FK,Resource.ResourceKey,캐릭터 상세정보의 캐릭터 일러스트,P3
+08011,PieceName_SR,1,1,07301,Character_Sprite_01_8,Character_Sprite_02_4,Image_Yujin_01,*,,,,,,,
+08012,PieceName_SR,1,2,07302,Character_Sprite_01_8,Character_Sprite_02_4,Image_Yujin_01,*,,,,,,,
+08013,PieceName_SR,1,3,07303,Character_Sprite_01_8,Character_Sprite_02_4,Image_Yujin_01,*,,,,,,,
+08014,PieceName_SR,1,4,07304,Character_Sprite_01_8,Character_Sprite_02_4,Image_Yujin_01,*,,,현재 테이블은 1성급 기물의 1~5레벨 정보만 담고 있음. ,,,,
+08015,PieceName_SR,1,5,07305,Character_Sprite_01_8,Character_Sprite_02_4,Image_Yujin_01,*,,,"2, 3 성급은 추후 추가 예정",,,,
+08016,PieceName_Mortar,1,1,07401,Character_Sprite_01_9,Character_Sprite_02_1,Image_Gabi_01,*,,,"PieceData의 역할은 플레이어가 드래그앤 드랍하는 기물자체의 데이터만 가지고 있으며, 전투와 관련된 수치 데이터는 모두 TowerData에 있음.",,,,
+08017,PieceName_Mortar,1,2,07402,Character_Sprite_01_9,Character_Sprite_02_1,Image_Gabi_01,*,,,,,,,
+08018,PieceName_Mortar,1,3,07403,Character_Sprite_01_9,Character_Sprite_02_1,Image_Gabi_01,*,,,,,,,
+08019,PieceName_Mortar,1,4,07404,Character_Sprite_01_9,Character_Sprite_02_1,Image_Gabi_01,*,,,,,,,
+08020,PieceName_Mortar,1,5,07405,Character_Sprite_01_9,Character_Sprite_02_1,Image_Gabi_01,*,,,,,,,
+08021,PieceName_Boomer,1,1,07501,Character_Sprite_01_10,Character_Sprite_02_3,Image_Yueun_01,*,,,,,,,
+08022,PieceName_Boomer,1,2,07502,Character_Sprite_01_10,Character_Sprite_02_3,Image_Yueun_01,*,,,,,,,
+08023,PieceName_Boomer,1,3,07503,Character_Sprite_01_10,Character_Sprite_02_3,Image_Yueun_01,*,,,,,,,
+08024,PieceName_Boomer,1,4,07504,Character_Sprite_01_10,Character_Sprite_02_3,Image_Yueun_01,*,,,,,,,
+08025,PieceName_Boomer,1,5,07505,Character_Sprite_01_10,Character_Sprite_02_3,Image_Yueun_01,*,,,,,,,
+08026,PieceName_Buffer,1,1,07601,Character_Sprite_01_11,Character_Sprite_02_5,Image_Lily_01,*,,,,,,,
+08027,PieceName_Buffer,1,2,07602,Character_Sprite_01_11,Character_Sprite_02_5,Image_Lily_01,*,,,,,,,
+08028,PieceName_Buffer,1,3,07603,Character_Sprite_01_11,Character_Sprite_02_5,Image_Lily_01,*,,,,,,,
+08029,PieceName_Buffer,1,4,07604,Character_Sprite_01_11,Character_Sprite_02_5,Image_Lily_01,*,,,,,,,
+08030,PieceName_Buffer,1,5,07605,Character_Sprite_01_11,Character_Sprite_02_5,Image_Lily_01,*,,,,,,,

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1afb6e0ff42edbe49811ec20de8f4526, type: 3}
+  m_Name: TowerData_07410
+  m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  TowerID: 7410
+  TowerType: 4
+  TowerAiType: 1
+  TowerAtk: 14
+  TowerAtkSpeed: 0.3
+  TowerMaxRange: 10
+  TowerMaxAmmo: 30
+  TowerProjectile: 6003
+  ProjectileCount: 1
+  ProjectileSize: 0.25
+  PiercingCount: 0
+  SplashRadius: 0
+  CurrentHp: 12
+  BulletSpeed: 3
+  TowerTypeText: TowerTypeText_Mortar
+  TowerName: PieceName_Mortar

@@ -32,6 +32,7 @@ namespace Core
             LoadTable<MonsterGroupData>("SO/MonsterGroupData");
             LoadTable<PerkData>("SO/PerkData");
             LoadTable<PieceData>("SO/PieceData");
+            LoadTable<ProjectileData>("SO/ProjectileData");
             LoadTable<RarityData>("SO/RarityData");
             LoadTable<SlotData>("SO/SlotData");
             LoadTable<StageData>("SO/StageData");
