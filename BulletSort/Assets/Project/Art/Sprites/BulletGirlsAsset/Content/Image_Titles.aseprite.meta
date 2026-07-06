@@ -304,9 +304,9 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 1841
+      x: 1740
       y: 1174
-      width: 34
+      width: 135
       height: 38
     spriteID: 03ae774278fdeb84985f4ceb2f162358
     spriteBone: []
@@ -456,48 +456,6 @@ ScriptedImporter:
       width: 166
       height: 44
     spriteID: 5e1c905397ac53741926cd83befa7856
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Image_Titles_16
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 1742
-      y: 1183
-      width: 57
-      height: 23
-    spriteID: e45cdf706bfb52a4a97744b6890e74c2
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Image_Titles_17
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 1799
-      y: 1179
-      width: 33
-      height: 26
-    spriteID: de3ce4b2969a99a438850c861566b635
     spriteBone: []
     spriteOutline: []
     vertices: []
