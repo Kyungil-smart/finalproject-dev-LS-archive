@@ -32,7 +32,7 @@ namespace Projectile
         private void Awake()
         {
             _mainCamera = Camera.main;
-            Init();
+            Clear();
         }
 
         private void FixedUpdate()
@@ -92,13 +92,13 @@ namespace Projectile
             _atk = towerInfo.TowerAtk;
             _moveSpeed = towerInfo.BulletSpeed;
             _piercingcount = towerInfo.PiercingCount;
+            _dir = (_target.transform.position - transform.position).normalized;
+            _dir.z = 0;
         }
 
         public void OnSpawn()
         {
-            Init();
-            _dir = (_target.transform.position - transform.position).normalized;
-            _dir.z = 0;
+            Clear();
         }
 
         public void OnDespawn()
@@ -106,7 +106,7 @@ namespace Projectile
             _target = null;
         }
 
-        private void Init()
+        private void Clear()
         {
             _atkList = new List<GameObject>();
             _atkedList = new HashSet<GameObject>();
