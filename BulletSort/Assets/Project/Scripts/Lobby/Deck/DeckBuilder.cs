@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 namespace Lobby.Deck
 {
-    // 덱 편성 관리 — 보유 목록(SO 18개) 동적 생성 + 편성 슬롯 6칸 관리 + 탭 편성/해제 + 시작.
-    // 빠른 구현: 보유 = PieceQuery.GetAllIDs()(임시 18개), 정식 보유 풀은 김경민 데이터 후.
+    // 덱 편성 관리 — 보유 목록(성급/캐릭터별 대표 카드) 동적 생성 + 편성 슬롯 6칸 관리 + 탭 편성/해제 + 시작.
+    // 빠른 구현: 보유 = PieceQuery.GetRepresentativeIDs(), 정식 보유 풀은 김경민 데이터 후.
     // 탭 방식: 보유 카드 탭 → 빈 슬롯 편성 + 그 카드 "편성 중" 잠금 / 편성 카드 탭 → 해제 + 잠금 해제.
     // 시작: 편성 6개 ID를 DeckHolder에 저장 → 인게임 씬 진입(SlotBoardManager가 읽음).
     // 작성자: 이성규
@@ -46,10 +46,10 @@ namespace Lobby.Deck
                 slot.Init(OnTapEquippedSlot);
         }
 
-        // 보유 목록 생성 — 임시로 전체 ID(18개)를 카드로. 정식은 유저 보유 풀.
+        // 보유 목록 생성 — 카드 단위 대표(성급/캐릭터별 1장). 정식은 유저 보유 풀.
         private void BuildOwnedList()
         {
-            var ids = PieceQuery.GetAllIDs();
+            var ids = PieceQuery.GetRepresentativeIDs();
             foreach (var id in ids)
             {
                 var card = Instantiate(_ownedCardPrefab, _ownedContent);
