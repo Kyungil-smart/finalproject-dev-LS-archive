@@ -61,3 +61,75 @@ MonoBehaviour:
     Sprite: {fileID: -7498108616586246331, guid: ee9d29de755e62d41a3167de796b4489, type: 3}
   - Name: Character_Sprite_02_5
     Sprite: {fileID: -1068156468984581057, guid: ee9d29de755e62d41a3167de796b4489, type: 3}
+  - Name: Image_Doi_01
+    Sprite: {fileID: -6806615296251277954, guid: 254bb2a2acf2cd34796fcec36357b1e7, type: 3}
+  - Name: Image_Doi_02
+    Sprite: {fileID: -8678400875052698921, guid: 49153400d590ca94e8e0b99d42d502cc, type: 3}
+  - Name: Image_Doi_03
+    Sprite: {fileID: -979735094743768027, guid: ecf831e6511603e43910710f52b95073, type: 3}
+  - Name: Image_Gabi_01
+    Sprite: {fileID: 4960381749064365194, guid: 635e7dc2104e14348a0027a76b5d72a7, type: 3}
+  - Name: Image_Gabi_02
+    Sprite: {fileID: -4896454939190302913, guid: ced16b83ef3e3f044aaf0a8d5f54b10e, type: 3}
+  - Name: Image_Gabi_03
+    Sprite: {fileID: -5211655041778976313, guid: f27c175407ce5fc4b8fb61c0723d6b74, type: 3}
+  - Name: Image_Lily_01
+    Sprite: {fileID: 8391850124203791088, guid: abc1e6130970d6747b38bb6c5bf0c2b4, type: 3}
+  - Name: Image_Lily_02
+    Sprite: {fileID: -1475911598086303346, guid: e86d245cd134fe3429e63a34cc9622b0, type: 3}
+  - Name: Image_Lily_03
+    Sprite: {fileID: 1964400828582845342, guid: 001afe2152bc939489fdb0b9ba328bc1, type: 3}
+  - Name: Image_Serin_01
+    Sprite: {fileID: 8640330915648617641, guid: 1272465500a7da441ba0a1e698f58753, type: 3}
+  - Name: Image_Serin_02
+    Sprite: {fileID: 4997255379591013823, guid: 1b0fd2f61ca446747a158ae68c5e41cb, type: 3}
+  - Name: Image_Serin_03
+    Sprite: {fileID: 2390971459824689020, guid: a5d92ca4bf82dd54cb7475d6edb6a339, type: 3}
+  - Name: Image_Yueun_01
+    Sprite: {fileID: 5324512274988799653, guid: 2dffc4f0cae7d904fbf40c91fa9f0620, type: 3}
+  - Name: Image_Yueun_02
+    Sprite: {fileID: 3533700637936019282, guid: a22b9d44a24c7d1498fee48bb501a451, type: 3}
+  - Name: Image_Yueun_03
+    Sprite: {fileID: 4451697478850496337, guid: 25090cc5e934d3140adc18ed929cf69c, type: 3}
+  - Name: Image_Yujin_01
+    Sprite: {fileID: 4025556577006711843, guid: 8016778841a94e142b60757bc03d44b1, type: 3}
+  - Name: Image_Yujin_02
+    Sprite: {fileID: 2080359167854196175, guid: fd0b4cb2f35bf0140a22452542f3f537, type: 3}
+  - Name: Image_Yujin_03
+    Sprite: {fileID: 6556723382580635828, guid: 2e8ce505d7418cd47babc6c26164071b, type: 3}
+  - Name: Image_Cartoon_Doi_01
+    Sprite: {fileID: -4923730143718915862, guid: 02eb030f6b34b85418c5e48bb3362036, type: 3}
+  - Name: Image_Cartoon_Doi_02
+    Sprite: {fileID: -8098636894202665640, guid: 64fb9ada1d668e043b56ae6e6f7f42a0, type: 3}
+  - Name: Image_Cartoon_Doi_03
+    Sprite: {fileID: 6333179014853816844, guid: d1b7b2afead5bdc4dacb0f9dc7ac8b66, type: 3}
+  - Name: Image_Cartoon_Garbi_01
+    Sprite: {fileID: -7040163073286489202, guid: 045a3b2fd18a717478748b5f2c893724, type: 3}
+  - Name: Image_Cartoon_Garbi_02
+    Sprite: {fileID: -5795601405349862866, guid: e162109807b16424586f1ab2e90fee7e, type: 3}
+  - Name: Image_Cartoon_Garbi_03
+    Sprite: {fileID: 2592840517391177739, guid: 82edda4fb45cbdc49be696eb379f6276, type: 3}
+  - Name: Image_Cartoon_Lily_01
+    Sprite: {fileID: 5784741810132139746, guid: a901ab60347987144bdd41f3f0460f20, type: 3}
+  - Name: Image_Cartoon_Lily_02
+    Sprite: {fileID: 7479716292825444161, guid: f9da88538fbef7c42b7265a8a9519a05, type: 3}
+  - Name: Image_Cartoon_Lily_03
+    Sprite: {fileID: 835313845698632880, guid: eea5fd373977a164c9517561b7f878af, type: 3}
+  - Name: Image_Cartoon_Serin_01
+    Sprite: {fileID: 2613702920273548362, guid: 3a9e48b34aeb37f43be58252b94fbd1f, type: 3}
+  - Name: Image_Cartoon_Serin_02
+    Sprite: {fileID: 2613702920273548362, guid: 53deac1a29c2b9b4abac9d521f83ad43, type: 3}
+  - Name: Image_Cartoon_Serin_03
+    Sprite: {fileID: -4603804647702435166, guid: 0fe990527e49f1245b0d26189041c64b, type: 3}
+  - Name: Image_Cartoon_Yueun_01
+    Sprite: {fileID: -4603804647702435166, guid: 0fe990527e49f1245b0d26189041c64b, type: 3}
+  - Name: Image_Cartoon_Yueun_02
+    Sprite: {fileID: 4801891721971924647, guid: b6bf15862c629514cbaf5764efc96d53, type: 3}
+  - Name: Image_Cartoon_Yueun_03
+    Sprite: {fileID: 1083717544289944713, guid: 779ad6855cf844d41b3de9f5fa3f6a54, type: 3}
+  - Name: Image_Cartoon_Yujin_01
+    Sprite: {fileID: -7502406401248595976, guid: c117c26c6c08bf3478fb2097532e4e6e, type: 3}
+  - Name: Image_Cartoon_Yujin_02
+    Sprite: {fileID: 292346434479318790, guid: 4e98cc0fa47685f499d7593e011593c3, type: 3}
+  - Name: Image_Cartoon_Yujin_03
+    Sprite: {fileID: -1556854272058729974, guid: 935dcfda2e564d34b99d815fedbdafa6, type: 3}
