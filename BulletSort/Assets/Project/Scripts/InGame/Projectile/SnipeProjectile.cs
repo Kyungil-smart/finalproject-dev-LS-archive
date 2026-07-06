@@ -32,7 +32,7 @@ namespace Projectile
         private void Awake()
         {
             _mainCamera = Camera.main;
-            Init();
+            Clear();
         }
 
         private void FixedUpdate()
