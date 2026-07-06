@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10013
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10013
-  EffectID: 9013
-  PerkName: PerkName_ATKUP_Mortar
-  PerkDesc: PerkDesc_ATKUP_Mortar
+  EffectID: 9017
+  PerkName: PerkName_ATKUP_SR
+  PerkDesc: PerkDesc_ATKUP_SR
   MaxLevel: 3
-  PerkRarityType: 93
+  PerkRarityType: 91
   PerkTarget: 3
-  PerkTargetText: TowerTypeText_Mortar
+  PerkTargetText: TowerTypeText_SR
   IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_5
-  PieceTypeIcon: Image_Icon_Type_ 3
+  IconResourceKey: Image_iconSkill_Icon_5
+  PieceTypeIcon: Image_Icon_Type_2
   CurLevel: 0
   isUnique: 0
   isSelected: 0

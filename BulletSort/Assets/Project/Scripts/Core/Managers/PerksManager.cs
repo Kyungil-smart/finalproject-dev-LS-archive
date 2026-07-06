@@ -1,5 +1,6 @@
 ﻿using Ingame.ExpSystem;
 using Ingame.Perks;
+using InGame.Slot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace Core
 
         public event Action OnPerkPhaseEnded;
 
-        IReadOnlyDictionary<int, PerkData> _perksPool;
+        Dictionary<int, PerkData> _perksPool;
         Dictionary<int, List<PerkData>> _perksByRarity;
 
         IReadOnlyDictionary<int, RarityData> _rarityInfo;
@@ -55,12 +56,10 @@ namespace Core
         int[] _perksSlot;
 
         private EffectManager _effectManager;
-
+        private SlotBoardManager _slotBoardManager;
 
         protected override void Init()
         {
-            //DataManager.Instance.GetData<PerksData>(...);
-            _perksPool = DataManager.Instance.GetTable<PerkData>();
 
             // Rarity Info 초기화 & Weight 최대치 계산
             _rarityInfo = DataManager.Instance.GetTable<RarityData>();
@@ -74,23 +73,6 @@ namespace Core
                 RarityWeightRange range = new RarityWeightRange(_maxWeight, _maxWeight + data.Weight);
                 _rarityWeightRangeInfo.Add(pair.Key, range);
                 _maxWeight += data.Weight;
-            }
-
-            // Rarity 기준으로 특전 정리
-            _perksByRarity = new Dictionary<int, List<PerkData>>();
-
-            foreach (var pair in _perksPool)
-            {
-                PerkData data = pair.Value;
-
-                int rarity = data.PerkRarityType;
-
-                if (!_perksByRarity.ContainsKey(rarity))
-                {
-                    _perksByRarity[rarity] = new List<PerkData>();
-                }
-
-                _perksByRarity[rarity].Add(data);
             }
 
             _perksSet = new HashSet<int>();
@@ -232,6 +214,58 @@ namespace Core
             }
 
             ChoosePerks();
+        }
+
+        public void BindSlotBoardManager(SlotBoardManager manager)
+        {
+            _slotBoardManager = manager;
+            var towerTypes = _slotBoardManager.GetActiveTowerTypes();
+
+            _perksPool = new Dictionary<int, PerkData>();
+
+            var perksPoolOrigin = DataManager.Instance.GetTable<PerkData>();
+
+            foreach (var perk in perksPoolOrigin)
+            {
+                PerkData data = perk.Value;
+
+                if (data.IsActive == false)
+                {
+                    continue;
+                }
+
+                if (data.PerkTarget == 7 || data.PerkTarget == 8)
+                {
+                    _perksPool.Add(perk.Key, data);
+                    continue;
+                }
+
+                foreach (int type in towerTypes)
+                {
+                    if (data.PerkTarget == type)
+                    {
+                        _perksPool.Add(perk.Key, data);
+                        break;
+                    }
+                }
+            }
+
+            // Rarity 기준으로 특전 정리
+            _perksByRarity = new Dictionary<int, List<PerkData>>();
+
+            foreach (var pair in _perksPool)
+            {
+                PerkData data = pair.Value;
+
+                int rarity = data.PerkRarityType;
+
+                if (!_perksByRarity.ContainsKey(rarity))
+                {
+                    _perksByRarity[rarity] = new List<PerkData>();
+                }
+
+                _perksByRarity[rarity].Add(data);
+            }
         }
 
         public void BindEffectManager(EffectManager manager)

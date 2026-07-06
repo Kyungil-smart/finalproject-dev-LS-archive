@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10018
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10018
-  EffectID: 9018
-  PerkName: PerkName_ATKSpeedUP_SR
-  PerkDesc: PerkDesc_ATKSpeedUP_SR
+  EffectID: 9013
+  PerkName: PerkName_ATKUP_Mortar
+  PerkDesc: PerkDesc_ATKUP_Mortar
   MaxLevel: 3
-  PerkRarityType: 91
+  PerkRarityType: 93
   PerkTarget: 4
-  PerkTargetText: TowerTypeText_SR
+  PerkTargetText: TowerTypeText_Mortar
   IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_1
-  PieceTypeIcon: Image_Icon_Type_ 2
+  IconResourceKey: Image_iconSkill_Icon_5
+  PieceTypeIcon: Image_Icon_Type_3
   CurLevel: 0
   isUnique: 0
   isSelected: 0

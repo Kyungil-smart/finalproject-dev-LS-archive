@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: MonsterData_04121
   m_EditorClassIdentifier: Assembly-CSharp::MonsterData
   MonsterID: 4121
-  MonsterName: Normal_121
+  MonsterName: MonsterName_Normal_1_Stage2
   MonsterType: 1
-  ExpTypeID: 21
-  MonsterHp: 15
-  MonsterAtk: 1
-  MonsterAtkSpeed: 1.3
+  ExpTypeID: 81
+  MonsterHp: 65
+  MonsterAtk: 68
+  MonsterAtkSpeed: 1.2
   MonsterAtkRange: 1
-  MonsterMoveSpeed: 1
-  MonsterSprite: "\uC608\uC2DC\uC6A9 \uB354\uBBF8"
+  MonsterMoveSpeed: 15
+  MonsterSprite: Champion Magician 0086 (1)

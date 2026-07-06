@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
@@ -12,9 +13,15 @@ namespace Projectile
     {
         private MonsterController _target;
         private GameObject _keyObj;
+        private List<GameObject> _atkList;
+        private HashSet<GameObject> _atkedList;
 
+        private Camera _mainCamera; 
+        
         private float _moveSpeed;
         private int _atk;
+        private int _piercingcount;
+        private Vector3 _dir;
 
         public GameObject KeyObject
         {
@@ -22,25 +29,35 @@ namespace Projectile
             set { _keyObj = value; }
         }
 
+        private void Awake()
+        {
+            _mainCamera = Camera.main;
+            Init();
+        }
+
         private void FixedUpdate()
         {
             if (_target.isDead) _target = null;
+            Vector3 viewPos = _mainCamera.WorldToViewportPoint(_target.transform.position);
 
-            if (_target == null)
+            if (_target == null ||
+                viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
             {
                 PoolManager.Instance.Release(_keyObj, gameObject);
                 return;
             }
-            
+
             MoveToTarget(_target?.gameObject);
         }
 
         public void MoveToTarget(GameObject target)
         {
-            if (target == null) return;
+            Move();
+        }
 
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,
-                _target.transform.position, _moveSpeed * Time.deltaTime);
+        private void Move()
+        {
+            gameObject.transform.position += _dir *(_moveSpeed * Time.deltaTime);
         }
 
         // 투사체가 몬스터에 도달 시
@@ -48,15 +65,10 @@ namespace Projectile
         {
             if (other.gameObject.tag == "Monster")
             {
-                AtkTarget(other.gameObject);
-            }
-        }
-
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (other.gameObject.tag == "Monster")
-            {
-                AtkTarget(other.gameObject);
+                if(!_atkedList.Contains(other.gameObject))
+                    _atkList.Add(other.gameObject);
+                
+                AtkTarget(_atkList[0]);
             }
         }
 
@@ -65,7 +77,11 @@ namespace Projectile
             if(target == null) return;
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
-            PoolManager.Instance.Release(_keyObj, gameObject);
+            --_piercingcount;
+            _atkedList.Add(target);
+            _atkList.Remove(target);
+            if(_piercingcount == 0)
+                PoolManager.Instance.Release(_keyObj, gameObject);
         }
 
         // 데이터 받아오기
@@ -75,16 +91,25 @@ namespace Projectile
             _keyObj = keyObj;
             _atk = towerInfo.TowerAtk;
             _moveSpeed = towerInfo.BulletSpeed;
+            _piercingcount = towerInfo.PiercingCount;
         }
 
         public void OnSpawn()
         {
-
+            Init();
+            _dir = (_target.transform.position - transform.position).normalized;
+            _dir.z = 0;
         }
 
         public void OnDespawn()
         {
             _target = null;
+        }
+
+        private void Init()
+        {
+            _atkList = new List<GameObject>();
+            _atkedList = new HashSet<GameObject>();
         }
     }
 }

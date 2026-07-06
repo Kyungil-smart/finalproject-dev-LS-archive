@@ -126,6 +126,9 @@ namespace Core.Manager.SpawnManager
                else
                {
                   monsterID = groupdata.MonsterID_1 == 0 ?  groupdata.MonsterID_2 : groupdata.MonsterID_1;
+                  
+                  if(monsterID != 0) return;
+                  
                   monsterID = monsterID == 0 ?  groupdata.MonsterID_3 : groupdata.MonsterID_2;
                }
                

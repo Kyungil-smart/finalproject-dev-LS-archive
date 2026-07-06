@@ -21,8 +21,8 @@ MonoBehaviour:
   PerkTarget: 1
   PerkTargetText: TowerTypeText_Basic
   IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_1
-  PieceTypeIcon: Image_Icon_Type_ 0
+  IconResourceKey: Image_iconSkill_Icon_1
+  PieceTypeIcon: Image_Icon_Type_0
   CurLevel: 0
   isUnique: 0
   isSelected: 0

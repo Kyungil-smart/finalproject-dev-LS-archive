@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10025
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10025
-  EffectID: 9025
-  PerkName: PerkName_Heal_Buffer
-  PerkDesc: PerkDesc_Heal_Buffer
-  MaxLevel: 2
-  PerkRarityType: 93
+  EffectID: 9029
+  PerkName: PerkName_MaxProj_Boomer
+  PerkDesc: PerkDesc_MaxProj_Boomer
+  MaxLevel: 3
+  PerkRarityType: 91
   PerkTarget: 5
-  PerkTargetText: TowerTypeText_Buffer
+  PerkTargetText: TowerTypeText_Boomer
   IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_10
-  PieceTypeIcon: Image_Icon_Type_ 5
+  IconResourceKey: Image_iconSkill_Icon_8
+  PieceTypeIcon: Image_Icon_Type_4
   CurLevel: 0
   isUnique: 0
   isSelected: 0

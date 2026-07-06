@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10021
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10021
-  EffectID: 9021
-  PerkName: PerkName_BoomArea_SR
-  PerkDesc: PerkDesc_BoomArea_SR
+  EffectID: 9016
+  PerkName: PerkName_ProjSize_Mortar
+  PerkDesc: PerkDesc_ProjSize_Mortar
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 4
-  PerkTargetText: TowerTypeName_SR
+  PerkTargetText: TowerTypeText_Mortar
   IsActive: 0
   IconResourceKey: 0
-  PieceTypeIcon: 0
+  PieceTypeIcon: Image_Icon_Type_3
   CurLevel: 0
   isUnique: 0
   isSelected: 0

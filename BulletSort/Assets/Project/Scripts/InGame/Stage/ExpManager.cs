@@ -54,7 +54,8 @@ namespace Ingame.ExpSystem
 
         private void MonsterDeadHandler(int monsterType)
         {
-            StartCoroutine(DelayAndIncrementExp(monsterType));
+            //StartCoroutine(DelayAndIncrementExp(monsterType));
+            IncrementExp(monsterType);
         }
 
         private IEnumerator DelayAndIncrementExp(int monsterType)

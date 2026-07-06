@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10015
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10015
-  EffectID: 9015
-  PerkName: PerkName_MaxProj_Mortar
-  PerkDesc: PerkDesc_MaxProj_Mortar
+  EffectID: 9019
+  PerkName: PerkName_MaxProj_SR
+  PerkDesc: PerkDesc_MaxProj_SR
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 3
-  PerkTargetText: TowerTypeText_Mortar
+  PerkTargetText: TowerTypeText_SR
   IsActive: 1
-  IconResourceKey: Image_icomSkill_Icon_8
-  PieceTypeIcon: Image_Icon_Type_ 3
+  IconResourceKey: Image_iconSkill_Icon_8
+  PieceTypeIcon: Image_Icon_Type_2
   CurLevel: 0
   isUnique: 0
   isSelected: 0

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10016
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10016
-  EffectID: 9016
-  PerkName: PerkName_ProjSize_Mortar
-  PerkDesc: PerkDesc_ProjSize_Mortar
+  EffectID: 9020
+  PerkName: PerkName_ProjPiercing_SR
+  PerkDesc: PerkDesc_ProjPiercing_SR
   MaxLevel: 3
-  PerkRarityType: 91
+  PerkRarityType: 93
   PerkTarget: 3
-  PerkTargetText: PieceName_Mortar
-  IsActive: 0
-  IconResourceKey: 0
-  PieceTypeIcon: 0
+  PerkTargetText: TowerTypeText_SR
+  IsActive: 1
+  IconResourceKey: Image_iconSkill_Icon_0
+  PieceTypeIcon: Image_Icon_Type_2
   CurLevel: 0
   isUnique: 0
   isSelected: 0

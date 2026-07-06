@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
@@ -13,7 +15,11 @@ namespace Projectile
     {
         private MonsterController _target;
         private GameObject _keyObj;
+        private List<GameObject> _atkList;
 
+        private SlotBoardManager _slotBoardManager;
+        private List<Slot> _slots;
+        
         private float _moveSpeed;
         private int _atk;
 
@@ -21,6 +27,18 @@ namespace Projectile
         {
             get { return _keyObj; }
             set { _keyObj = value; }
+        }
+        
+        private void Awake()
+        {
+            _atkList = new List<GameObject>();
+            _slots = new List<Slot>();
+            _slotBoardManager = FindObjectOfType<SlotBoardManager>();
+        }
+
+        private void Start()
+        {
+            _slots = _slotBoardManager.Slots;
         }
 
         private void FixedUpdate()
@@ -49,21 +67,18 @@ namespace Projectile
         {
             if (other.gameObject.tag == "Monster")
             {
-                AtkTarget(other.gameObject);
-            }
-        }
-
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (other.gameObject.tag == "Monster")
-            {
-                AtkTarget(other.gameObject);
+                _atkList.Add(other.gameObject);
+                AtkTarget(_atkList[0]);
             }
         }
 
         public void AtkTarget(GameObject target)
         {
-            if(target == null) return;
+            if (target == null)
+            {
+                _atkList.Remove(target);
+                return;
+            }
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
             HealSlot();
@@ -72,7 +87,20 @@ namespace Projectile
 
         private void HealSlot()
         {
-           
+            int minHP = int.MaxValue;
+            Slot lowerHPSlot = null;
+            
+            foreach (Slot slot in _slots)
+            {
+                if (slot.Health.Health < minHP)
+                {
+                    minHP = slot.Health.Health;
+                    lowerHPSlot = slot;
+                }
+            }
+            
+            // 슬롯HP변경 기능 필요
+            lowerHPSlot.Health.HealOnAttack(_atk);
         }
 
         // 데이터 받아오기

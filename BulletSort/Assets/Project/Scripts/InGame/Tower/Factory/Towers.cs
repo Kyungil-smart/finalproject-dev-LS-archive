@@ -13,6 +13,7 @@ namespace Towers.Factory
 {
     public class Towers : MonoBehaviour, ITower
     {
+        private STowerInfo _towerInfoOrigin;
         private STowerInfo _towerInfo;
         private TargetDetector _targetDetector;
         private int _currentAmmo;
@@ -29,24 +30,28 @@ namespace Towers.Factory
 
         private EffectManager _effectManager;
 
-        private EffectBonusValue _effectBonusValue;
-
-        private int MaxAmmo { get { return _towerInfo.TowerMaxAmmo + _effectBonusValue.BonusMaxAmmo; } }
-        private int Atk { get { return _towerInfo.TowerAtk + _effectBonusValue.BonusATK; } }
-        private float AtkSpeed { get { return _towerInfo.TowerAtkSpeed * (1 - _effectBonusValue.BonusATKSpeed); } }
-
         private void Awake()
         {
             _isOverSorting = false;
             _targetDetector = gameObject.GetComponent<TargetDetector>();
+            _effectManager = FindAnyObjectByType<EffectManager>();
+        }
+
+        private void OnEnable()
+        {
+            _effectManager.OnEffectApply += ApplyEffect;
         }
 
         private void Start()
         {
             _slotTurretQueue = GetComponentInParent<SlotTurretQueue>();
-            _effectManager = FindAnyObjectByType<EffectManager>();
-            _effectBonusValue = _effectManager.GetBonusValueByTowerInfo(_towerInfo);
-            _projectile = SpawnManager.Instance.SpawnProjectile(_towerInfo.ProjectileType, _towerInfo.TowerMaxAmmo);
+            _projectile = SpawnManager.Instance.SpawnProjectile(_towerInfoOrigin.ProjectileType, _towerInfoOrigin.TowerMaxAmmo);
+            _targetDetector.towerAIType = _towerInfoOrigin.TowerAIType;
+        }
+
+        private void OnDisable()
+        {
+            _effectManager.OnEffectApply -= ApplyEffect;
         }
 
         public void StartAttack()
@@ -63,9 +68,9 @@ namespace Towers.Factory
                 yield return new WaitUntil(() => _targetDetector.target != null);
 
 
-            int maxAmmo = MaxAmmo;
+            int maxAmmo = _towerInfo.TowerMaxAmmo;
 
-            for (int i = 0; i < MaxAmmo; i++)
+            for (int i = 0; i < maxAmmo; i++)
             {
                 if (_targetDetector.target != null)
                 {
@@ -74,16 +79,14 @@ namespace Towers.Factory
                     valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, _towerInfo);
                 }
 
-                Debug.Log($"<color=red> origin ATK : {_towerInfo.TowerAtk}, Total ATK : {Atk}</color>");
-
-                if (maxAmmo < MaxAmmo)
+                if (maxAmmo < _towerInfo.TowerMaxAmmo)
                 {
-                    _currentAmmo += (MaxAmmo - maxAmmo);
-                    maxAmmo = MaxAmmo;
+                    _currentAmmo += (_towerInfo.TowerMaxAmmo - maxAmmo);
+                    maxAmmo = _towerInfo.TowerMaxAmmo;
                 }
 
                 _currentAmmo--;
-                yield return new WaitForSeconds(AtkSpeed);
+                yield return new WaitForSeconds(_towerInfo.TowerAtkSpeed);
 
                 if (!_isOverSorting)
                     yield return new WaitUntil(() => _targetDetector.target != null);
@@ -105,10 +108,25 @@ namespace Towers.Factory
         // 생성시 SO데이터 저장 or 특전적용시 데이터 갱신
         public void SetData(TowerData towerData)
         {
-            _towerInfo = new STowerInfo(towerData);
-            _targetDetector.DetectRange = _towerInfo.TowerMaxLange;
+            _towerInfoOrigin = new STowerInfo(towerData);
+            _targetDetector.DetectRange = _towerInfoOrigin.TowerMaxLange;
             _currentAmmo = towerData.TowerMaxAmmo;
+
+            _towerInfo = _towerInfoOrigin;
         }
+
+        private void ApplyEffect(EffectBonusValue bonus)
+        {
+            if (bonus.type != (TowerGroupType)_towerInfoOrigin.TowerType)
+            {
+                return;
+            }
+
+            _towerInfo = _towerInfoOrigin.UpdateInfo(bonus);
+
+            return;
+        }
+
 
         private void OnDestroy()
         {

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PerkData_10022
   m_EditorClassIdentifier: Assembly-CSharp::PerkData
   PerkID: 10022
-  EffectID: 9022
-  PerkName: PerkName_ATKUP_Buffer
-  PerkDesc: PerkDesc_ATKUP_Buffer
+  EffectID: 9026
+  PerkName: PerkName_ATKUP_Boomer
+  PerkDesc: PerkDesc_ATKUP_Boomer
   MaxLevel: 3
   PerkRarityType: 91
   PerkTarget: 5
-  PerkTargetText: TowerTypeName_Buffer
-  IsActive: 0
-  IconResourceKey: 0
-  PieceTypeIcon: 0
+  PerkTargetText: TowerTypeText_Boomer
+  IsActive: 1
+  IconResourceKey: Image_iconSkill_Icon_5
+  PieceTypeIcon: Image_Icon_Type_4
   CurLevel: 0
   isUnique: 0
   isSelected: 0
