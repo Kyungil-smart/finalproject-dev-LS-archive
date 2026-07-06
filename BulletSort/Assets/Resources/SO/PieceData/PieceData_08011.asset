@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be92e449fa4ea77469afc26d056fe3f7, type: 3}
+  m_Name: PieceData_08011
+  m_EditorClassIdentifier: Assembly-CSharp::PieceData
+  PieceID: 8011
+  PieceName: PieceName_SR
+  PieceGrade: 1
+  PieceLv: 1
+  ConnectTower: 7301
+  PieceSprite: Character_Sprite_01_8
+  PieceCartoon: Character_Sprite_02_4
+  PieceDetailIllust: Image_Yujin_01

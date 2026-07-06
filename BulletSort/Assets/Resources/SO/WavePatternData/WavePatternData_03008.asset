@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WavePatternData_03008
   m_EditorClassIdentifier: Assembly-CSharp::WavePatternData
   WavePatternID: 3008
-  Normal_Count: 60
+  Normal_Count: 50
   Speedy_Count: 20
   Tanker_Count: 10
   NormalRate_1: 0
