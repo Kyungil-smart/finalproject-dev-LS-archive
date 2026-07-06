@@ -149,7 +149,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: -46, y: -35}
   spriteSheetImportData:
-  - name: Image_Cartoon_Serin_01_0
+  - name: Image_Cartoon_Serin_02_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -159,8 +159,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 713
-      height: 762
+      width: 508
+      height: 820
     spriteID: 07a007a18651d1d4ebeb9835062b2ded
     spriteBone: []
     spriteOutline: []

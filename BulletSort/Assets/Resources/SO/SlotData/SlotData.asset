@@ -15,5 +15,5 @@ MonoBehaviour:
   SlotDataID: 0
   _maxHP: 300
   _healOnSortValue: 20
-  _requiredRepairCount: 3
+  _requiredRepairCount: 1
   _reviveHPValue: 0
