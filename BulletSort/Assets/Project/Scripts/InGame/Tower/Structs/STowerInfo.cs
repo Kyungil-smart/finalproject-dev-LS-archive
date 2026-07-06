@@ -42,6 +42,7 @@ namespace Towers.Struct.TowerInfo
         public EProjectileType ProjectileType => _towerProjectile;
 
         public int TowerType => _towerType;
+        public int TowerAIType => _towerAIType;
         public int TowerAtk => _towerAtk;
         public float TowerAtkSpeed => _towerAtkSpeed;
         public int TowerMaxLange => _towerMaxLange;
