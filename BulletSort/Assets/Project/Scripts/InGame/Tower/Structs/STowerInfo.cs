@@ -58,18 +58,18 @@ namespace Towers.Struct.TowerInfo
         {
             _towerID = towerData.TowerID;
             _towerType = towerData.TowerType;
-            _towerAIType = towerData.TowerAIType;
+            _towerAIType = towerData.TowerAiType;
             _towerProjectile = (EProjectileType)towerData.TowerProjectile;
             _towerAtk = towerData.TowerAtk;
             _towerAtkSpeed = towerData.TowerAtkSpeed;
-            _towerMaxLange = towerData.TowerMaxLange;
+            _towerMaxLange = towerData.TowerMaxRange;
             _towerMaxAmmo = towerData.TowerMaxAmmo;
             _projectileCount = towerData.ProjectileCount;
             _projectileSize = towerData.ProjectileSize;
             _piercingCount = towerData.PiercingCount;
             _splashRadius = towerData.SplashRadius;
             _currentHp = towerData.CurrentHp;
-            _bulletSpeed = 10f;
+            _bulletSpeed = towerData.BulletSpeed;
         }
 
         public void OversortingData()
