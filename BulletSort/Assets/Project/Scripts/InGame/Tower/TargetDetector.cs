@@ -10,6 +10,7 @@ public class TargetDetector : MonoBehaviour
     private float _bulletSpeed;
     private float _detectRange;
     public float DetectRange { get => _detectRange; set => _detectRange = value; }
+    public int towerAIType; 
 
     [SerializeField] public MonsterController target;
     [SerializeField] public List<GameObject> _detectedMonsters;
@@ -103,6 +104,15 @@ public class TargetDetector : MonoBehaviour
         _detectedMonsters.Remove(target.gameObject);
         Destroy(target.gameObject);
         target = null;
+    }
+
+    private void SetPriority(int toerAIType)
+    {
+        switch (toerAIType)
+        {
+            case 1:
+                break;
+        }
     }
 
     // 직선거리 구하기

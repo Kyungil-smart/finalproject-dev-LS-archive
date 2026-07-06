@@ -46,6 +46,7 @@ namespace Towers.Factory
         {
             _slotTurretQueue = GetComponentInParent<SlotTurretQueue>();
             _projectile = SpawnManager.Instance.SpawnProjectile(_towerInfoOrigin.ProjectileType, _towerInfoOrigin.TowerMaxAmmo);
+            _targetDetector.towerAIType = _towerInfoOrigin.TowerAIType;
         }
 
         private void OnDisable()
