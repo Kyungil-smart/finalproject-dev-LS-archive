@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   LevelID: 13
   GoalLevel: 3
-  RequiredXP: 100
+  RequiredXP: 342
   IsMaxLevel: 0
