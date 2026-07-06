@@ -47,7 +47,7 @@ namespace Towers.Struct.TowerInfo
         public float TowerAtkSpeed => _towerAtkSpeed;
         public int TowerMaxLange => _towerMaxLange;
         public int TowerMaxAmmo => _towerMaxAmmo;
-        
+
         public int PiercingCount => _piercingCount;
         public float SplashRadius => _splashRadius;
         public int CurrentHp => _currentHp;
@@ -96,6 +96,8 @@ namespace Towers.Struct.TowerInfo
 
             changedInfo._projectileCount = _projectileCount + bonus.BonusShotProjCount;
             changedInfo._towerMaxAmmo = _towerMaxAmmo + bonus.BonusMaxAmmo;
+
+            changedInfo._projectileSize = _projectileSize + _projectileSize * bonus.ProjSize;
             changedInfo._piercingCount += bonus.BonusProjPiercing;
 
             if (_towerType == 1 || _towerType == 4)

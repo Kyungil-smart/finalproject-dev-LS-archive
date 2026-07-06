@@ -26,6 +26,7 @@ namespace Ingame.Perks
         public float BonusATKSpeed = 0;
         public int BonusShotProjCount = 0;
         public int BonusMaxAmmo = 0;
+        public float ProjSize = 0;
         public int BonusProjPiercing = 0;
         public float BonusBuffValue = 0;
         // ...
