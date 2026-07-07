@@ -41,6 +41,8 @@ namespace Projectile
         private void FixedUpdate()
         {
             if (_target.isDead) _target = null;
+            if (_target == null) return;
+            
             Vector3 viewPos = _mainCamera.WorldToViewportPoint(_target.transform.position);
 
             if(viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
@@ -49,7 +51,6 @@ namespace Projectile
                 return;
             }
             
-            if (_target == null) return;
 
             MoveToTarget(_target?.gameObject);
         }
