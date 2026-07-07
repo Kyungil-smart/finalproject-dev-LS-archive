@@ -42,17 +42,17 @@ namespace Projectile
 
         private void FixedUpdate()
         {
+            if (_towerAitype == (int)TowerAIType.Shotgun)
+            {
+                Move();
+                return;
+            }
+            
             if (_target.isDead) _target = null;
 
             if (_target == null)
             {
                 PoolManager.Instance.Release(_keyObj, gameObject);
-                return;
-            }
-            
-            if (_towerAitype == (int)TowerAIType.Shotgun)
-            {
-                Move();
                 return;
             }
             
