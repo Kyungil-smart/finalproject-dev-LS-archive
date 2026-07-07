@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SlotData
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.SlotData
   SlotDataID: 0
-  _maxHP: 300
+  _maxHP: 1000
   _healOnSortValue: 20
   _requiredRepairCount: 1
   _reviveHPValue: 0

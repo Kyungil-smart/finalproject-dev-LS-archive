@@ -37,22 +37,18 @@ namespace Projectile
 
         private void FixedUpdate()
         {
-            if (_target.isDead) _target = null;
-            Vector3 viewPos = _mainCamera.WorldToViewportPoint(_target.transform.position);
+            Vector3 viewPos = _mainCamera.WorldToViewportPoint(gameObject.transform.position);
 
-            if (_target == null ||
-                viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
+            if(viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
             {
                 PoolManager.Instance.Release(_keyObj, gameObject);
                 return;
             }
-
-            MoveToTarget(_target?.gameObject);
+            Move();
         }
 
         public void MoveToTarget(GameObject target)
         {
-            Move();
         }
 
         private void Move()

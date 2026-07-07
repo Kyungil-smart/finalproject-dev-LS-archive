@@ -10,7 +10,7 @@ public class TargetDetector : MonoBehaviour
     private float _bulletSpeed;
     private float _detectRange;
     public float DetectRange { get => _detectRange; set => _detectRange = value; }
-    public int towerAIType; 
+    public int towerType; 
 
     [SerializeField] public MonsterController target;
     [SerializeField] public List<GameObject> _detectedMonsters;
@@ -49,7 +49,6 @@ public class TargetDetector : MonoBehaviour
             if (enemy == null) continue;
             // 포탑과 몬스터 사이의 거리 계산
             float distance = GetDistance(enemy.transform.position);
-            // Debug.Log($"<color=Red>{distance}</color>");
 
             // 탐지된 적인지 확인
             if (_detectedMonsters.Contains(enemy))
@@ -63,7 +62,7 @@ public class TargetDetector : MonoBehaviour
             {
                 // 거리가 사정거리 안 일 때 리스트에 추가
                 if (distance < _detectRange)
-                { _detectedMonsters.Add(enemy); }
+                    _detectedMonsters.Add(enemy);
             }
         }
 
@@ -78,41 +77,86 @@ public class TargetDetector : MonoBehaviour
     private void SelectTarget()
     {
         MonsterController atkTarget = null;
-        float mindistance = float.MaxValue;
-        // Debug.Log($"<color=Green>{mindistance}</color>");
-
-        foreach (GameObject monster in _detectedMonsters)
+        
+        switch (towerType)
         {
-            if (monster == null) continue;
-            float targetDistance = GetDistance(monster.transform.position);
-            if (mindistance > targetDistance)
-            {
-                atkTarget = monster.GetComponent<MonsterController>();
-                mindistance = targetDistance;
-            }
+            case 3:
+                atkTarget = MaxDistance();
+                break;
+            case 4:
+                atkTarget = HighHP();
+                break;
+            default:
+                atkTarget = MinDistance();
+                break;
         }
-
         if (atkTarget == null) return;
 
         target = atkTarget;
-        // Debug.Log("타겟선정");
     }
 
     private void KillTarget()
     {
-        // Debug.Log("목표제거");
         _detectedMonsters.Remove(target.gameObject);
         Destroy(target.gameObject);
         target = null;
     }
 
-    private void SetPriority(int toerAIType)
+    private MonsterController MinDistance()
     {
-        switch (toerAIType)
+        float minDistance = float.MaxValue;
+        MonsterController pickedTarget = null;
+        
+        foreach (GameObject monster in _detectedMonsters)
         {
-            case 1:
-                break;
+            if (monster == null) continue;
+            float targetDistance = GetDistance(monster.transform.position);
+            if (minDistance > targetDistance)
+            {
+                pickedTarget = monster.GetComponent<MonsterController>();
+                minDistance = targetDistance;
+            }
         }
+
+        return pickedTarget;
+    }
+
+    private MonsterController MaxDistance()
+    {
+        float maxDistance = 0f;
+        MonsterController pickedTarget = null;
+        
+        foreach (GameObject monster in _detectedMonsters)
+        {
+            if (monster == null) continue;
+            float targetDistance = GetDistance(monster.transform.position);
+            if (maxDistance < targetDistance)
+            {
+                pickedTarget = monster.GetComponent<MonsterController>();
+                maxDistance = targetDistance;
+            }
+        }
+
+        return pickedTarget;
+    }
+
+    private MonsterController HighHP()
+    {
+        int highHP = int.MinValue;
+        MonsterController pickedTarget = null;
+        
+        foreach (GameObject monster in _detectedMonsters)
+        {
+            if (monster == null) continue;
+            int targetMaxHP = monster.GetComponent<MonsterController>().MaxHP;
+            if (highHP < targetMaxHP)
+            {
+                pickedTarget = monster.GetComponent<MonsterController>();
+                highHP = targetMaxHP;
+            }
+        }
+
+        return pickedTarget;
     }
 
     // 직선거리 구하기

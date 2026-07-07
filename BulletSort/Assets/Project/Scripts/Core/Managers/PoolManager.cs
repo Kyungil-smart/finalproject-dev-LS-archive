@@ -86,7 +86,7 @@ namespace Core.ObjectPool
         private void SetActiveFalse(GameObject obj)
         {
             obj.SetActive(false);
-            Debug.Log($"{obj.name} 비활성화");
+            // Debug.Log($"{obj.name} 비활성화");
         }
     }
 }    

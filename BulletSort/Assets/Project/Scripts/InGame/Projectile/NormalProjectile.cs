@@ -11,12 +11,22 @@ namespace Projectile
 {
     public class NormalProjectile : MonoBehaviour, IProjectile, IPoolable
     {
+        enum TowerAIType
+        {
+            Shotgun = 3 
+        }
+        
         private MonsterController _target;
         private GameObject _keyObj;
         private List<GameObject> _atkList;
+        private Camera _mainCamera;
+
+        private Vector3 _dir;
 
         private float _moveSpeed;
         private int _atk;
+        
+        private int _towerAitype;
 
         public GameObject KeyObject
         {
@@ -27,10 +37,17 @@ namespace Projectile
         private void Awake()
         {
             _atkList = new List<GameObject>();
+            _mainCamera = Camera.main;
         }
 
         private void FixedUpdate()
         {
+            if (_towerAitype == (int)TowerAIType.Shotgun)
+            {
+                Move();
+                return;
+            }
+            
             if (_target.isDead) _target = null;
 
             if (_target == null)
@@ -49,6 +66,20 @@ namespace Projectile
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,
                 _target.transform.position, _moveSpeed * Time.deltaTime);
         }
+
+        private void Move()
+        {
+            Vector3 viewPos = _mainCamera.WorldToViewportPoint(gameObject.transform.position);
+            
+            if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
+            {
+                PoolManager.Instance.Release(_keyObj, gameObject);
+                return;
+            }
+            
+            gameObject.transform.position += _dir * (_moveSpeed * Time.deltaTime);
+        }
+        
 
         // 투사체가 몬스터에 도달 시
         private void OnTriggerEnter2D(Collider2D other)
@@ -79,6 +110,9 @@ namespace Projectile
             _keyObj = keyObj;
             _atk = towerInfo.TowerAtk;
             _moveSpeed = towerInfo.BulletSpeed;
+            _towerAitype = towerInfo.TowerAIType;
+            _dir = (_target.transform.position - transform.position).normalized;
+            _dir.z = 0;
         }
 
         public void OnSpawn()
