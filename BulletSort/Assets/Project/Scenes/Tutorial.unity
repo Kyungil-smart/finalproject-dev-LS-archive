@@ -617,46 +617,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 634177682}
     m_Modifications:
-    - target: {fileID: 1114488828469416388, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1114488828469416388, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1114488828469416388, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1114488828469416388, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1114488828469416388, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2547488820437429237, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2547488820437429237, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2547488820437429237, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2547488820437429237, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2547488820437429237, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6693342723764240025, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -740,26 +700,6 @@ PrefabInstance:
     - target: {fileID: 8168413634521948535, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
       propertyPath: m_Name
       value: TutorialCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554938696065272785, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554938696065272785, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554938696065272785, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554938696065272785, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554938696065272785, guid: ed568e7631e30ec49af231f2d92f3e16, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
