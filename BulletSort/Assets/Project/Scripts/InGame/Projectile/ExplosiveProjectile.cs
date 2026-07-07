@@ -40,7 +40,7 @@ namespace Projectile
 
         private void FixedUpdate()
         {
-            Vector3 viewPos = _mainCamera.WorldToViewportPoint(_target.transform.position);
+            Vector3 viewPos = _mainCamera.WorldToViewportPoint(gameObject.transform.position);
 
             if(viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
             {
