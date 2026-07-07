@@ -52,8 +52,6 @@ namespace Projectile
 
         public void MoveToTarget(GameObject target)
         {
-            if (target == null) return;
-            
             Move();
         }
 
