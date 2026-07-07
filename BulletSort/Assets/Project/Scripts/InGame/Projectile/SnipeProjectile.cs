@@ -40,18 +40,21 @@ namespace Projectile
             if (_target.isDead) _target = null;
             Vector3 viewPos = _mainCamera.WorldToViewportPoint(_target.transform.position);
 
-            if (_target == null ||
-                viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
+            if(viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
             {
                 PoolManager.Instance.Release(_keyObj, gameObject);
                 return;
             }
+            
+            if (_target == null) return;
 
             MoveToTarget(_target?.gameObject);
         }
 
         public void MoveToTarget(GameObject target)
         {
+            if (target == null) return;
+            
             Move();
         }
 

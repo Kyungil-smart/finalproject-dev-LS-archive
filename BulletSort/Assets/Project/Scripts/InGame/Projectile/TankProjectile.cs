@@ -57,7 +57,7 @@ namespace Projectile
         {
             if(target == null) return;
             // 피해 계산
-            int hp = target.GetComponent<MonsterController>().CurrentHP;
+            int hp = target.GetComponent<MonsterController>().MaxHP;
             
             target.GetComponent<IDamageable>().TakeDamage(_atk+ 
                                                           CurrentHpPerDamage(hp, _currentHealth));

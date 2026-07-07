@@ -16,6 +16,9 @@ namespace Projectile
         private GameObject _keyObj;
         private CircleCollider2D _collider;
         private List<GameObject> _atkList;
+        private Camera _mainCamera;
+        
+        private Vector3 _dir;
 
         private float _moveSpeed;
         private int _atk;
@@ -31,19 +34,23 @@ namespace Projectile
         {
             _collider = GetComponent<CircleCollider2D>();
             _atkList = new List<GameObject>();
+            _mainCamera = Camera.main;
         }
 
 
         private void FixedUpdate()
         {
             if (_target.isDead) _target = null;
+            Vector3 viewPos = _mainCamera.WorldToViewportPoint(_target.transform.position);
 
-            if (_target == null)
+            if(viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
             {
                 PoolManager.Instance.Release(_keyObj, gameObject);
                 return;
             }
             
+            if (_target == null) return;
+
             MoveToTarget(_target?.gameObject);
         }
 
@@ -51,8 +58,12 @@ namespace Projectile
         {
             if (target == null) return;
 
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,
-                _target.transform.position, _moveSpeed * Time.deltaTime);
+            Move();
+        }
+        
+        private void Move()
+        {
+            gameObject.transform.position += _dir *(_moveSpeed * Time.deltaTime);
         }
 
         // 투사체가 몬스터에 도달 시
@@ -96,6 +107,8 @@ namespace Projectile
             _atk = towerInfo.TowerAtk;
             _moveSpeed = towerInfo.BulletSpeed;
             _radius = towerInfo.SplashRadius;
+            _dir = (_target.transform.position - transform.position).normalized;
+            _dir.z = 0;
         }
 
         public void OnSpawn()
