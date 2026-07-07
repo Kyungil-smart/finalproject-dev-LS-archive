@@ -55,6 +55,7 @@ namespace Projectile
                 Move();
                 return;
             }
+            
             MoveToTarget(_target?.gameObject);
         }
 
