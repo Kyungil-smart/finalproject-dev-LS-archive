@@ -149,7 +149,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: -344}
   spriteSheetImportData:
-  - name: Character_Sprite_02_0
+  - name: Character_Sprite_03_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -170,7 +170,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Character_Sprite_02_1
+  - name: Character_Sprite_03_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -191,7 +191,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Character_Sprite_02_2
+  - name: Character_Sprite_03_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -200,7 +200,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 230
+      y: 231
       width: 184
       height: 224
     spriteID: 5f87a848e76be9b449b185dacabd9059
@@ -212,7 +212,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Character_Sprite_02_3
+  - name: Character_Sprite_03_3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -233,7 +233,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Character_Sprite_02_4
+  - name: Character_Sprite_03_4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -254,7 +254,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Character_Sprite_02_5
+  - name: Character_Sprite_03_5
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
