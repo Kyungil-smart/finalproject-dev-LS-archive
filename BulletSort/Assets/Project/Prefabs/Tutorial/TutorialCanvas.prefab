@@ -3998,6 +3998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4384690723877659289}
   - component: {fileID: 9079827108579635460}
+  - component: {fileID: 1723839469416258894}
   m_Layer: 5
   m_Name: Step_2_3
   m_TagString: Untagged
@@ -4040,6 +4041,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tutorial.TutorialWindowSwitch
   _show: []
   _hide: []
+--- !u!114 &1723839469416258894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010735515344727833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1041b383fe89bb04f86d036edc92e61a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tutorial.TutorialTabSelect
+  _tabBar: {fileID: 0}
+  _tabIndex: 1
 --- !u!1 &3115281018475505596
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,6 +4620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3537282583203273782}
   - component: {fileID: 6136826837164858379}
+  - component: {fileID: 192203287043438926}
   m_Layer: 5
   m_Name: Step_1_1
   m_TagString: Untagged
@@ -4650,6 +4666,20 @@ MonoBehaviour:
   _hide:
   - {fileID: 3286697707375786325}
   - {fileID: 4260565913291133753}
+--- !u!114 &192203287043438926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491093753250410145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1041b383fe89bb04f86d036edc92e61a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tutorial.TutorialTabSelect
+  _tabBar: {fileID: 0}
+  _tabIndex: 0
 --- !u!1 &3553149099785555234
 GameObject:
   m_ObjectHideFlags: 0
@@ -5028,7 +5058,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8435890579436664144}
   - {fileID: 2206698905123912192}
   - {fileID: 7554865376119146089}
   - {fileID: 578982859703464753}
@@ -5664,7 +5693,7 @@ GameObject:
   - component: {fileID: 8435890579436664144}
   - component: {fileID: 4376475800711460035}
   m_Layer: 5
-  m_Name: Step_3_1
+  m_Name: Step_2_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5677,12 +5706,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4628910004170331084}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3124979924583427311}
+  m_Father: {fileID: 8095622001136358544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7059,6 +7088,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7554865376119146089}
+  - component: {fileID: 2964103573737493827}
+  - component: {fileID: 1592384573230208681}
   m_Layer: 5
   m_Name: Step_3_3
   m_TagString: Untagged
@@ -7085,6 +7116,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2964103573737493827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6073376207452281754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7276d486bfd475e92c3b141cd0f779e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tutorial.TutorialWindowSwitch
+  _show: []
+  _hide:
+  - {fileID: 3286697707375786325}
+  - {fileID: 4260565913291133753}
+--- !u!114 &1592384573230208681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6073376207452281754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1041b383fe89bb04f86d036edc92e61a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tutorial.TutorialTabSelect
+  _tabBar: {fileID: 0}
+  _tabIndex: 2
 --- !u!1 &6089330608853199625
 GameObject:
   m_ObjectHideFlags: 0
@@ -8842,6 +8903,7 @@ RectTransform:
   - {fileID: 4384690723877659289}
   - {fileID: 3898442107680512321}
   - {fileID: 4098630158170777317}
+  - {fileID: 8435890579436664144}
   m_Father: {fileID: 2507139346827250475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
