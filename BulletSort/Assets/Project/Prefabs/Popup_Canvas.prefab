@@ -3144,13 +3144,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Main Director\r\nMinsu Kim\r\n\r\nProject Manager\r\nJihyeong Chae\r\n\r\nPrograming
-    Team Leader\r\nLEE SEONGGYU\r\n\r\nMain UI/UX & Art\r\nBeomjin Kim\r\n\r\nPrograming\r\nKIM
-    KYEONGMIN\r\nAHN JEONG YEON\r\nLEE SEONGGYU\r\n\r\nGame Design\r\nMinsu Kim\r\nJihyeong
-    Chae\r\nBeomjin Kim\r\nimsoyoung\r\nBumbleb2 (sion Kim)\r\nDongwoo Lee \r\nJongho
-    Oh\r\nJubin Bae\r\nsundong choi\r\n\r\nGame Sound\r\nJubin Bae\r\n\r\nSpecial
-    Thanks\r\nAI, Build 051\r\n\r\nManaged by\r\nUnic on\r\n\r\nSponsored by\r\nDevel
-    Rocket"
+  m_text: Main Director\nMinsu Kim\n\nProject Manager\nJihyeong Chae\n\nPrograming
+    Team Leader\nLEE SEONGGYU\n\nMain UI/UX & Art\nBeomjin Kim\n\nPrograming\nKIM
+    KYEONGMIN\nAHN JEONG YEON\nLEE SEONGGYU\n\nGame Design\nMinsu Kim\nJihyeong Chae\nBeomjin
+    Kim\nSoyoung Im\nBumbleb2 (Sion Kim)\nDongwoo Lee\nJongho Oh\nJubin Bae\nSundong
+    Choi\n\nGame Sound\nJubin Bae\n\nSpecial Thanks\nBuild 051\n\nManaged by\nUnicON\n\nSponsored
+    by\nDEVELROCKET
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ca3e0e0e51ef344083440cb28b370b5, type: 2}
   m_sharedMaterial: {fileID: 6144711128849985430, guid: 5ca3e0e0e51ef344083440cb28b370b5, type: 2}
