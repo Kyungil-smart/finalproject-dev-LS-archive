@@ -74,7 +74,7 @@ namespace Ingame.Perks
             bonus.BonusProjPiercing += data.ProjPiercing;
             bonus.BonusBuffValue += data.BuffValue;
 
-            OnEffectApply(bonus);
+            OnEffectApply?.Invoke(bonus);
         }
 
         private TowerGroupType GetTowerType(int id)
