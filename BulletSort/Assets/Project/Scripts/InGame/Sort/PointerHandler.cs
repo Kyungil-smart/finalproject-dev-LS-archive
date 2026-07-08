@@ -1,18 +1,19 @@
 using Core;
+using InGame.Slot;
 using UnityEngine;
 using Logger = Core.Logger;
 
 namespace InGame.Sort
 {
-    // 드래그 핸들링 담당 클래스.
-    // InputManager의 입력 이벤트를 받아 Piece 레이어 raycast로 IDraggable 대상을 찾고,
-    // 잡은 대상에게 OnGrabbed / OnDragging / OnReleased를 위임한다.
-    // 본 클래스는 IDraggable 인터페이스만 알며, 구체 타입(Piece 등)은 모른다.
+    // 드래그 핸들링 — InputManager 입력을 받아 SlotBoardManager 최근접 기물을 잡고,
+    //   OnGrabbed/OnDragging/OnReleased를 IDraggable에 위임. 구체 타입(Piece 등)은 모름.
+    //   잡기 판정을 콜라이더 OverlapPoint → 최근접 셀 기물로 변경(손가락 오차·가림 흡수).
     // 작성자: 이성규
     public class PointerHandler : MonoBehaviour
     {
-        // raycast 대상 레이어 — Piece 레이어(6번) 등을 인스펙터에서 지정.
-        [SerializeField] private LayerMask _draggableLayer;
+        [Header("Grab")]
+        [Tooltip("잡기 시 최근접 기물 스냅 허용 반경(월드). 이보다 멀면 잡기 안 됨. 해상도별로 튜닝")]
+        [SerializeField] private float _grabMaxDistance = 2f;
 
         // 현재 잡혀 있는 드래그 대상. 잡힌 게 없으면 null.
         private IDraggable _draggedTarget;
@@ -46,20 +47,14 @@ namespace InGame.Sort
             // 이미 무언가 잡고 있는 상태에서 다른 입력이 들어왔다면 무시.
             // (멀티터치 두 번째 무시 — #3 기획서 2.4.3 예외 처리와 정합)
             if (_draggedTarget != null) return;
+            if (SlotBoardManager.Instance == null) return;
 
-            // Piece 레이어 raycast로 잡힌 콜라이더 탐색.
-            Collider2D hit = Physics2D.OverlapPoint(worldPos, _draggableLayer);
-            if (hit == null) return;
-
-            // 잡힌 콜라이더가 IDraggable을 구현했는지 확인.
-            if (hit.TryGetComponent<IDraggable>(out var target))
-            {
-                // 잡기 차단 — 락 슬롯의 기물 등 CanGrab false면 무시(터치 자체 차단)
-                if (!target.CanGrab) return;
-                
-                _draggedTarget = target;
-                _draggedTarget.OnGrabbed(worldPos);
-            }
+            // 최근접 기물 잡기 — 락 슬롯 기물(CanGrab false)이면 무시.
+            IDraggable target = SlotBoardManager.Instance.FindNearestGrabbable(worldPos, _grabMaxDistance);
+            if (target == null || !target.CanGrab) return;
+            
+            _draggedTarget = target;
+            _draggedTarget.OnGrabbed(worldPos);
         }
 
         private void OnPointerDrag(Vector2 worldPos)

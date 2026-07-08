@@ -6,15 +6,14 @@ using UnityEngine;
 namespace InGame.Sort
 {
     // 3-Sort 기물. 드래그 가능한 오브젝트.
-    // 1차 구현: 손가락 따라가기 + 놓으면 원위치 복귀.
-    // 슬롯 시스템 진입 후 SortResult 발행·셀 진입 등 게임 로직 추가 예정.
+    // 잡기·놓기·호버 판정은 콜라이더 OverlapPoint가 아니라 SlotBoardManager 최근접 셀(거리)로 처리.
+    //   → 손가락 오차·가림 흡수, 물리 쿼리 없음. 셀 사이 틈 없이 항상 최근접 셀로 스냅.
     // 작성자: 이성규
     public class Piece : MonoBehaviour, IDraggable
     {
         [Header("References")]
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private Collider2D _collider;
-        [SerializeField] private LayerMask _cellLayer;
 
         [Tooltip("셀 하이라이트 — 드래그 중 호버 셀 강조. 비우면 Awake에서 탐색")]
         [SerializeField] private CellHighlighter _highlighter;
@@ -29,6 +28,10 @@ namespace InGame.Sort
         [Header("Sorting")]
         [Tooltip("드래그 중 기물이 올라갈 소팅 레이어")]
         [SerializeField] private SortingLayerType _draggingLayer = SortingLayerType.Dragging;
+        
+        [Header("Snap")]
+        [Tooltip("놓기·호버 시 최근접 셀 스냅 허용 반경(월드). 이보다 멀면 배치 취소·호버 없음. 해상도별로 튜닝")]
+        [SerializeField] private float _snapMaxDistance = 2f;
         
         // 드래그 사이클 동안만 유효한 캐시 묶음.
         // OnGrabbed에서 채우고 OnReleased까지 참조.
@@ -68,7 +71,6 @@ namespace InGame.Sort
             // 하이라이터 — 미지정 시 탐색. 셀 레이어를 넘겨 공유(중복 지정 방지).
             if (_highlighter == null)
                 _highlighter = GetComponent<CellHighlighter>();
-            _highlighter?.Init(_cellLayer);
         }
         
         // 풀링 재사용 시 호출. PieceID 보유 + 스프라이트 교체 + 활성 토글
@@ -104,7 +106,7 @@ namespace InGame.Sort
             // 소팅 백업 후 드래그 레이어로 올림 — 옆 슬롯 Frame·SlotUI 뒤로 안 숨음.
             _renderer.sortingLayerName = _draggingLayer.ToName();
             
-            // 자기 자신이 OverlapPoint에 잡히는 사고 차단.
+            // 콜라이더는 이제 입력 판정에 안 쓰이나, 드래그 중 비활성은 무해 — 기존 유지.
             _collider.enabled = false;
         }
         
@@ -115,7 +117,7 @@ namespace InGame.Sort
             transform.position = new Vector3(newPos.x, newPos.y, _dragState.OriginalPos.z);
 
             // 호버 셀 하이라이트 갱신 — 배치 가능 빈 셀 강조(한 칸).
-            _highlighter?.UpdateHover(worldPos);
+            _highlighter?.UpdateHover(worldPos, _snapMaxDistance);
         }
         
         public void OnReleased(Vector2 worldPos)
@@ -135,11 +137,12 @@ namespace InGame.Sort
             _collider.enabled = true;
         }
         
-        // 지정 좌표에서 Cell 레이어 콜라이더 검색 → SlotCell 반환 (없으면 null)
+        // 최근접 셀 조회 — 콜라이더 OverlapPoint 대신 보드 거리 계산. maxDist 초과면 null.
         private SlotCell FindCellAt(Vector2 worldPos)
         {
-            Collider2D hit = Physics2D.OverlapPoint(worldPos, _cellLayer);
-            return hit != null ? hit.GetComponent<SlotCell>() : null;
+            return SlotBoardManager.Instance != null
+                ? SlotBoardManager.Instance.FindNearestCell(worldPos, _snapMaxDistance)
+                : null;
         }
         
         // 잡힐 시점의 자기 위치 셀 찾기 — 출발 셀 캐싱용.
