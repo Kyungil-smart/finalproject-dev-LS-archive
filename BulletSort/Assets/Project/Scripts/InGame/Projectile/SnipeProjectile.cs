@@ -21,6 +21,7 @@ namespace Projectile
         private float _moveSpeed;
         private int _atk;
         private int _piercingcount;
+        private bool _isCollision;
         private Vector3 _dir;
 
         public GameObject KeyObject
@@ -37,6 +38,8 @@ namespace Projectile
 
         private void FixedUpdate()
         {
+            if(_isCollision)  return;
+            
             Vector3 viewPos = _mainCamera.WorldToViewportPoint(gameObject.transform.position);
 
             if(viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
@@ -59,6 +62,7 @@ namespace Projectile
         // 투사체가 몬스터에 도달 시
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if(_isCollision) return;
             if (other.gameObject.tag == "Monster")
             {
                 if(!_atkedList.Contains(other.gameObject))
@@ -76,8 +80,11 @@ namespace Projectile
             --_piercingcount;
             _atkedList.Add(target);
             _atkList.Remove(target);
-            if(_piercingcount == 0)
+            if (_piercingcount == 0)
+            {
+                _isCollision = true;
                 PoolManager.Instance.Release(_keyObj, gameObject);
+            }
         }
 
         // 데이터 받아오기
@@ -106,6 +113,7 @@ namespace Projectile
         {
             _atkList = new List<GameObject>();
             _atkedList = new HashSet<GameObject>();
+            _isCollision = false;
         }
     }
 }
