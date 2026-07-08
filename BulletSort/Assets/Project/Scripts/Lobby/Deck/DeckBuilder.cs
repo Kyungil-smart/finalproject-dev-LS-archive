@@ -1,6 +1,5 @@
 ﻿using Core;
 using InGame.Sort.Data;
-using Lobby.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -108,9 +107,6 @@ namespace Lobby.Deck
                 PopupManager.Instance.ShowAlert("캐릭터 편성이 부족합니다.\n6개의 캐릭터를 편성해 주세요.");
                 return;
             }
-
-            // 임시로 1001 Stage를 넣어둠.
-            StageManager.Instance.SetStageID(1001);
 
             var deck = CollectDeckIDs();
             DeckHolder.Set(deck);

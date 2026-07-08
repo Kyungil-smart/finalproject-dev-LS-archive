@@ -2,17 +2,17 @@
 using Core;
 using DG.Tweening;
 using InGame.Stage.Data;
+using Lobby.Deck;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Lobby
 {
-    // 스테이지 선택(배틀 탭) — 이전/다음 순회, 현재 스테이지의 제목·일러스트·배경 갱신.
+    // 스테이지 선택(배틀 탭) — 이전/다음 순회, 현재 스테이지의 번호·부제·일러스트·배경 갱신.
     //   일러스트: A/B 2장 크로스 슬라이드(방향성). 배경: A/B 2장 크로스페이드(제자리 블렌딩).
-    //   배경은 로비용(BGID) 사용 — GetLobbyBackground. 인게임 배경(INGameBG)은 인게임 스크립트가 별도 조회.
-    //   첫/마지막에서 이전/다음 버튼 비활성. 시작 → 선택 StageID를 StageManager에 넘기고 인게임 진입.
+    //   배경은 로비용(BGID) — GetLobbyBackground. 인게임 배경(INGameBG)은 인게임 스크립트가 별도 조회.
+    //   시작 → 현재 StageID를 StageManager에 저장 후 DeckBuilder.OnTapStart 위임(6칸 체크·덱 수집·진입).
     //   ※ 덱 확인 팝업·클리어 마크는 이어서/패스. 슬라이드 거리는 영역 폭 기준(해상도 대응).
     // 작성자: 이성규
     public class StageSelectController : MonoBehaviour
@@ -23,7 +23,7 @@ namespace Lobby
         [SerializeField] private Button _startButton;  // 시작
 
         [Header("제목")]
-        [SerializeField] private TMP_Text _numberText;   // 맨 위 스테이지 번호(숫자만)
+        [SerializeField] private TMP_Text _numberText;   // 맨 위 스테이지 번호(숫자만, '스테이지'는 고정 텍스트 분리)
         [SerializeField] private TMP_Text _titleText;    // 부제(StageName)
 
         [Header("일러스트 (슬라이드 2장)")]
@@ -32,9 +32,13 @@ namespace Lobby
         [SerializeField] private Image _illustA;
         [SerializeField] private Image _illustB;
 
-        [Header("배경 (크로스페이드 2장)")]
+        [Header("배경 (크로스페이드 2장, 로비 캔버스)")]
         [SerializeField] private Image _bgA;
         [SerializeField] private Image _bgB;
+
+        [Header("시작 위임")]
+        [Tooltip("6칸 체크·덱 수집·인게임 진입 담당. 배틀 탭에서 덱 편성 탭의 DeckBuilder 참조(씬 할당)")]
+        [SerializeField] private DeckBuilder _deckBuilder;
 
         [Header("연출")]
         [Tooltip("슬라이드·크로스페이드 시간(초)")]
@@ -211,7 +215,7 @@ namespace Lobby
             return null;
         }
 
-        // 첫/마지막에서 이전/다음 버튼 숨김(SetActive). 회색 비활성이 아니라 아예 안 보이게.
+        // 첫/마지막에서 이전/다음 버튼 숨김(SetActive). 반투명 비활성 아니라 아예 안 보이게.
         private void UpdateNavButtons()
         {
             int count = _stageIDs?.Count ?? 0;
@@ -220,14 +224,17 @@ namespace Lobby
             if (_nextButton != null) _nextButton.gameObject.SetActive(_index < count - 1);
         }
 
-        // 시작 — 선택 StageID를 StageManager에 넘기고 인게임 진입. (덱 확인 팝업은 이어서)
+        // 시작 — 현재 StageID 저장 후 DeckBuilder에 위임(6칸 체크·덱 수집·진입).
+        //   덱 확인 팝업은 이어서 — 그때 SetStageID와 위임 사이에 팝업을 끼움.
         private void OnStart()
         {
             int id = CurrentStageID;
             if (id == 0) return;
 
             StageManager.Instance.SetStageID(id);
-            SceneManager.LoadScene(Define.SCENE_INGAME);
+
+            if (_deckBuilder != null)
+                _deckBuilder.OnTapStart();
         }
     }
 }

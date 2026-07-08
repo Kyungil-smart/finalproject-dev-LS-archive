@@ -4129,6 +4129,10 @@ PrefabInstance:
       propertyPath: _bgB
       value: 
       objectReference: {fileID: 604451828929427809}
+    - target: {fileID: 3380742473627240158, guid: ffc82e44aa0e0f149834e37fad3cf4ce, type: 3}
+      propertyPath: _deckBuilder
+      value: 
+      objectReference: {fileID: 8414480753505196115}
     - target: {fileID: 7480783279529935342, guid: ffc82e44aa0e0f149834e37fad3cf4ce, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
