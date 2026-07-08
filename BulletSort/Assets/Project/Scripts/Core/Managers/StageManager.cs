@@ -2,6 +2,7 @@
 using InGame.Slot;
 using Monster.Controll;
 using Monster.Portal;
+using Reward;
 using System;
 using UnityEngine;
 
@@ -39,13 +40,12 @@ namespace Core
 
         int _waveIdx;
 
-        int _reward;
-        public int GainedReward { get { return _reward; } }
+        int _gainedGold;
 
         public bool IsBossWave { get { return _waveIdx == 9; } }
 
         private Timer _waveTimer; // 40초;
-        
+
         public WavePatternData CurWavePattern { get; private set; }
 
         public int NormalMonsterGroup { get; private set; }
@@ -82,7 +82,7 @@ namespace Core
             _waveIdx = 0;
             _killCount = 0;
             _targetKillNum = 0;
-            _reward = 0;
+            _gainedGold = 0;
 
             _stageData = DataManager.Instance.GetData<StageData>(_curStageID);
             _waveData = DataManager.Instance.GetData<WaveData>(_stageData.WaveDataID);
@@ -127,7 +127,7 @@ namespace Core
             int normalSpawnCount = CurWavePattern.Normal_Count;
             int speedySpawnCount = CurWavePattern.Speedy_Count;
             int tankerSpawnCount = CurWavePattern.Tanker_Count;
-            
+
             _targetKillNum += ((normalSpawnCount + speedySpawnCount + tankerSpawnCount) * 8);
 
             Debug.Log($"Target Kill Num in This Wave : {_targetKillNum}");
@@ -141,13 +141,14 @@ namespace Core
 
             if (_waveIdx > 9)
             {
-                _reward += _stageData.StageReward;
+                RewardManager.Instance.AddReward(_gainedGold, _stageData.StageReward);
+
                 Time.timeScale = 0;
                 OnStageWin();
             }
             else
             {
-                _reward += _stageData.WaveReward;
+                _gainedGold += _stageData.WaveReward;
                 PerksManager.Instance.EnterPerksPhase();
             }
         }
@@ -155,6 +156,12 @@ namespace Core
         private void WaveFailHandler()
         {
             _isRunning = false;
+
+            if (_gainedGold > 0)
+            {
+                RewardManager.Instance.AddReward(_gainedGold, 0);
+            }
+
             Time.timeScale = 0;
             OnStageDefeat();
         }
