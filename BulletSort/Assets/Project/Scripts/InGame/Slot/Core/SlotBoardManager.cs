@@ -15,6 +15,10 @@ namespace InGame.Slot
     // 작성자: 이성규
     public class SlotBoardManager : MonoBehaviour
     {
+        // 인게임 씬 로컬 접근점 — 이 씬에 보드는 하나 전제.
+        //   전역 싱글톤(Singleton<T>·DontDestroyOnLoad) 아님. 씬 로드 시 생기고 나갈 때 사라짐.
+        public static SlotBoardManager Instance { get; private set; }
+        
         [Header("References")]
         [Tooltip("자식으로 둔 슬롯 9개를 SlotID 순서로 등록")]
         [SerializeField] private List<Slot> _slots;
@@ -53,6 +57,8 @@ namespace InGame.Slot
 
         private void Awake()
         {
+            Instance = this;
+            
             ValidateSlots();
             ValidatePieceCount();
 
@@ -91,6 +97,7 @@ namespace InGame.Slot
 
         private void OnDestroy()
         {
+            if(Instance==this) Instance = null;   // 씬 나갈 때 정리
             UnsubscribeSlotEvents();
         }
 
@@ -323,6 +330,64 @@ namespace InGame.Slot
                 if (tower != 0) set.Add(tower);
             }
             return new List<int>(set);
+        }
+        
+        // 최근접 셀 — worldPos에서 가장 가까운 셀. maxDist 초과면 null(놓기·호버 취소용).
+        //   9슬롯 × SORT_COUNT 셀 순수 거리 비교(물리 쿼리 없음). 유효성(빈칸·락)은 호출부가 판단.
+        public SlotCell FindNearestCell(Vector2 worldPos, float maxDist)
+        {
+            SlotCell nearest = null;
+            float bestSqr = maxDist * maxDist;
+
+            foreach (var slot in _slots)
+            {
+                if (slot == null) continue;
+                for (int i = 0; i < Define.SORT_COUNT; i++)
+                {
+                    var cell = slot.GetSlotCellByIndex(i);
+                    if (cell == null) continue;
+
+                    float sqr = ((Vector2)cell.Position - worldPos).sqrMagnitude;
+                    if (sqr < bestSqr)
+                    {
+                        bestSqr = sqr;
+                        nearest = cell;
+                    }
+                }
+            }
+            return nearest;
+        }
+        
+        // 최근접 '기물 있는' 셀 — 잡기용. 빈 칸 제외하고 가장 가까운 셀.
+        public SlotCell FindNearestOccupiedCell(Vector2 worldPos, float maxDist)
+        {
+            SlotCell nearest = null;
+            float bestSqr = maxDist * maxDist;
+
+            foreach (var slot in _slots)
+            {
+                if (slot == null) continue;
+                for (int i = 0; i < Define.SORT_COUNT; i++)
+                {
+                    var cell = slot.GetSlotCellByIndex(i);
+                    if (cell == null || cell.IsEmpty) continue;
+
+                    float sqr = ((Vector2)cell.Position - worldPos).sqrMagnitude;
+                    if (sqr < bestSqr)
+                    {
+                        bestSqr = sqr;
+                        nearest = cell;
+                    }
+                }
+            }
+            return nearest;
+        }
+        
+        // 최근접 잡기 대상 — 기물 있는 최근접 셀의 Piece(IDraggable). PointerHandler는 IDraggable만 알면 됨.
+        public IDraggable FindNearestGrabbable(Vector2 worldPos, float maxDist)
+        {
+            var cell = FindNearestOccupiedCell(worldPos, maxDist);
+            return cell != null ? cell.Piece : null;
         }
 
         #endregion

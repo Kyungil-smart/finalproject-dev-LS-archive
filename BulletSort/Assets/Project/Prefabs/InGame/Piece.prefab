@@ -140,12 +140,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Piece
   _renderer: {fileID: 5752497259685090063}
   _collider: {fileID: 3450532317090284595}
-  _cellLayer:
-    serializedVersion: 2
-    m_Bits: 256
   _highlighter: {fileID: 0}
   _pieceID: 0
   _draggingLayer: 6
+  _snapMaxDistance: 1
 --- !u!114 &4558549709808228114
 MonoBehaviour:
   m_ObjectHideFlags: 0
