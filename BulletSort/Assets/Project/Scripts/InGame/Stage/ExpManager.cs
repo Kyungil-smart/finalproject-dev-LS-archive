@@ -89,8 +89,8 @@ namespace Ingame.ExpSystem
                     LevelUp();
                 }
 
-                Debug.Log($"경험치 변동 : {prevExp}->{_curExp}");
-                //OnExpChanged(_curExp); // Ingame 상 경험치 UI 변화
+                //Debug.Log($"경험치 변동 : {prevExp}->{_curExp}");
+                OnExpChanged(_curExp); // Ingame 상 경험치 UI 변화
             }
         }
 
@@ -99,7 +99,7 @@ namespace Ingame.ExpSystem
             _curExp -= _levelDataTable[_nextLevelID].RequiredXP;
             _curLevel++;
 
-            Debug.Log($"레벨 업 : LV.{_curLevel}");
+            //Debug.Log($"레벨 업 : LV.{_curLevel}");
             OnLevelUp();    // 특전 선택 횟수 증가, Ingame 상 레벨 UI 변화
 
             return;
