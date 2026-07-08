@@ -2,32 +2,47 @@
 using System;
 using System.IO;
 using UnityEngine;
+using Utils;
 
 namespace Reward
 {
-    [Serializable]
-    public class RewardSaveData
-    {
-        public int Point { get; private set; }
-
-        public void SetPoint(int point)
-        {
-            Point = point;
-        }
-
-        public void AddPoint(int delta)
-        {
-            Point += delta;
-        }
-
-        public void SubPoint(int delta)
-        {
-            Point -= delta;
-        }
-    }
-
     public class RewardManager : Singleton<RewardManager>
     {
+        [Serializable]
+        public class RewardSaveData
+        {
+            public int Gold => _gold;
+            public int StarDust => _starDust;
+
+            [SerializeField] private int _gold = 0;
+            [SerializeField] private int _starDust = 0;
+
+            public void AddGold(int amount) => _gold += amount;
+            public void AddStarDust(int amount) => _starDust += amount;
+
+            public bool ConsumeGold(int amount)
+            {
+                if (_gold < amount)
+                {
+                    return false;
+                }
+
+                _gold -= amount;
+                return true;
+            }
+
+            public bool ConsumeStarDust(int amount)
+            {
+                if (_starDust < amount)
+                {
+                    return false;
+                }
+
+                _starDust -= amount;
+                return true;
+            }
+        }
+
         public static event Action<RewardSaveData> OnRewardDataChanged;
 
         private RewardSaveData _currentData;
@@ -37,28 +52,41 @@ namespace Reward
 
         protected override void Init()
         {
-            _savePath = Path.Combine(Application.persistentDataPath, "RewardSaveData.json");
+            _savePath = Path.Combine(Application.persistentDataPath, "reward.dat");
 
-            // 게임 시작했으니 세이브 파일 로드하기
             LoadData();
         }
 
         // ★ 보상 획득 (재화 증가)
-        public void AddReward(int point)
+        public void AddReward(int gold, int stardust)
         {
-            _currentData.AddPoint(point);
+            _currentData.AddGold(gold);
+            _currentData.AddStarDust(stardust);
             NotifyAndSave();
         }
 
-        // ★ 재화 소비 (구매 등) - 소비 가능한지 체크까지 한 세트
-        public bool ConsumeCurrency(int cost)
+        //재화 소비
+        public bool ConsumeGold(int goldCost)
         {
-            if (_currentData.Point < cost)
+            if (_currentData.Gold < goldCost)
             {
                 return false; // 구매 실패
             }
 
-            _currentData.SubPoint(cost);
+            _currentData.ConsumeGold(goldCost);
+
+            NotifyAndSave();
+            return true;
+        }
+
+        public bool ConsumeStardust(int stardustCost)
+        {
+            if (_currentData.StarDust < stardustCost)
+            {
+                return false; // 구매 실패
+            }
+
+            _currentData.ConsumeStarDust(stardustCost);
 
             NotifyAndSave();
             return true;
@@ -77,6 +105,7 @@ namespace Reward
             try
             {
                 string json = JsonUtility.ToJson(_currentData, true);
+                string encryptedJson = Encrypter.Encrypt(json);
                 File.WriteAllText(_savePath, json);
                 Debug.Log($"[RewardManager] Reward Data is Saved Successfully, Path : {_savePath}");
             }
@@ -92,8 +121,9 @@ namespace Reward
             {
                 try
                 {
-                    string json = File.ReadAllText(_savePath);
-                    _currentData = JsonUtility.FromJson<RewardSaveData>(json);
+                    string encryptedJson = File.ReadAllText(_savePath);
+                    string decryptedJson = Encrypter.Decrypt(encryptedJson);
+                    _currentData = JsonUtility.FromJson<RewardSaveData>(decryptedJson);
                     Debug.Log("[RewardManager] Successfully Loaded");
                 }
                 catch (Exception e)
