@@ -2,7 +2,6 @@
 using Core.ObjectPool;
 using Ingame.Perks;
 using InGame.Slot;
-using InGame.Tower.Data;
 using Projectile.Interface;
 using System.Collections;
 using Towers.Interface.Tower;
