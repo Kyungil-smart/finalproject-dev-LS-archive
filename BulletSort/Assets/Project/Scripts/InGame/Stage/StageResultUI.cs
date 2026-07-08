@@ -18,6 +18,12 @@ namespace Ingame
             StageManager.Instance.OnStageDefeat += DefeatHandler;
         }
 
+        private void OnDestroy()
+        {
+            StageManager.Instance.OnStageWin -= WinHandler;
+            StageManager.Instance.OnStageDefeat -= DefeatHandler;
+        }
+
         private void Start()
         {
             _uiRoot.SetActive(false);

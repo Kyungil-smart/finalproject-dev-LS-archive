@@ -1,6 +1,4 @@
 ﻿using InGame.Slot.Data;
-using InGame.Sort.Data;
-using InGame.Tower.Data;
 using System;
 using System.Collections.Generic;
 using System.Reflection;

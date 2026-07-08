@@ -1,5 +1,4 @@
 ﻿using Ingame.Perks;
-using InGame.Tower.Data;
 using System;
 
 namespace Towers.Struct.TowerInfo

@@ -1,5 +1,4 @@
 using Core;
-using InGame.Tower.Data;
 using Towers.Interface.Tower;
 using UnityEngine;
 

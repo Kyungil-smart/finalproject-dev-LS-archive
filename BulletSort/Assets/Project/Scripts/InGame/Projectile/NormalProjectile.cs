@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core;
 using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
@@ -27,6 +28,8 @@ namespace Projectile
         private int _atk;
         
         private int _towerAitype;
+        
+        private bool _isCollision;
 
         public GameObject KeyObject
         {
@@ -42,21 +45,25 @@ namespace Projectile
 
         private void FixedUpdate()
         {
+            if(_isCollision) return;
+            
             if (_towerAitype == (int)TowerAIType.Shotgun)
             {
                 Move();
-                return;
             }
             
-            if (_target.isDead) _target = null;
-
-            if (_target == null)
+            else
             {
-                PoolManager.Instance.Release(_keyObj, gameObject);
-                return;
+                if (_target.isDead) _target = null;
+
+                if (_target == null)
+                {
+                    PoolManager.Instance.Release(_keyObj, gameObject);
+                    return;
+                }
+
+                MoveToTarget(_target?.gameObject);
             }
-            
-            MoveToTarget(_target?.gameObject);
         }
 
         public void MoveToTarget(GameObject target)
@@ -69,9 +76,7 @@ namespace Projectile
 
         private void Move()
         {
-            Vector3 viewPos = _mainCamera.WorldToViewportPoint(gameObject.transform.position);
-            
-            if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
+            if (ScreenWatcher.Instance.IsOutSide(transform.position, 1f))
             {
                 PoolManager.Instance.Release(_keyObj, gameObject);
                 return;
@@ -84,6 +89,8 @@ namespace Projectile
         // 투사체가 몬스터에 도달 시
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if(_isCollision) return;
+            
             if (other.gameObject.tag == "Monster")
             {
                 _atkList.Add(other.gameObject);
@@ -98,6 +105,7 @@ namespace Projectile
                 _atkList.Remove(target);
                 return;
             }
+            _isCollision = true;
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
             PoolManager.Instance.Release(_keyObj, gameObject);
@@ -117,7 +125,7 @@ namespace Projectile
 
         public void OnSpawn()
         {
-
+            _isCollision = false;
         }
 
         public void OnDespawn()

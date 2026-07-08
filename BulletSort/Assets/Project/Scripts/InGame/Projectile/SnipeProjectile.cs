@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core;
 using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
@@ -21,6 +22,7 @@ namespace Projectile
         private float _moveSpeed;
         private int _atk;
         private int _piercingcount;
+        private bool _isCollision;
         private Vector3 _dir;
 
         public GameObject KeyObject
@@ -37,9 +39,8 @@ namespace Projectile
 
         private void FixedUpdate()
         {
-            Vector3 viewPos = _mainCamera.WorldToViewportPoint(gameObject.transform.position);
-
-            if(viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
+            if(_isCollision)  return;
+            if (ScreenWatcher.Instance.IsOutSide(transform.position, 1f))
             {
                 PoolManager.Instance.Release(_keyObj, gameObject);
                 return;
@@ -53,12 +54,13 @@ namespace Projectile
 
         private void Move()
         {
-            gameObject.transform.position += _dir *(_moveSpeed * Time.deltaTime);
+            gameObject.transform.position += _dir * (_moveSpeed * Time.deltaTime);
         }
 
         // 투사체가 몬스터에 도달 시
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if(_isCollision) return;
             if (other.gameObject.tag == "Monster")
             {
                 if(!_atkedList.Contains(other.gameObject))
@@ -76,8 +78,11 @@ namespace Projectile
             --_piercingcount;
             _atkedList.Add(target);
             _atkList.Remove(target);
-            if(_piercingcount == 0)
+            if (_piercingcount == 0)
+            {
+                _isCollision = true;
                 PoolManager.Instance.Release(_keyObj, gameObject);
+            }
         }
 
         // 데이터 받아오기
@@ -106,6 +111,7 @@ namespace Projectile
         {
             _atkList = new List<GameObject>();
             _atkedList = new HashSet<GameObject>();
+            _isCollision = false;
         }
     }
 }

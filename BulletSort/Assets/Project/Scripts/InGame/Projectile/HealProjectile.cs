@@ -22,6 +22,7 @@ namespace Projectile
         
         private float _moveSpeed;
         private int _atk;
+        private bool _isCollision;
 
         public GameObject KeyObject
         {
@@ -33,16 +34,17 @@ namespace Projectile
         {
             _atkList = new List<GameObject>();
             _slots = new List<Slot>();
-            _slotBoardManager = FindObjectOfType<SlotBoardManager>();
         }
 
         private void Start()
         {
-            _slots = _slotBoardManager.Slots;
+            Init();
         }
 
         private void FixedUpdate()
         {
+            if(_isCollision) return;
+            
             if (_target.isDead) _target = null;
 
             if (_target == null)
@@ -65,6 +67,8 @@ namespace Projectile
         // 투사체가 몬스터에 도달 시
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (_isCollision) return;
+            
             if (other.gameObject.tag == "Monster")
             {
                 _atkList.Add(other.gameObject);
@@ -80,6 +84,7 @@ namespace Projectile
                 return;
             }
             // 피해 계산
+            _isCollision = true;
             target.GetComponent<IDamageable>().TakeDamage(_atk);
             HealSlot();
             PoolManager.Instance.Release(_keyObj, gameObject);
@@ -92,7 +97,7 @@ namespace Projectile
             
             foreach (Slot slot in _slots)
             {
-                if (slot.Health.Health < minHP)
+                if (slot.Health.Health < minHP && slot.Display.Mode != SlotDisplayMode.Destroyed )
                 {
                     minHP = slot.Health.Health;
                     lowerHPSlot = slot;
@@ -114,12 +119,19 @@ namespace Projectile
 
         public void OnSpawn()
         {
-
+            _isCollision = false;
+            Init();
         }
 
         public void OnDespawn()
         {
             _target = null;
+        }
+        
+        private void Init()
+        {
+            _slotBoardManager = FindObjectOfType<SlotBoardManager>();
+            _slots = _slotBoardManager.Slots;
         }
     }
 }

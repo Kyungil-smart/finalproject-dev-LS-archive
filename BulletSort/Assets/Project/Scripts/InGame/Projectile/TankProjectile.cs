@@ -16,6 +16,7 @@ namespace Projectile
         private float _moveSpeed;
         private int _atk;
         private int _currentHealth;
+        private bool _isCollision;
 
         public GameObject KeyObject
         {
@@ -25,6 +26,8 @@ namespace Projectile
 
         private void FixedUpdate()
         {
+            if(_isCollision) return;
+            
             if (_target.isDead) _target = null;
 
             if (_target == null)
@@ -47,6 +50,8 @@ namespace Projectile
         // 투사체가 몬스터에 도달 시
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if(_isCollision) return;
+            
             if (other.gameObject.tag == "Monster")
             {
                 AtkTarget(other.gameObject);
@@ -56,12 +61,14 @@ namespace Projectile
         public void AtkTarget(GameObject target)
         {
             if(target == null) return;
+            
+            _isCollision = true;
+            
             // 피해 계산
             int hp = target.GetComponent<MonsterController>().MaxHP;
             
             target.GetComponent<IDamageable>().TakeDamage(_atk+ 
                                                           CurrentHpPerDamage(hp, _currentHealth));
-            PoolManager.Instance.Release(_keyObj, gameObject);
             PoolManager.Instance.Release(_keyObj, gameObject);
         }
 
@@ -82,6 +89,7 @@ namespace Projectile
 
         public void OnSpawn()
         {
+            _isCollision = false;
 
         }
 
