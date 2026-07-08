@@ -34,12 +34,11 @@ namespace Projectile
         {
             _atkList = new List<GameObject>();
             _slots = new List<Slot>();
-            _slotBoardManager = FindObjectOfType<SlotBoardManager>();
         }
 
         private void Start()
         {
-            _slots = _slotBoardManager.Slots;
+            Init();
         }
 
         private void FixedUpdate()
@@ -121,11 +120,18 @@ namespace Projectile
         public void OnSpawn()
         {
             _isCollision = false;
+            Init();
         }
 
         public void OnDespawn()
         {
             _target = null;
+        }
+        
+        private void Init()
+        {
+            _slotBoardManager = FindObjectOfType<SlotBoardManager>();
+            _slots = _slotBoardManager.Slots;
         }
     }
 }
