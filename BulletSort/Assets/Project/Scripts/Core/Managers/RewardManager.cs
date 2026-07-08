@@ -104,9 +104,9 @@ namespace Reward
         {
             try
             {
-                string json = JsonUtility.ToJson(_currentData, true);
+                string json = JsonUtility.ToJson(_currentData);
                 string encryptedJson = Encrypter.Encrypt(json);
-                File.WriteAllText(_savePath, json);
+                File.WriteAllText(_savePath, encryptedJson);
                 Debug.Log($"[RewardManager] Reward Data is Saved Successfully, Path : {_savePath}");
             }
             catch (Exception e)
