@@ -50,18 +50,20 @@ namespace Projectile
             if (_towerAitype == (int)TowerAIType.Shotgun)
             {
                 Move();
-                return;
             }
             
-            if (_target.isDead) _target = null;
-
-            if (_target == null)
+            else
             {
-                PoolManager.Instance.Release(_keyObj, gameObject);
-                return;
+                if (_target.isDead) _target = null;
+
+                if (_target == null)
+                {
+                    PoolManager.Instance.Release(_keyObj, gameObject);
+                    return;
+                }
+
+                MoveToTarget(_target?.gameObject);
             }
-            
-            MoveToTarget(_target?.gameObject);
         }
 
         public void MoveToTarget(GameObject target)
@@ -74,9 +76,7 @@ namespace Projectile
 
         private void Move()
         {
-            Vector3 viewPos = _mainCamera.WorldToViewportPoint(gameObject.transform.position);
-            
-            if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
+            if (ScreenWatcher.Instance.IsOutSide(transform.position, 1f))
             {
                 PoolManager.Instance.Release(_keyObj, gameObject);
                 return;
