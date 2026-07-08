@@ -23,3 +23,4 @@ MonoBehaviour:
   StageReward: 10
   StageIcon: Image_Stage_Board_0
   BGID: Background_Lobby_1
+  INGameBG: Background_Stage_1
