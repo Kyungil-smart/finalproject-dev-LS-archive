@@ -41,6 +41,8 @@ namespace Core
 
         int _reward;
         public int GainedReward { get { return _reward; } }
+        
+        public int CurStageID => _curStageID;
 
         public bool IsBossWave { get { return _waveIdx == 9; } }
 
