@@ -31,7 +31,7 @@ namespace InGame.Sort
         
         [Header("Snap")]
         [Tooltip("놓기·호버 시 최근접 셀 스냅 허용 반경(월드). 이보다 멀면 배치 취소·호버 없음. 해상도별로 튜닝")]
-        [SerializeField] private float _snapMaxDistance = 2f;
+        [SerializeField] private float _snapMaxDistance = 1f;
         
         // 드래그 사이클 동안만 유효한 캐시 묶음.
         // OnGrabbed에서 채우고 OnReleased까지 참조.
