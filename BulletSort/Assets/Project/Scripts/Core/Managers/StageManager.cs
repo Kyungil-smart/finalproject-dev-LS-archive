@@ -40,6 +40,7 @@ namespace Core
 
         int _waveIdx;
 
+        int _gainedGold;
         int _reward;
         public int GainedReward { get { return _reward; } }
         
