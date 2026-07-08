@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Core;
-using InGame.Tower.Data;
 using UnityEngine;
 
 namespace InGame.Sort.Data

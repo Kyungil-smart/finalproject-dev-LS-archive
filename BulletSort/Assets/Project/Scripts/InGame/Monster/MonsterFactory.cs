@@ -1,6 +1,5 @@
 using Core;
 using Core.Manager.SpawnManager;
-using Monster.Boss;
 using Monster.Controll;
 using Monster.Spawn;
 using UnityEngine;
@@ -11,6 +10,7 @@ namespace Monster.Factory
     public class MonsterFactory : MonoBehaviour
     {
         [SerializeField] private GameObject _bossPrefab;
+        [SerializeField] private MonsterPrefabTable _monsterPrefabTable;
         // 몬스터 오브젝트 생성
         public void CreateMonster(SpawnPoint spawnPoint , int monsterID)
         {
@@ -26,25 +26,12 @@ namespace Monster.Factory
 
             instance.name = monsterData.name;
             instance.tag = "Monster";
-            SpriteRenderer spriteRenderer = instance.gameObject.AddComponent<SpriteRenderer>();
-            spriteRenderer.sortingLayerName = "Monster";
-            int monsterType = monsterData.MonsterType;
-            // 타입에 따른 스프라이트 설정
-            switch (monsterType)
-            {
-                case 1:
-                    spriteRenderer.sprite =
-                        Resources.Load<Sprite>("Test_Monster_Sprites/Test_NormalMonster_Sprite");
-                    break;
-                case 2:
-                    spriteRenderer.sprite =
-                        Resources.Load<Sprite>("Test_Monster_Sprites/Test_SpeedyMonster_Sprite");
-                    break;
-                case 3:
-                    spriteRenderer.sprite =
-                        Resources.Load<Sprite>("Test_Monster_Sprites/Test_TankMonster_Sprite");
-                    break;
-            }
+            Instantiate(_monsterPrefabTable.GetByName(monsterData.MonsterSprite), instance.transform); 
+            
+            SpriteRenderer[] spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
+            
+            foreach (SpriteRenderer sprite in spriteRenderer)
+                sprite.sortingLayerName = "Monster";
 
             var pos = spawnPoint.transform.position;
             

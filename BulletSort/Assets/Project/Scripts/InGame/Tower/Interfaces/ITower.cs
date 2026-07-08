@@ -1,5 +1,4 @@
 using System.Collections;
-using InGame.Tower.Data;
 
 namespace Towers.Interface.Tower
 {
