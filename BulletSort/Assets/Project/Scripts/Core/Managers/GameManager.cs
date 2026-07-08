@@ -1,4 +1,5 @@
 ﻿using Core.Manager.SpawnManager;
+using Reward;
 
 namespace Core
 {
@@ -23,6 +24,7 @@ namespace Core
             RegisterManager<ScreenWatcher>();
             RegisterManager<SpawnManager>();
             RegisterManager<PerksManager>();
+            RegisterManager<RewardManager>();
             RegisterManager<StageManager>();
 
             if (Logger.Instance != null)
