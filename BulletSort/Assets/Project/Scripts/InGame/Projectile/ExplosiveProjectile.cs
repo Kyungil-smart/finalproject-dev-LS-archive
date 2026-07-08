@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Core.Interface.IDamageable;
 using Core.ObjectPool;
@@ -23,6 +22,7 @@ namespace Projectile
         private float _moveSpeed;
         private int _atk;
         private float _radius;
+        private bool _isCollision;
 
         public GameObject KeyObject
         {
@@ -40,6 +40,7 @@ namespace Projectile
 
         private void FixedUpdate()
         {
+            if(_isCollision) return;
             Vector3 viewPos = _mainCamera.WorldToViewportPoint(gameObject.transform.position);
 
             if(viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
@@ -47,8 +48,6 @@ namespace Projectile
                 PoolManager.Instance.Release(_keyObj, gameObject);
                 return;
             }
-            
-
             Move();
         }
 
@@ -64,12 +63,16 @@ namespace Projectile
         // 투사체가 몬스터에 도달 시
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if(_isCollision) return;
+            
             if (other.gameObject.tag == "Monster")
                 Explosion();
         }
 
         private void OnTriggerStay2D(Collider2D other)
         {
+            if(_isCollision) return;
+            
             if(other.gameObject.tag == "Monster")
                 _atkList.Add(other.gameObject);
         }
@@ -89,6 +92,8 @@ namespace Projectile
         public void AtkTarget(GameObject target)
         {
             if(target == null) return;
+            
+            _isCollision = true;
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
             PoolManager.Instance.Release(_keyObj, gameObject);
@@ -108,7 +113,7 @@ namespace Projectile
 
         public void OnSpawn()
         {
-
+            _isCollision = false;
         }
 
         public void OnDespawn()
