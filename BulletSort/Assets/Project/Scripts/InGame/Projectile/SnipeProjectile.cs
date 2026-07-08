@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core;
 using Core.Interface.IDamageable;
 using Core.ObjectPool;
 using Projectile.Interface;
@@ -39,10 +40,7 @@ namespace Projectile
         private void FixedUpdate()
         {
             if(_isCollision)  return;
-            
-            Vector3 viewPos = _mainCamera.WorldToViewportPoint(gameObject.transform.position);
-
-            if(viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
+            if (ScreenWatcher.Instance.IsOutSide(transform.position, 1f))
             {
                 PoolManager.Instance.Release(_keyObj, gameObject);
                 return;
@@ -56,7 +54,7 @@ namespace Projectile
 
         private void Move()
         {
-            gameObject.transform.position += _dir *(_moveSpeed * Time.deltaTime);
+            gameObject.transform.position += _dir * (_moveSpeed * Time.deltaTime);
         }
 
         // 투사체가 몬스터에 도달 시
