@@ -14,4 +14,5 @@ public partial class StageData : ScriptableObject
     public int StageReward;
     public string StageIcon;
     public string BGID;
+    public string INGameBG;
 }

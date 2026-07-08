@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f7e05684bc08f4c8373a6bd392d1ae, type: 3}
+  m_Name: StageSpriteTable
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Stage.Data.StageSpriteTable
+  _entries:
+  - name: Image_Stage_Board_0
+    sprite: {fileID: -2767542605661680606, guid: 44a52f2f5ea924040ba1eee04242cd85, type: 3}
+  - name: Image_Stage_Board_1
+    sprite: {fileID: 3442395328839719052, guid: 44a52f2f5ea924040ba1eee04242cd85, type: 3}
+  - name: Image_Stage_Board_2
+    sprite: {fileID: -6135689254060714583, guid: 44a52f2f5ea924040ba1eee04242cd85, type: 3}
+  - name: Image_Stage_Board_3
+    sprite: {fileID: 4072344408583965787, guid: 44a52f2f5ea924040ba1eee04242cd85, type: 3}
+  - name: Image_Stage_Board_4
+    sprite: {fileID: -3188473928938814030, guid: 44a52f2f5ea924040ba1eee04242cd85, type: 3}
+  - name: Background_Lobby_1
+    sprite: {fileID: 7649634489857846838, guid: 0b52ffaf347918947825244688855356, type: 3}
+  - name: Background_Lobby_2
+    sprite: {fileID: -8341895316170677526, guid: f993b2b654479d34586b7c3f80e01ea4, type: 3}
+  - name: Background_Lobby_3
+    sprite: {fileID: -1202887387467647603, guid: a9ce7051703737e49b7c15adf0b48137, type: 3}
+  - name: Background_Lobby_4
+    sprite: {fileID: 6223030312967093008, guid: d9d25a76a7fb2a94b9e4728287db294d, type: 3}
+  - name: Background_Lobby_5
+    sprite: {fileID: 7163319021814423416, guid: ba26516bebb09a34db455992eb5b4fd4, type: 3}
+  - name: Background_Stage_1
+    sprite: {fileID: -4036275990453153397, guid: 29635c923a6e3ec418ecd51dabd1cc30, type: 3}
+  - name: Background_Stage_2
+    sprite: {fileID: -4608901566476905878, guid: ea9e48e2a5467c244ac31b5b9b3ae3c6, type: 3}
+  - name: Background_Stage_3
+    sprite: {fileID: 7927693067181384704, guid: 1035b0c6730bbca4aa4c12f4fe914b9d, type: 3}
+  - name: Background_Stage_4
+    sprite: {fileID: -7703239990564829350, guid: 29b8c1a8a4675bb4f819be8e95276383, type: 3}
+  - name: Background_Stage_5
+    sprite: {fileID: 7917066171080814156, guid: b1b71a375949ed140a3b6ca9e562a709, type: 3}

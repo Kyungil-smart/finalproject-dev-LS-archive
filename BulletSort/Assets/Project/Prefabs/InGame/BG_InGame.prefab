@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2508371435860016119}
   - component: {fileID: 4984939049381698947}
   - component: {fileID: 3421564260730712842}
+  - component: {fileID: 5458176454533627684}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5458176454533627684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514995527498217167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e94bf88cbc4c37af54688148980759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.InGameBackground
+  _background: {fileID: 3421564260730712842}
 --- !u!1 &7112643014078815991
 GameObject:
   m_ObjectHideFlags: 0
