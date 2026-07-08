@@ -18,6 +18,13 @@ namespace Ingame.Perks
             PerksManager.Instance.OnPerkPhaseEnded += CloseWindow;
         }
 
+        private void OnDestroy()
+        {
+            PerksManager.Instance.OnPerksRolled -= OpenWindow;
+            PerksManager.Instance.OnPerkSelected -= UpdateRemainSelectNum;
+            PerksManager.Instance.OnPerkPhaseEnded -= CloseWindow;
+        }
+
         private void Start()
         {
             _uiRoot.SetActive(false);
