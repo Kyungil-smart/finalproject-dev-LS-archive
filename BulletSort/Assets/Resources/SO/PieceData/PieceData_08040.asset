@@ -20,3 +20,4 @@ MonoBehaviour:
   PieceSprite: Character_Sprite_01_1
   PieceCartoon: Image_Cartoon_Doi_02
   PieceDetailIllust: Image_Doi_02
+  PiecePortrait: Character_Sprite_03_2

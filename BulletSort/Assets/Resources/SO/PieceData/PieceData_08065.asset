@@ -20,3 +20,4 @@ MonoBehaviour:
   PieceSprite: Character_Sprite_01_12
   PieceCartoon: Image_Cartoon_Serin_03
   PieceDetailIllust: Image_Serin_03
+  PiecePortrait: Character_Sprite_04_0

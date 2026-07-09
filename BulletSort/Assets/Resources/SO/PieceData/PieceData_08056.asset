@@ -20,3 +20,4 @@ MonoBehaviour:
   PieceSprite: Character_Sprite_01_5
   PieceCartoon: Image_Cartoon_Lily_02
   PieceDetailIllust: Image_Lily_02
+  PiecePortrait: Character_Sprite_03_5

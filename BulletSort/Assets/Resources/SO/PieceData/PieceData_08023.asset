@@ -20,3 +20,4 @@ MonoBehaviour:
   PieceSprite: Character_Sprite_01_10
   PieceCartoon: Image_Cartoon_Yueun_01
   PieceDetailIllust: Image_Yueun_01
+  PiecePortrait: Character_Sprite_02_3
