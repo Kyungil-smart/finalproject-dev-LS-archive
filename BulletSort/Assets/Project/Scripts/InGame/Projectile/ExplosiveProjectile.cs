@@ -81,7 +81,6 @@ namespace Projectile
         private void Explosion()
         {
             _collider.radius = _radius;
-            _isExplosive = true;
 
             // 콜라이더 내 오브젝트 모두 공격
             foreach (GameObject tar in _atkList)
@@ -95,6 +94,8 @@ namespace Projectile
             if(target == null) return;
             
             _isCollision = true;
+            _isExplosive = true;
+            
             // 피해 계산
             target.GetComponent<IDamageable>().TakeDamage(_atk);
             PoolManager.Instance.Release(_keyObj, gameObject);
