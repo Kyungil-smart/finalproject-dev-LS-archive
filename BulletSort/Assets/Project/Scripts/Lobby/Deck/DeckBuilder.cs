@@ -21,8 +21,8 @@ namespace Lobby.Deck
         [SerializeField] private Transform _ownedContent;  // ScrollView/Viewport/Content
         [SerializeField] private DeckCard _ownedCardPrefab; // 동적 생성용 프리팹
 
-        [Header("시작")]
-        [SerializeField] private Button _startButton;       // 시작 버튼(없으면 외부에서 OnTapStart 호출)
+        // [Header("시작")]
+        // [SerializeField] private Button _startButton;       // 시작 버튼(없으면 외부에서 OnTapStart 호출)
 
         // 보유 카드 인스턴스 — PieceID로 찾아 편성 상태(SetInDeck) 갱신
         private readonly List<DeckCard> _ownedCards = new List<DeckCard>();
@@ -34,8 +34,8 @@ namespace Lobby.Deck
             InitSlots();
             BuildOwnedList();
 
-            if (_startButton != null)
-                _startButton.onClick.AddListener(OnTapStart);
+            // if (_startButton != null)
+                // _startButton.onClick.AddListener(OnTapStart);
         }
 
         // 편성 슬롯 6칸 초기화 — 빈 칸 + 탭(해제) 콜백 등록
