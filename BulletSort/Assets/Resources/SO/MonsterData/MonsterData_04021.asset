@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Normal_1_Stage2
   MonsterType: 1
   ExpTypeID: 81
-  MonsterHp: 25
-  MonsterAtk: 8
-  MonsterAtkSpeed: 1.2
-  MonsterAtkRange: 1
+  MonsterHp: 13
+  MonsterAtk: 3
+  MonsterAtkSpeed: 3.1
+  MonsterAtkRange: 0.4
   MonsterMoveSpeed: 15
-  MonsterSprite: Champion Magician 0086 (1)
+  MonsterSprite: monster_01_06

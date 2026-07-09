@@ -18,5 +18,6 @@ MonoBehaviour:
   PieceLv: 4
   ConnectTower: 7404
   PieceSprite: Character_Sprite_01_9
-  PieceCartoon: Character_Sprite_02_1
+  PieceCartoon: Image_Cartoon_Garbi_01
   PieceDetailIllust: Image_Gabi_01
+  PiecePortrait: Character_Sprite_02_1

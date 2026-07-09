@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Speedy_Stage4
   MonsterType: 2
   ExpTypeID: 82
-  MonsterHp: 25
-  MonsterAtk: 18
-  MonsterAtkSpeed: 1.7
-  MonsterAtkRange: 1
-  MonsterMoveSpeed: 15
-  MonsterSprite: Rookie Sten 0004 (1)
+  MonsterHp: 19
+  MonsterAtk: 3
+  MonsterAtkSpeed: 2.65
+  MonsterAtkRange: 0.4
+  MonsterMoveSpeed: 35
+  MonsterSprite: monster_01_03

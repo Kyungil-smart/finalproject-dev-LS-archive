@@ -8,6 +8,8 @@ namespace Monster.Portal
 {
     public class Portal : MonoBehaviour
     {
+        private Coroutine _spawnCouroutine;
+        
         public SpawnPoint[] spawnPoints;
         public Transform bossZone;
 
@@ -16,7 +18,16 @@ namespace Monster.Portal
 
         private int _spawnCount;
 
-        public void StartSpawn() => StartCoroutine(Spawncouroutine());
+        public void StartSpawn()
+        {
+            if (_spawnCouroutine != null)
+            {
+                StopCoroutine(_spawnCouroutine);
+                _spawnCouroutine = null;
+            }
+            
+            _spawnCouroutine = StartCoroutine(Spawncouroutine());   
+        }
 
         private void Awake()
         {
@@ -59,7 +70,11 @@ namespace Monster.Portal
         public void ResetPhase()
         {
             _spawnPase = 0;
-            StopCoroutine(Spawncouroutine());
+            if (_spawnCouroutine != null)
+            {
+                StopCoroutine(_spawnCouroutine);
+                _spawnCouroutine = null;
+            }
         }
     }
 }

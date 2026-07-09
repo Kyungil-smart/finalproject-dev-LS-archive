@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Normal_2_Stage1
   MonsterType: 1
   ExpTypeID: 81
-  MonsterHp: 60
-  MonsterAtk: 64
-  MonsterAtkSpeed: 1.2
-  MonsterAtkRange: 1
+  MonsterHp: 170
+  MonsterAtk: 5
+  MonsterAtkSpeed: 2.6
+  MonsterAtkRange: 0.4
   MonsterMoveSpeed: 15
-  MonsterSprite: Rookie Plant 0073 (1)
+  MonsterSprite: monster_01_05

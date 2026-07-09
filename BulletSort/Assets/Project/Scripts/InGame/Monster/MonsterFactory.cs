@@ -10,7 +10,7 @@ namespace Monster.Factory
     public class MonsterFactory : MonoBehaviour
     {
         [SerializeField] private GameObject _bossPrefab;
-        [SerializeField] private MonsterPrefabTable _monsterPrefabTable;
+        [SerializeField] private MonsterSpriteTable _monsterSpriteTable;
         // 몬스터 오브젝트 생성
         public void CreateMonster(SpawnPoint spawnPoint , int monsterID)
         {
@@ -26,11 +26,12 @@ namespace Monster.Factory
 
             instance.name = monsterData.name;
             instance.tag = "Monster";
-            Instantiate(_monsterPrefabTable.GetByName(monsterData.MonsterSprite), instance.transform); 
+            GameObject child = Instantiate(new GameObject(), instance.transform);
+            SpriteRenderer sprite = child.AddComponent<SpriteRenderer>();
+
+            sprite.sprite = _monsterSpriteTable.GetByName(monsterData.MonsterSprite);
             
-            SpriteRenderer[] spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
-            
-            foreach (SpriteRenderer sprite in spriteRenderer)
+            if(sprite.sprite!= null)
                 sprite.sortingLayerName = "Monster";
 
             var pos = spawnPoint.transform.position;
@@ -45,6 +46,15 @@ namespace Monster.Factory
         {
             MonsterData bossData = DataManager.Instance.GetData<MonsterData>(bossID);
             GameObject instance = Instantiate(_bossPrefab, spawnPoint);
+            
+            GameObject child = Instantiate(new GameObject(), instance.transform);
+            SpriteRenderer sprite = child.AddComponent<SpriteRenderer>();
+
+            sprite.sprite = _monsterSpriteTable.GetByName(bossData.MonsterSprite);
+            
+            if(sprite.sprite!= null)
+                sprite.sortingLayerName = "Monster";
+            
             instance.GetComponent<MonsterController>().Init(bossData);
         }
     }
