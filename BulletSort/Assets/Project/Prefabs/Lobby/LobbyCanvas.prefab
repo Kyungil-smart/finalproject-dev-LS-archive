@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8775108601844024245}
+  - component: {fileID: 5198002712007089450}
   m_Layer: 5
   m_Name: Currency_Info
   m_TagString: Untagged
@@ -37,6 +38,20 @@ RectTransform:
   m_AnchoredPosition: {x: -270, y: 0}
   m_SizeDelta: {x: 540, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5198002712007089450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342628476974363530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860b47d48369e4b4b94561925058900e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.UI.CurrencyDisplay
+  _goldText: {fileID: 3923366772290013944}
+  _stardustText: {fileID: 5983008858252357282}
 --- !u!1 &479909630471963480
 GameObject:
   m_ObjectHideFlags: 0
