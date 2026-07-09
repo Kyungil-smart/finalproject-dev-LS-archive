@@ -18,5 +18,5 @@ MonoBehaviour:
   PieceLv: 1
   ConnectTower: 7501
   PieceSprite: Character_Sprite_01_10
-  PieceCartoon: Character_Sprite_02_3
+  PieceCartoon: Image_Cartoon_Yueun_01
   PieceDetailIllust: Image_Yueun_01

@@ -13,63 +13,63 @@ MonoBehaviour:
   m_Name: MonsterSpriteTable
   m_EditorClassIdentifier: Assembly-CSharp::MonsterSpriteTable
   _entries:
-  - Name: Rookie Kentauros 0063 (1)
-    Prefab: {fileID: 1293411663406894, guid: f61b57fd2883b9b47aa93b2522f888cf, type: 3}
-  - Name: Rookie Mushroom 0041 (1)
-    Prefab: {fileID: 1043722076513010, guid: d4af40a1dc0271743804d8126819557c, type: 3}
-  - Name: Rookie Mushroom 0043 (1)
-    Prefab: {fileID: 1567764455631376, guid: 886227e6229730247931af899fa11765, type: 3}
+  - Name: monster_01_00
+    Sprite: {fileID: 6717077389878140329, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_01
+    Sprite: {fileID: 3704260863335000714, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_2
+    Sprite: {fileID: 1547067229236171243, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
   - Name: Rookie Plant 0073 (1)
-    Prefab: {fileID: 1823281742570026, guid: 0d3ad88bc4d6f2e4b9cd85212c823817, type: 3}
+    Sprite: {fileID: 0}
   - Name: Rookie Robot 04Light (1)
-    Prefab: {fileID: 1500527938336898, guid: 528a309a370349e409f9c59d61289ec4, type: 3}
+    Sprite: {fileID: 0}
   - Name: Rookie Robot 05Dark (1)
-    Prefab: {fileID: 1110343854720632, guid: 24ad5d951a2373b43b8febcf7df6a10d, type: 3}
+    Sprite: {fileID: 0}
   - Name: Rookie Sten 0004 (1)
-    Prefab: {fileID: 1495581350419252, guid: fb044f4128e3e734386c756be247f28f, type: 3}
+    Sprite: {fileID: 0}
   - Name: Champion Boar 0036 (1)
-    Prefab: {fileID: 1352003419144912, guid: 25cdd5175f0f71b46927a2b7d0cf84f0, type: 3}
+    Sprite: {fileID: 0}
   - Name: Champion Boar 0037 (1)
-    Prefab: {fileID: 1298462776489942, guid: 52d39ddfa440277439b216d1c4c0bae3, type: 3}
+    Sprite: {fileID: 0}
   - Name: Champion Kentauros 0070 (1)
-    Prefab: {fileID: 1194614607379626, guid: 691a8d4f7aa6a6b4e9594c1f267ac5c1, type: 3}
+    Sprite: {fileID: 0}
   - Name: Champion Magician 0086 (1)
-    Prefab: {fileID: 1712876586307768, guid: 3ae311434973e8e468bc528aba073db5, type: 3}
+    Sprite: {fileID: 0}
   - Name: Champion Magician 0090 (1)
-    Prefab: {fileID: 1641028535548300, guid: 901c2dd222c75f745b63dc9c561a7666, type: 3}
+    Sprite: {fileID: 0}
   - Name: champion Mushroom 0047 (1)
-    Prefab: {fileID: 1323459623236276, guid: 683412aeea1894243bb258d9e8d4375e, type: 3}
+    Sprite: {fileID: 0}
   - Name: Champion Sten 0006 (1)
-    Prefab: {fileID: 1597117220218114, guid: c0782eb327d3a2c4fb2d9aa50f88ac66, type: 3}
+    Sprite: {fileID: 0}
   - Name: Champion Sten 0007 (1)
-    Prefab: {fileID: 1057493468481214, guid: 8def89cf4ab68344c91ab052d1e37020, type: 3}
+    Sprite: {fileID: 0}
   - Name: Champion Sten 0008 (1)
-    Prefab: {fileID: 1832161619381030, guid: d18edc4ce86960e4d9e4d0f636f1cc56, type: 3}
+    Sprite: {fileID: 0}
   - Name: Champion Shank 0057 (1)
-    Prefab: {fileID: 1306094966968926, guid: 9e682c7e6339a074bb79185d0ada2481, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate ArmorKnight 05Dark (1)
-    Prefab: {fileID: 1004604363569136, guid: 980d66c30529e3d46b08b691bed51559, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Boar 0380 (1)
-    Prefab: {fileID: 1563023197828832, guid: d3aec24010a7f2b49b4e5a7ea01391d6, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Kentauros 0393 (1)
-    Prefab: {fileID: 1026782300985292, guid: 99778758e600f8b4793e32a964da8046, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Mushroom 0385 (1)
-    Prefab: {fileID: 1376768512168638, guid: 5e2155feccd879345810d4f6cb95123f, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Plant 0397 (1)
-    Prefab: {fileID: 1099571533480960, guid: b140812a51ca04c49a2d07f50010f1a5, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Plant 0399 (1)
-    Prefab: {fileID: 1463638466895036, guid: cefc3ce1b56fcdc4ba006bfe54b1737c, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Plant 0400 (1)
-    Prefab: {fileID: 1734755802202220, guid: 5a3ef39df55b0b847a3fa7affe174bf4, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Robot 02Fire (1)
-    Prefab: {fileID: 1246145225983380, guid: 51adb66ddd0fc47459e71b01e966266a, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Robot 03Wood (1)
-    Prefab: {fileID: 1785360827396796, guid: 101fd95d36e7847488125fa73fc9d6e6, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Robot 04Light (1)
-    Prefab: {fileID: 1920805929922108, guid: 22cd551e3cde57e4f966bb5080733bdc, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Robot 05Dark (1)
-    Prefab: {fileID: 1743206893459152, guid: 4e1331fa09643814ea0c2a600348e983, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Shank 0387 (1)
-    Prefab: {fileID: 1609242816181550, guid: 0ac86fd07e5c4024fa2ea89cacd4b6cd, type: 3}
+    Sprite: {fileID: 0}
   - Name: Ultimate Sten 0015 (1)
-    Prefab: {fileID: 1730151162918854, guid: 81d718efdad246c4ebf056d30bae4f60, type: 3}
+    Sprite: {fileID: 0}

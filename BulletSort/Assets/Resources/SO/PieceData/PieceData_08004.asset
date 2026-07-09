@@ -18,5 +18,5 @@ MonoBehaviour:
   PieceLv: 4
   ConnectTower: 7104
   PieceSprite: Character_Sprite_01_6
-  PieceCartoon: Character_Sprite_02_0
+  PieceCartoon: Image_Cartoon_Serin_01
   PieceDetailIllust: Image_Serin_01
