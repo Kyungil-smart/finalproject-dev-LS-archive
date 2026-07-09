@@ -28,6 +28,9 @@ namespace Core
 
         [Tooltip("만든 사람들(크레딧) 팝업")]
         [SerializeField] private CreditPopup _creditPopup;
+        
+        [Tooltip("공격 유형 보기 팝업 — 6종 유형 설명. 덱 편성 i 버튼")]
+        [SerializeField] private AttackTypePopup _attackTypePopup;
 
         // 각 팝업의 닫힘을 구독 — 어느 팝업이 닫히든 딤 정리. (Awake 대신 Singleton의 Init)
         protected override void Init()
@@ -35,6 +38,7 @@ namespace Core
             if (_alertPopup != null) _alertPopup.OnClosed += HideDim;
             if (_languagePopup != null) _languagePopup.OnClosed += HideDim;
             if (_creditPopup != null) _creditPopup.OnClosed += HideDim;
+            if (_attackTypePopup != null) _attackTypePopup.OnClosed += HideDim;
 
             HideDim();   // 시작은 딤 꺼짐
         }
@@ -92,6 +96,16 @@ namespace Core
             ShowDim();
             _creditPopup.Show();
         }
+        
+        // ---- 공격 유형 보기 ----
+
+        // 공격 유형 팝업 — 내용 고정, 열기만.
+        public void ShowAttackType()
+        {
+            if (!HasAttackType()) return;
+            ShowDim();
+            _attackTypePopup.Show();
+        }
 
         // ---- 공용 딤 ----
 
@@ -125,6 +139,13 @@ namespace Core
         {
             if (_creditPopup != null) return true;
             Debug.LogWarning("[PopupManager] _creditPopup 미연결 — 인스펙터에서 CreditPopup 참조 연결 필요.");
+            return false;
+        }
+        
+        private bool HasAttackType()
+        {
+            if (_attackTypePopup != null) return true;
+            Debug.LogWarning("[PopupManager] _attackTypePopup 미연결 — 인스펙터에서 AttackTypePopup 참조 연결 필요.");
             return false;
         }
     }
