@@ -194,7 +194,7 @@ MonoBehaviour:
     m_Top: 40
     m_Bottom: 40
   m_ChildAlignment: 4
-  m_Spacing: 30
+  m_Spacing: 15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -461,6 +461,18 @@ MonoBehaviour:
   - {fileID: 3760557507285733750}
   - {fileID: 1456744627830218199}
   _remainSelectNumText: {fileID: 6001927358083614538}
+  _perkNumString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &3082001960497414936
 GameObject:
   m_ObjectHideFlags: 0

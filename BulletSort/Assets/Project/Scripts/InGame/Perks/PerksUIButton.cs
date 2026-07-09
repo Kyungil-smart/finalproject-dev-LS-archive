@@ -12,6 +12,7 @@ namespace Ingame.Perks
         [SerializeField] private TextMeshProUGUI _perkName;
         [SerializeField] private TextMeshProUGUI _perkDesc;
         [SerializeField] private TextMeshProUGUI _perkTarget;
+        [SerializeField] private TextMeshProUGUI _perkRarity;
         [SerializeField] private int _index;
 
         [SerializeField] private LocalizedString _perkNewNameLS;
@@ -20,11 +21,19 @@ namespace Ingame.Perks
         [SerializeField] private LocalizedString _perkTargetLS;
         [SerializeField] private LocalizedString _perkRarityLS; //Todo
 
-        private Image _panelImage;
+        [SerializeField] Image _panelImage;
+        [SerializeField] Image _perkIconBackground;
+        [SerializeField] Image _perkIcon;
+
         [SerializeField] private Sprite _normalPanel;
         [SerializeField] private Sprite _rarePanel;
         [SerializeField] private Sprite _uniquePanel;
         [SerializeField] private Sprite _legendaryPanel;
+
+        [SerializeField] private Sprite _normalIcon;
+        [SerializeField] private Sprite _rareIcon;
+        [SerializeField] private Sprite _uniqueIcon;
+        [SerializeField] private Sprite _legendaryIcon;
 
         string _name;
         string _desc;
@@ -37,7 +46,6 @@ namespace Ingame.Perks
 
         private void Awake()
         {
-            _panelImage = GetComponent<Image>();
             _button = GetComponent<Button>();
 
             if (_button != null)
@@ -76,15 +84,19 @@ namespace Ingame.Perks
             {
                 case 91:
                     _panelImage.sprite = _normalPanel;
+                    _perkIcon.sprite = _normalIcon;
                     break;
                 case 92:
                     _panelImage.sprite = _rarePanel;
+                    _perkIcon.sprite = _rareIcon;
                     break;
                 case 93:
                     _panelImage.sprite = _uniquePanel;
+                    _perkIcon.sprite = _uniqueIcon;
                     break;
                 case 94:
                     _panelImage.sprite = _legendaryPanel;
+                    _perkIcon.sprite = _legendaryIcon;
                     break;
                 default:
                     Debug.LogError($"Invalid Value Perk Rarity Type");
