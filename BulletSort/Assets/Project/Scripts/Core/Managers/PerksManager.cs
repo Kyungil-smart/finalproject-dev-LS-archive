@@ -52,6 +52,10 @@ namespace Core
         int _remainSelectNum;
         public int RemainSelectNum { get { return _remainSelectNum; } }
 
+        int _totalSelectNum;
+        public int TotalSelectNum { get { return _totalSelectNum; } }
+
+
         const int MAX_PERKS_NUM = 3;
         int[] _perksSlot;
 
@@ -96,6 +100,7 @@ namespace Core
 
         public void InitState()
         {
+            _totalSelectNum = _remainSelectNum;
             _remainRerollNum = DEFAULT_REROLL_NUM;
         }
 

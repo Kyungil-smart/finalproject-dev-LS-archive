@@ -1,6 +1,8 @@
 ﻿using Core;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 namespace Ingame.Perks
@@ -8,10 +10,15 @@ namespace Ingame.Perks
     public class PerksUIButton : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _perkName;
-        [SerializeField] private TextMeshProUGUI _perkLevel;
         [SerializeField] private TextMeshProUGUI _perkDesc;
-        [SerializeField] private TextMeshProUGUI _perkEffect;
+        [SerializeField] private TextMeshProUGUI _perkTarget;
         [SerializeField] private int _index;
+
+        [SerializeField] private LocalizedString _perkNewNameLS;
+        [SerializeField] private LocalizedString _perkLvUpNameLS;
+        [SerializeField] private LocalizedString _perkDescLS;
+        [SerializeField] private LocalizedString _perkTargetLS;
+        [SerializeField] private LocalizedString _perkRarityLS; //Todo
 
         private Image _panelImage;
         [SerializeField] private Sprite _normalPanel;
@@ -43,13 +50,27 @@ namespace Ingame.Perks
         {
             PerkData perk = DataManager.Instance.GetData<PerkData>(perkID);
 
-            _name = perk.PerkName;
-            _desc = perk.PerkDesc;
-            _curLevel = perk.CurLevel;
+            if (perk.CurLevel > 1)
+            {
+                _perkLvUpNameLS.Arguments = new object[] { perk.PerkName, perk.CurLevel, perk.CurLevel + 1 };
+                _name = _perkLvUpNameLS.GetLocalizedString();
+            }
+            else
+            {
+                _perkNewNameLS.Arguments = new object[] { perk.PerkName };
+                _name = _perkNewNameLS.GetLocalizedString();
+            }
 
-            _effectText = perk.PerkDesc;    // 삭제 예정. 기획팀에서 텍스트 일원화한다고 함.
+            _perkDescLS.Arguments = new object[] { perk.PerkDesc };
+            _desc = _perkDescLS.GetLocalizedString();
 
-            _targetText = perk.PerkTargetText;
+            _perkTargetLS.Arguments = new object[] {
+                LocalizationSettings.StringDatabase.GetLocalizedString(
+                    "LocalizationTable",
+                    perk.PerkTargetText
+                )
+            };
+            _targetText = _perkTargetLS.GetLocalizedString();
 
             switch (perk.PerkRarityType)
             {
@@ -80,19 +101,14 @@ namespace Ingame.Perks
                 _perkName.text = _name;
             }
 
-            if (_perkLevel != null)
-            {
-                _perkLevel.text = $"Lv {_curLevel} → {_curLevel + 1}";
-            }
-
             if (_perkDesc != null)
             {
                 _perkDesc.text = _desc;
             }
 
-            if (_perkEffect != null)
+            if (_perkTarget != null)
             {
-                _perkEffect.text = _effectText;
+                _perkTarget.text = _effectText;
             }
         }
 
