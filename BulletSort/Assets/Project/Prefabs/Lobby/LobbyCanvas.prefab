@@ -1801,6 +1801,7 @@ GameObject:
   - component: {fileID: 8008486104235626405}
   - component: {fileID: 3592490480418127483}
   - component: {fileID: 1280209179002085901}
+  - component: {fileID: 5027345934411229776}
   m_Layer: 5
   m_Name: UnderBar_Canvas
   m_TagString: Untagged
@@ -1868,6 +1869,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5027345934411229776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5419416578715430496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0565d16525b08c449851af92c0ecf72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Core.UI.SafeAreaOffset
+  _isTop: 0
 --- !u!1 &5446451425180745129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,6 +3315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6044803924491617317}
   - component: {fileID: 3330363764136148464}
+  - component: {fileID: 4723809011127518603}
   m_Layer: 5
   m_Name: TopInfo_Canvas
   m_TagString: Untagged
@@ -3353,6 +3368,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &4723809011127518603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7244397056208632277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0565d16525b08c449851af92c0ecf72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Core.UI.SafeAreaOffset
+  _isTop: 1
 --- !u!1 &7452439477910196842
 GameObject:
   m_ObjectHideFlags: 0
