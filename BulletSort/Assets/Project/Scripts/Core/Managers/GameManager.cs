@@ -26,6 +26,7 @@ namespace Core
             RegisterManager<PerksManager>();
             RegisterManager<RewardManager>();
             RegisterManager<StageManager>();
+            RegisterManager<SoundManager>();
 
             if (Logger.Instance != null)
             {
