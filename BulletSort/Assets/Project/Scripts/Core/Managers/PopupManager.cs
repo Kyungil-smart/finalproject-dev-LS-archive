@@ -35,6 +35,9 @@ namespace Core
         
         [Tooltip("정렬(필터) 팝업 — 보유 상태·유형 필터")]
         [SerializeField] private SortPopup _sortPopup;
+        
+        [Tooltip("캐릭터 상세보기 팝업 — 카드 Long Press")]
+        [SerializeField] private PieceDetailPopup _pieceDetailPopup;
 
         // 각 팝업의 닫힘을 구독 — 어느 팝업이 닫히든 딤 정리. (Awake 대신 Singleton의 Init)
         protected override void Init()
@@ -44,6 +47,7 @@ namespace Core
             if (_creditPopup != null) _creditPopup.OnClosed += HideDim;
             if (_attackTypePopup != null) _attackTypePopup.OnClosed += HideDim;
             if (_sortPopup != null) _sortPopup.OnClosed += HideDim;
+            if (_pieceDetailPopup != null) _pieceDetailPopup.OnClosed += HideDim;
 
             HideDim();   // 시작은 딤 꺼짐
         }
@@ -111,6 +115,16 @@ namespace Core
             ShowDim();
             _attackTypePopup.Show();
         }
+        
+        // ---- 캐릭터 상세보기 ----
+
+        // 상세보기 팝업 — 편성하기 누르면 onEquip(pieceID). 미보유면 편성 버튼 비활성.
+        public void ShowPieceDetail(int pieceID, bool isOwned, Action<int> onEquip)
+        {
+            if (!HasPieceDetail()) return;
+            ShowDim();
+            _pieceDetailPopup.Show(pieceID, isOwned, onEquip);
+        }
 
         // ---- 정렬 ----
 
@@ -168,6 +182,13 @@ namespace Core
         {
             if (_sortPopup != null) return true;
             Debug.LogWarning("[PopupManager] _sortPopup 미연결 — 인스펙터에서 SortPopup 참조 연결 필요.");
+            return false;
+        }
+        
+        private bool HasPieceDetail()
+        {
+            if (_pieceDetailPopup != null) return true;
+            Debug.LogWarning("[PopupManager] _pieceDetailPopup 미연결 — 인스펙터에서 PieceDetailPopup 참조 연결 필요.");
             return false;
         }
     }

@@ -76,7 +76,7 @@ namespace Lobby.Deck
             foreach (var id in ids)
             {
                 var card = Instantiate(_ownedCardPrefab, _ownedContent);
-                card.Setup(id, OnTapOwnedCard);
+                card.Setup(id, OnTapOwnedCard, OnLongPressOwnedCard);
                 _ownedCards.Add(card);
             }
         }
@@ -100,6 +100,26 @@ namespace Lobby.Deck
 
             empty.SetPiece(card.PieceID);
             card.SetInDeck(true);        // 보유 카드 잠금(편성 중 오버레이 ON)
+            RefreshCounts();
+        }
+        
+        // 카드 길게 누르기 → 상세보기 팝업. 미보유도 열림(편성 버튼만 비활성).
+        private void OnLongPressOwnedCard(DeckCard card)
+        {
+            PopupManager.Instance.ShowPieceDetail(card.PieceID, card.IsOwned, EquipByPieceID);
+        }
+
+        // 상세보기의 "편성하기" — 이미 편성 중이거나 6칸 차면 무시.
+        //   카드 탭 편성(OnTapOwnedCard)과 같은 결과.
+        private void EquipByPieceID(int pieceID)
+        {
+            if (IsEquipped(pieceID)) return;
+
+            var empty = FindEmptySlot();
+            if (empty == null) return;
+
+            empty.SetPiece(pieceID);
+            SetOwnedInDeck(pieceID, true);
             RefreshCounts();
         }
 

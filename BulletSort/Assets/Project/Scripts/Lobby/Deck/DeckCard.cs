@@ -33,6 +33,9 @@ namespace Lobby.Deck
 
         [Tooltip("오버레이 위 버튼 — 편성 중 카드 재터치 해제용. 카드 버튼과 같은 _onTap으로.")]
         [SerializeField] private Button _inDeckButton;
+        
+        [Tooltip("길게 누르기 — 상세보기 진입. 같은 오브젝트에 부착")]
+        [SerializeField] private LongPressHandler _longPress;
 
         public int PieceID { get; private set; }
 
@@ -41,22 +44,35 @@ namespace Lobby.Deck
 
         // 탭 콜백 — 호출부(DeckBuilder)가 자기 처리를 등록. 카드는 누가 눌렸는지만 전달.
         private Action<DeckCard> _onTap;
+        private Action<DeckCard> _onLongPress;
 
         private void Awake()
         {
             if (_button == null) _button = GetComponent<Button>();
-            _button.onClick.AddListener(() => _onTap?.Invoke(this));
+            _button.onClick.AddListener(OnClick);
 
             // 오버레이 위 버튼 — 딤이 켜졌을 때(미보유·편성중) 클릭을 대신 받음.
             if (_inDeckButton != null)
-                _inDeckButton.onClick.AddListener(() => _onTap?.Invoke(this));
+                _inDeckButton.onClick.AddListener(OnClick);
+
+            if (_longPress != null)
+                _longPress.OnLongPress += () => _onLongPress?.Invoke(this);
         }
 
-        // PieceID로 비주얼 채움. 호출부는 이 한 줄 + 탭 콜백만.
-        public void Setup(int pieceID, Action<DeckCard> onTap)
+        // 탭 — 롱프레스로 소비된 누름이면 무시(상세보기가 떴으므로 편성하지 않음).
+        private void OnClick()
+        {
+            if (_longPress != null && _longPress.Consumed) return;
+            _onTap?.Invoke(this);
+        }
+
+        // PieceID로 비주얼 채움. 호출부는 이 한 줄 + 콜백만.
+        //   onLongPress는 보유 목록에서만 씀(편성 슬롯은 null).
+        public void Setup(int pieceID, Action<DeckCard> onTap, Action<DeckCard> onLongPress = null)
         {
             PieceID = pieceID;
             _onTap = onTap;
+            _onLongPress = onLongPress;
 
             var data = PieceQuery.Get(pieceID);
             if (data == null) return;
@@ -69,7 +85,7 @@ namespace Lobby.Deck
             SetStars(data.PieceGrade);
 
             IsOwned = PieceInventory.IsOwned(data.PieceName, data.PieceGrade);
-            RefreshStatus(inDeck: false);   // 초기 — 편성 안 됨
+            RefreshStatus(inDeck: false);
         }
 
         // 편성 중 표시 토글 — 호출부가 편성/해제 시 호출.
