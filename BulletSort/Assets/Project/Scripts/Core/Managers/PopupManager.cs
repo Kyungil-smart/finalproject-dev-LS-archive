@@ -1,4 +1,5 @@
 using System;
+using Lobby.Deck;
 using Lobby.UI;
 using UnityEngine;
 
@@ -31,6 +32,9 @@ namespace Core
         
         [Tooltip("공격 유형 보기 팝업 — 6종 유형 설명. 덱 편성 i 버튼")]
         [SerializeField] private AttackTypePopup _attackTypePopup;
+        
+        [Tooltip("정렬(필터) 팝업 — 보유 상태·유형 필터")]
+        [SerializeField] private SortPopup _sortPopup;
 
         // 각 팝업의 닫힘을 구독 — 어느 팝업이 닫히든 딤 정리. (Awake 대신 Singleton의 Init)
         protected override void Init()
@@ -39,6 +43,7 @@ namespace Core
             if (_languagePopup != null) _languagePopup.OnClosed += HideDim;
             if (_creditPopup != null) _creditPopup.OnClosed += HideDim;
             if (_attackTypePopup != null) _attackTypePopup.OnClosed += HideDim;
+            if (_sortPopup != null) _sortPopup.OnClosed += HideDim;
 
             HideDim();   // 시작은 딤 꺼짐
         }
@@ -107,6 +112,16 @@ namespace Core
             _attackTypePopup.Show();
         }
 
+        // ---- 정렬 ----
+
+        // 정렬 팝업 — 현재 필터로 초기 표시, 확인 시 onApply로 새 필터 전달.
+        public void ShowSort(SortFilter current, Action<SortFilter> onApply)
+        {
+            if (!HasSort()) return;
+            ShowDim();
+            _sortPopup.Show(current, onApply);
+        }
+        
         // ---- 공용 딤 ----
 
         private void ShowDim()
@@ -146,6 +161,13 @@ namespace Core
         {
             if (_attackTypePopup != null) return true;
             Debug.LogWarning("[PopupManager] _attackTypePopup 미연결 — 인스펙터에서 AttackTypePopup 참조 연결 필요.");
+            return false;
+        }
+        
+        private bool HasSort()
+        {
+            if (_sortPopup != null) return true;
+            Debug.LogWarning("[PopupManager] _sortPopup 미연결 — 인스펙터에서 SortPopup 참조 연결 필요.");
             return false;
         }
     }

@@ -13,7 +13,7 @@ namespace Lobby.UI
         [Tooltip("확인 버튼 — 닫기")]
         [SerializeField] private Button _confirmButton;
 
-        private void Awake()
+        protected override void OnAwake()
         {
             if (_confirmButton != null)
                 _confirmButton.onClick.AddListener(Close);   // PopupBase.Close (OnClosed 발행 → 딤 정리)

@@ -13,29 +13,38 @@ namespace Lobby.Deck
     //   ※ 시작 진입점은 스테이지 선택(StageSelectController)으로 일원화 — 여기 시작 버튼 없음.
     //     스테이지 선택이 SetStageID 후 OnTapStart()를 호출.
     // 미보유 카드는 표시만 되고 편성 불가(해금은 강화창).
+    // 정렬은 카드 재생성 없이 SetActive 토글 — 편성 상태 유지, GridLayout이 재배치.
     // 작성자: 이성규
     public class DeckBuilder : MonoBehaviour
     {
         [Header("편성 슬롯 (6칸 고정)")]
-        [SerializeField] private DeckSlot[] _slots;        // DeckSlot 6개
+        [SerializeField] private DeckSlot[] _slots;
 
         [Header("보유 목록")]
-        [SerializeField] private Transform _ownedContent;   // ScrollView/Viewport/Content
-        [SerializeField] private DeckCard _ownedCardPrefab; // 동적 생성용 프리팹
+        [SerializeField] private Transform _ownedContent;    // ScrollView/Viewport/Content
+        [SerializeField] private DeckCard _ownedCardPrefab;  // 동적 생성용 프리팹
 
-        [Header("정보")]
+        [Header("버튼")]
         [Tooltip("공격 유형 보기 — i 버튼")]
         [SerializeField] private Button _attackTypeButton;
 
+        [Tooltip("정렬(필터) 버튼")]
+        [SerializeField] private Button _sortButton;
+
         [Header("정보 텍스트")]
-        [Tooltip("편성된 총알소녀 — (없음)/(n명)/(완료)")]
+        [Tooltip("편성 수 — (없음)/(n명)/(완료). 앞 문구는 고정 텍스트 오브젝트")]
         [SerializeField] private TMP_Text _equippedCountText;
 
-        [Tooltip("보유한 총알소녀 — (n명). 미보유 카드는 제외")]
+        [Tooltip("보유 수 — (n명). 미보유 카드는 제외")]
         [SerializeField] private TMP_Text _ownedCountText;
 
         // 보유 카드 인스턴스 — PieceID로 찾아 편성 상태(SetInDeck) 갱신
         private readonly List<DeckCard> _ownedCards = new List<DeckCard>();
+
+        // 현재 보유 목록 필터 — 정렬 팝업이 갱신. 기본 전체.
+        private readonly SortFilter _filter = new SortFilter();
+
+        // ---- 초기화 ----
 
         private void Start()
         {
@@ -47,6 +56,9 @@ namespace Lobby.Deck
 
             if (_attackTypeButton != null)
                 _attackTypeButton.onClick.AddListener(() => PopupManager.Instance.ShowAttackType());
+
+            if (_sortButton != null)
+                _sortButton.onClick.AddListener(OnTapSort);
         }
 
         // 편성 슬롯 6칸 초기화 — 빈 칸 + 탭(해제) 콜백 등록
@@ -69,13 +81,14 @@ namespace Lobby.Deck
             }
         }
 
+        // ---- 입력 핸들러 ----
+
         // 보유 카드 탭 → 편성 안 됐으면 빈 슬롯에 편성, 이미 편성됐으면 해제(재터치).
         //   미보유 카드도 오버레이 위 버튼으로 여기 오지만 IsOwned로 차단.
         private void OnTapOwnedCard(DeckCard card)
         {
             if (!card.IsOwned) return;   // 미보유 — 편성 불가(해금은 강화창)
 
-            // 이미 편성 중이면 재터치 → 해제. 그 카드가 든 슬롯을 찾아 비우고 잠금 해제.
             if (IsEquipped(card.PieceID))
             {
                 UnequipByPieceID(card.PieceID);
@@ -90,6 +103,15 @@ namespace Lobby.Deck
             RefreshCounts();
         }
 
+        // 편성 슬롯 탭 → 해제 + 해당 보유 카드 잠금 해제
+        private void OnTapEquippedSlot(DeckSlot slot)
+        {
+            int pieceID = slot.PieceID;
+            slot.SetEmpty();
+            SetOwnedInDeck(pieceID, false);
+            RefreshCounts();
+        }
+
         // PieceID로 편성 슬롯을 역추적해 해제 — 보유 카드 재터치 해제용.
         //   슬롯 탭 해제(OnTapEquippedSlot)와 같은 결과(슬롯 비움 + 보유 카드 잠금 해제).
         private void UnequipByPieceID(int pieceID)
@@ -99,23 +121,34 @@ namespace Lobby.Deck
                 if (!slot.IsEmpty && slot.PieceID == pieceID)
                 {
                     slot.SetEmpty();
-                    SetOwnedInDeck(pieceID, false);  // 보유 카드 다시 누를 수 있게
+                    SetOwnedInDeck(pieceID, false);
                     RefreshCounts();
                     return;
                 }
             }
         }
 
-        // 편성 슬롯 탭 → 해제 + 해당 보유 카드 잠금 해제
-        private void OnTapEquippedSlot(DeckSlot slot)
+        // 정렬 버튼 → 팝업. 확인하면 필터 갱신 후 목록 표시 상태만 갱신.
+        private void OnTapSort()
         {
-            int pieceID = slot.PieceID;
-            slot.SetEmpty();
-            SetOwnedInDeck(pieceID, false);  // 보유 카드 다시 누를 수 있게
-            RefreshCounts();
+            PopupManager.Instance.ShowSort(_filter, ApplyFilter);
         }
 
-        // 시작 — 6칸 다 편성됐으면 인게임 진입, 미달이면 경고(입장 불가).
+        // 필터 적용 — 카드 표시/숨김만 토글(재생성 안 함, 편성 상태 유지).
+        private void ApplyFilter(SortFilter filter)
+        {
+            _filter.CopyFrom(filter);
+
+            foreach (var card in _ownedCards)
+            {
+                int type = PieceQuery.GetConnectTowerType(card.PieceID);
+                card.gameObject.SetActive(_filter.Pass(card.IsOwned, type));
+            }
+        }
+
+        // ---- 시작 ----
+
+        // 6칸 다 편성됐으면 인게임 진입, 미달이면 경고(입장 불가).
         //   StageID는 스테이지 선택에서 이미 세팅 — 여기선 덱만 챙김.
         public void OnTapStart()
         {
@@ -125,12 +158,11 @@ namespace Lobby.Deck
                 return;
             }
 
-            var deck = CollectDeckIDs();
-            DeckHolder.Set(deck);
+            DeckHolder.Set(CollectDeckIDs());
             SceneManager.LoadScene(Define.SCENE_INGAME);
         }
 
-        // ---- 조회·헬퍼 ----
+        // ---- 조회 헬퍼 ----
 
         private bool IsDeckFull()
         {
@@ -173,9 +205,11 @@ namespace Lobby.Deck
                 }
         }
 
-        // 편성·보유 수 표시 갱신. 덱 상태가 바뀔 때마다 호출.
-        //   편성: 0=없음 / 1~5=n명 / 6=완료(6칸 고정). 보유: 목록 중 IsOwned인 카드 수.
-        //   ※ 문구는 로컬라이즈 이월 — 지금은 직접 조립.
+        // ---- 표시 갱신 ----
+
+        // 편성·보유 수 표시. 덱 상태가 바뀔 때마다 호출.
+        //   편성: 0=없음 / 1~5=n명 / 6=완료(6칸 고정). 보유: 목록 중 IsOwned인 카드 수(필터 무관).
+        //   ※ 괄호만 코드가 채움 — 앞 문구는 고정 텍스트 오브젝트(로컬라이즈 대비).
         private void RefreshCounts()
         {
             if (_equippedCountText != null)
