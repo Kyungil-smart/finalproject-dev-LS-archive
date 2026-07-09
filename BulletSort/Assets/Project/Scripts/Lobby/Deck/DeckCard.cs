@@ -36,6 +36,19 @@ namespace Lobby.Deck
         
         [Tooltip("길게 누르기 — 상세보기 진입. 같은 오브젝트에 부착")]
         [SerializeField] private LongPressHandler _longPress;
+        
+        [Header("강화창 전용")]
+        [Tooltip("선택 강조 테두리")]
+        [SerializeField] private GameObject _selectHighlight;
+
+        [Tooltip("상단 라벨 — Select / Level Up / Buy")]
+        [SerializeField] private GameObject _statusTop;
+        [SerializeField] private Image _statusImage;
+
+        [Tooltip("하단 비용 — 보유/필요")]
+        [SerializeField] private GameObject _costArea;
+        [SerializeField] private Image _costIcon;
+        [SerializeField] private TMP_Text _costText;
 
         public int PieceID { get; private set; }
 
@@ -108,6 +121,36 @@ namespace Lobby.Deck
             if (_stars == null) return;
             for (int i = 0; i < _stars.Length; i++)
                 if (_stars[i] != null) _stars[i].SetActive(i < grade);
+        }
+        
+        // ---- 강화창 전용 표시 ----
+        //   덱 편성에선 아무것도 안 부름 → 프리팹 기본값(꺼짐) 유지.
+
+        // 선택 강조 토글.
+        public void SetSelected(bool on)
+        {
+            if (_selectHighlight != null) _selectHighlight.SetActive(on);
+        }
+
+        // 상단 라벨 — null이면 끔.
+        public void SetStatusLabel(Sprite label)
+        {
+            bool on = label != null;
+            if (_statusTop != null) _statusTop.SetActive(on);
+            if (on && _statusImage != null) _statusImage.sprite = label;
+        }
+
+        // 하단 비용 — have/need.
+        public void SetCost(Sprite icon, int have, int need)
+        {
+            if (_costArea != null) _costArea.SetActive(true);
+            if (_costIcon != null && icon != null) _costIcon.sprite = icon;
+            if (_costText != null) _costText.text = $"{have}/{need}";
+        }
+
+        public void HideCost()
+        {
+            if (_costArea != null) _costArea.SetActive(false);
         }
     }
 }
