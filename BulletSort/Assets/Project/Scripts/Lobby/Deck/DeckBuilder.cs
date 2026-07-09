@@ -1,6 +1,7 @@
 ﻿using Core;
 using InGame.Sort.Data;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,6 +25,13 @@ namespace Lobby.Deck
         [Header("정보")]
         [Tooltip("공격 유형 보기 — i 버튼")]
         [SerializeField] private Button _attackTypeButton;
+        
+        [Header("정보 텍스트")]
+        [Tooltip("편성된 총알소녀 — (없음)/(n명)/(완료)")]
+        [SerializeField] private TMP_Text _equippedCountText;
+
+        [Tooltip("보유한 총알소녀 — (n명)")]
+        [SerializeField] private TMP_Text _ownedCountText;
 
         // 보유 카드 인스턴스 — PieceID로 찾아 편성 상태(SetInDeck) 갱신
         private readonly List<DeckCard> _ownedCards = new List<DeckCard>();
@@ -34,6 +42,7 @@ namespace Lobby.Deck
 
             InitSlots();
             BuildOwnedList();
+            RefreshCounts();
 
             if (_attackTypeButton != null)
                 _attackTypeButton.onClick.AddListener(() => PopupManager.Instance.ShowAttackType());
@@ -74,6 +83,7 @@ namespace Lobby.Deck
 
             empty.SetPiece(card.PieceID);
             card.SetInDeck(true);        // 보유 카드 잠금(편성 중 오버레이 ON)
+            RefreshCounts();
         }
 
         // PieceID로 편성 슬롯을 역추적해 해제 — 보유 카드 재터치 해제용.
@@ -86,6 +96,7 @@ namespace Lobby.Deck
                 {
                     slot.SetEmpty();
                     SetOwnedInDeck(pieceID, false);  // 보유 카드 다시 누를 수 있게
+                    RefreshCounts();
                     return;
                 }
             }
@@ -97,6 +108,7 @@ namespace Lobby.Deck
             int pieceID = slot.PieceID;
             slot.SetEmpty();
             SetOwnedInDeck(pieceID, false);  // 보유 카드 다시 누를 수 있게
+            RefreshCounts();
         }
 
         // 시작 — 6칸 다 편성됐으면 인게임 진입, 미달이면 경고(입장 불가).
@@ -150,6 +162,28 @@ namespace Lobby.Deck
             foreach (var slot in _slots)
                 if (!slot.IsEmpty && slot.PieceID == pieceID) return true;
             return false;
+        }
+        
+        // 편성·보유 수 표시 갱신. 덱 상태가 바뀔 때마다 호출.
+        //   편성: 0=없음, 1~5=n명, 6=완료(6칸 고정). 보유: 목록 카드 수(해금 미구현이라 전부 보유).
+        //   ※ 문구는 로컬라이즈 이월 — 지금은 직접 조립.
+        private void RefreshCounts()
+        {
+            if (_equippedCountText != null)
+            {
+                int equipped = 0;
+                foreach (var slot in _slots)
+                    if (!slot.IsEmpty) equipped++;
+
+                string state = equipped == 0 ? "없음"
+                    : equipped >= _slots.Length ? "완료"
+                    : $"{equipped}명";
+
+                _equippedCountText.text = $"({state})";
+            }
+
+            if (_ownedCountText != null)
+                _ownedCountText.text = $"({_ownedCards.Count}명)";
         }
     }
 }

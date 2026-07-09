@@ -1045,6 +1045,8 @@ MonoBehaviour:
   _ownedContent: {fileID: 3030378822620146928}
   _ownedCardPrefab: {fileID: 3191299268076651894, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}
   _attackTypeButton: {fileID: 6147477007693232848}
+  _equippedCountText: {fileID: 42109607005711933}
+  _ownedCountText: {fileID: 669994954510364700}
 --- !u!1 &2650600865402337299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4664,6 +4666,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
+--- !u!114 &42109607005711933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1406518769592803830, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
+  m_PrefabInstance: {fileID: 1374001581200723915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &669994954510364700 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1899714148844945367, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
+  m_PrefabInstance: {fileID: 1374001581200723915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!114 &2029957550188571743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1097387970599052180, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
