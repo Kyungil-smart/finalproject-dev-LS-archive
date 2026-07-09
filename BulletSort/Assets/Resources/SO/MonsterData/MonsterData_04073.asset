@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Normal_3_Stage2
   MonsterType: 1
   ExpTypeID: 81
-  MonsterHp: 40
-  MonsterAtk: 42
-  MonsterAtkSpeed: 1.2
-  MonsterAtkRange: 1
+  MonsterHp: 60
+  MonsterAtk: 4
+  MonsterAtkSpeed: 2.8
+  MonsterAtkRange: 0.4
   MonsterMoveSpeed: 15
-  MonsterSprite: Champion Sten 0006 (1)
+  MonsterSprite: monster_01_16

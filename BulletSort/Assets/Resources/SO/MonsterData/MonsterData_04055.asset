@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Tanker_Stage5
   MonsterType: 3
   ExpTypeID: 82
-  MonsterHp: 110
-  MonsterAtk: 75
-  MonsterAtkSpeed: 0.7
-  MonsterAtkRange: 1
-  MonsterMoveSpeed: 15
-  MonsterSprite: Ultimate ArmorKnight 05Dark (1)
+  MonsterHp: 58
+  MonsterAtk: 5
+  MonsterAtkSpeed: 3.9
+  MonsterAtkRange: 0.4
+  MonsterMoveSpeed: 8
+  MonsterSprite: monster_02_4

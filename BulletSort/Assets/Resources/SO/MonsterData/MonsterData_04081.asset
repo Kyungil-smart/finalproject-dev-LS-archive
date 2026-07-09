@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Normal_1_Stage3
   MonsterType: 1
   ExpTypeID: 81
-  MonsterHp: 45
-  MonsterAtk: 44
-  MonsterAtkSpeed: 1.2
-  MonsterAtkRange: 1
+  MonsterHp: 70
+  MonsterAtk: 4
+  MonsterAtkSpeed: 2.7
+  MonsterAtkRange: 0.4
   MonsterMoveSpeed: 15
-  MonsterSprite: Champion Shank 0057 (1)
+  MonsterSprite: monster_01_12
