@@ -61,7 +61,7 @@ namespace Core.Manager.SpawnManager
             _monsterFactory = FindFirstObjectByType(typeof(MonsterFactory)) as MonsterFactory;
             _portals = FindObjectsByType(typeof(Portal), FindObjectsSortMode.None) as Portal[]; 
             
-            if(_topPortal == null && _bottomPortal == null)
+            if(_topPortal == null || _bottomPortal == null)
             {
                foreach (Portal portal in _portals)
                {
@@ -69,10 +69,10 @@ namespace Core.Manager.SpawnManager
                   
                   else if(portal.transform.position.y < 0) _bottomPortal = portal;
                }
+            }
 
-               _topSpawnPoints = _topPortal.spawnPoints;
-               _bottomSpawnPoints = _bottomPortal.spawnPoints;
-            } 
+            _topSpawnPoints = _topPortal.spawnPoints;
+            _bottomSpawnPoints = _bottomPortal.spawnPoints;
          }
          else
          {
@@ -121,13 +121,14 @@ namespace Core.Manager.SpawnManager
 
                else
                {
-                  monsterID = groupdata.MonsterID_1 == 0 ?  groupdata.MonsterID_2 : groupdata.MonsterID_1;
+                  monsterID = groupdata.MonsterID_1 != 0 ?  groupdata.MonsterID_1 : groupdata.MonsterID_2  ;
                   
                   if(monsterID != 0) return;
                   
-                  monsterID = monsterID == 0 ?  groupdata.MonsterID_3 : groupdata.MonsterID_2;
+                  monsterID = monsterID != 0 ?  groupdata.MonsterID_2 : groupdata.MonsterID_3;
                }
                
+               if(monsterID == 0) continue;
                SpawnPoint spawnTr = RandomPoint();
                _monsterFactory.CreateMonster(spawnTr, monsterID);
             }
