@@ -157,6 +157,14 @@ namespace InGame.Sort.Data
 
         // ---- 포탑·타입 ----
 
+        // 기물 → 연결 포탑 데이터. 상세보기 스탯 표시 등에 사용. 없으면 null.
+        public static TowerData GetTower(int pieceID)
+        {
+            var piece = Get(pieceID);
+            if (piece == null) return null;
+            return DataManager.Instance.GetData<TowerData>(piece.ConnectTower);
+        }
+        
         // 기물 → 연결 포탑 ID — 타워 소환 핸들러가 조회.
         public static int GetConnectTowerID(int pieceID)
         {
@@ -167,10 +175,7 @@ namespace InGame.Sort.Data
         // 기물 → 연결 포탑 타입 — 슬롯 비주얼·덱 카드 프레임 등 '타입' 필요 지점의 단일 소스.
         public static int GetConnectTowerType(int pieceID)
         {
-            var piece = Get(pieceID);
-            if (piece == null) return 0;
-
-            var tower = DataManager.Instance.GetData<TowerData>(piece.ConnectTower);
+            var tower = GetTower(pieceID);
             return tower != null ? tower.TowerType : 0;
         }
 
