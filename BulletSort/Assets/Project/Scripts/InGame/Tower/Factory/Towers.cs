@@ -96,7 +96,17 @@ namespace Towers.Factory
                 if (!_isOverSorting)
                     yield return new WaitUntil(() => _targetDetector.target != null);
             }
-            
+            SpendAllAmmo();
+        }
+
+        private void SpendAllAmmo()
+        {
+            if (_atkCoroutine != null)
+            {
+                StopCoroutine(_atkCoroutine);
+                _atkCoroutine = null;
+            }
+
             Destroy(gameObject);
         }
 
@@ -133,8 +143,6 @@ namespace Towers.Factory
 
         private void OnDestroy()
         {
-            StopCoroutine(_atkCoroutine);
-            _atkCoroutine = null;
             _currentAmmo = 0;
             _slotTurretQueue.NotifyTurretDestroyed(this);
         }
