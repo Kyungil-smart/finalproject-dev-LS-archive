@@ -15,16 +15,16 @@ MonoBehaviour:
   TowerID: 7211
   TowerType: 2
   TowerAiType: 3
-  TowerAtk: 26
-  TowerAtkSpeed: 0.2
-  TowerMaxRange: 8
-  TowerMaxAmmo: 30
+  TowerAtk: 12
+  TowerAtkSpeed: 0.35
+  TowerMaxRange: 2
+  TowerMaxAmmo: 13
   TowerProjectile: 6001
-  ProjectileCount: 8
-  ProjectileSize: 0.15
+  ProjectileCount: 9
+  ProjectileSize: 0.05
   PiercingCount: 0
   SplashRadius: 0
   CurrentHp: 0
-  BulletSpeed: 1.5
+  BulletSpeed: 0.9
   TowerTypeText: TowerTypeText_Shotgun
   TowerName: PieceName_Shotgun

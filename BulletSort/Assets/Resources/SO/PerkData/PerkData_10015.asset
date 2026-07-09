@@ -17,7 +17,7 @@ MonoBehaviour:
   PerkName: PerkName_MaxProj_SR
   PerkDesc: PerkDesc_MaxProj_SR
   MaxLevel: 3
-  PerkRarityType: 91
+  PerkRarityType: 92
   PerkTarget: 3
   PerkTargetText: TowerTypeText_SR
   IsActive: 1

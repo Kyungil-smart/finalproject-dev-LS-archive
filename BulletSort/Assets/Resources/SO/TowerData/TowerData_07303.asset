@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   TowerID: 7303
   TowerType: 3
-  TowerAiType: 1
-  TowerAtk: 35
-  TowerAtkSpeed: 0.5
-  TowerMaxRange: 20
-  TowerMaxAmmo: 30
+  TowerAiType: 2
+  TowerAtk: 36
+  TowerAtkSpeed: 1.25
+  TowerMaxRange: 3
+  TowerMaxAmmo: 10
   TowerProjectile: 6002
   ProjectileCount: 1
-  ProjectileSize: 0.3
+  ProjectileSize: 0.05
   PiercingCount: 4
   SplashRadius: 0
   CurrentHp: 0
-  BulletSpeed: 2.5
+  BulletSpeed: 1.5
   TowerTypeText: TowerTypeText_SR
   TowerName: PieceName_SR

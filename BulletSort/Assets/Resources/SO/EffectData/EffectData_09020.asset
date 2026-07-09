@@ -18,7 +18,7 @@ MonoBehaviour:
   ShotProjCount: 0
   MaxProj: 0
   ProjSize: 0
-  ProjPiercing: 2
+  ProjPiercing: 1
   BuffType: 0
   BuffValue: 0
   IsOneOff: 0

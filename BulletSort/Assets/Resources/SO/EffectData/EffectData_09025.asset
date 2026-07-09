@@ -20,6 +20,6 @@ MonoBehaviour:
   ProjSize: 0
   ProjPiercing: 0
   BuffType: 3
-  BuffValue: 0.2
+  BuffValue: 0.3
   IsOneOff: 0
   Duration: 0

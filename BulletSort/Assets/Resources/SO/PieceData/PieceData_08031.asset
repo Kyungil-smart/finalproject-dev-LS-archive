@@ -21,3 +21,4 @@ MonoBehaviour:
   PieceCartoon: Image_Cartoon_Serin_02
   PieceDetailIllust: Image_Serin_02
   PiecePortrait: Character_Sprite_03_0
+  UpgradeCost: 300
