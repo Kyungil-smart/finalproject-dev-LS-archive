@@ -90,12 +90,12 @@ namespace InGame.Sort.Data
             return SpriteTable.GetByName(data.PieceSprite);
         }
 
-        // 덱 카드 초상화 — 전용 컬럼 부재로 임시로 PieceCartoon 차용. 컬럼 도착 시 이 한 줄만 교체.
+        // 덱 카드 초상화
         public static Sprite GetPortrait(int pieceID)
         {
             var data = Get(pieceID);
             if (data == null || SpriteTable == null) return null;
-            return SpriteTable.GetByName(data.PieceCartoon);
+            return SpriteTable.GetByName(data.PiecePortrait);
         }
 
         // 캐릭터 이미지(강화창용) — PieceData.PieceCartoon 이름을 SpriteTable에서 변환. 소비처는 추후.
