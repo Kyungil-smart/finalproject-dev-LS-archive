@@ -1,20 +1,20 @@
 int,string,int,int,int,int,int,int,int,string,string,string,*,,string,,칼럼 설명,,,,
 StageID,StageName,WaveDataID,MonsterGroupID_Normal,MonsterGroupID_Speedy,MonsterGroupID_Tanker,BossID,WaveReward,StageReward,StageIcon,BGID,INGameBG,*,최대 획득 골드,Desc,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
 01001,StageName_1,02001,11011,11012,11013,04901,100,10,Image_Stage_Board_0,Background_Lobby_1,Background_Stage_1,*,900,1스테이지 _ 게임 조작과 클리어 조건 튜토리얼,,StageID,PK,,스테이지의 고유 식별 ID. 스테이지 버튼을 눌렀을 때 해당 스테이지의 정보를 불러오기 위함.,P1
-01002,StageName_2,02001,11021,11022,11023,04902,100,20,Image_Stage_Board_1,Background_Lobby_2,Background_Stage_2,*,900,.,,StageName,FK,Localize.Key,스테이지의 이름. 로컬라이즈 필요,P3
-01003,StageName_3,02001,11031,11032,11033,04903,120,30,Image_Stage_Board_2,Background_Lobby_3,Background_Stage_3,*,1080,.,,WaveDataID,FK,WaveData.WaveID,보스 웨이브를 제외한 웨이브 순서 정보.,P1
-01004,StageName_4,02001,11041,11042,11043,04904,120,40,Image_Stage_Board_4,Background_Lobby_4,Background_Stage_4,*,1080,,,MonsterGroupID_Normal,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 일반 몬스터들의 후보,P1
-01005,StageName_5,02001,11051,11052,11053,04905,150,80,Image_Stage_Board_3,Background_Lobby_5,Background_Stage_5,*,1350,,,MonsterGroupID_Speedy,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 속도 강화 몬스터들의 후보,P2
-01006,StageName_6,02001,11061,11062,11063,04906,240,100,Image_Stage_Board_0,Background_Lobby_1,Background_Stage_1,*,2160,,,MonsterGroupID_Tanker,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 체력 강화 몬스터들의 후보,P2
-01007,StageName_7,02001,11071,11072,11073,04907,260,110,Image_Stage_Board_1,Background_Lobby_2,Background_Stage_2,*,2340,,,BossID,FK,MonsterData.MonsterID,마지막인 10 웨이브에서 나올 보스 몬스터 정보.,P2
-01008,StageName_8,02001,11081,11082,11083,04908,280,120,Image_Stage_Board_2,Background_Lobby_3,Background_Stage_3,*,2520,,,WaveReward,,,웨이브를 클리어했을 때 주는 재화 수 (골드),P3
-01009,StageName_9,02001,11091,11092,11093,04909,300,130,Image_Stage_Board_4,Background_Lobby_4,Background_Stage_4,*,2700,,,StageReward,,,스테이지를 클리어했을 때 주는 재화 수 (스타더스트),P3
-01010,StageName_10,02001,11101,11102,11103,04910,350,160,Image_Stage_Board_3,Background_Lobby_5,Background_Stage_5,*,3150,,,StageIcon,FK,Resource.ResourceKey,스테이지의 맵 아이콘.,P4
-01011,StageName_11,02001,11111,11112,11113,04911,450,180,Image_Stage_Board_0,Background_Lobby_1,Background_Stage_1,*,4050,,,BGID,FK,Resource.ResourceKey,스테이지의 로비 배경 이미지.,P3
-01012,StageName_12,02001,11121,11122,11123,04912,500,200,Image_Stage_Board_1,Background_Lobby_2,Background_Stage_2,*,4500,,,INGameBG,FK,Resource.ResourceKey,스테이지의 인게임 배경 이미지.,P4
-01013,StageName_13,02001,11131,11132,11133,04913,550,220,Image_Stage_Board_2,Background_Lobby_3,Background_Stage_3,*,4950,,,Desc,,,시트에서 데이터 부연설명을 위한 칼럼으로 인게임에서 사용되지 않음.,P4
-01014,StageName_14,02001,11141,11142,11143,04914,600,250,Image_Stage_Board_4,Background_Lobby_4,Background_Stage_4,*,5400,,,,,,,
-01015,StageName_15,02001,11151,11152,11153,04915,700,300,Image_Stage_Board_3,Background_Lobby_5,Background_Stage_5,*,6300,,,알림,,,,
+01002,StageName_2,02001,11021,11022,11023,04902,120,20,Image_Stage_Board_1,Background_Lobby_2,Background_Stage_2,*,1080,.,,StageName,FK,Localize.Key,스테이지의 이름. 로컬라이즈 필요,P3
+01003,StageName_3,02001,11031,11032,11033,04903,140,30,Image_Stage_Board_2,Background_Lobby_3,Background_Stage_3,*,1260,.,,WaveDataID,FK,WaveData.WaveID,보스 웨이브를 제외한 웨이브 순서 정보.,P1
+01004,StageName_4,02001,11041,11042,11043,04904,160,60,Image_Stage_Board_4,Background_Lobby_4,Background_Stage_4,*,1440,,,MonsterGroupID_Normal,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 일반 몬스터들의 후보,P1
+01005,StageName_5,02001,11051,11052,11053,04905,300,100,Image_Stage_Board_3,Background_Lobby_5,Background_Stage_5,*,2700,,,MonsterGroupID_Speedy,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 속도 강화 몬스터들의 후보,P2
+01006,StageName_6,02001,11061,11062,11063,04906,400,120,Image_Stage_Board_0,Background_Lobby_1,Background_Stage_1,*,3600,,,MonsterGroupID_Tanker,FK,MonsterGroupData.MonsterGroupID,해당 스테이지에 나오는 체력 강화 몬스터들의 후보,P2
+01007,StageName_7,02001,11071,11072,11073,04907,500,150,Image_Stage_Board_1,Background_Lobby_2,Background_Stage_2,*,4500,,,BossID,FK,MonsterData.MonsterID,마지막인 10 웨이브에서 나올 보스 몬스터 정보.,P2
+01008,StageName_8,02001,11081,11082,11083,04908,550,200,Image_Stage_Board_2,Background_Lobby_3,Background_Stage_3,*,4950,,,WaveReward,,,웨이브를 클리어했을 때 주는 재화 수 (골드),P3
+01009,StageName_9,02001,11091,11092,11093,04909,600,250,Image_Stage_Board_4,Background_Lobby_4,Background_Stage_4,*,5400,,,StageReward,,,스테이지를 클리어했을 때 주는 재화 수 (스타더스트),P3
+01010,StageName_10,02001,11101,11102,11103,04910,750,300,Image_Stage_Board_3,Background_Lobby_5,Background_Stage_5,*,6750,,,StageIcon,FK,Resource.ResourceKey,스테이지의 맵 아이콘.,P4
+01011,StageName_11,02001,11111,11112,11113,04911,800,400,Image_Stage_Board_0,Background_Lobby_1,Background_Stage_1,*,7200,,,BGID,FK,Resource.ResourceKey,스테이지의 로비 배경 이미지.,P3
+01012,StageName_12,02001,11121,11122,11123,04912,950,500,Image_Stage_Board_1,Background_Lobby_2,Background_Stage_2,*,8550,,,INGameBG,FK,Resource.ResourceKey,스테이지의 인게임 배경 이미지.,P4
+01013,StageName_13,02001,11131,11132,11133,04913,1150,700,Image_Stage_Board_2,Background_Lobby_3,Background_Stage_3,*,10350,,,Desc,,,시트에서 데이터 부연설명을 위한 칼럼으로 인게임에서 사용되지 않음.,P4
+01014,StageName_14,02001,11141,11142,11143,04914,1400,900,Image_Stage_Board_4,Background_Lobby_4,Background_Stage_4,*,12600,,,,,,,
+01015,StageName_15,02001,11151,11152,11153,04915,1700,1200,Image_Stage_Board_3,Background_Lobby_5,Background_Stage_5,*,15300,,,알림,,,,
 ,,,,,,,,,,,,*,,,,"같은 테마를 공유하는 스테이지끼리는 같은 웨이브 데이터를 사용하고, 몬스터 그룹 정보를 바꿔서 스테이지를 양산한다.",,,,
 ,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,
