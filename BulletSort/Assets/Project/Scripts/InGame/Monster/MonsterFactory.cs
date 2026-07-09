@@ -26,10 +26,12 @@ namespace Monster.Factory
 
             instance.name = monsterData.name;
             instance.tag = "Monster";
-            GameObject child = Instantiate(new GameObject(), instance.transform);
-            SpriteRenderer sprite = child.AddComponent<SpriteRenderer>();
 
+            GameObject child = new GameObject();
+            child.transform.SetParent(instance.transform); 
+            SpriteRenderer sprite = child.AddComponent<SpriteRenderer>();
             sprite.sprite = _monsterSpriteTable.GetByName(monsterData.MonsterSprite);
+            child.name = monsterData.MonsterSprite;
             
             if(sprite.sprite!= null)
                 sprite.sortingLayerName = "Monster";
@@ -51,6 +53,7 @@ namespace Monster.Factory
             SpriteRenderer sprite = child.AddComponent<SpriteRenderer>();
 
             sprite.sprite = _monsterSpriteTable.GetByName(bossData.MonsterSprite);
+            child.name = bossData.MonsterSprite;
             
             if(sprite.sprite!= null)
                 sprite.sortingLayerName = "Monster";

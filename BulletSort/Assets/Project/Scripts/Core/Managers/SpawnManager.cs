@@ -111,6 +111,8 @@ namespace Core.Manager.SpawnManager
 
       public void SpawnMonster(int monsterGroupID, int spawnCount)
       {
+         if(spawnCount == 0) return;
+         
          MonsterGroupData groupdata = DataManager.Instance.GetData<MonsterGroupData>(monsterGroupID);
          {
             for (int i = 0; i < spawnCount; i++)
