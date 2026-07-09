@@ -21,3 +21,4 @@ MonoBehaviour:
   PieceCartoon: Image_Cartoon_Lily_02
   PieceDetailIllust: Image_Lily_02
   PiecePortrait: Character_Sprite_03_5
+  UpgradeCost: 1800

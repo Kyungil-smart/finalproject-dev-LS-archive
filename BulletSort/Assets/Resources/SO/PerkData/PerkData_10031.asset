@@ -17,7 +17,7 @@ MonoBehaviour:
   PerkName: PerkName_Heal_Slot
   PerkDesc: PerkDesc_Heal_Slot
   MaxLevel: 1
-  PerkRarityType: 92
+  PerkRarityType: 91
   PerkTarget: 7
   PerkTargetText: 0
   IsActive: 1

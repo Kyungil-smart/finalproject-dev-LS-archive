@@ -19,7 +19,7 @@ namespace Towers.Struct.TowerInfo
         private float _towerAtkSpeed;
 
         // 사거리
-        private int _towerMaxLange;
+        private float _towerMaxLange;
 
         private int _towerMaxAmmo;
 
@@ -44,7 +44,7 @@ namespace Towers.Struct.TowerInfo
         public int TowerAIType => _towerAIType;
         public int TowerAtk => _towerAtk;
         public float TowerAtkSpeed => _towerAtkSpeed;
-        public int TowerMaxLange => _towerMaxLange;
+        public float TowerMaxLange => _towerMaxLange;
         public int TowerMaxAmmo => _towerMaxAmmo;
 
         public int PiercingCount => _piercingCount;

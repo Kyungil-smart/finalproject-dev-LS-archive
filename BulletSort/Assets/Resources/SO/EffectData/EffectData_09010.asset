@@ -15,7 +15,7 @@ MonoBehaviour:
   EffectID: 9010
   ATK: 0
   ATKSpeed: 0
-  ShotProjCount: 3
+  ShotProjCount: 1
   MaxProj: 0
   ProjSize: 0
   ProjPiercing: 0

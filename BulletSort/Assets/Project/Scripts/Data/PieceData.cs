@@ -12,4 +12,5 @@ public partial class PieceData : ScriptableObject
     public string PieceCartoon;
     public string PieceDetailIllust;
     public string PiecePortrait;
+    public int UpgradeCost;
 }

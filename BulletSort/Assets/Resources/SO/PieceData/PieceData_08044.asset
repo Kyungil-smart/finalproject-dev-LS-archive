@@ -21,3 +21,4 @@ MonoBehaviour:
   PieceCartoon: Image_Cartoon_Yujin_02
   PieceDetailIllust: Image_Yujin_02
   PiecePortrait: Character_Sprite_03_4
+  UpgradeCost: 1600

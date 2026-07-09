@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RarityData
   PerkRarityID: 94
   PerkRarityName: PerkRarityName_Legend
-  Weight: 0
+  Weight: 5
   PerkPanelCard: Skill_Panel-3
   PerkIconBG: Image_Icon_Large_11

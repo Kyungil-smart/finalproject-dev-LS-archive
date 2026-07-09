@@ -21,3 +21,4 @@ MonoBehaviour:
   PieceCartoon: Image_Cartoon_Garbi_01
   PieceDetailIllust: Image_Gabi_01
   PiecePortrait: Character_Sprite_02_1
+  UpgradeCost: 300

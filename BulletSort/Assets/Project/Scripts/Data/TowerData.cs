@@ -8,7 +8,7 @@ public partial class TowerData : ScriptableObject
     public int TowerAiType;
     public int TowerAtk;
     public float TowerAtkSpeed;
-    public int TowerMaxRange;
+    public float TowerMaxRange;
     public int TowerMaxAmmo;
     public int TowerProjectile;
     public int ProjectileCount;

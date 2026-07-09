@@ -21,3 +21,4 @@ MonoBehaviour:
   PieceCartoon: Image_Cartoon_Yueun_02
   PieceDetailIllust: Image_Yueun_02
   PiecePortrait: Character_Sprite_03_3
+  UpgradeCost: 1600

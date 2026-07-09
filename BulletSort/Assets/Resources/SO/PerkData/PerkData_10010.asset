@@ -17,7 +17,7 @@ MonoBehaviour:
   PerkName: PerkName_ShotProjCountUP_Shotgun
   PerkDesc: PerkDesc_ShotProjCountUP_Shotgun
   MaxLevel: 3
-  PerkRarityType: 93
+  PerkRarityType: 94
   PerkTarget: 2
   PerkTargetText: TowerTypeText_Shotgun
   IsActive: 1

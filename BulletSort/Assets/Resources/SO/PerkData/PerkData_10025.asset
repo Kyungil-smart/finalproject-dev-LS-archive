@@ -17,7 +17,7 @@ MonoBehaviour:
   PerkName: PerkName_MaxProj_Boomer
   PerkDesc: PerkDesc_MaxProj_Boomer
   MaxLevel: 3
-  PerkRarityType: 91
+  PerkRarityType: 92
   PerkTarget: 5
   PerkTargetText: TowerTypeText_Boomer
   IsActive: 1

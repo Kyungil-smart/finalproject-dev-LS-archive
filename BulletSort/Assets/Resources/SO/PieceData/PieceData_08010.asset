@@ -21,3 +21,4 @@ MonoBehaviour:
   PieceCartoon: Image_Cartoon_Doi_01
   PieceDetailIllust: Image_Doi_01
   PiecePortrait: Character_Sprite_02_2
+  UpgradeCost: 500

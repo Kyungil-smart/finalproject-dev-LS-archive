@@ -19,8 +19,8 @@ MonoBehaviour:
   MonsterGroupID_Speedy: 11042
   MonsterGroupID_Tanker: 11043
   BossID: 4904
-  WaveReward: 120
-  StageReward: 40
+  WaveReward: 160
+  StageReward: 60
   StageIcon: Image_Stage_Board_4
   BGID: Background_Lobby_4
   INGameBG: Background_Stage_4
