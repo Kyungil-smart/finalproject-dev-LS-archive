@@ -1,0 +1,1443 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LocalizationTable_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 846d8c90e966e8448b163bc78f5b6d99, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 7930798571520
+    m_Localized: Mysterious monsters\nare threatening the world.\nMatch the Bullet
+      Girls\nand defeat the monsters.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930798571521
+    m_Localized: Match Bullet Girls\nof the same type!!\nAttack enemies\nwith their
+      power.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930798571522
+    m_Localized: Match all Bullet Girls\nto trigger Popping Blast!!\nHit all enemies\nwith
+      a powerful blast.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960128
+    m_Localized: Choose perks during battle\nto power up!!\nPerks appear based on\nyour
+      Bullet Girls.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960129
+    m_Localized: Normal and Elite monsters\nwill appear.\nA powerful Boss awaits\nat
+      the end of the stage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960130
+    m_Localized: Earn Gold for upgrades,\nand Stardust Cores\nfor unlocks.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960131
+    m_Localized: Place your Bullet Girls\nin the Deck.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960132
+    m_Localized: Build a deck\nwith your Bullet Girls.\nYou can use\n6 different
+      girls.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960133
+    m_Localized: Check the\nBullet Girls' attack types.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960135
+    m_Localized: In Upgrade,\nyou can unlock\nand upgrade Bullet Girls.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960136
+    m_Localized: Use Stardust Cores\nto power up\nyour Bullet Girls.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960138
+    m_Localized: Check Bullet Girls\nthat have been\nupgraded.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960139
+    m_Localized: Next>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960140
+    m_Localized: End
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960142
+    m_Localized: '[ERROR]An unknown error has occurred.\nCODE:100<Exit>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960143
+    m_Localized: '[Exit]Quit the game?<Confirm><Cancel>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960144
+    m_Localized: '[Notice]Your party is incomplete.\nAssign 6 characters.<OK>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960145
+    m_Localized: '[Notice]Not enough currency.<OK>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960146
+    m_Localized: '[Notice]View the tutorial?<Confirm><Cancel>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960147
+    m_Localized: '[Notice]This stage is locked.<OK>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960148
+    m_Localized: '[Notice]Connection lost.<Exit>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960149
+    m_Localized: '[Notice]Upgrade\nthis Bullet Girl?<Confirm>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960150
+    m_Localized: '[Notice]Give up and\nreturn to the lobby?<Leave><Cancel>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960151
+    m_Localized: '[Notice]Upgrade complete.<OK>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960152
+    m_Localized: '[Notice]Unlock this Bullet Girl?<Confirm>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960153
+    m_Localized: '[Notice]Bullet Girl unlocked.<OK>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960154
+    m_Localized: '[Notice]This Bullet Girl is already at max level.<OK>'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960155
+    m_Localized: Loading data...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960157
+    m_Localized: Tap to Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960158
+    m_Localized: "Loading... ({LoadingProgress}%)\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960160
+    m_Localized: Battle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960161
+    m_Localized: '{StageData.StageName}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960162
+    m_Localized: Start!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960163
+    m_Localized: <Battle><Deck><Upgrade><Settings>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960164
+    m_Localized: Clear the previous stage first.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960165
+    m_Localized: Deck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960166
+    m_Localized: Selected Bullet Girls (None)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960167
+    m_Localized: Selected Bullet Girls ({0}/6)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960168
+    m_Localized: Selected Bullet Girls (Full)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960169
+    m_Localized: Owned Bullet Girls ({0})
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960170
+    m_Localized: Unowned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960171
+    m_Localized: <color=blue> In Deck </color>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960172
+    m_Localized: Sort
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960173
+    m_Localized: Attack Types
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960174
+    m_Localized: Standard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960175
+    m_Localized: A well-rounded Bullet Girl with balanced stats and no major weaknesses.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960176
+    m_Localized: Breacher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960177
+    m_Localized: A Bullet Girl who fires wide-spreading shots at nearby enemies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960178
+    m_Localized: Marksman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960179
+    m_Localized: A Bullet Girl specialized in taking down pesky enemies from afar.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960180
+    m_Localized: Anti-Armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960181
+    m_Localized: "Leave tough enemies to this Bullet Girl. Even heavy armor won\u2019t
+      last long."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960182
+    m_Localized: Demolition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960183
+    m_Localized: Wipes out enemies in a wide area with a single blast. Enjoy the
+      satisfying AoE damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960184
+    m_Localized: Support
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960185
+    m_Localized: A Bullet Girl with low firepower, but grants beneficial effects
+      to allies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960186
+    m_Localized: <OK>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960187
+    m_Localized: Filter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960188
+    m_Localized: All
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960189
+    m_Localized: Owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960190
+    m_Localized: Unowned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960191
+    m_Localized: All Types
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960192
+    m_Localized: Standard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960193
+    m_Localized: Breacher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960194
+    m_Localized: Marksman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960195
+    m_Localized: Anti-Armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960196
+    m_Localized: Demolition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960197
+    m_Localized: Support
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960198
+    m_Localized: <OK>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960199
+    m_Localized: Bullet Girl Details
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960200
+    m_Localized: Illustration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960201
+    m_Localized: Assign
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154432
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154433
+    m_Localized: '{PieceData.PieceName}Lv{PieceData.PieceLv}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154434
+    m_Localized: 'Type : {TowerData.TowerTypeName}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154435
+    m_Localized: 'Stars : {PieceData.PieceGrade}Star'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154436
+    m_Localized: 'Damage : {TowerData.TowerAtk}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154437
+    m_Localized: 'Magazine : {TowerData.TowerMaxAmmo}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154438
+    m_Localized: 'Range : {TowerData.TowerMaxRange}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154439
+    m_Localized: 'Fire Interval : {TowerData.TowerAtkSpeed}s'
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862264
+  - m_Id: 7930811154440
+    m_Localized: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154441
+    m_Localized: Owned Bullet Girls ({0})
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154442
+    m_Localized: '{PieceData.PieceName}({PieceData.PieceGrade}Star)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154443
+    m_Localized: "Lv{PieceData.PieceLv} \u2192 <color=green> {NextPieceLv} </color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154444
+    m_Localized: Lv Max
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154445
+    m_Localized: 'Type: {TowerTypeName}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154446
+    m_Localized: Magazine:{TowerData.TowerMaxAmmo}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154447
+    m_Localized: "Damage: {TowerData.TowerAtk} \u2192 <color=green> {NextTowerAtk}
+      </color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154448
+    m_Localized: "Range: {TowerData.TowerMaxRange} \u2192 <color=green> {NextTowerMaxRange}
+      </color>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154449
+    m_Localized: "Fire Interval : {TowerData.TowerAtkSpeed}s \u2192 <color=green>
+      {NextTowerAtkSpeed}s </color>"
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862265
+  - m_Id: 7930811154450
+    m_Localized: '{RuntimeData.OwnedGold}/{UpgradeCostData.UpgradeCost}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154451
+    m_Localized: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154452
+    m_Localized: "Level Up \u2191"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154453
+    m_Localized: Selected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154454
+    m_Localized: Unowned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154455
+    m_Localized: SALE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154456
+    m_Localized: Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154457
+    m_Localized: Lv{PieceData.PieceLv}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154458
+    m_Localized: 'Damage : {TowerData.TowerAtk}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154459
+    m_Localized: 'Range : {TowerData.TowerMaxRange}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154460
+    m_Localized: 'Fire Interval : {TowerData.TowerAtkSpeed}s'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154461
+    m_Localized: '{RuntimeData.OwnedStardust}/{UpgradeCostData.UpgradeCost}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154462
+    m_Localized: Unlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154463
+    m_Localized: This Bullet Girl is already at max level.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154464
+    m_Localized: Not enough Stardust.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154465
+    m_Localized: Unlock the lower-star Bullet Girl first.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154466
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154467
+    m_Localized: BGM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154468
+    m_Localized: SOUND
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154469
+    m_Localized: 'Language : English'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154470
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154471
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154472
+    m_Localized: Korean
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154473
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154474
+    m_Localized: Japanese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154475
+    m_Localized: <Apply><Cancel>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154476
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154477
+    m_Localized: Main Director\nMinsu Kim\n\nProject Manager\nJihyeong Chae\n\nPrograming
+      Team Leader\nLEE SEONGGYU\n\nMain UI/UX & Art\nBeomjin Kim\n\nPrograming\nKIM
+      KYEONGMIN\nAHN JEONG YEON\nLEE SEONGGYU\n\nGame Design\nMinsu Kim\nJihyeong
+      Chae\nBeomjin Kim\nSoyoung Im\nBumbleb2 (Sion Kim)\nDongwoo Lee\nJongho Oh\nJubin
+      Bae\nSundong Choi\n\nGame Sound\nJubin Bae\n\nSpecial Thanks\nBuild 051\n\nManaged
+      by\nUnicON\n\nSponsored by\nDEVELROCKET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154478
+    m_Localized: <OK>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154480
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154481
+    m_Localized: Stage Results
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154482
+    m_Localized: Play Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154483
+    m_Localized: Time\n{ResultData.PlayTime}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154484
+    m_Localized: Waves Cleared\n{ResultData.ClearedWave}/{StageData.MaxWave}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154485
+    m_Localized: Monsters\n{ResultData.KillCount}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154486
+    m_Localized: Slots Intact\n{ResultData.SurvivingSlotCount}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154487
+    m_Localized: Slots Destroyed\n{ResultData.DestroyedSlotCount}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154488
+    m_Localized: Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154489
+    m_Localized: Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154490
+    m_Localized: Rewards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154491
+    m_Localized: '{StageData.WaveReward}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154492
+    m_Localized: Return to Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154493
+    m_Localized: AD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154494
+    m_Localized: Stage Complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154495
+    m_Localized: '{StageData.WaveReward}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154496
+    m_Localized: '{StageData.StageReward}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154497
+    m_Localized: Perfect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154498
+    m_Localized: Game Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154499
+    m_Localized: Wave {RuntimeData.ClearedWave+1}/10
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862266
+  - m_Id: 7930811154500
+    m_Localized: Rush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154501
+    m_Localized: Boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154502
+    m_Localized: Active Bullet Girls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154503
+    m_Localized: SELECT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154504
+    m_Localized: Lv{PieceData.PieceLv} {PieceData.PieceName}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154505
+    m_Localized: 'Damage : {RuntimeData.ATK}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154506
+    m_Localized: 'Magazine : {RuntimeData.MaxProj}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154507
+    m_Localized: 'Range : {RuntimeData.Range}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154508
+    m_Localized: 'Fire Interval : {RuntimeData.ATKSpeed}s'
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862267
+  - m_Id: 7930811154509
+    m_Localized: Selected Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154510
+    m_Localized: Lv{RuntimeData.PerkLv}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154511
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154512
+    m_Localized: Return to Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154513
+    m_Localized: Bullet Girl Prep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154514
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154515
+    m_Localized: Owned Perks ({RuntimeData.CurrentPerkCount})
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154516
+    m_Localized: Next Wave {RuntimeData.ClearedWave+1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154517
+    m_Localized: 'Rerolls Left : {RuntimeData.RerollCount}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154518
+    m_Localized: Reroll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154519
+    m_Localized: Choose a Perk ({RuntimeData.PerkChoiceCompletedCount}/{RuntimeData.PerkChoiceTotalCount})
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154520
+    m_Localized: '{PerkData.PerkName} Lv1'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154521
+    m_Localized: "{PerkData.PerkName} Lv{RuntimeData.PerkLv} \u2192<color=green>
+      {RuntimeData.PerkLv+1} </color> "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154522
+    m_Localized: '{PerkData.PerkDesc}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154523
+    m_Localized: 'Rarity: {RarityData.PerkRarityName}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154524
+    m_Localized: '{PerkData.PerkTargetText}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154525
+    m_Localized: Choose Perks (None)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154526
+    m_Localized: No perks available.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154527
+    m_Localized: Start Wave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154528
+    m_Localized: Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154529
+    m_Localized: Normal DMG
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862268
+  - m_Id: 7930811154530
+    m_Localized: Boss DMG
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862269
+  - m_Id: 7930811154531
+    m_Localized: Lv{PieceData.PieceLv} {PieceData.PieceName}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154532
+    m_Localized: 'Damage : {ResultData.TotalDamage} ({ResultData.DamageRate}%)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154533
+    m_Localized: 'Kills : {ResultData.KillCount} ({ResultData.KillRate}%)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154534
+    m_Localized: 'Healing : {ResultData.HealAmount} ({ResultData.HealRate}%)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154535
+    m_Localized: <OK>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154536
+    m_Localized: Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154537
+    m_Localized: Active Bullet Girls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154538
+    m_Localized: <OK>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154539
+    m_Localized: Perk Details
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154540
+    m_Localized: '{PerkData.PerkName} Lv{PerkData.PerkLv}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154541
+    m_Localized: '{PerkData.PerkDesc}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154542
+    m_Localized: '{PerkData.PerkTargetText}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154543
+    m_Localized: 'Rarity: {RarityData.PerkRarityName}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154544
+    m_Localized: <OK>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154545
+    m_Localized: Legend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154546
+    m_Localized: Unique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154547
+    m_Localized: Rare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154548
+    m_Localized: Normal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154549
+    m_Localized: Standard Firepower Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154550
+    m_Localized: Standard Fire Rate Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154551
+    m_Localized: Standard Multi-Shot Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154552
+    m_Localized: Standard Magazine Capacity Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154553
+    m_Localized: Standard Projectile Size Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154554
+    m_Localized: Standard Piercing Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154555
+    m_Localized: Standard Blast Radius Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154556
+    m_Localized: Breacher Firepower Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154557
+    m_Localized: Breacher Fire Rate Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154558
+    m_Localized: Breacher Multi-Shot Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154559
+    m_Localized: Breacher Magazine Capacity Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154560
+    m_Localized: Breacher Blast Radius Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154561
+    m_Localized: Anti-Armor Firepower Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154562
+    m_Localized: Anti-Armor Fire Rate Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154563
+    m_Localized: Anti-Armor Magazine Capacity Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154564
+    m_Localized: Anti-Armor Projectile Size Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154565
+    m_Localized: Marksman Firepower Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154566
+    m_Localized: Marksman Fire Rate Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154567
+    m_Localized: Marksman Magazine Capacity Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154568
+    m_Localized: Marksman Piercing Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154569
+    m_Localized: Marksman Blast Radius Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154570
+    m_Localized: Support Firepower Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154571
+    m_Localized: Support Fire Rate Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154572
+    m_Localized: Support Magazine Capacity Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154573
+    m_Localized: Support Healing Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154574
+    m_Localized: Demolition Firepower Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154575
+    m_Localized: Demolition Fire Rate Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154576
+    m_Localized: Demolition Multi-Shot Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154577
+    m_Localized: Demolition Magazine Capacity Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154578
+    m_Localized: Demolition Blast Radius Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154579
+    m_Localized: Instant Slot Recovery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154580
+    m_Localized: Slot Max HP Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154581
+    m_Localized: Temporary Fire Rate Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154582
+    m_Localized: Temporary Slot Invincibility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154583
+    m_Localized: Combo Damage Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154584
+    m_Localized: Increases Standard attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862270
+  - m_Id: 7930811154585
+    m_Localized: Standard fire interval becomes <color=green>{EffectData.ATKSpeed}</color>x
+      faster.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154586
+    m_Localized: Increases Standard projectile count by {RuntimeData.ShotProjCount}
+      + <color=green>{EffectData.ShotProjCount}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154587
+    m_Localized: Increases Standard magazine capacity by {RuntimeData.MaxProj} +
+      <color=green>{EffectData.MaxProj}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154588
+    m_Localized: Increases Standard projectile size by {RuntimeData.ProjSize} + <color=green>{EffectData.ProjSize}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154589
+    m_Localized: Increases Standard piercing by {RuntimeData.ProjPiercing} + <color=green>{EffectData.ProjPiercing}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154590
+    m_Localized: Increases Standard blast radius by {RuntimeData.BuffType.BoomArea}
+      + <color=green>{EffectData.BuffType.BoomArea}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154591
+    m_Localized: Increases Breacher attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154592
+    m_Localized: Breacher fire interval becomes <color=green>{EffectData.ATKSpeed}</color>x
+      faster.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154593
+    m_Localized: Increases Breacher projectile count by {RuntimeData.ShotProjCount}
+      + <color=green>{EffectData.ShotProjCount}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154594
+    m_Localized: Increases Breacher magazine capacity by {RuntimeData.MaxProj} +
+      <color=green>{EffectData.MaxProj}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154595
+    m_Localized: Increases Breacher blast radius by {RuntimeData.BuffType.BoomArea}
+      + <color=green>{EffectData.BuffType.BoomArea}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154596
+    m_Localized: Increases Anti-Armor attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154597
+    m_Localized: Anti-Armor fire interval becomes <color=green>{EffectData.ATKSpeed}</color>x
+      faster.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154598
+    m_Localized: Increases Anti-Armor magazine capacity by {RuntimeData.MaxProj}
+      + <color=green>{EffectData.MaxProj}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154599
+    m_Localized: Increases Anti-Armor projectile size by {RuntimeData.ProjSize} +
+      <color=green>{EffectData.ProjSize}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154600
+    m_Localized: Increases Marksman attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154601
+    m_Localized: Marksman fire interval becomes <color=green>{EffectData.ATKSpeed}</color>x
+      faster.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154602
+    m_Localized: Increases Marksman magazine capacity by {RuntimeData.MaxProj} +
+      <color=green>{EffectData.MaxProj}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154603
+    m_Localized: Increases Marksman piercing by {RuntimeData.ProjPiercing} + <color=green>{EffectData.ProjPiercing}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154604
+    m_Localized: Increases Marksman blast radius by {RuntimeData.BuffType.BoomArea}
+      + <color=green>{EffectData.BuffType.BoomArea}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154605
+    m_Localized: Increases Support attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154606
+    m_Localized: Support fire interval becomes <color=green>{EffectData.ATKSpeed}</color>x
+      faster.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154607
+    m_Localized: Increases Support magazine capacity by {RuntimeData.MaxProj} + <color=green>{EffectData.MaxProj}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154608
+    m_Localized: Increases Support healing by {RuntimeData.BuffType.Heal} + <color=green>{EffectData.BuffType.Heal}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154609
+    m_Localized: Increases Demolition attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154610
+    m_Localized: Demolition fire interval becomes <color=green>{EffectData.ATKSpeed}</color>x
+      faster.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154611
+    m_Localized: Increases Demolition projectile count by {RuntimeData.ShotProjCount}
+      + <color=green>{EffectData.ShotProjCount}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154612
+    m_Localized: Increases Demolition magazine capacity by {RuntimeData.MaxProj}
+      + <color=green>{EffectData.MaxProj}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154613
+    m_Localized: Increases Demolition blast radius by {RuntimeData.BuffType.BoomArea}
+      + <color=green>{EffectData.BuffType.BoomArea}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154614
+    m_Localized: Instantly restores <color=green>{EffectData.BuffType.Heal}%</color>
+      HP to all slots.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154615
+    m_Localized: Increases all slot max HP by {RuntimeData.SlotMaxHP} + <color=green>{EffectData.BuffType.HP}</color>.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154616
+    m_Localized: For {EffectData.Duration}s, all turrets fire <color=green>{EffectData.ATKSpeed}</color>x
+      faster.
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862271
+  - m_Id: 7930811154617
+    m_Localized: Makes all slots invincible for <color=green>{EffectData.Duration}</color>
+      seconds.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154618
+    m_Localized: Adds {RuntimeData.BuffValue} + <color=green>{EffectData.BuffValue}</color>
+      bonus damage whenever a combo reaches a multiple of 10.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154619
+    m_Localized: Standard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154620
+    m_Localized: Breacher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154621
+    m_Localized: Anti-Armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154622
+    m_Localized: Marksman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154623
+    m_Localized: Support
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154624
+    m_Localized: Demolition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154625
+    m_Localized: Standard
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862272
+  - m_Id: 7930811154626
+    m_Localized: Breacher
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862273
+  - m_Id: 7930811154627
+    m_Localized: Marksman
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862274
+  - m_Id: 7930811154628
+    m_Localized: Anti-Armor
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862275
+  - m_Id: 7930811154629
+    m_Localized: Demolition
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862276
+  - m_Id: 7930811154630
+    m_Localized: Support
+    m_Metadata:
+      m_Items:
+      - rid: 6364978420121862277
+  - m_Id: 7930811154631
+    m_Localized: Forgotten Ruins Diorama
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154632
+    m_Localized: Shallow Sea Diorama
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154633
+    m_Localized: Burning Room Corner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154634
+    m_Localized: A Glowing Room Corner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154635
+    m_Localized: Sticky Basement Floor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154636
+    m_Localized: Forgotten Ruins Diorama_Hard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154637
+    m_Localized: Shallow Sea Diorama_Hard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154638
+    m_Localized: Burning Room Corner_Hard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154639
+    m_Localized: A Glowing Room Corner_Hard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154640
+    m_Localized: Sticky Basement Floor_Hard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154641
+    m_Localized: Forgotten Ruins Diorama_Hell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154642
+    m_Localized: Shallow Sea Diorama_Hell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154643
+    m_Localized: Burning Room Corner_Hell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154644
+    m_Localized: A Glowing Room Corner_Hell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154645
+    m_Localized: Sticky Basement Floor_Hell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154646
+    m_Localized: Serin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154647
+    m_Localized: Doi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154648
+    m_Localized: Yujin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154649
+    m_Localized: Gabi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154650
+    m_Localized: Yueun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154651
+    m_Localized: Lily
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154652
+    m_Localized: A balanced Bullet Girl with no major weaknesses.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154653
+    m_Localized: Fires a wide spread at nearby enemies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154654
+    m_Localized: Picks off distant enemies with precise shots.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154655
+    m_Localized: Breaks through tough enemies with heavy shots.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154656
+    m_Localized: Deals area damage to groups of enemies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154657
+    m_Localized: Supports allies with healing or beneficial effects.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154659
+    m_Localized: Geardian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154660
+    m_Localized: Appletree
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154661
+    m_Localized: Babyroom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154662
+    m_Localized: Stump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154663
+    m_Localized: Leafox
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154664
+    m_Localized: Greenfairy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154665
+    m_Localized: Seax Fox
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154666
+    m_Localized: Waternine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154667
+    m_Localized: Coraleric
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154668
+    m_Localized: Searoom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154669
+    m_Localized: Seal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154670
+    m_Localized: Porkseidon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154671
+    m_Localized: Flame Chief
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154672
+    m_Localized: Red Lancer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154673
+    m_Localized: Firetail Fox
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154674
+    m_Localized: Red Shroom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154675
+    m_Localized: Flame Buddy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154676
+    m_Localized: Flame Lion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154677
+    m_Localized: Gold Guardian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154678
+    m_Localized: Gem Chubby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154679
+    m_Localized: Glowberry Tree
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154680
+    m_Localized: Mushroom Keeper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154681
+    m_Localized: UFO Floater
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154682
+    m_Localized: Bolt Bunny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154683
+    m_Localized: Floating King
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154684
+    m_Localized: Iron Chunk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154685
+    m_Localized: Bandage Cat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154686
+    m_Localized: Silent Moondeer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154687
+    m_Localized: Moon Lancer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154688
+    m_Localized: Flash Punch
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6364978420121862264
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Interval
+    - rid: 6364978420121862265
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Interval
+    - rid: 6364978420121862266
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: '{RuntimeData.CurrentWave}'
+    - rid: 6364978420121862267
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Interval
+    - rid: 6364978420121862268
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Normal Damage
+    - rid: 6364978420121862269
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Boss Damage
+    - rid: 6364978420121862270
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "Increases Standard attack by ({RuntimeData.ATK}) \u2192 <color=green>
+          ({RuntimeData.ATK}+{EffectData.ATK}) </color>"
+    - rid: 6364978420121862271
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "{EffectData.Duration}=\uD6A8\uACFC \uC9C0\uC18D\uC2DC\uAC04"
+    - rid: 6364978420121862272
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Assault Rifle
+    - rid: 6364978420121862273
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Shotgun
+    - rid: 6364978420121862274
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Sniper Rifle
+    - rid: 6364978420121862275
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Mortar
+    - rid: 6364978420121862276
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: AoE,Grenade Launcher
+    - rid: 6364978420121862277
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Medic

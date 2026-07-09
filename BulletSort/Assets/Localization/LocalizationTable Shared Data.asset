@@ -1,0 +1,1369 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: LocalizationTable Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: LocalizationTable
+  m_TableCollectionNameGuidString: 846d8c90e966e8448b163bc78f5b6d99
+  m_Entries:
+  - m_Id: 7930744045568
+    m_Key: "\uD53C\uADF8\uB9C8 \uD29C\uD1A0\uB9AC\uC5BC \uD30C\uD2B8 \uD504\uB808\uC784
+      \uBC88\uD638"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930798571520
+    m_Key: Tutorial_P1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930798571521
+    m_Key: Tutorial_P2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930798571522
+    m_Key: Tutorial_P3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960128
+    m_Key: Tutorial_P4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960129
+    m_Key: Tutorial_P5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960130
+    m_Key: Tutorial_P6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960131
+    m_Key: Tutorial_P7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960132
+    m_Key: Tutorial_P8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960133
+    m_Key: Tutorial_P10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960134
+    m_Key: Tutorial_P11
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960135
+    m_Key: Tutorial_P12
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960136
+    m_Key: Tutorial_P13
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960137
+    m_Key: Tutorial_P14
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960138
+    m_Key: Tutorial_P15
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960139
+    m_Key: Tutorial_Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960140
+    m_Key: Tutorial_End
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960141
+    m_Key: "\uD53C\uADF8\uB9C8 Common \uD30C\uD2B8 \uD504\uB808\uC784 \uBA85"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960142
+    m_Key: Popup_Error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960143
+    m_Key: Popup_Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960144
+    m_Key: Popup_Party_Incomplete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960145
+    m_Key: Popup_No_Currency
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960146
+    m_Key: Popup_Tutorial_Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960147
+    m_Key: Popup_Stage_Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960148
+    m_Key: Popup_Connection_Lost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960149
+    m_Key: Popup_Upgrade_Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960150
+    m_Key: Popup_Return_To_Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960151
+    m_Key: Popup_Upgrade_Complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960152
+    m_Key: Popup_BulletGirl_Unlock_Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960153
+    m_Key: Popup_BulletGirl_Unlock_Complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960154
+    m_Key: Popup_BulletGirl_Max_Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960155
+    m_Key: InGame_Loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960156
+    m_Key: "\uD53C\uADF8\uB9C8 Start \uD30C\uD2B8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960157
+    m_Key: Title_Tap_To_Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960158
+    m_Key: Loading_Progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960159
+    m_Key: "\uD53C\uADF8\uB9C8 \uB85C\uBE44 \uD30C\uD2B8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960160
+    m_Key: Lobby_Page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960161
+    m_Key: Lobby_Stage_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960162
+    m_Key: Lobby_Start_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960163
+    m_Key: Lobby_Bottom_Tabs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960164
+    m_Key: Lobby_Stage_Locked_Message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960165
+    m_Key: Deck_Page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960166
+    m_Key: Deck_Selected_BulletGirls_None
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960167
+    m_Key: Deck_Selected_BulletGirls_Count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960168
+    m_Key: Deck_Selected_BulletGirls_Full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960169
+    m_Key: Deck_Owned_BulletGirls_Count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960170
+    m_Key: Deck_Card_Status_Unowned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960171
+    m_Key: Deck_Card_Status_InDeck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960172
+    m_Key: Deck_Sort_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960173
+    m_Key: Popup_AttackType_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960174
+    m_Key: AttackType_Standard_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960175
+    m_Key: AttackType_Standard_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960176
+    m_Key: AttackType_Breacher_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960177
+    m_Key: AttackType_Breacher_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960178
+    m_Key: AttackType_Marksman_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960179
+    m_Key: AttackType_Marksman_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960180
+    m_Key: AttackType_AntiArmor_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960181
+    m_Key: AttackType_AntiArmor_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960182
+    m_Key: AttackType_Demolition_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960183
+    m_Key: AttackType_Demolition_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960184
+    m_Key: AttackType_Support_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960185
+    m_Key: AttackType_Support_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960186
+    m_Key: AttackType_OK_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960187
+    m_Key: Popup_Filter_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960188
+    m_Key: Filter_All
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960189
+    m_Key: Filter_Owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960190
+    m_Key: Filter_Unowned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960191
+    m_Key: Filter_All_Types
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960192
+    m_Key: Filter_Type_Standard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960193
+    m_Key: Filter_Type_Breacher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960194
+    m_Key: Filter_Type_Marksman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960195
+    m_Key: Filter_Type_AntiArmor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960196
+    m_Key: Filter_Type_Demolition
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960197
+    m_Key: Filter_Type_Support
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960198
+    m_Key: Filter_OK_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960199
+    m_Key: Popup_BulletGirl_Details_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960200
+    m_Key: BulletGirl_Details_Illust_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930806960201
+    m_Key: BulletGirl_Details_Assign_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154432
+    m_Key: BulletGirl_Details_Cancel_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154433
+    m_Key: BulletGirl_Details_NameLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154434
+    m_Key: BulletGirl_Details_Type
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154435
+    m_Key: BulletGirl_Details_Stars
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154436
+    m_Key: BulletGirl_Details_Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154437
+    m_Key: BulletGirl_Details_Magazine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154438
+    m_Key: BulletGirl_Details_Range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154439
+    m_Key: BulletGirl_Details_FireInterval
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154440
+    m_Key: Upgrade_Page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154441
+    m_Key: Upgrade_Owned_BulletGirls_Count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154442
+    m_Key: Upgrade_NameStars
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154443
+    m_Key: Upgrade_Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154444
+    m_Key: Upgrade_LevelMax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154445
+    m_Key: Upgrade_Type
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154446
+    m_Key: Upgrade_Magazine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154447
+    m_Key: Upgrade_Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154448
+    m_Key: Upgrade_Range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154449
+    m_Key: Upgrade_FireInterval
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154450
+    m_Key: Upgrade_Cost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154451
+    m_Key: Upgrade_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154452
+    m_Key: Upgrade_Card_Status_LevelUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154453
+    m_Key: Upgrade_Card_Status_Selected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154454
+    m_Key: Upgrade_Card_Status_Unowned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154455
+    m_Key: Upgrade_Card_Status_Sale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154456
+    m_Key: Upgrade_Card_Status_Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154457
+    m_Key: Unlock_Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154458
+    m_Key: Unlock_Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154459
+    m_Key: Unlock_Range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154460
+    m_Key: Unlock_FireInterval
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154461
+    m_Key: Unlock_Cost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154462
+    m_Key: Unlock_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154463
+    m_Key: Upgrade_Fail_Max_Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154464
+    m_Key: Upgrade_Fail_No_Stardust
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154465
+    m_Key: Unlock_Fail_No_Required
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154466
+    m_Key: Settings_Page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154467
+    m_Key: Settings_BGM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154468
+    m_Key: Settings_SOUND
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154469
+    m_Key: Settings_Language_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154470
+    m_Key: Settings_Credits_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154471
+    m_Key: Popup_Language_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154472
+    m_Key: Language_Korean
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154473
+    m_Key: Language_English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154474
+    m_Key: Language_Japanese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154475
+    m_Key: Language_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154476
+    m_Key: Popup_Credits_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154477
+    m_Key: Credits_Body
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154478
+    m_Key: Credits_OK_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154479
+    m_Key: "\uD53C\uADF8\uB9C8 \uC778\uAC8C\uC784 \uD30C\uD2B8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154480
+    m_Key: InGame_Menu_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154481
+    m_Key: Popup_Result_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154482
+    m_Key: Result_Section_Play_Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154483
+    m_Key: Result_Play_Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154484
+    m_Key: Result_Waves_Cleared
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154485
+    m_Key: Result_KillCounts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154486
+    m_Key: Result_Slots_Intact
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154487
+    m_Key: Result_Slots_Destroyed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154488
+    m_Key: Result_Button_Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154489
+    m_Key: Result_Button_Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154490
+    m_Key: Result_Section_Rewards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154491
+    m_Key: Result_Reward_Gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154492
+    m_Key: Result_Button_Return_To_Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154493
+    m_Key: Result_Button_AD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154494
+    m_Key: Popup_StageComplete _Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154495
+    m_Key: StageComplete_Reward_Gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154496
+    m_Key: StageComplete_Reward_Stardust
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154497
+    m_Key: StageComplete_Perfect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154498
+    m_Key: Popup_Game_Info_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154499
+    m_Key: Game_Info_Wave_Progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154500
+    m_Key: Game_Info_Rush_Label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154501
+    m_Key: Game_Info_Boss_Label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154502
+    m_Key: Game_Info_Active_BulletGirls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154503
+    m_Key: Game_Info_BulletGirl_Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154504
+    m_Key: Game_Info_BulletGirl_NameLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154505
+    m_Key: Game_Info_BulletGirl_Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154506
+    m_Key: Game_Info_BulletGirl_Magazine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154507
+    m_Key: Game_Info_BulletGirl_Range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154508
+    m_Key: Game_Info_BulletGirl_FireInterval
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154509
+    m_Key: Game_Info_Selected_Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154510
+    m_Key: Game_Info_Perk_Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154511
+    m_Key: Game_Info_Resume_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154512
+    m_Key: Game_Info_Return_To_Lobby_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154513
+    m_Key: Popup_BulletGirl_Prep_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154514
+    m_Key: BulletGirl_Prep_Menu_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154515
+    m_Key: BulletGirl_Prep_Owned_Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154516
+    m_Key: BulletGirl_Prep_Next_Wave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154517
+    m_Key: BulletGirl_Prep_Rerolls_Left
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154518
+    m_Key: BulletGirl_Prep_Reroll_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154519
+    m_Key: BulletGirl_Prep_Choose_Perk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154520
+    m_Key: Perk_Card_Name_New
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154521
+    m_Key: Perk_Card_Name_LevelUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154522
+    m_Key: Perk_Card_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154523
+    m_Key: Perk_Card_Rarity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154524
+    m_Key: Perk_Card_Target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154525
+    m_Key: BulletGirl_Prep_Choose_Perk_None
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154526
+    m_Key: BulletGirl_Prep_No_Perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154527
+    m_Key: BulletGirl_Prep_Start_Wave_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154528
+    m_Key: Popup_Stats_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154529
+    m_Key: Stats_Normal_Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154530
+    m_Key: Stats_Boss_Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154531
+    m_Key: Stats_BulletGirl_NameLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154532
+    m_Key: Stats_BulletGirl_Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154533
+    m_Key: Stats_BulletGirl_KillCounts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154534
+    m_Key: Stats_BulletGirl_Healing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154535
+    m_Key: Stats_OK_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154536
+    m_Key: Popup_Clear_Perks_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154537
+    m_Key: Clear_Perks_Active_BulletGirls_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154538
+    m_Key: Clear_Perks_OK_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154539
+    m_Key: Popup_Perk_Details_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154540
+    m_Key: Perk_Details_NameLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154541
+    m_Key: Perk_Details_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154542
+    m_Key: Perk_Details_Target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154543
+    m_Key: Perk_Details_Rarity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154544
+    m_Key: Perk_Details_OK_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154545
+    m_Key: PerkRarityName_Legend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154546
+    m_Key: PerkRarityName_Unique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154547
+    m_Key: PerkRarityName_Rare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154548
+    m_Key: PerkRarityName_Normal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154549
+    m_Key: PerkName_ATKUP_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154550
+    m_Key: PerkName_ATKSpeedUP_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154551
+    m_Key: PerkName_ShotProjCountUP_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154552
+    m_Key: PerkName_MaxProj_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154553
+    m_Key: PerkName_ProjSize_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154554
+    m_Key: PerkName_ProjPiercing_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154555
+    m_Key: PerkName_BoomArea_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154556
+    m_Key: PerkName_ATKUP_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154557
+    m_Key: PerkName_ATKSpeedUP_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154558
+    m_Key: PerkName_ShotProjCountUP_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154559
+    m_Key: PerkName_MaxProj_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154560
+    m_Key: PerkName_BoomArea_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154561
+    m_Key: PerkName_ATKUP_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154562
+    m_Key: PerkName_ATKSpeedUP_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154563
+    m_Key: PerkName_MaxProj_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154564
+    m_Key: PerkName_ProjSize_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154565
+    m_Key: PerkName_ATKUP_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154566
+    m_Key: PerkName_ATKSpeedUP_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154567
+    m_Key: PerkName_MaxProj_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154568
+    m_Key: PerkName_ProjPiercing_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154569
+    m_Key: PerkName_BoomArea_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154570
+    m_Key: PerkName_ATKUP_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154571
+    m_Key: PerkName_ATKSpeedUP_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154572
+    m_Key: PerkName_MaxProj_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154573
+    m_Key: PerkName_Heal_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154574
+    m_Key: PerkName_ATKUP_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154575
+    m_Key: PerkName_ATKSpeedUP_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154576
+    m_Key: PerkName_ShotProjCountUP_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154577
+    m_Key: PerkName_MaxProj_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154578
+    m_Key: PerkName_BoomArea_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154579
+    m_Key: PerkName_Heal_Slot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154580
+    m_Key: PerkName_MaxHPUP_Slot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154581
+    m_Key: PerkName_ATKSpeedUp_Slot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154582
+    m_Key: PerkName_Invincible_Slot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154583
+    m_Key: PerkName_ComboDamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154584
+    m_Key: PerkDesc_ATKUP_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154585
+    m_Key: PerkDesc_ATKSpeedUP_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154586
+    m_Key: PerkDesc_ShotProjCountUP_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154587
+    m_Key: PerkDesc_MaxProj_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154588
+    m_Key: PerkDesc_ProjSize_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154589
+    m_Key: PerkDesc_ProjPiercing_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154590
+    m_Key: PerkDesc_BoomArea_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154591
+    m_Key: PerkDesc_ATKUP_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154592
+    m_Key: PerkDesc_ATKSpeedUP_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154593
+    m_Key: PerkDesc_ShotProjCountUP_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154594
+    m_Key: PerkDesc_MaxProj_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154595
+    m_Key: PerkDesc_BoomArea_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154596
+    m_Key: PerkDesc_ATKUP_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154597
+    m_Key: PerkDesc_ATKSpeedUP_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154598
+    m_Key: PerkDesc_MaxProj_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154599
+    m_Key: PerkDesc_ProjSize_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154600
+    m_Key: PerkDesc_ATKUP_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154601
+    m_Key: PerkDesc_ATKSpeedUP_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154602
+    m_Key: PerkDesc_MaxProj_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154603
+    m_Key: PerkDesc_ProjPiercing_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154604
+    m_Key: PerkDesc_BoomArea_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154605
+    m_Key: PerkDesc_ATKUP_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154606
+    m_Key: PerkDesc_ATKSpeedUP_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154607
+    m_Key: PerkDesc_MaxProj_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154608
+    m_Key: PerkDesc_Heal_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154609
+    m_Key: PerkDesc_ATKUP_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154610
+    m_Key: PerkDesc_ATKSpeedUP_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154611
+    m_Key: PerkDesc_ShotProjCountUP_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154612
+    m_Key: PerkDesc_MaxProj_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154613
+    m_Key: PerkDesc_BoomArea_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154614
+    m_Key: PerkDesc_Heal_Slot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154615
+    m_Key: PerkDesc_MaxHPUP_Slot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154616
+    m_Key: PerkDesc_ATKSpeedUp_Slot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154617
+    m_Key: PerkDesc_Invincible_Slot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154618
+    m_Key: PerkDesc_ComboDamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154619
+    m_Key: PerkTargetText_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154620
+    m_Key: PerkTargetText_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154621
+    m_Key: PerkTargetText_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154622
+    m_Key: PerkTargetText_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154623
+    m_Key: PerkTargetText_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154624
+    m_Key: PerkTargetText_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154625
+    m_Key: TowerTypeText_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154626
+    m_Key: TowerTypeText_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154627
+    m_Key: TowerTypeText_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154628
+    m_Key: TowerTypeText_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154629
+    m_Key: TowerTypeText_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154630
+    m_Key: TowerTypeText_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154631
+    m_Key: StageName_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154632
+    m_Key: StageName_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154633
+    m_Key: StageName_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154634
+    m_Key: StageName_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154635
+    m_Key: StageName_5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154636
+    m_Key: StageName_6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154637
+    m_Key: StageName_7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154638
+    m_Key: StageName_8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154639
+    m_Key: StageName_9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154640
+    m_Key: StageName_10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154641
+    m_Key: StageName_11
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154642
+    m_Key: StageName_12
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154643
+    m_Key: StageName_13
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154644
+    m_Key: StageName_14
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154645
+    m_Key: StageName_15
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154646
+    m_Key: PieceName_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154647
+    m_Key: PieceName_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154648
+    m_Key: PieceName_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154649
+    m_Key: PieceName_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154650
+    m_Key: PieceName_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154651
+    m_Key: PieceName_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154652
+    m_Key: PieceDesc_Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154653
+    m_Key: PieceDesc_Shotgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154654
+    m_Key: PieceDesc_SR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154655
+    m_Key: PieceDesc_Mortar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154656
+    m_Key: PieceDesc_Boomer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154657
+    m_Key: PieceDesc_Buffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154658
+    m_Key: "MonsterName \uB9AC\uC18C\uC2A4\uBA85"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154659
+    m_Key: MonsterName_Boss_Stage1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154660
+    m_Key: MonsterName_Tanker_Stage1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154661
+    m_Key: MonsterName_Normal_1_Stage1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154662
+    m_Key: MonsterName_Normal_2_Stage1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154663
+    m_Key: MonsterName_Normal_3_Stage1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154664
+    m_Key: MonsterName_Speedy_Stage1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154665
+    m_Key: MonsterName_Boss_Stage2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154666
+    m_Key: MonsterName_Tanker_Stage2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154667
+    m_Key: MonsterName_Normal_1_Stage2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154668
+    m_Key: MonsterName_Normal_2_Stage2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154669
+    m_Key: MonsterName_Normal_3_Stage2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154670
+    m_Key: MonsterName_Speedy_Stage2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154671
+    m_Key: MonsterName_Boss_Stage3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154672
+    m_Key: MonsterName_Tanker_Stage3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154673
+    m_Key: MonsterName_Normal_1_Stage3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154674
+    m_Key: MonsterName_Normal_2_Stage3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154675
+    m_Key: MonsterName_Normal_3_Stage3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154676
+    m_Key: MonsterName_Speedy_Stage3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154677
+    m_Key: MonsterName_Boss_Stage4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154678
+    m_Key: MonsterName_Tanker_Stage4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154679
+    m_Key: MonsterName_Normal_1_Stage4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154680
+    m_Key: MonsterName_Normal_2_Stage4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154681
+    m_Key: MonsterName_Normal_3_Stage4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154682
+    m_Key: MonsterName_Speedy_Stage4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154683
+    m_Key: MonsterName_Boss_Stage5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154684
+    m_Key: MonsterName_Tanker_Stage5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154685
+    m_Key: MonsterName_Normal_1_Stage5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154686
+    m_Key: MonsterName_Normal_2_Stage5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154687
+    m_Key: MonsterName_Normal_3_Stage5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7930811154688
+    m_Key: MonsterName_Speedy_Stage5
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6364978420121862252
+  references:
+    version: 2
+    RefIds:
+    - rid: 6364978420121862252
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1783560149830
