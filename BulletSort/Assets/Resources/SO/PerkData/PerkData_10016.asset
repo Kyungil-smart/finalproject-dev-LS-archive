@@ -17,7 +17,7 @@ MonoBehaviour:
   PerkName: PerkName_ProjPiercing_SR
   PerkDesc: PerkDesc_ProjPiercing_SR
   MaxLevel: 3
-  PerkRarityType: 93
+  PerkRarityType: 94
   PerkTarget: 3
   PerkTargetText: TowerTypeText_SR
   IsActive: 1

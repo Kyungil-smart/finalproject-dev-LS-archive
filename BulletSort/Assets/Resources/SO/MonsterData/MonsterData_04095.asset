@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Tanker_Stage4
   MonsterType: 3
   ExpTypeID: 82
-  MonsterHp: 170
-  MonsterAtk: 135
-  MonsterAtkSpeed: 0.7
-  MonsterAtkRange: 1
-  MonsterMoveSpeed: 15
-  MonsterSprite: Ultimate Boar 0380 (1)
+  MonsterHp: 210
+  MonsterAtk: 6
+  MonsterAtkSpeed: 3.65
+  MonsterAtkRange: 0.4
+  MonsterMoveSpeed: 8
+  MonsterSprite: monster_02_3

@@ -17,7 +17,7 @@ MonoBehaviour:
   PerkName: PerkName_ComboDamage
   PerkDesc: PerkDesc_ComboDamage
   MaxLevel: 3
-  PerkRarityType: 92
+  PerkRarityType: 91
   PerkTarget: 8
   PerkTargetText: 0
   IsActive: 1

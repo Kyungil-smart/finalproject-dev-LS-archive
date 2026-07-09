@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Normal_1_Stage4
   MonsterType: 1
   ExpTypeID: 81
-  MonsterHp: 75
-  MonsterAtk: 80
-  MonsterAtkSpeed: 1.2
-  MonsterAtkRange: 1
+  MonsterHp: 230
+  MonsterAtk: 5
+  MonsterAtkSpeed: 2.4
+  MonsterAtkRange: 0.4
   MonsterMoveSpeed: 15
-  MonsterSprite: Ultimate Plant 0400 (1)
+  MonsterSprite: monster_01_18

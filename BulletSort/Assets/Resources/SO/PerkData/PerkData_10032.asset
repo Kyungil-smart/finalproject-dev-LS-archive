@@ -17,7 +17,7 @@ MonoBehaviour:
   PerkName: PerkName_MaxHPUP_Slot
   PerkDesc: PerkDesc_MaxHPUP_Slot
   MaxLevel: 3
-  PerkRarityType: 92
+  PerkRarityType: 93
   PerkTarget: 7
   PerkTargetText: 0
   IsActive: 1

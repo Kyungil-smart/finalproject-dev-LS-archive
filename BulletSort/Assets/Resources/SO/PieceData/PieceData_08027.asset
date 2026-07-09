@@ -18,5 +18,7 @@ MonoBehaviour:
   PieceLv: 2
   ConnectTower: 7602
   PieceSprite: Character_Sprite_01_11
-  PieceCartoon: Character_Sprite_02_5
+  PieceCartoon: Image_Cartoon_Lily_01
   PieceDetailIllust: Image_Lily_01
+  PiecePortrait: Character_Sprite_02_5
+  UpgradeCost: 200

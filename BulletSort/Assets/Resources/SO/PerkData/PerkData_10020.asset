@@ -17,7 +17,7 @@ MonoBehaviour:
   PerkName: PerkName_MaxProj_Mortar
   PerkDesc: PerkDesc_MaxProj_Mortar
   MaxLevel: 3
-  PerkRarityType: 91
+  PerkRarityType: 92
   PerkTarget: 4
   PerkTargetText: TowerTypeText_Mortar
   IsActive: 1

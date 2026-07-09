@@ -18,7 +18,7 @@ MonoBehaviour:
   ExpTypeID: 82
   MonsterHp: 10
   MonsterAtk: 3
-  MonsterAtkSpeed: 1.7
-  MonsterAtkRange: 1
-  MonsterMoveSpeed: 15
-  MonsterSprite: Rookie Kentauros 0063 (1)
+  MonsterAtkSpeed: 2.9
+  MonsterAtkRange: 0.4
+  MonsterMoveSpeed: 35
+  MonsterSprite: monster_01_00

@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterFactory
   _bossPrefab: {fileID: 5752370374940052464, guid: 0a2ca54dfabd47b478925e6229c6daeb, type: 3}
-  _monsterPrefabTable: {fileID: 11400000, guid: e48a22cce6994c84d94343b369e9d229, type: 2}
+  _monsterSpriteTable: {fileID: 11400000, guid: e48a22cce6994c84d94343b369e9d229, type: 2}
 --- !u!4 &499347008
 Transform:
   m_ObjectHideFlags: 0

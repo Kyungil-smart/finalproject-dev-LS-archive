@@ -43,6 +43,8 @@ namespace Monster.Controll
 
         private void FixedUpdate()
         {
+            if (target == null) return;
+            
             if (Mathf.Abs(Vector3.Distance(target.transform.position, gameObject.transform.position)) >= 1)
                 Move();
 
@@ -102,7 +104,7 @@ namespace Monster.Controll
         {
             isDead = true;
             SpawnManager.Instance.Monsters.Remove(gameObject);
-            OnDead(_monsterType);
+            OnDead?.Invoke(_monsterType);
         }
 
         public void Init(MonsterData monsterData)
@@ -123,5 +125,4 @@ namespace Monster.Controll
             isDead = false;
         }
     }
-
 }

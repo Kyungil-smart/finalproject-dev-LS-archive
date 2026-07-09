@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Normal_1_Stage5
   MonsterType: 1
   ExpTypeID: 81
-  MonsterHp: 30
-  MonsterAtk: 26
-  MonsterAtkSpeed: 1.2
-  MonsterAtkRange: 1
+  MonsterHp: 28
+  MonsterAtk: 3
+  MonsterAtkSpeed: 2.9
+  MonsterAtkRange: 0.4
   MonsterMoveSpeed: 15
-  MonsterSprite: Ultimate Sten 0015 (1)
+  MonsterSprite: monster_01_14
