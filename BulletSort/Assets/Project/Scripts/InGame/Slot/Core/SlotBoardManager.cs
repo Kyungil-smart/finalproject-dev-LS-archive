@@ -82,7 +82,7 @@ namespace InGame.Slot
             else if (_deckPieceIDs != null && _deckPieceIDs.Count > 0)
                 pieceIDs = _deckPieceIDs;
             else
-                pieceIDs = PieceQuery.GetAllIDs();
+                pieceIDs = PieceQuery.GetDefaultDeckIDs();   // 1성 6종 (GetAllIDs는 90종이라 3-Sort 불가)
 
             _activePieceIDs = pieceIDs;
             _supplier.Initialize(pieceIDs);
