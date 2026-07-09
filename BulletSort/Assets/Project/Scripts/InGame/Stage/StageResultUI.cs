@@ -14,12 +14,22 @@ namespace Ingame
 
         private void Awake()
         {
+            if (StageManager.Instance == null)
+            {
+                return;
+            }
+
             StageManager.Instance.OnStageWin += WinHandler;
             StageManager.Instance.OnStageDefeat += DefeatHandler;
         }
 
         private void OnDestroy()
         {
+            if (StageManager.Instance == null)
+            {
+                return;
+            }
+
             StageManager.Instance.OnStageWin -= WinHandler;
             StageManager.Instance.OnStageDefeat -= DefeatHandler;
         }
