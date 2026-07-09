@@ -1,4 +1,4 @@
-int,int,int,int,float,int,int,int,int,float,int,float,int,float,string,string,*,,,string,,,,,,
+int,int,int,int,float,float,int,int,int,float,int,float,int,float,string,string,*,,,string,,,,,,
 TowerID,TowerType,TowerAiType,TowerAtk,TowerAtkSpeed,TowerMaxRange,TowerMaxAmmo,TowerProjectile,ProjectileCount,ProjectileSize,PiercingCount,SplashRadius,CurrentHp,BulletSpeed,TowerTypeText,TowerName,*,성급,포탑 유형,Desc,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
 07101,1,1,20,0.35,2.500,15,06001,1,0.05,0,0.000,0,0.8,TowerTypeText_Basic,PieceName_Basic,*,1성 , 기본형,,,TowerID,PK,PieceData.ConnectTower,포탑 아이디,P1
 07102,1,1,22,0.35,2.500,15,06001,1,0.05,0,0.000,0,0.8,TowerTypeText_Basic,PieceName_Basic,*,1성 , 기본형,,,TowerType,,,포탑 타입 (사격 우선순위),P1
