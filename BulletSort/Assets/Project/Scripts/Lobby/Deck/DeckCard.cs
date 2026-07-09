@@ -18,6 +18,7 @@ namespace Lobby.Deck
         [SerializeField] private Image _portrait;          // 초상화 (RectMask2D 자식)
         [SerializeField] private Image _frame;             // 카드 프레임 (PieceType별)
         [SerializeField] private Image _background;        // 카드 배경 (PieceType별)
+        [SerializeField] private Image _typeIcon;          // 공격 유형 아이콘 (TypeInfo/Type_Image)
         [SerializeField] private TMP_Text _lvText;
         [SerializeField] private GameObject[] _stars;      // Star_0~2, Grade만큼 ON
         [SerializeField] private GameObject _statusOverlay; // 편성중/미보유 묶음 (Raycast로 클릭 차단)
@@ -56,6 +57,7 @@ namespace Lobby.Deck
             if (_portrait != null) _portrait.sprite = PieceQuery.GetPortrait(pieceID);
             if (_frame != null) _frame.sprite = PieceQuery.GetCardFrame(pieceID);
             if (_background != null) _background.sprite = PieceQuery.GetCardBackground(pieceID);
+            if (_typeIcon != null) _typeIcon.sprite = PieceQuery.GetTypeIcon(pieceID);
             if (_lvText != null) _lvText.text = $"Lv {data.PieceLv}";
             SetStars(data.PieceGrade);
 

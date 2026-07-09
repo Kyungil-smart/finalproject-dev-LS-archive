@@ -127,5 +127,12 @@ namespace InGame.Sort.Data
             if (CardTable == null) return null;
             return CardTable.GetBackground(GetConnectTowerType(pieceID));
         }
+        
+        // 덱 카드 공격 유형 아이콘 — 타입별 동일. 타입 소스는 연결 포탑(GetConnectTowerType).
+        public static Sprite GetTypeIcon(int pieceID)
+        {
+            if (CardTable == null) return null;
+            return CardTable.GetTypeIcon(GetConnectTowerType(pieceID));
+        }
     }
 }
