@@ -1,6 +1,6 @@
-﻿using Core;
+﻿using System.Collections.Generic;
+using Core;
 using InGame.Sort.Data;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,10 +8,11 @@ using UnityEngine.UI;
 
 namespace Lobby.Deck
 {
-    // 덱 편성 관리 — 보유 목록(성급/캐릭터별 대표 카드) 동적 생성 + 편성 슬롯 6칸 관리 + 탭 편성/해제 + 시작.
-    // 빠른 구현: 보유 = PieceQuery.GetRepresentativeIDs(), 정식 보유 풀은 김경민 데이터 후.
-    // 탭 방식: 보유 카드 탭 → 빈 슬롯 편성 + 그 카드 "편성 중" 잠금 / 편성 카드 탭 → 해제 + 잠금 해제.
+    // 덱 편성 — 보유 목록(18그룹 현재 레벨, 미보유 포함) 생성, 카드 탭으로 6칸 편성/해제.
     // 시작: 편성 6개 ID를 DeckHolder에 저장 → 인게임 씬 진입(SlotBoardManager가 읽음).
+    //   ※ 시작 진입점은 스테이지 선택(StageSelectController)으로 일원화 — 여기 시작 버튼 없음.
+    //     스테이지 선택이 SetStageID 후 OnTapStart()를 호출.
+    // 미보유 카드는 표시만 되고 편성 불가(해금은 강화창).
     // 작성자: 이성규
     public class DeckBuilder : MonoBehaviour
     {
@@ -19,18 +20,18 @@ namespace Lobby.Deck
         [SerializeField] private DeckSlot[] _slots;        // DeckSlot 6개
 
         [Header("보유 목록")]
-        [SerializeField] private Transform _ownedContent;  // ScrollView/Viewport/Content
+        [SerializeField] private Transform _ownedContent;   // ScrollView/Viewport/Content
         [SerializeField] private DeckCard _ownedCardPrefab; // 동적 생성용 프리팹
-        
+
         [Header("정보")]
         [Tooltip("공격 유형 보기 — i 버튼")]
         [SerializeField] private Button _attackTypeButton;
-        
+
         [Header("정보 텍스트")]
         [Tooltip("편성된 총알소녀 — (없음)/(n명)/(완료)")]
         [SerializeField] private TMP_Text _equippedCountText;
 
-        [Tooltip("보유한 총알소녀 — (n명)")]
+        [Tooltip("보유한 총알소녀 — (n명). 미보유 카드는 제외")]
         [SerializeField] private TMP_Text _ownedCountText;
 
         // 보유 카드 인스턴스 — PieceID로 찾아 편성 상태(SetInDeck) 갱신
@@ -55,10 +56,11 @@ namespace Lobby.Deck
                 slot.Init(OnTapEquippedSlot);
         }
 
-        // 보유 목록 생성 — 카드 단위 대표(성급/캐릭터별 1장). 정식은 유저 보유 풀.
+        // 보유 목록 생성 — 18개 그룹(이름·성급)의 현재 레벨 카드. 미보유도 표시(오버레이).
+        //   강화하면 그룹의 현재 레벨 ID가 바뀌므로 목록을 다시 그려야 반영됨.
         private void BuildOwnedList()
         {
-            var ids = PieceQuery.GetRepresentativeIDs();
+            var ids = PieceQuery.GetInventoryIDs();
             foreach (var id in ids)
             {
                 var card = Instantiate(_ownedCardPrefab, _ownedContent);
@@ -68,9 +70,11 @@ namespace Lobby.Deck
         }
 
         // 보유 카드 탭 → 편성 안 됐으면 빈 슬롯에 편성, 이미 편성됐으면 해제(재터치).
-        //   편성 중 카드는 오버레이 위 _inDeckButton이 클릭을 받아 여기로 옴(재터치 해제 경로).
+        //   미보유 카드도 오버레이 위 버튼으로 여기 오지만 IsOwned로 차단.
         private void OnTapOwnedCard(DeckCard card)
         {
+            if (!card.IsOwned) return;   // 미보유 — 편성 불가(해금은 강화창)
+
             // 이미 편성 중이면 재터치 → 해제. 그 카드가 든 슬롯을 찾아 비우고 잠금 해제.
             if (IsEquipped(card.PieceID))
             {
@@ -112,9 +116,9 @@ namespace Lobby.Deck
         }
 
         // 시작 — 6칸 다 편성됐으면 인게임 진입, 미달이면 경고(입장 불가).
+        //   StageID는 스테이지 선택에서 이미 세팅 — 여기선 덱만 챙김.
         public void OnTapStart()
         {
-            // 미편성(6칸 미만) — 경고 팝업 띄우고 입장 막음(기획: 6칸 필수).
             if (!IsDeckFull())
             {
                 PopupManager.Instance.ShowAlert("캐릭터 편성이 부족합니다.\n6개의 캐릭터를 편성해 주세요.");
@@ -126,7 +130,8 @@ namespace Lobby.Deck
             SceneManager.LoadScene(Define.SCENE_INGAME);
         }
 
-        // 편성 슬롯 6칸이 모두 찼는지 — 하나라도 비면 false.
+        // ---- 조회·헬퍼 ----
+
         private bool IsDeckFull()
         {
             foreach (var slot in _slots)
@@ -134,20 +139,11 @@ namespace Lobby.Deck
             return true;
         }
 
-        // 편성된 6칸의 PieceID 수집 — OnTapStart에서 6칸 보장 후 호출(폴백 불필요).
-        private List<int> CollectDeckIDs()
+        private bool IsEquipped(int pieceID)
         {
-            var deck = new List<int>();
             foreach (var slot in _slots)
-                if (!slot.IsEmpty) deck.Add(slot.PieceID);
-            return deck;
-        }
-
-        // PieceID로 보유 카드 찾아 편성 상태 갱신
-        private void SetOwnedInDeck(int pieceID, bool inDeck)
-        {
-            foreach (var card in _ownedCards)
-                if (card.PieceID == pieceID) { card.SetInDeck(inDeck); return; }
+                if (!slot.IsEmpty && slot.PieceID == pieceID) return true;
+            return false;
         }
 
         private DeckSlot FindEmptySlot()
@@ -157,15 +153,28 @@ namespace Lobby.Deck
             return null;
         }
 
-        private bool IsEquipped(int pieceID)
+        // 편성된 6칸의 PieceID 수집 — OnTapStart에서 6칸 보장 후 호출(폴백 불필요).
+        private List<int> CollectDeckIDs()
         {
+            var deck = new List<int>(_slots.Length);
             foreach (var slot in _slots)
-                if (!slot.IsEmpty && slot.PieceID == pieceID) return true;
-            return false;
+                if (!slot.IsEmpty) deck.Add(slot.PieceID);
+            return deck;
         }
-        
+
+        // 보유 목록에서 해당 PieceID 카드를 찾아 편성 상태 갱신
+        private void SetOwnedInDeck(int pieceID, bool inDeck)
+        {
+            foreach (var card in _ownedCards)
+                if (card.PieceID == pieceID)
+                {
+                    card.SetInDeck(inDeck);
+                    return;
+                }
+        }
+
         // 편성·보유 수 표시 갱신. 덱 상태가 바뀔 때마다 호출.
-        //   편성: 0=없음, 1~5=n명, 6=완료(6칸 고정). 보유: 목록 카드 수(해금 미구현이라 전부 보유).
+        //   편성: 0=없음 / 1~5=n명 / 6=완료(6칸 고정). 보유: 목록 중 IsOwned인 카드 수.
         //   ※ 문구는 로컬라이즈 이월 — 지금은 직접 조립.
         private void RefreshCounts()
         {
@@ -176,14 +185,20 @@ namespace Lobby.Deck
                     if (!slot.IsEmpty) equipped++;
 
                 string state = equipped == 0 ? "없음"
-                    : equipped >= _slots.Length ? "완료"
-                    : $"{equipped}명";
+                             : equipped >= _slots.Length ? "완료"
+                             : $"{equipped}명";
 
                 _equippedCountText.text = $"({state})";
             }
 
             if (_ownedCountText != null)
-                _ownedCountText.text = $"({_ownedCards.Count}명)";
+            {
+                int owned = 0;
+                foreach (var card in _ownedCards)
+                    if (card.IsOwned) owned++;
+
+                _ownedCountText.text = $"({owned}명)";
+            }
         }
     }
 }

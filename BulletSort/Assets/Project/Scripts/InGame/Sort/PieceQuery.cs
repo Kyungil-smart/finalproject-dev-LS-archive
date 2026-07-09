@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Core;
+using Lobby.Deck;
 using UnityEngine;
 
 namespace InGame.Sort.Data
