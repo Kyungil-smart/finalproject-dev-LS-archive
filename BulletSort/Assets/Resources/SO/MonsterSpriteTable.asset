@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76cb8d3cfbe6a0d4baf09a53e0f79f3d, type: 3}
-  m_Name: MonsterPrefabTable
+  m_Name: MonsterSpriteTable
   m_EditorClassIdentifier: Assembly-CSharp::MonsterSpriteTable
   _entries:
   - Name: Rookie Kentauros 0063 (1)
