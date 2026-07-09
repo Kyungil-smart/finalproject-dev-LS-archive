@@ -56,14 +56,10 @@ namespace Core.Manager.SpawnManager
          
          if (sceneName == "InGame")
          {
-            if (_towerFactory == null) 
-               _towerFactory = FindFirstObjectByType(typeof(TowerFactory)) as TowerFactory;
-            if(_projectileFactory == null)
-               _projectileFactory = FindFirstObjectByType(typeof(ProjectileFactory)) as ProjectileFactory;
-            if (_monsterFactory == null)
-               _monsterFactory = FindFirstObjectByType(typeof(MonsterFactory)) as MonsterFactory;
-            if (_portals == null)
-               _portals = FindObjectsByType(typeof(Portal), FindObjectsSortMode.None) as Portal[]; 
+            _towerFactory = FindFirstObjectByType(typeof(TowerFactory)) as TowerFactory;
+            _projectileFactory = FindFirstObjectByType(typeof(ProjectileFactory)) as ProjectileFactory;
+            _monsterFactory = FindFirstObjectByType(typeof(MonsterFactory)) as MonsterFactory;
+            _portals = FindObjectsByType(typeof(Portal), FindObjectsSortMode.None) as Portal[]; 
             
             if(_topPortal == null && _bottomPortal == null)
             {
