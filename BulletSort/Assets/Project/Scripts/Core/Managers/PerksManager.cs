@@ -192,6 +192,11 @@ namespace Core
 
         private int PickRandomPerkID(int rarityID)
         {
+            if (!_perksByRarity.ContainsKey(rarityID))
+            {
+                return -1;
+            }
+
             int length = _perksByRarity[rarityID].Count;
 
             if (length == 0)

@@ -25,6 +25,6 @@ MonoBehaviour:
   PiercingCount: 0
   SplashRadius: 0
   CurrentHp: 0
-  BulletSpeed: 0.8
+  BulletSpeed: 1
   TowerTypeText: TowerTypeText_Buffer
   TowerName: PieceName_Buffer

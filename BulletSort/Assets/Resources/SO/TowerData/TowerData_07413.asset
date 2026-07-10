@@ -25,6 +25,6 @@ MonoBehaviour:
   PiercingCount: 0
   SplashRadius: 0
   CurrentHp: 6
-  BulletSpeed: 0.8
+  BulletSpeed: 1.5
   TowerTypeText: TowerTypeText_Mortar
   TowerName: PieceName_Mortar
