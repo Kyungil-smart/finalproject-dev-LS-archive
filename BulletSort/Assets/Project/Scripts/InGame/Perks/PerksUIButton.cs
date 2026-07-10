@@ -135,6 +135,9 @@ namespace Ingame.Perks
                 perkDesc = Smart.Format(_perkDescLS.GetLocalizedString(), runtimeDataWrapper);
 
                 EffectData effect = DataManager.Instance.GetData<EffectData>(perk.EffectID);
+
+                //_desc = perkDesc;
+                _desc = Smart.Format(perkDesc, new object[] { effect });
             }
 
             {
@@ -153,7 +156,7 @@ namespace Ingame.Perks
                     {
                         PerkData = new
                         {
-                            PerkTargetText = perk.PerkTargetText
+                            PerkTargetText = perkTarget
                         },
                     };
                     _targetText = Smart.Format(_perkTargetLS.GetLocalizedString(), runtimeDataWrapper);
