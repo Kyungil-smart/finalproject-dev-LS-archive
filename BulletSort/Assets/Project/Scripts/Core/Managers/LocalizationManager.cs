@@ -15,8 +15,9 @@ namespace Core
     {
         private const string PREF_KEY = "language";
 
-        // 언어가 바뀌면 발행 — 코드가 조립하는 문자열(Lv n·해금하기·(n명) 등)의 갱신 트리거.
-        //   프리팹에 박힌 정적 텍스트는 LocalizeStringEvent가 알아서 갱신하므로 구독 불필요.
+        // 언어가 적용되면 발행 — 앱 시작 복원(Restore) 시에도 한 번 발행된다.
+        //   코드가 조립하는 문자열(GetLocalizedString)은 초기화 완료 전엔 빈 값이므로,
+        //   이 이벤트를 구독해 다시 그려야 첫 프레임 표시가 맞는다.
         public static event Action OnLanguageChanged;
 
         // enum → Locale Code. Localization 창의 Locale 식별자(ko/en/ja)와 일치해야 함.

@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Core;
 using InGame.Sort.Data;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,6 +17,9 @@ namespace Lobby.Deck
     //     스테이지 선택이 SetStageID 후 OnTapStart()를 호출.
     // 미보유 카드는 표시만 되고 편성 불가(해금은 강화창).
     // 정렬은 카드 재생성 없이 SetActive 토글 — 편성 상태 유지, GridLayout이 재배치.
+    // 현지화 — 편성/보유 수는 문구 전체가 테이블 엔트리(접두어 포함). Count류는 {0}에 인원을 넘김.
+    //   코드가 조립하는 문구이므로 해당 TMP에 LocalizeStringEvent를 붙이면 안 됨(비동기 갱신이 덮어씀).
+    //   테이블 로드 전 GetLocalizedString은 빈 값 → 로드 완료를 기다린 뒤 첫 표시.
     // 작성자: 이성규
     public class DeckBuilder : MonoBehaviour
     {
@@ -32,11 +38,27 @@ namespace Lobby.Deck
         [SerializeField] private Button _sortButton;
 
         [Header("정보 텍스트")]
-        [Tooltip("편성 수 — (없음)/(n명)/(완료). 앞 문구는 고정 텍스트 오브젝트")]
+        [Tooltip("편성 수 — 문구 전체를 코드가 채움(접두어 포함). LocalizeStringEvent 부착 금지")]
         [SerializeField] private TMP_Text _equippedCountText;
 
-        [Tooltip("보유 수 — (n명). 미보유 카드는 제외")]
+        [Tooltip("보유 수 — 문구 전체를 코드가 채움(접두어 포함). LocalizeStringEvent 부착 금지")]
         [SerializeField] private TMP_Text _ownedCountText;
+
+        [Header("현지화 문구")]
+        [Tooltip("Deck_Selected_BulletGirls_None — 편성 0")]
+        [SerializeField] private LocalizedString _equippedNone;
+
+        [Tooltip("Deck_Selected_BulletGirls_Count — 편성 1~5, {0}에 인원")]
+        [SerializeField] private LocalizedString _equippedCount;
+
+        [Tooltip("Deck_Selected_BulletGirls_Full — 편성 6(완료)")]
+        [SerializeField] private LocalizedString _equippedFull;
+
+        [Tooltip("Deck_Owned_BulletGirls_Count — 보유 수, {0}에 인원")]
+        [SerializeField] private LocalizedString _ownedCount;
+
+        // 로컬라이즈 테이블 이름 — 프로젝트 공용 단일 테이블(StageSelectController와 동일).
+        private const string LOCALIZATION_TABLE = "LocalizationTable";
 
         // 보유 카드 인스턴스 — PieceID로 찾아 편성 상태(SetInDeck) 갱신
         private readonly List<DeckCard> _ownedCards = new List<DeckCard>();
@@ -44,15 +66,45 @@ namespace Lobby.Deck
         // 현재 보유 목록 필터 — 정렬 팝업이 갱신. 기본 전체.
         private readonly SortFilter _filter = new SortFilter();
 
-        // ---- 초기화 ----
+        // 현지화 테이블 로드 완료 여부 — 완료 전엔 문구 갱신을 건너뜀(빈 문자열 대입 방지).
+        //   언어 전환 시 테이블이 다시 로드되므로 false로 되돌린 뒤 대기 코루틴이 다시 세운다.
+        private bool _localizationReady;
 
-        private void Start()
+        // ---- 생명주기 ----
+
+        // 최초 1회 초기화 여부 — 탭 전환으로 OnEnable이 반복되므로 플래그로 가드.
+        //   Start를 안 쓰는 이유: 코루틴이 GameObject 비활성 시 중단되고 재개되지 않음.
+        //   (로비 진입 시 LobbyTabBar가 덱 윈도우를 끄면 Start 코루틴이 죽는다)
+        private bool _initialized;
+
+        private void OnEnable()
+        {
+            PieceInventory.OnChanged += RefreshOwnedList;
+            LocalizationManager.OnLanguageChanged += OnLanguageChanged;
+
+            if (!_initialized)
+            {
+                _initialized = true;
+                InitOnce();
+            }
+
+            // 현지화 테이블 로드를 기다린 뒤 갱신 — 탭이 켜져 있는 동안만 도는 코루틴.
+            StartCoroutine(RefreshWhenLocalizationReady());
+        }
+
+        private void OnDisable()
+        {
+            PieceInventory.OnChanged -= RefreshOwnedList;
+            LocalizationManager.OnLanguageChanged -= OnLanguageChanged;
+        }
+
+        // 최초 1회 — 슬롯·보유 목록·버튼 리스너.
+        private void InitOnce()
         {
             DeckHolder.Clear();
 
             InitSlots();
             BuildOwnedList();
-            RefreshCounts();
 
             if (_attackTypeButton != null)
                 _attackTypeButton.onClick.AddListener(() => PopupManager.Instance.ShowAttackType());
@@ -60,20 +112,32 @@ namespace Lobby.Deck
             if (_sortButton != null)
                 _sortButton.onClick.AddListener(OnTapSort);
         }
-        
-        private void OnEnable()
-        {
-            PieceInventory.OnChanged += RefreshOwnedList;
 
-            // 탭 복귀 — 꺼져 있는 동안 강화·해금이 일어났을 수 있으므로 무조건 갱신.
-            //   (탭 전환 구조라 비활성 중엔 OnChanged를 못 받음)
-            if (_ownedCards.Count > 0) RefreshOwnedList();
+        // 언어 전환 — SelectedLocale 대입 직후 동기로 발행되므로 테이블이 아직 로딩 중일 수 있음.
+        //   즉시 갱신하면 GetLocalizedString이 빈 값을 반환 → 로드를 기다린 뒤 갱신.
+        //   꺼진 탭은 코루틴을 못 돌리므로 스킵 — 다음 OnEnable에서 갱신된다.
+        private void OnLanguageChanged()
+        {
+            if (!isActiveAndEnabled) return;
+
+            _localizationReady = false;
+            StartCoroutine(RefreshWhenLocalizationReady());
         }
 
-        private void OnDisable()
+        // 테이블 로드 전 GetLocalizedString은 빈 값 — 완료 후 갱신.
+        //   InitializationOperation은 최초 1회만 유효 → 전환 시엔 테이블 핸들도 함께 대기.
+        private IEnumerator RefreshWhenLocalizationReady()
         {
-            PieceInventory.OnChanged -= RefreshOwnedList;
+            yield return LocalizationSettings.InitializationOperation;
+
+            var table = LocalizationSettings.StringDatabase.GetTableAsync(LOCALIZATION_TABLE);
+            yield return table;
+
+            _localizationReady = true;
+            RefreshOwnedList();
         }
+
+        // ---- 초기화 ----
 
         // 편성 슬롯 6칸 초기화 — 빈 칸 + 탭(해제) 콜백 등록
         private void InitSlots()
@@ -94,8 +158,8 @@ namespace Lobby.Deck
                 _ownedCards.Add(card);
             }
         }
-        
-        // 인벤토리 변경(해금·강화) → 카드·슬롯 갱신. 재생성 안 함(스크롤 위치·편성 유지).
+
+        // 인벤토리 변경(해금·강화)·언어 변경 → 카드·슬롯 갱신. 재생성 안 함(스크롤 위치·편성 유지).
         //   순서 중요 — 슬롯 ID를 먼저 현재 레벨로 맞춰야 IsEquipped 조회가 새 ID와 일치.
         private void RefreshOwnedList()
         {
@@ -151,7 +215,7 @@ namespace Lobby.Deck
             card.SetInDeck(true);        // 보유 카드 잠금(편성 중 오버레이 ON)
             RefreshCounts();
         }
-        
+
         // 카드 길게 누르기 → 상세보기 팝업. 미보유도 열림(편성 버튼만 비활성).
         private void OnLongPressOwnedCard(DeckCard card)
         {
@@ -276,22 +340,26 @@ namespace Lobby.Deck
 
         // ---- 표시 갱신 ----
 
-        // 편성·보유 수 표시. 덱 상태가 바뀔 때마다 호출.
-        //   편성: 0=없음 / 1~5=n명 / 6=완료(6칸 고정). 보유: 목록 중 IsOwned인 카드 수(필터 무관).
-        //   ※ 괄호만 코드가 채움 — 앞 문구는 고정 텍스트 오브젝트(로컬라이즈 대비).
+        // 편성·보유 수 표시. 덱 상태·언어가 바뀔 때마다 호출.
+        //   문구 전체가 테이블 엔트리(접두어 포함). Count류는 {0}에 인원을 넘김.
+        //   편성: 0=None / 1~5=Count / 6=Full. 보유: 목록 중 IsOwned인 카드 수(필터 무관).
+        //   ※ 테이블 로드 전 호출은 무시 — 빈 문자열이 대입되면 프리셋 문구까지 지워짐.
         private void RefreshCounts()
         {
+            if (!_localizationReady) return;
+
             if (_equippedCountText != null)
             {
                 int equipped = 0;
                 foreach (var slot in _slots)
                     if (!slot.IsEmpty) equipped++;
 
-                string state = equipped == 0 ? "없음"
-                             : equipped >= _slots.Length ? "완료"
-                             : $"{equipped}명";
-
-                _equippedCountText.text = $"({state})";
+                if (equipped == 0)
+                    _equippedCountText.text = _equippedNone.GetLocalizedString();
+                else if (equipped >= _slots.Length)
+                    _equippedCountText.text = _equippedFull.GetLocalizedString();
+                else
+                    _equippedCountText.text = _equippedCount.GetLocalizedString(equipped);
             }
 
             if (_ownedCountText != null)
@@ -300,7 +368,7 @@ namespace Lobby.Deck
                 foreach (var card in _ownedCards)
                     if (card.IsOwned) owned++;
 
-                _ownedCountText.text = $"({owned}명)";
+                _ownedCountText.text = _ownedCount.GetLocalizedString(owned);
             }
         }
     }
