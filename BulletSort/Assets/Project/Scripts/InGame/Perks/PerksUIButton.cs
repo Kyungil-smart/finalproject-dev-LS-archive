@@ -136,22 +136,40 @@ namespace Ingame.Perks
 
                 EffectData effect = DataManager.Instance.GetData<EffectData>(perk.EffectID);
 
-                //_desc = perkDesc;
-                _desc = Smart.Format(perkDesc, new object[] { effect });
+                var effectDataWrapper = new
+                {
+                    EffectData = new
+                    {
+                        ATK = effect.ATK,
+                        ATKSpeed = effect.ATKSpeed + 1,
+                        MaxProj = effect.MaxProj,
+                        ProjPiercing = effect.ProjPiercing,
+                        ShotProjCount = effect.ShotProjCount,
+                        Duration = effect.Duration,
+                        BuffType = new
+                        {
+                            BoomArea = (int)(effect.BuffValue * 100),
+                            Heal = (int)(effect.BuffValue * 100),
+                            HP = (int)(effect.BuffValue * 100)
+                        },
+                        BuffValue = effect.BuffValue,
+                    }
+                };
+
+                _desc = Smart.Format(perkDesc, effectDataWrapper);
             }
 
             {
-                string perkTarget = LocalizationSettings.StringDatabase.GetLocalizedString(
-                    "LocalizationTable",
-                    perk.PerkTargetText
-                );
-
-                if (perkTarget == "0")
+                if (perk.PerkTargetText == "0")
                 {
                     _targetText = "";
                 }
                 else
                 {
+                    string perkTarget = LocalizationSettings.StringDatabase.GetLocalizedString(
+                        "LocalizationTable",
+                        perk.PerkTargetText
+                    );
                     var runtimeDataWrapper = new
                     {
                         PerkData = new
@@ -182,9 +200,14 @@ namespace Ingame.Perks
             _panelImage.sprite = _panels[perk.PerkRarityType - 91];
             _perkIconBackground.sprite = _icons[perk.PerkRarityType - 91];
 
-            if (_targetText != "0")
+            if (perk.PerkTargetText != "0")
             {
                 _perkTargetIcon.sprite = _targetIcons[perk.PerkTarget - 1];
+                _perkTargetIcon.gameObject.SetActive(true);
+            }
+            else
+            {
+                _perkTargetIcon.gameObject.SetActive(false);
             }
 
             _perkSkillIcon.sprite = _skillIcons[perk.IconResourceKey];
