@@ -23,6 +23,6 @@ MonoBehaviour:
   IsActive: 1
   IconResourceKey: Image_iconSkill_Icon_1
   PieceTypeIcon: Image_Icon_Type_1
-  CurLevel: 0
+  CurLevel: 1
   isUnique: 0
   isSelected: 0
