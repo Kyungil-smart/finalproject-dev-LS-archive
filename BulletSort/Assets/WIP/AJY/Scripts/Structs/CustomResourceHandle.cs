@@ -12,8 +12,27 @@ namespace Util.Custom
         private T _cachedResult;
         // 콜백 중복 실행 방지
         private bool _isCompleted;
-        
-        public event Action<CustomResourceHandle<T>> Completed;
+
+        // 내부 콜백 대리자
+        private Action<CustomResourceHandle<T>> _completedAction;
+        public event Action<CustomResourceHandle<T>> Completed
+        {
+            add
+            {
+                // 완료된 시점 콜백 등록시
+                if (_isCompleted)
+                {
+                    // 저장하지 않고 즉시 실행
+                    value(this);
+                }
+                else
+                {
+                    // 완료 전이라면 이벤트 리스트에 추가
+                    _completedAction += value;
+                }
+            }
+            remove => _completedAction -= value;
+        }
         
         public CustomResourceStatus Status { get; private set; }
         
@@ -45,7 +64,7 @@ namespace Util.Custom
         {
             _request = request;
             Status = CustomResourceStatus.None;
-            Completed = null;
+            _completedAction = null;
             _cachedResult = null;
             _isCompleted = false;
 
@@ -57,6 +76,7 @@ namespace Util.Custom
 
         private void OnLoadCompleted(AsyncOperation op)
         {
+            Debug.Log("리소스 로드 완료 이벤트 발생");
             // 완료처리 되었다면 리턴
             if(_isCompleted) return;
             
@@ -67,9 +87,11 @@ namespace Util.Custom
         // 완료 처리 메서드
         private void TriggerCompletion()
         {
+            Debug.Log("로드 완료처리");
             _isCompleted = true;
             Status = (_cachedResult != null) ? CustomResourceStatus.Succeeded : CustomResourceStatus.Failed;
-            Completed?.Invoke(this);
+            _completedAction?.Invoke(this);
+            _completedAction = null;
         }
     }
 }

@@ -27,6 +27,7 @@ namespace Core
         
         protected override void Init()
         {
+            IsReady = false;
             Volume = new MixerVolumeController();
         
             // 인스펙터에 추가하지 않고 게임매니저에서 동적 생성하기에 null 체크 불필요
@@ -42,12 +43,16 @@ namespace Core
             _sfxSource.playOnAwake = false;
             _sfxSource.outputAudioMixerGroup = _sfxMixerGroup;
 
+            // AudioMixer 로드
             _customResourceHandle = new CustomResourceHandle<AudioMixer>(Resources.LoadAsync<AudioMixer>(MIXER_ADDRESS));
             _customResourceHandle.Completed += OnMixerLoaded;
+            
         }
         
         private void OnMixerLoaded(CustomResourceHandle<AudioMixer> handle)
         {
+            Debug.Log("믹서 로드 완료");
+            Debug.Log(handle.Status.ToString());
             if (handle.Status == CustomResourceStatus.Succeeded)
             {
                 _audioMixer = handle.Result;

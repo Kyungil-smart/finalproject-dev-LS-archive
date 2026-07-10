@@ -119,6 +119,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &423195683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6865184241652999902, guid: db7b61fcc5e6947468146b837d19800f, type: 3}
+  m_PrefabInstance: {fileID: 5130818969003205948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &423195685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423195683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a258ccc950e163e43b9e6586f45b693d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VolumeSlider
+  _parameterName: BGM
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +291,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!1 &953571961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8562769574237822377, guid: db7b61fcc5e6947468146b837d19800f, type: 3}
+  m_PrefabInstance: {fileID: 5130818969003205948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &953571963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953571961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a258ccc950e163e43b9e6586f45b693d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VolumeSlider
+  _parameterName: SFX
 --- !u!1001 &1287372128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1100,7 +1136,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6865184241652999902, guid: db7b61fcc5e6947468146b837d19800f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 423195685}
+    - targetCorrespondingSourceObject: {fileID: 8562769574237822377, guid: db7b61fcc5e6947468146b837d19800f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 953571963}
   m_SourcePrefab: {fileID: 100100000, guid: db7b61fcc5e6947468146b837d19800f, type: 3}
 --- !u!1001 &6348066378005556175
 PrefabInstance:
