@@ -9,8 +9,9 @@ namespace Core.UI
     //   ko/en/ja 모두 같은 개수의 <> 토큰을 갖는다는 전제.
     // 배선 — LocalizeStringEvent의 Update String을 TMP.text가 아니라 이 컴포넌트의
     //   OnStringChanged(string)로 연결. 이 스크립트가 파싱 후 _target에 대입.
-    // ※ 임시 대응 — 원칙은 엔트리를 하나씩 나누는 것(Language_Confirm / Language_Cancel).
-    //   시트를 못 건드리는 동안의 우회책.
+    //
+    // ※ 미사용(2026-07-10 기준). 시트를 못 고칠 때를 대비한 우회책으로만 둔다.
+    //   원칙은 엔트리를 하나씩 나누는 것(Language_Confirm / Language_Cancel).
     // 작성자: 이성규
     public class LocalizedSegmentText : MonoBehaviour
     {
