@@ -615,9 +615,8 @@ MonoBehaviour:
     m_LocalVariables: []
   _panelImage: {fileID: 8746796522214687143}
   _perkIconBackground: {fileID: 4487096327608011076}
-  _perkIcon: {fileID: 3673984551189839206}
-  _perkTargetIcon: {fileID: 4399677915388595620}
   _perkSkillIcon: {fileID: 3673984551189839206}
+  _perkTargetIcon: {fileID: 4399677915388595620}
   _panels:
   - {fileID: 21300000, guid: 2091b581267c6d54eaaddc4673ed910c, type: 3}
   - {fileID: 21300000, guid: 2edbf976ecc703246a456c84ca8fb98c, type: 3}
@@ -637,6 +636,31 @@ MonoBehaviour:
   - {fileID: 3735426664660763811, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
   - {fileID: -312561059961753348, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
   - {fileID: -312561059961753348, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  _skillIconList:
+  - _name: Image_iconSkill_Icon_0
+    _sprite: {fileID: -8566379587358541292, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_1
+    _sprite: {fileID: -7744242443100158344, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_2
+    _sprite: {fileID: -5036140116273678384, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_3
+    _sprite: {fileID: -3308347528847137750, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_4
+    _sprite: {fileID: 8436193077214242108, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_5
+    _sprite: {fileID: -6172430903841127384, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_6
+    _sprite: {fileID: 927794159109948006, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_7
+    _sprite: {fileID: 101121021585324903, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_8
+    _sprite: {fileID: -5145444489984550498, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_9
+    _sprite: {fileID: 452016246300927668, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_10
+    _sprite: {fileID: -533954667581197599, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
+  - _name: Image_iconSkill_Icon_13
+    _sprite: {fileID: -6386323400645627395, guid: 28f164cd3e3f7824b96f986eb3e2160b, type: 3}
   references:
     version: 2
     RefIds: []

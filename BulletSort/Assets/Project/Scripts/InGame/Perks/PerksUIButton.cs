@@ -1,9 +1,11 @@
 ﻿using Core;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.SmartFormat;
 using UnityEngine.UI;
 
 namespace Ingame.Perks
@@ -32,7 +34,8 @@ namespace Ingame.Perks
 
         [SerializeField] private Sprite[] _targetIcons;
 
-        struct IconSpritePair
+        [Serializable]
+        public struct IconSpritePair
         {
             public string _name;
             public Sprite _sprite;
@@ -76,38 +79,110 @@ namespace Ingame.Perks
 
             if (perk.CurLevel > 1)
             {
-                _perkLvUpNameLS.Arguments = new object[] { perk.PerkName, perk.CurLevel, perk.CurLevel + 1 };
-                _name = _perkLvUpNameLS.GetLocalizedString();
+                string perkName = LocalizationSettings.StringDatabase.GetLocalizedString(
+                    "LocalizationTable",
+                    perk.PerkName
+                );
+
+                var runtimeDataWrapper = new
+                {
+                    PerkData = new
+                    {
+                        PerkName = perkName
+                    },
+
+                    RuntimeData = new
+                    {
+                        PerkLv = perk.CurLevel,
+                        PerkLvNext = perk.CurLevel + 1
+                    }
+
+                };
+
+                _name = Smart.Format(_perkLvUpNameLS.GetLocalizedString().Replace("RuntimeData.PerkLv+1", "RuntimeData.PerkLvNext"), runtimeDataWrapper);
             }
             else
             {
-                _perkNewNameLS.Arguments = new object[] { perk.PerkName };
-                _name = _perkNewNameLS.GetLocalizedString();
+                string perkName = LocalizationSettings.StringDatabase.GetLocalizedString(
+                    "LocalizationTable",
+                    perk.PerkName
+                );
+
+                var runtimeDataWrapper = new
+                {
+                    PerkData = new
+                    {
+                        PerkName = perkName
+                    },
+                };
+
+                _name = Smart.Format(_perkNewNameLS.GetLocalizedString(), runtimeDataWrapper);
             }
 
-            _perkDescLS.Arguments = new object[] { perk.PerkDesc };
-            _desc = _perkDescLS.GetLocalizedString();
+            {
+                string perkDesc = LocalizationSettings.StringDatabase.GetLocalizedString(
+                    "LocalizationTable",
+                    perk.PerkDesc
+                );
+                var runtimeDataWrapper = new
+                {
+                    PerkData = new
+                    {
+                        PerkDesc = perkDesc
+                    },
+                };
 
-            _perkTargetLS.Arguments = new object[] {
-                LocalizationSettings.StringDatabase.GetLocalizedString(
+                perkDesc = Smart.Format(_perkDescLS.GetLocalizedString(), runtimeDataWrapper);
+
+                EffectData effect = DataManager.Instance.GetData<EffectData>(perk.EffectID);
+            }
+
+            {
+                string perkTarget = LocalizationSettings.StringDatabase.GetLocalizedString(
                     "LocalizationTable",
                     perk.PerkTargetText
-                )
-            };
-            _targetText = _perkTargetLS.GetLocalizedString();
+                );
 
-            _perkRarityLS.Arguments = new object[] {
-                    LocalizationSettings.StringDatabase.GetLocalizedString(
-                    "LocalizationTable",
-                    rarity.name
-                )
-            };
-            _rarityText = _perkRarityLS.GetLocalizedString();
+                if (perkTarget == "0")
+                {
+                    _targetText = "";
+                }
+                else
+                {
+                    var runtimeDataWrapper = new
+                    {
+                        PerkData = new
+                        {
+                            PerkTargetText = perk.PerkTargetText
+                        },
+                    };
+                    _targetText = Smart.Format(_perkTargetLS.GetLocalizedString(), runtimeDataWrapper);
+                }
+            }
+
+            {
+                string rarityName = LocalizationSettings.StringDatabase.GetLocalizedString(
+                        "LocalizationTable",
+                        rarity.PerkRarityName
+                    );
+
+                var runtimeDataWrapper = new
+                {
+                    RarityData = new
+                    {
+                        PerkRarityName = rarityName
+                    },
+                };
+                _rarityText = Smart.Format(_perkRarityLS.GetLocalizedString(), runtimeDataWrapper);
+            }
 
             _panelImage.sprite = _panels[perk.PerkRarityType - 91];
             _perkIconBackground.sprite = _icons[perk.PerkRarityType - 91];
 
-            _perkTargetIcon.sprite = _targetIcons[perk.PerkTarget - 1];
+            if (_targetText != "0")
+            {
+                _perkTargetIcon.sprite = _targetIcons[perk.PerkTarget - 1];
+            }
 
             _perkSkillIcon.sprite = _skillIcons[perk.IconResourceKey];
 

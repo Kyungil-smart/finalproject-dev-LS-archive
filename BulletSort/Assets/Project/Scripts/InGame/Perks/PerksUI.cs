@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.SmartFormat;
 
 namespace Ingame.Perks
 {
@@ -78,12 +79,16 @@ namespace Ingame.Perks
 
         private void UpdateRemainSelectNumText()
         {
-            _perkNumString.Arguments = new object[] {
-                PerksManager.Instance.RemainSelectNum,
-                PerksManager.Instance.TotalSelectNum
+            var runtimeDataWrapper = new
+            {
+                RuntimeData = new
+                {
+                    PerkChoiceCompletedCount = PerksManager.Instance.RemainSelectNum,
+                    PerkChoiceTotalCount = PerksManager.Instance.TotalSelectNum
+                }
             };
 
-            _remainSelectNumText.text = _perkNumString.GetLocalizedString();
+            _remainSelectNumText.text = Smart.Format(_perkNumString.GetLocalizedString(), runtimeDataWrapper);
         }
     }
 }

@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.SmartFormat;
 using UnityEngine.UI;
 
 namespace Ingame.Perks
@@ -28,8 +29,16 @@ namespace Ingame.Perks
         private void OnEnable()
         {
             _rerollButton.interactable = true;
-            _rerollRemainText.Arguments = new object[] { PerksManager.Instance.RemainRerollNum };
-            _rerollRemainNumText.text = _rerollRemainText.GetLocalizedString();
+
+            var runtimeDataWrapper = new
+            {
+                RuntimeData = new
+                {
+                    RerollCount = PerksManager.Instance.RemainRerollNum
+                }
+            };
+
+            _rerollRemainNumText.text = Smart.Format(_rerollRemainText.GetLocalizedString(), runtimeDataWrapper);
         }
 
         public void UpdateRemainRerollNum()
@@ -41,8 +50,15 @@ namespace Ingame.Perks
                 _rerollButton.interactable = false;
             }
 
-            _rerollRemainText.Arguments = new object[] { remainRerollNum };
-            _rerollRemainNumText.text = _rerollRemainText.GetLocalizedString();
+            var runtimeDataWrapper = new
+            {
+                RuntimeData = new
+                {
+                    RerollCount = PerksManager.Instance.RemainRerollNum
+                }
+            };
+
+            _rerollRemainNumText.text = Smart.Format(_rerollRemainText.GetLocalizedString(), runtimeDataWrapper);
         }
 
         private void OnClickRerollButton()
