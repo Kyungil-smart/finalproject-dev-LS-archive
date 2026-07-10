@@ -1,7 +1,7 @@
+using Data.Table;
 using Sound;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using Util.Custom;
 
 namespace Core
@@ -9,6 +9,7 @@ namespace Core
     public class SoundManager : Singleton<SoundManager>
     {
         private const string MIXER_ADDRESS = "Audio/AudioMixer";
+        private const string SO_ADDRESS = "SO/SoundTable";
         
         private AudioMixer _audioMixer;
         private AudioMixerGroup _bgmMixerGroup;
@@ -20,6 +21,8 @@ namespace Core
         private CustomResourceHandle<AudioMixer> _customResourceHandle;
     
         private const float MIN_SLIDER_VALUE = 0.0001f;
+
+        public SoundTable soundTable;
         
         public bool IsReady { get; private set; }
         
@@ -47,6 +50,7 @@ namespace Core
             _customResourceHandle = new CustomResourceHandle<AudioMixer>(Resources.LoadAsync<AudioMixer>(MIXER_ADDRESS));
             _customResourceHandle.Completed += OnMixerLoaded;
             
+            soundTable = Resources.Load<SoundTable>(SO_ADDRESS);
         }
         
         private void OnMixerLoaded(CustomResourceHandle<AudioMixer> handle)
