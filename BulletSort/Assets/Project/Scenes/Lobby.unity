@@ -744,9 +744,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4329458390739816435, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329458390739816435, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506346159739388757, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506346159739388757, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506346159739388757, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4544645794754690373, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
       propertyPath: m_Name
       value: Popup_Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134278255225846567, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134278255225846567, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134278255225846567, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6277922729969340672, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
       propertyPath: m_Pivot.x
@@ -827,6 +859,10 @@ PrefabInstance:
     - target: {fileID: 6277922729969340672, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951602863048697738, guid: 351030bbf0c1ee64595065f583eef2a9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000026188085
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

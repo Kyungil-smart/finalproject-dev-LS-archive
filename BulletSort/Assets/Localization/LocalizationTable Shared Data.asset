@@ -88,56 +88,88 @@ MonoBehaviour:
     m_Key: "\uD53C\uADF8\uB9C8 Common \uD30C\uD2B8 \uD504\uB808\uC784 \uBA85"
     m_Metadata:
       m_Items: []
+  - m_Id: 382004201381888
+    m_Key: Popup_OK_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547712
+    m_Key: Popup_Cancel_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547713
+    m_Key: Popup_Notice
+    m_Metadata:
+      m_Items: []
   - m_Id: 7930806960142
     m_Key: Popup_Error
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960143
-    m_Key: Popup_Exit
+  - m_Id: 382004226547714
+    m_Key: Popup_Error_Body
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960144
-    m_Key: Popup_Party_Incomplete
+  - m_Id: 382004226547715
+    m_Key: Popup_Error_Button
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960145
-    m_Key: Popup_No_Currency
+  - m_Id: 382004226547716
+    m_Key: Popup_Exit_Title
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960146
-    m_Key: Popup_Tutorial_Confirm
+  - m_Id: 382004226547717
+    m_Key: Popup_Exit_Body
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960147
-    m_Key: Popup_Stage_Locked
+  - m_Id: 382004226547718
+    m_Key: Popup_Party_Incomplete_Body
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960148
-    m_Key: Popup_Connection_Lost
+  - m_Id: 382004226547719
+    m_Key: Popup_No_Currency_Body
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960149
-    m_Key: Popup_Upgrade_Confirm
+  - m_Id: 382004226547720
+    m_Key: Popup_Tutorial_Confirm_Body
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960150
-    m_Key: Popup_Return_To_Lobby
+  - m_Id: 382004226547721
+    m_Key: Popup_Stage_Locked_Body
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960151
-    m_Key: Popup_Upgrade_Complete
+  - m_Id: 382004226547722
+    m_Key: Popup_Connection_Lost_Body
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960152
-    m_Key: Popup_BulletGirl_Unlock_Confirm
+  - m_Id: 382004226547723
+    m_Key: Popup_Connection_Lost_Button
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960153
-    m_Key: Popup_BulletGirl_Unlock_Complete
+  - m_Id: 382004226547724
+    m_Key: Popup_Upgrade_Confirm_Body
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960154
-    m_Key: Popup_BulletGirl_Max_Level
+  - m_Id: 382004226547725
+    m_Key: Popup_Return_To_Lobby_Body
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547726
+    m_Key: Popup_Return_To_Lobby_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547727
+    m_Key: Popup_Upgrade_Complete_Body
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547728
+    m_Key: Popup_Unlock_Confirm_Body
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547729
+    m_Key: Popup_Unlock_Complete_Body
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547730
+    m_Key: Popup_BulletGirl_Max_Level_Body
     m_Metadata:
       m_Items: []
   - m_Id: 7930806960155
@@ -172,8 +204,20 @@ MonoBehaviour:
     m_Key: Lobby_Start_Button
     m_Metadata:
       m_Items: []
-  - m_Id: 7930806960163
-    m_Key: Lobby_Bottom_Tabs
+  - m_Id: 382004226547731
+    m_Key: Lobby_Bottom_Tabs_Battle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547732
+    m_Key: Lobby_Bottom_Tabs_Deck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547733
+    m_Key: Lobby_Bottom_Tabs_Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547734
+    m_Key: Lobby_Bottom_Tabs_Settings
     m_Metadata:
       m_Items: []
   - m_Id: 7930806960164
@@ -502,6 +546,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 7930811154475
     m_Key: Language_Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547735
+    m_Key: Language_Button_2
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154476
