@@ -20,7 +20,7 @@ MonoBehaviour:
   PerkRarityType: 91
   PerkTarget: 8
   PerkTargetText: 0
-  IsActive: 1
+  IsActive: 0
   IconResourceKey: Image_iconSkill_Icon_9
   PieceTypeIcon: 0
   CurLevel: 0
