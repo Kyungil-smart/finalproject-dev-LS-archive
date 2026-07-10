@@ -297,7 +297,7 @@ MonoBehaviour:
     m_Localized: 'Fire Interval : {TowerData.TowerAtkSpeed}s'
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189839
+      - rid: 8237326941018914945
   - m_Id: 7930811154440
     m_Localized: Upgrade
     m_Metadata:
@@ -341,7 +341,7 @@ MonoBehaviour:
       {NextTowerAtkSpeed}s </color>"
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189840
+      - rid: 8237326941018914946
   - m_Id: 7930811154450
     m_Localized: '{RuntimeData.OwnedGold}/{UpgradeCostData.UpgradeCost}'
     m_Metadata:
@@ -543,7 +543,7 @@ MonoBehaviour:
     m_Localized: Wave {RuntimeData.ClearedWave+1}/10
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189841
+      - rid: 8237326941018914947
   - m_Id: 7930811154500
     m_Localized: Rush
     m_Metadata:
@@ -580,7 +580,7 @@ MonoBehaviour:
     m_Localized: 'Fire Interval : {RuntimeData.ATKSpeed}s'
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189842
+      - rid: 8237326941018914948
   - m_Id: 7930811154509
     m_Localized: Selected Perks
     m_Metadata:
@@ -666,12 +666,12 @@ MonoBehaviour:
     m_Localized: Normal DMG
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189843
+      - rid: 8237326941018914949
   - m_Id: 7930811154530
     m_Localized: Boss DMG
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189844
+      - rid: 8237326941018914950
   - m_Id: 7930811154531
     m_Localized: Lv{PieceData.PieceLv} {PieceData.PieceName}
     m_Metadata:
@@ -885,40 +885,36 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154584
-    m_Localized: Increases Standard attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Localized: Increases Standard attack by <color=green>{EffectData.ATK}</color>.
     m_Metadata:
-      m_Items:
-      - rid: 8237326939546189845
+      m_Items: []
   - m_Id: 7930811154585
     m_Localized: Standard fire interval becomes <color=green>{EffectData.ATKSpeed}</color>x
       faster.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154586
-    m_Localized: Increases Standard projectile count by {RuntimeData.ShotProjCount}
-      + <color=green>{EffectData.ShotProjCount}</color>.
+    m_Localized: Increases Standard projectile count by <color=green>{EffectData.ShotProjCount}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154587
-    m_Localized: Increases Standard magazine capacity by {RuntimeData.MaxProj} +
-      <color=green>{EffectData.MaxProj}</color>.
+    m_Localized: Increases Standard magazine capacity by <color=green>{EffectData.MaxProj}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154588
-    m_Localized: Increases Standard projectile size by {RuntimeData.ProjSize} + <color=green>{EffectData.ProjSize}</color>.
+    m_Localized: Increases Standard projectile size by <color=green>{EffectData.ProjSize}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154589
-    m_Localized: Increases Standard piercing by {RuntimeData.ProjPiercing} + <color=green>{EffectData.ProjPiercing}</color>.
+    m_Localized: Increases Standard piercing by <color=green>{EffectData.ProjPiercing}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154590
-    m_Localized: Increases Standard blast radius by {RuntimeData.BuffType.BoomArea}
-      + <color=green>{EffectData.BuffType.BoomArea}</color>.
+    m_Localized: Increases Standard blast radius by <color=green>{EffectData.BuffType.BoomArea}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154591
-    m_Localized: Increases Breacher attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Localized: Increases Breacher attack by <color=green>{EffectData.ATK}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154592
@@ -927,22 +923,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154593
-    m_Localized: Increases Breacher projectile count by {RuntimeData.ShotProjCount}
-      + <color=green>{EffectData.ShotProjCount}</color>.
+    m_Localized: Increases Breacher projectile count by <color=green>{EffectData.ShotProjCount}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154594
-    m_Localized: Increases Breacher magazine capacity by {RuntimeData.MaxProj} +
-      <color=green>{EffectData.MaxProj}</color>.
+    m_Localized: Increases Breacher magazine capacity by <color=green>{EffectData.MaxProj}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154595
-    m_Localized: Increases Breacher blast radius by {RuntimeData.BuffType.BoomArea}
-      + <color=green>{EffectData.BuffType.BoomArea}</color>.
+    m_Localized: Increases Breacher blast radius by <color=green>{EffectData.BuffType.BoomArea}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154596
-    m_Localized: Increases Anti-Armor attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Localized: Increases Anti-Armor attack by <color=green>{EffectData.ATK}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154597
@@ -951,17 +944,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154598
-    m_Localized: Increases Anti-Armor magazine capacity by {RuntimeData.MaxProj}
-      + <color=green>{EffectData.MaxProj}</color>.
+    m_Localized: Increases Anti-Armor magazine capacity by <color=green>{EffectData.MaxProj}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154599
-    m_Localized: Increases Anti-Armor projectile size by {RuntimeData.ProjSize} +
-      <color=green>{EffectData.ProjSize}</color>.
+    m_Localized: Increases Anti-Armor projectile size by <color=green>{EffectData.ProjSize}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154600
-    m_Localized: Increases Marksman attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Localized: Increases Marksman attack by <color=green>{EffectData.ATK}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154601
@@ -970,21 +961,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154602
-    m_Localized: Increases Marksman magazine capacity by {RuntimeData.MaxProj} +
-      <color=green>{EffectData.MaxProj}</color>.
+    m_Localized: Increases Marksman magazine capacity by <color=green>{EffectData.MaxProj}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154603
-    m_Localized: Increases Marksman piercing by {RuntimeData.ProjPiercing} + <color=green>{EffectData.ProjPiercing}</color>.
+    m_Localized: Increases Marksman piercing by <color=green>{EffectData.ProjPiercing}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154604
-    m_Localized: Increases Marksman blast radius by {RuntimeData.BuffType.BoomArea}
-      + <color=green>{EffectData.BuffType.BoomArea}</color>.
+    m_Localized: Increases Marksman blast radius by <color=green>{EffectData.BuffType.BoomArea}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154605
-    m_Localized: Increases Support attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Localized: Increases Support attack by <color=green>{EffectData.ATK}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154606
@@ -993,15 +982,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154607
-    m_Localized: Increases Support magazine capacity by {RuntimeData.MaxProj} + <color=green>{EffectData.MaxProj}</color>.
+    m_Localized: Increases Support magazine capacity by <color=green>{EffectData.MaxProj}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154608
-    m_Localized: Increases Support healing by {RuntimeData.BuffType.Heal} + <color=green>{EffectData.BuffType.Heal}</color>.
+    m_Localized: Increases Support healing by <color=green>{EffectData.BuffType.Heal}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154609
-    m_Localized: Increases Demolition attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
+    m_Localized: Increases Demolition attack by <color=green>{EffectData.ATK}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154610
@@ -1010,18 +999,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154611
-    m_Localized: Increases Demolition projectile count by {RuntimeData.ShotProjCount}
-      + <color=green>{EffectData.ShotProjCount}</color>.
+    m_Localized: Increases Demolition projectile count by <color=green>{EffectData.ShotProjCount}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154612
-    m_Localized: Increases Demolition magazine capacity by {RuntimeData.MaxProj}
-      + <color=green>{EffectData.MaxProj}</color>.
+    m_Localized: Increases Demolition magazine capacity by <color=green>{EffectData.MaxProj}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154613
-    m_Localized: Increases Demolition blast radius by {RuntimeData.BuffType.BoomArea}
-      + <color=green>{EffectData.BuffType.BoomArea}</color>.
+    m_Localized: Increases Demolition blast radius by <color=green>{EffectData.BuffType.BoomArea}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154614
@@ -1030,7 +1016,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154615
-    m_Localized: Increases all slot max HP by {RuntimeData.SlotMaxHP} + <color=green>{EffectData.BuffType.HP}</color>.
+    m_Localized: Increases all slot max HP by <color=green>{EffectData.BuffType.HP}</color>.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154616
@@ -1038,15 +1024,15 @@ MonoBehaviour:
       faster.
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189846
+      - rid: 8237326941018914951
   - m_Id: 7930811154617
     m_Localized: Makes all slots invincible for <color=green>{EffectData.Duration}</color>
       seconds.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154618
-    m_Localized: Adds {RuntimeData.BuffValue} + <color=green>{EffectData.BuffValue}</color>
-      bonus damage whenever a combo reaches a multiple of 10.
+    m_Localized: Adds <color=green>{EffectData.BuffValue}</color> bonus damage whenever
+      a combo reaches a multiple of 10.
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154619
@@ -1077,32 +1063,32 @@ MonoBehaviour:
     m_Localized: Standard
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189847
+      - rid: 8237326941018914952
   - m_Id: 7930811154626
     m_Localized: Breacher
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189848
+      - rid: 8237326941018914953
   - m_Id: 7930811154627
     m_Localized: Marksman
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189849
+      - rid: 8237326941018914954
   - m_Id: 7930811154628
     m_Localized: Anti-Armor
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189850
+      - rid: 8237326941018914955
   - m_Id: 7930811154629
     m_Localized: Demolition
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189851
+      - rid: 8237326941018914956
   - m_Id: 7930811154630
     m_Localized: Support
     m_Metadata:
       m_Items:
-      - rid: 8237326939546189852
+      - rid: 8237326941018914957
   - m_Id: 7930811154631
     m_Localized: Forgotten Ruins Diorama
     m_Metadata:
@@ -1431,69 +1417,68 @@ MonoBehaviour:
     m_Localized: Cancel
     m_Metadata:
       m_Items: []
+  - m_Id: 443374993268736
+    m_Localized: Vietnamese
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
-    - rid: 8237326939546189839
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: Interval
-    - rid: 8237326939546189840
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: Interval
-    - rid: 8237326939546189841
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: '{RuntimeData.CurrentWave}'
-    - rid: 8237326939546189842
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: Interval
-    - rid: 8237326939546189843
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: Normal Damage
-    - rid: 8237326939546189844
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: Boss Damage
-    - rid: 8237326939546189845
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: "Increases Standard attack by ({RuntimeData.ATK}) \u2192 <color=green>
-          ({RuntimeData.ATK}+{EffectData.ATK}) </color>"
-    - rid: 8237326939546189846
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: "{EffectData.Duration}=\uD6A8\uACFC \uC9C0\uC18D\uC2DC\uAC04"
-    - rid: 8237326939546189847
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: Assault Rifle
-    - rid: 8237326939546189848
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: Shotgun
-    - rid: 8237326939546189849
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: Sniper Rifle
-    - rid: 8237326939546189850
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: Mortar
-    - rid: 8237326939546189851
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: AoE,Grenade Launcher
-    - rid: 8237326939546189852
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: Medic
     - rid: 8237326941018914917
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_Entries: 
         m_SharedEntries:
         - id: 7930806960169
+    - rid: 8237326941018914945
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Interval
+    - rid: 8237326941018914946
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Interval
+    - rid: 8237326941018914947
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: '{RuntimeData.CurrentWave}'
+    - rid: 8237326941018914948
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Interval
+    - rid: 8237326941018914949
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Normal Damage
+    - rid: 8237326941018914950
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Boss Damage
+    - rid: 8237326941018914951
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "{EffectData.Duration}=\uD6A8\uACFC \uC9C0\uC18D\uC2DC\uAC04"
+    - rid: 8237326941018914952
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Assault Rifle
+    - rid: 8237326941018914953
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Shotgun
+    - rid: 8237326941018914954
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Sniper Rifle
+    - rid: 8237326941018914955
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Mortar
+    - rid: 8237326941018914956
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: AoE,Grenade Launcher
+    - rid: 8237326941018914957
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: Medic

@@ -899,45 +899,43 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154584
-    m_Localized: "\uAE30\uBCF8\uD615\uC758 \uACF5\uACA9\uB825\uC744 {RuntimeData.ATK}
-      + <color=green>{EffectData.ATK}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uAE30\uBCF8\uD615\uC758 \uACF5\uACA9\uB825\uC744 <color=green>{EffectData.ATK}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
-      m_Items:
-      - rid: 8237326939546189853
+      m_Items: []
   - m_Id: 7930811154585
     m_Localized: "\uAE30\uBCF8\uD615\uC758 \uBC1C\uC0AC\uAC04\uACA9\uC774 <color=green>{EffectData.ATKSpeed}</color>\uBC30
       \uBE68\uB77C\uC9D1\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154586
-    m_Localized: "\uAE30\uBCF8\uD615\uC758 \uD22C\uC0AC\uCCB4 \uC218\uB97C {RuntimeData.ShotProjCount}
-      + <color=green>{EffectData.ShotProjCount}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uAE30\uBCF8\uD615\uC758 \uD22C\uC0AC\uCCB4 \uC218\uB97C <color=green>{EffectData.ShotProjCount}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154587
-    m_Localized: "\uAE30\uBCF8\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C {RuntimeData.MaxProj}
-      + <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uAE30\uBCF8\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154588
     m_Localized: "\uAE30\uBCF8\uD615\uC758 \uD22C\uC0AC\uCCB4 \uD06C\uAE30\uB97C
-      {RuntimeData.ProjSize} + <color=green>{EffectData.ProjSize}</color>\uB9CC\uD07C
-      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+      <color=green>{EffectData.ProjSize}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154589
-    m_Localized: "\uAE30\uBCF8\uD615\uC758 \uAD00\uD1B5\uB825\uC744 {RuntimeData.ProjPiercing}
-      + <color=green>{EffectData.ProjPiercing}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uAE30\uBCF8\uD615\uC758 \uAD00\uD1B5\uB825\uC744 <color=green>{EffectData.ProjPiercing}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154590
-    m_Localized: "\uAE30\uBCF8\uD615\uC758 \uD3ED\uBC1C \uBC94\uC704\uB97C {RuntimeData.BuffType.BoomArea}
-      + <color=green>{EffectData.BuffType.BoomArea}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uAE30\uBCF8\uD615\uC758 \uD3ED\uBC1C \uBC94\uC704\uB97C <color=green>{EffectData.BuffType.BoomArea}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154591
-    m_Localized: "\uC0B0\uD0C4\uD615\uC758 \uACF5\uACA9\uB825\uC744 {RuntimeData.ATK}
-      + <color=green>{EffectData.ATK}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uC0B0\uD0C4\uD615\uC758 \uACF5\uACA9\uB825\uC744 <color=green>{EffectData.ATK}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154592
@@ -946,23 +944,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154593
-    m_Localized: "\uC0B0\uD0C4\uD615\uC758 \uD22C\uC0AC\uCCB4 \uC218\uB97C {RuntimeData.ShotProjCount}
-      + <color=green>{EffectData.ShotProjCount}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uC0B0\uD0C4\uD615\uC758 \uD22C\uC0AC\uCCB4 \uC218\uB97C <color=green>{EffectData.ShotProjCount}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154594
-    m_Localized: "\uC0B0\uD0C4\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C {RuntimeData.MaxProj}
-      + <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uC0B0\uD0C4\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154595
-    m_Localized: "\uC0B0\uD0C4\uD615\uC758 \uD3ED\uBC1C \uBC94\uC704\uB97C {RuntimeData.BuffType.BoomArea}
-      + <color=green>{EffectData.BuffType.BoomArea}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uC0B0\uD0C4\uD615\uC758 \uD3ED\uBC1C \uBC94\uC704\uB97C <color=green>{EffectData.BuffType.BoomArea}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154596
-    m_Localized: "\uD0F1\uCEE4\uB300\uD56D\uD615\uC758 \uACF5\uACA9\uB825\uC744 {RuntimeData.ATK}
-      + <color=green>{EffectData.ATK}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uD0F1\uCEE4\uB300\uD56D\uD615\uC758 \uACF5\uACA9\uB825\uC744 <color=green>{EffectData.ATK}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154597
@@ -971,19 +969,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154598
-    m_Localized: "\uD0F1\uCEE4\uB300\uD56D\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C {RuntimeData.MaxProj}
-      + <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uD0F1\uCEE4\uB300\uD56D\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154599
     m_Localized: "\uD0F1\uCEE4\uB300\uD56D\uD615\uC758 \uD22C\uC0AC\uCCB4 \uD06C\uAE30\uB97C
-      {RuntimeData.ProjSize} + <color=green>{EffectData.ProjSize}</color>\uB9CC\uD07C
-      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+      <color=green>{EffectData.ProjSize}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154600
-    m_Localized: "\uC6D0\uAC70\uB9AC\uD615\uC758 \uACF5\uACA9\uB825\uC744 {RuntimeData.ATK}
-      + <color=green>{EffectData.ATK}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uC6D0\uAC70\uB9AC\uD615\uC758 \uACF5\uACA9\uB825\uC744 <color=green>{EffectData.ATK}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154601
@@ -992,24 +989,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154602
-    m_Localized: "\uC6D0\uAC70\uB9AC\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C {RuntimeData.MaxProj}
-      + <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uC6D0\uAC70\uB9AC\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154603
-    m_Localized: "\uC6D0\uAC70\uB9AC\uD615\uC758 \uAD00\uD1B5\uB825\uC744 {RuntimeData.ProjPiercing}
-      + <color=green>{EffectData.ProjPiercing}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uC6D0\uAC70\uB9AC\uD615\uC758 \uAD00\uD1B5\uB825\uC744 <color=green>{EffectData.ProjPiercing}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154604
     m_Localized: "\uC6D0\uAC70\uB9AC\uD615\uC758 \uD3ED\uBC1C \uBC94\uC704\uB97C
-      {RuntimeData.BuffType.BoomArea} + <color=green>{EffectData.BuffType.BoomArea}</color>\uB9CC\uD07C
-      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+      <color=green>{EffectData.BuffType.BoomArea}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154605
-    m_Localized: "\uBCF4\uC870\uD615\uC758 \uACF5\uACA9\uB825\uC744 {RuntimeData.ATK}
-      + <color=green>{EffectData.ATK}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uBCF4\uC870\uD615\uC758 \uACF5\uACA9\uB825\uC744 <color=green>{EffectData.ATK}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154606
@@ -1018,18 +1014,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154607
-    m_Localized: "\uBCF4\uC870\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C {RuntimeData.MaxProj}
-      + <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uBCF4\uC870\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154608
-    m_Localized: "\uBCF4\uC870\uD615\uC758 \uD68C\uBCF5\uB7C9\uC744 {RuntimeData.BuffType.Heal}
-      + <color=green>{EffectData.BuffType.Heal}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uBCF4\uC870\uD615\uC758 \uD68C\uBCF5\uB7C9\uC744 <color=green>{EffectData.BuffType.Heal}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154609
-    m_Localized: "\uBC94\uC704\uACF5\uACA9\uD615\uC758 \uACF5\uACA9\uB825\uC744 {RuntimeData.ATK}
-      + <color=green>{EffectData.ATK}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uBC94\uC704\uACF5\uACA9\uD615\uC758 \uACF5\uACA9\uB825\uC744 <color=green>{EffectData.ATK}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154610
@@ -1039,19 +1035,17 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 7930811154611
     m_Localized: "\uBC94\uC704\uACF5\uACA9\uD615\uC758 \uD22C\uC0AC\uCCB4 \uC218\uB97C
-      {RuntimeData.ShotProjCount} + <color=green>{EffectData.ShotProjCount}</color>\uB9CC\uD07C
-      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+      <color=green>{EffectData.ShotProjCount}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154612
-    m_Localized: "\uBC94\uC704\uACF5\uACA9\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C {RuntimeData.MaxProj}
-      + <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+    m_Localized: "\uBC94\uC704\uACF5\uACA9\uD615\uC758 \uC7A5\uD0C4\uC218\uB97C <color=green>{EffectData.MaxProj}</color>\uB9CC\uD07C
+      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154613
     m_Localized: "\uBC94\uC704\uACF5\uACA9\uD615\uC758 \uD3ED\uBC1C \uBC94\uC704\uB97C
-      {RuntimeData.BuffType.BoomArea} + <color=green>{EffectData.BuffType.BoomArea}</color>\uB9CC\uD07C
-      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+      <color=green>{EffectData.BuffType.BoomArea}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154614
@@ -1061,8 +1055,7 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 7930811154615
     m_Localized: "\uBAA8\uB4E0 \uC2AC\uB86F\uC758 \uCD5C\uB300 \uCCB4\uB825\uC744
-      {RuntimeData.SlotMaxHP} + <color=green>{EffectData.BuffType.HP}</color>\uB9CC\uD07C
-      \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+      <color=green>{EffectData.BuffType.HP}</color>\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154616
@@ -1078,7 +1071,7 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 7930811154618
     m_Localized: "10 \uB2E8\uC704\uB85C \uCF64\uBCF4 \uB2EC\uC131 \uC2DC \uC9C0\uAE09
-      \uB370\uBBF8\uC9C0\uC5D0 {RuntimeData.BuffValue} + <color=green>{EffectData.BuffValue}</color>\uC758
+      \uB370\uBBF8\uC9C0\uC5D0 <color=green>{EffectData.BuffValue}</color>\uC758
       \uCD94\uAC00 \uD53C\uD574\uB97C \uB354\uD569\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
@@ -1465,15 +1458,13 @@ MonoBehaviour:
     m_Localized: "\uCDE8\uC18C"
     m_Metadata:
       m_Items: []
+  - m_Id: 443374993268736
+    m_Localized: "\uBCA0\uD2B8\uB0A8\uC5B4"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
-    - rid: 8237326939546189853
-      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_CommentText: "\uAE30\uBCF8\uD615\uC758 \uACF5\uACA9\uB825\uC744 ({RuntimeData.ATK})
-          \u2192 <color=green> ({RuntimeData.ATK}+{EffectData.ATK}) </color> \uB9CC\uD07C
-          \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4. \n"
     - rid: 8237326941018914919
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:

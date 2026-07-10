@@ -544,6 +544,10 @@ MonoBehaviour:
     m_Key: Language_Japanese
     m_Metadata:
       m_Items: []
+  - m_Id: 443374993268736
+    m_Key: Language_Vietnamese
+    m_Metadata:
+      m_Items: []
   - m_Id: 7930811154475
     m_Key: Language_Button
     m_Metadata:
