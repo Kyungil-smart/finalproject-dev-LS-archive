@@ -81,12 +81,25 @@ namespace Lobby.Deck
         {
             PieceInventory.OnChanged += OnInventoryChanged;
             RewardManager.OnRewardDataChanged += OnRewardChanged;
+            LocalizationManager.OnLanguageChanged += OnLanguageChanged;
+
+            if (_cards.Count > 0) OnLanguageChanged();
         }
 
         private void OnDisable()
         {
             PieceInventory.OnChanged -= OnInventoryChanged;
             RewardManager.OnRewardDataChanged -= OnRewardChanged;
+            LocalizationManager.OnLanguageChanged -= OnLanguageChanged;
+        }
+        
+        // ---- 변경 이벤트 ----
+        
+        // 언어 준비·변경 → 코드가 조립한 문자열 전부 다시 그림.
+        private void OnLanguageChanged()
+        {
+            RefreshCards();
+            RefreshDetail();
         }
 
         // ---- 목록 ----

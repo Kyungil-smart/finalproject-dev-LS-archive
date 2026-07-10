@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: ko
   m_SharedData: {fileID: 11400000, guid: 846d8c90e966e8448b163bc78f5b6d99, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 8237326941018914919
   m_TableData:
   - m_Id: 7930798571520
     m_Localized: "\uC815\uCCB4\uBD88\uBA85\uC758 \uBAAC\uC2A4\uD130\uAC00\\n\uC138\uACC4\uB97C
@@ -144,7 +145,8 @@ MonoBehaviour:
   - m_Id: 7930806960169
     m_Localized: "\uBCF4\uC720\uD55C \uCD1D\uC54C\uC18C\uB140 ({0}\uBA85)"
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 8237326941018914919
   - m_Id: 7930806960170
     m_Localized: "\uBBF8\uBCF4\uC720"
     m_Metadata:
@@ -1472,3 +1474,9 @@ MonoBehaviour:
         m_CommentText: "\uAE30\uBCF8\uD615\uC758 \uACF5\uACA9\uB825\uC744 ({RuntimeData.ATK})
           \u2192 <color=green> ({RuntimeData.ATK}+{EffectData.ATK}) </color> \uB9CC\uD07C
           \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4. \n"
+    - rid: 8237326941018914919
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 7930806960169

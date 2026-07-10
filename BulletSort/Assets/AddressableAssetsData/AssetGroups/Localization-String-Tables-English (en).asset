@@ -15,11 +15,18 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-English (en)
   m_GUID: 49e1446cc577c5940b7041596af7432b
   m_SerializeEntries:
+  - m_GUID: 7c016114266cb2e49a830469c414703a
+    m_Address: Custom_Localize_Table_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff92a769e45b30247b9a4c0d907991bb
     m_Address: LocalizationTable_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: ff208f17edbaaea44951695159e40a4c, type: 2}

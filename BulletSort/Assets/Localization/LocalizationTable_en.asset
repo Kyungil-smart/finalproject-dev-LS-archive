@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 846d8c90e966e8448b163bc78f5b6d99, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 8237326941018914917
   m_TableData:
   - m_Id: 7930798571520
     m_Localized: Mysterious monsters\nare threatening the world.\nMatch the Bullet
@@ -131,7 +132,8 @@ MonoBehaviour:
   - m_Id: 7930806960169
     m_Localized: Owned Bullet Girls ({0})
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 8237326941018914917
   - m_Id: 7930806960170
     m_Localized: Unowned
     m_Metadata:
@@ -1489,3 +1491,9 @@ MonoBehaviour:
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Medic
+    - rid: 8237326941018914917
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 7930806960169
