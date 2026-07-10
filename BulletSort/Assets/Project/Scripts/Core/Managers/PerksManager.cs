@@ -222,6 +222,7 @@ namespace Core
             Debug.Log($"{perk.CurLevel - 1} → {perk.CurLevel}");
 
             _remainSelectNum--;
+            _remainRerollNum = DEFAULT_REROLL_NUM;
 
             if (_remainSelectNum == 0)
             {
