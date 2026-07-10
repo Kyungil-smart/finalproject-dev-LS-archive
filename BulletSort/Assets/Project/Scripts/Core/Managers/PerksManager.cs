@@ -144,6 +144,12 @@ namespace Core
                 {
                     int rarityID = RollRarityID();
                     int perkID = PickRandomPerkID(rarityID);
+
+                    if (perkID == -1)
+                    {
+                        continue;
+                    }
+
                     PerkData perk = _perksPool[perkID];
 
                     if (!_perksSet.Contains(perkID) && perk.CurLevel < perk.MaxLevel)
@@ -187,6 +193,11 @@ namespace Core
         private int PickRandomPerkID(int rarityID)
         {
             int length = _perksByRarity[rarityID].Count;
+
+            if (length == 0)
+            {
+                return -1;
+            }
 
             int randIndex = UnityEngine.Random.Range(0, length);
 
