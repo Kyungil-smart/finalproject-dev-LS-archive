@@ -1,4 +1,5 @@
 ﻿using Core;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -23,26 +24,30 @@ namespace Ingame.Perks
 
         [SerializeField] Image _panelImage;
         [SerializeField] Image _perkIconBackground;
-        [SerializeField] Image _perkIcon;
+        [SerializeField] Image _perkSkillIcon;
+        [SerializeField] Image _perkTargetIcon;
 
-        [SerializeField] private Sprite _normalPanel;
-        [SerializeField] private Sprite _rarePanel;
-        [SerializeField] private Sprite _uniquePanel;
-        [SerializeField] private Sprite _legendaryPanel;
+        [SerializeField] private Sprite[] _panels;
+        [SerializeField] private Sprite[] _icons;
 
-        [SerializeField] private Sprite _normalIcon;
-        [SerializeField] private Sprite _rareIcon;
-        [SerializeField] private Sprite _uniqueIcon;
-        [SerializeField] private Sprite _legendaryIcon;
+        [SerializeField] private Sprite[] _targetIcons;
+
+        struct IconSpritePair
+        {
+            public string _name;
+            public Sprite _sprite;
+        }
+
+
+        [SerializeField] private IconSpritePair[] _skillIconList;
+        private Dictionary<string, Sprite> _skillIcons;
 
         string _name;
         string _desc;
-        int _curLevel;
-        string _effectText;
         string _targetText;
+        string _rarityText;
 
         private Button _button;
-        private int _perkID;
 
         private void Awake()
         {
@@ -54,9 +59,20 @@ namespace Ingame.Perks
             }
         }
 
+        private void OnEnable()
+        {
+            _skillIcons = new Dictionary<string, Sprite>();
+
+            foreach (var pair in _skillIconList)
+            {
+                _skillIcons[pair._name] = pair._sprite;
+            }
+        }
+
         public void SetUp(int perkID)
         {
             PerkData perk = DataManager.Instance.GetData<PerkData>(perkID);
+            RarityData rarity = DataManager.Instance.GetData<RarityData>(perk.PerkRarityType);
 
             if (perk.CurLevel > 1)
             {
@@ -80,28 +96,20 @@ namespace Ingame.Perks
             };
             _targetText = _perkTargetLS.GetLocalizedString();
 
-            switch (perk.PerkRarityType)
-            {
-                case 91:
-                    _panelImage.sprite = _normalPanel;
-                    _perkIcon.sprite = _normalIcon;
-                    break;
-                case 92:
-                    _panelImage.sprite = _rarePanel;
-                    _perkIcon.sprite = _rareIcon;
-                    break;
-                case 93:
-                    _panelImage.sprite = _uniquePanel;
-                    _perkIcon.sprite = _uniqueIcon;
-                    break;
-                case 94:
-                    _panelImage.sprite = _legendaryPanel;
-                    _perkIcon.sprite = _legendaryIcon;
-                    break;
-                default:
-                    Debug.LogError($"Invalid Value Perk Rarity Type");
-                    break;
-            }
+            _perkRarityLS.Arguments = new object[] {
+                    LocalizationSettings.StringDatabase.GetLocalizedString(
+                    "LocalizationTable",
+                    rarity.name
+                )
+            };
+            _rarityText = _perkRarityLS.GetLocalizedString();
+
+            _panelImage.sprite = _panels[perk.PerkRarityType - 91];
+            _perkIconBackground.sprite = _icons[perk.PerkRarityType - 91];
+
+            _perkTargetIcon.sprite = _targetIcons[perk.PerkTarget - 1];
+
+            _perkSkillIcon.sprite = _skillIcons[perk.IconResourceKey];
 
             UpdateUI();
         }
@@ -120,7 +128,12 @@ namespace Ingame.Perks
 
             if (_perkTarget != null)
             {
-                _perkTarget.text = _effectText;
+                _perkTarget.text = _targetText;
+            }
+
+            if (_perkRarity != null)
+            {
+                _perkRarity.text = _rarityText;
             }
         }
 

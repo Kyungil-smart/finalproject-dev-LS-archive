@@ -616,14 +616,27 @@ MonoBehaviour:
   _panelImage: {fileID: 8746796522214687143}
   _perkIconBackground: {fileID: 4487096327608011076}
   _perkIcon: {fileID: 3673984551189839206}
-  _normalPanel: {fileID: 21300000, guid: 2091b581267c6d54eaaddc4673ed910c, type: 3}
-  _rarePanel: {fileID: 21300000, guid: 2edbf976ecc703246a456c84ca8fb98c, type: 3}
-  _uniquePanel: {fileID: 21300000, guid: dc3deae89e1f2224189b9c04ffb497dc, type: 3}
-  _legendaryPanel: {fileID: 21300000, guid: 81f63ad5d55f30c4c840cd99650d4f95, type: 3}
-  _normalIcon: {fileID: 959038284880409258, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
-  _rareIcon: {fileID: 6918613499003863358, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
-  _uniqueIcon: {fileID: -6160068834494123766, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
-  _legendaryIcon: {fileID: -2319175077877512307, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
+  _perkTargetIcon: {fileID: 4399677915388595620}
+  _perkSkillIcon: {fileID: 3673984551189839206}
+  _panels:
+  - {fileID: 21300000, guid: 2091b581267c6d54eaaddc4673ed910c, type: 3}
+  - {fileID: 21300000, guid: 2edbf976ecc703246a456c84ca8fb98c, type: 3}
+  - {fileID: 21300000, guid: dc3deae89e1f2224189b9c04ffb497dc, type: 3}
+  - {fileID: 21300000, guid: 81f63ad5d55f30c4c840cd99650d4f95, type: 3}
+  _icons:
+  - {fileID: 959038284880409258, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
+  - {fileID: 6918613499003863358, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
+  - {fileID: -6160068834494123766, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
+  - {fileID: -2319175077877512307, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
+  _targetIcons:
+  - {fileID: -4420998648869896282, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: -661716755265013477, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: -8048970844146997478, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: 6125265317746916632, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: 3194887536612346117, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: 3735426664660763811, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: -312561059961753348, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: -312561059961753348, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
   references:
     version: 2
     RefIds: []
