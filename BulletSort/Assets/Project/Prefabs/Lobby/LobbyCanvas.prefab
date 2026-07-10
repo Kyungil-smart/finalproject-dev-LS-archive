@@ -1774,24 +1774,24 @@ MonoBehaviour:
   - Button: {fileID: 7302004005359756033}
     ActiveImage: {fileID: 8829239612401736449}
     Window: {fileID: 8260608648775533444}
-    LabelText: "\uBC30\uD2C0"
+    LabelKey: Lobby_Bottom_Tabs_Battle
     LabelIcon: {fileID: -4660735648907047599, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
   - Button: {fileID: 6555887853004608296}
     ActiveImage: {fileID: 6801158342108368875}
     Window: {fileID: 6672646451638233822}
-    LabelText: "\uB371 \uD3B8\uC131"
+    LabelKey: Lobby_Bottom_Tabs_Deck
     LabelIcon: {fileID: -3621992120353032512, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
   - Button: {fileID: 2518450065395044975}
     ActiveImage: {fileID: 2014193673099425027}
     Window: {fileID: 8387526010194210233}
-    LabelText: "\uAC15\uD654"
+    LabelKey: Lobby_Bottom_Tabs_Upgrade
     LabelIcon: {fileID: -318343158615323599, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
   - Button: {fileID: 2696435135218686492}
     ActiveImage: {fileID: 6137703580355012901}
     Window: {fileID: 2488043671680832930}
-    LabelText: "\uC124\uC815"
+    LabelKey: Lobby_Bottom_Tabs_Settings
     LabelIcon: {fileID: -5083098381261092231, guid: 90bb9cc77ef9fcc479ffc81e8501c5a4, type: 3}
-  _labelText: {fileID: 1429325044115934613}
+  _labelLocalize: {fileID: 2003329967163890976}
   _labelIcon: {fileID: 7208507331197627871}
   _defaultIndex: 0
 --- !u!1 &5001817672250668496
@@ -2423,6 +2423,7 @@ GameObject:
   - component: {fileID: 8672169019909529801}
   - component: {fileID: 1837181957405401887}
   - component: {fileID: 1429325044115934613}
+  - component: {fileID: 2003329967163890976}
   m_Layer: 5
   m_Name: Label_Text
   m_TagString: Untagged
@@ -2521,7 +2522,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -2549,6 +2550,46 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2003329967163890976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5706668804479409484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:846d8c90e966e8448b163bc78f5b6d99
+    m_TableEntryReference:
+      m_KeyId: 7930806960160
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1429325044115934613}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &5930741566878530526
 GameObject:
   m_ObjectHideFlags: 0
@@ -4343,6 +4384,10 @@ PrefabInstance:
       propertyPath: _deckBuilder
       value: 
       objectReference: {fileID: 8414480753505196115}
+    - target: {fileID: 7360788597722807648, guid: ffc82e44aa0e0f149834e37fad3cf4ce, type: 3}
+      propertyPath: m_fontSize
+      value: 77.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7480783279529935342, guid: ffc82e44aa0e0f149834e37fad3cf4ce, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
