@@ -60,6 +60,20 @@ namespace Lobby.Deck
             if (_sortButton != null)
                 _sortButton.onClick.AddListener(OnTapSort);
         }
+        
+        private void OnEnable()
+        {
+            PieceInventory.OnChanged += RefreshOwnedList;
+
+            // 탭 복귀 — 꺼져 있는 동안 강화·해금이 일어났을 수 있으므로 무조건 갱신.
+            //   (탭 전환 구조라 비활성 중엔 OnChanged를 못 받음)
+            if (_ownedCards.Count > 0) RefreshOwnedList();
+        }
+
+        private void OnDisable()
+        {
+            PieceInventory.OnChanged -= RefreshOwnedList;
+        }
 
         // 편성 슬롯 6칸 초기화 — 빈 칸 + 탭(해제) 콜백 등록
         private void InitSlots()
@@ -78,6 +92,41 @@ namespace Lobby.Deck
                 var card = Instantiate(_ownedCardPrefab, _ownedContent);
                 card.Setup(id, OnTapOwnedCard, OnLongPressOwnedCard);
                 _ownedCards.Add(card);
+            }
+        }
+        
+        // 인벤토리 변경(해금·강화) → 카드·슬롯 갱신. 재생성 안 함(스크롤 위치·편성 유지).
+        //   순서 중요 — 슬롯 ID를 먼저 현재 레벨로 맞춰야 IsEquipped 조회가 새 ID와 일치.
+        private void RefreshOwnedList()
+        {
+            RemapSlots();
+
+            var ids = PieceQuery.GetInventoryIDs();
+            for (int i = 0; i < _ownedCards.Count && i < ids.Count; i++)
+            {
+                _ownedCards[i].Setup(ids[i], OnTapOwnedCard, OnLongPressOwnedCard);
+                _ownedCards[i].SetInDeck(IsEquipped(ids[i]));   // Setup이 false로 초기화하므로 다시 씌움
+            }
+
+            ApplyFilter(_filter);   // 미보유 → 보유로 바뀌면 필터 통과 여부도 달라짐
+            RefreshCounts();
+        }
+
+        // 편성 슬롯의 PieceID를 현재 레벨로 재매핑 — 강화로 그룹의 대표 ID가 바뀌었을 수 있음.
+        //   같은 (이름·성급)이면 편성은 유지하고 ID만 최신으로. 슬롯 비주얼도 새 레벨로 갱신됨.
+        private void RemapSlots()
+        {
+            foreach (var slot in _slots)
+            {
+                if (slot.IsEmpty) continue;
+
+                var data = PieceQuery.Get(slot.PieceID);
+                if (data == null) continue;
+
+                int lv = PieceInventory.GetLevel(data.PieceName, data.PieceGrade);
+                int id = PieceQuery.GetIDByGroup(data.PieceName, data.PieceGrade, lv);
+
+                if (id != 0 && id != slot.PieceID) slot.SetPiece(id);
             }
         }
 

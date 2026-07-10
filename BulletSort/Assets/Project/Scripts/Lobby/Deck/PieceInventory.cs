@@ -148,6 +148,16 @@ namespace Lobby.Deck
                 Debug.LogError($"[PieceInventory] 저장 실패: {ex.Message}");
             }
         }
+        
+        // 개발용 — 세이브 삭제 후 기본 상태로. 에디터 치트에서만 호출.
+        public static void ResetAll()
+        {
+            if (File.Exists(SavePath)) File.Delete(SavePath);
+
+            _map = null;
+            EnsureInit();
+            OnChanged?.Invoke();
+        }
 
         private static void Load()
         {
