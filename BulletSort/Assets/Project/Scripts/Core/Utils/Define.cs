@@ -53,6 +53,6 @@ namespace Core
     }
     
     public enum SceneType { Lobby, InGame, Result }
-    public enum Language { KO, EN }       // 인게임 텍스트 시트 현지화
+    public enum Language { KO, EN, JA }       // 인게임 텍스트 시트 현지화
     public enum GamePhase { Wave, Intermission, Cleared, GameOver } // 인게임 흐름
 }
