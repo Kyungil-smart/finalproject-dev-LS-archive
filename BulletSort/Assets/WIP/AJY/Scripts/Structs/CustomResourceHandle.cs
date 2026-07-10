@@ -5,7 +5,7 @@ namespace Util.Custom
 {
     public enum CustomResourceStatus {None, Succeeded, Failed}
 
-    public struct CustomResourceHandle<T> where T : UnityEngine.Object
+    public class CustomResourceHandle<T> where T : UnityEngine.Object
     {
         private readonly ResourceRequest _request;
         // 로드 완료된 에셋 캐싱용
