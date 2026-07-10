@@ -128,6 +128,9 @@ namespace Towers.Factory
             _currentAmmo = towerData.TowerMaxAmmo;
 
             _towerInfo = _towerInfoOrigin;
+
+            ApplyEffect(_effectManager.GroupEffectBonus[(TowerGroupType)_towerInfoOrigin.TowerType]);
+
         }
 
         private void ApplyEffect(EffectBonusValue bonus)
