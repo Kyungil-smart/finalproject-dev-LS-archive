@@ -5,6 +5,7 @@ using InGame.Stage.Data;
 using Lobby.Deck;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 namespace Lobby
@@ -13,7 +14,9 @@ namespace Lobby
     //   일러스트: A/B 2장 크로스 슬라이드(방향성). 배경: A/B 2장 크로스페이드(제자리 블렌딩).
     //   배경은 로비용(BGID) — GetLobbyBackground. 인게임 배경(INGameBG)은 인게임 스크립트가 별도 조회.
     //   시작 → 현재 StageID를 StageManager에 저장 후 DeckBuilder.OnTapStart 위임(6칸 체크·덱 수집·진입).
-    //   ※ 덱 확인 팝업·클리어 마크는 이어서/패스. 슬라이드 거리는 영역 폭 기준(해상도 대응).
+    // 부제 현지화 — StageData.StageName은 표시 문구가 아니라 로컬라이즈 키(StageName_1 등).
+    //   LocalizeStringEvent에 키만 꽂으면 현재 언어로 표시되고 언어 전환 시 자동 갱신(구독 불필요).
+    //   번호(_index+1)와 "스테이지" 고정 글자는 별도 오브젝트라 여기서 안 건드림.
     // 작성자: 이성규
     public class StageSelectController : MonoBehaviour
     {
@@ -24,7 +27,9 @@ namespace Lobby
 
         [Header("제목")]
         [SerializeField] private TMP_Text _numberText;   // 맨 위 스테이지 번호(숫자만, '스테이지'는 고정 텍스트 분리)
-        [SerializeField] private TMP_Text _titleText;    // 부제(StageName)
+
+        [Tooltip("스테이지 부제 — LocalizeStringEvent가 붙은 오브젝트. 키는 StageData.StageName")]
+        [SerializeField] private LocalizeStringEvent _stageNameLocalize;
 
         [Header("일러스트 (슬라이드 2장)")]
         [Tooltip("슬라이드 이동 영역 — 이 폭만큼 좌우로 밀어 화면 밖으로. RectMask2D 걸어 밖 잘라내기")]
@@ -46,6 +51,9 @@ namespace Lobby
         [Tooltip("전환 이징")]
         [SerializeField] private Ease _ease = Ease.OutCubic;
 
+        // 로컬라이즈 테이블 이름 — 프로젝트 공용 단일 테이블.
+        private const string LOCALIZATION_TABLE = "LocalizationTable";
+
         private IReadOnlyList<int> _stageIDs;
         private int _index;
 
@@ -58,6 +66,8 @@ namespace Lobby
         // 현재 선택 StageID — 범위 밖이면 0.
         private int CurrentStageID =>
             (_stageIDs != null && _index >= 0 && _index < _stageIDs.Count) ? _stageIDs[_index] : 0;
+
+        // ---- 생명주기 ----
 
         private void Start()
         {
@@ -84,6 +94,8 @@ namespace Lobby
             (_illustB?.rectTransform)?.DOKill();
         }
 
+        // ---- 표시 ----
+
         // 첫 스테이지 — 앞면 이미지에 즉시 세팅, 뒷면은 숨김.
         private void InitFirstStage()
         {
@@ -102,6 +114,28 @@ namespace Lobby
             ApplySprite(_bgFront, StageQuery.GetLobbyBackground(id), 1f);
             ApplySprite(Other(_bgFront), null, 0f);
         }
+
+        // 번호(_index+1) + 부제(StageName 키) 갱신.
+        //   "스테이지" 고정 글자는 별도 오브젝트라 안 건드림.
+        private void SetTitle(int stageID)
+        {
+            if (_numberText != null)
+                _numberText.text = (_index + 1).ToString();
+
+            RefreshStageName(StageQuery.Get(stageID));
+        }
+
+        // 스테이지 부제 — StageData.StageName이 로컬라이즈 키(StageName_1 등).
+        //   LocalizeStringEvent에 키만 꽂으면 현재 언어로 표시되고, 언어 전환 시 자동 갱신됨.
+        private void RefreshStageName(StageData data)
+        {
+            if (_stageNameLocalize == null || data == null) return;
+            if (string.IsNullOrEmpty(data.StageName)) return;
+
+            _stageNameLocalize.StringReference.SetReference(LOCALIZATION_TABLE, data.StageName);
+        }
+
+        // ---- 순회 ----
 
         // 이전 — 왼쪽에서 들어옴(현재는 오른쪽으로 나감).
         private void OnPrev()
@@ -165,18 +199,31 @@ namespace Lobby
                 .OnComplete(() => { _bgFront = bgIn; });
         }
 
-        // 번호(_index+1) + 부제(StageName) 갱신. "스테이지" 고정 글자는 별도 오브젝트라 안 건드림.
-        private void SetTitle(int stageID)
+        // 첫/마지막에서 이전/다음 버튼 숨김(SetActive). 반투명 비활성 아니라 아예 안 보이게.
+        private void UpdateNavButtons()
         {
-            if (_numberText != null)
-                _numberText.text = (_index + 1).ToString();
+            int count = _stageIDs?.Count ?? 0;
 
-            if (_titleText != null)
-            {
-                var data = StageQuery.Get(stageID);
-                if (data != null) _titleText.text = data.StageName;
-            }
+            if (_prevButton != null) _prevButton.gameObject.SetActive(_index > 0);
+            if (_nextButton != null) _nextButton.gameObject.SetActive(_index < count - 1);
         }
+
+        // ---- 시작 ----
+
+        // 시작 — 현재 StageID 저장 후 DeckBuilder에 위임(6칸 체크·덱 수집·진입).
+        //   덱 확인 팝업은 이어서 — 그때 SetStageID와 위임 사이에 팝업을 끼움.
+        private void OnStart()
+        {
+            int id = CurrentStageID;
+            if (id == 0) return;
+
+            StageManager.Instance.SetStageID(id);
+
+            if (_deckBuilder != null)
+                _deckBuilder.OnTapStart();
+        }
+
+        // ---- 헬퍼 ----
 
         // 스프라이트 + 알파 적용. 스프라이트 없으면 이미지 끔.
         private void ApplySprite(Image img, Sprite sprite, float alpha)
@@ -213,28 +260,6 @@ namespace Lobby
             if (img == _bgA) return _bgB;
             if (img == _bgB) return _bgA;
             return null;
-        }
-
-        // 첫/마지막에서 이전/다음 버튼 숨김(SetActive). 반투명 비활성 아니라 아예 안 보이게.
-        private void UpdateNavButtons()
-        {
-            int count = _stageIDs?.Count ?? 0;
-
-            if (_prevButton != null) _prevButton.gameObject.SetActive(_index > 0);
-            if (_nextButton != null) _nextButton.gameObject.SetActive(_index < count - 1);
-        }
-
-        // 시작 — 현재 StageID 저장 후 DeckBuilder에 위임(6칸 체크·덱 수집·진입).
-        //   덱 확인 팝업은 이어서 — 그때 SetStageID와 위임 사이에 팝업을 끼움.
-        private void OnStart()
-        {
-            int id = CurrentStageID;
-            if (id == 0) return;
-
-            StageManager.Instance.SetStageID(id);
-
-            if (_deckBuilder != null)
-                _deckBuilder.OnTapStart();
         }
     }
 }

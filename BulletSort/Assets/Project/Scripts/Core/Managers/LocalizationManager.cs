@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
@@ -13,6 +14,10 @@ namespace Core
     public static class LocalizationManager
     {
         private const string PREF_KEY = "language";
+
+        // 언어가 바뀌면 발행 — 코드가 조립하는 문자열(Lv n·해금하기·(n명) 등)의 갱신 트리거.
+        //   프리팹에 박힌 정적 텍스트는 LocalizeStringEvent가 알아서 갱신하므로 구독 불필요.
+        public static event Action OnLanguageChanged;
 
         // enum → Locale Code. Localization 창의 Locale 식별자(ko/en/ja)와 일치해야 함.
         private static string ToCode(Language lang) => lang switch
@@ -33,7 +38,7 @@ namespace Core
         // 저장된 언어 — 없으면 KO. 설정창이 초기 선택값으로 사용.
         public static Language Current => FromCode(PlayerPrefs.GetString(PREF_KEY, "ko"));
 
-        // 언어 적용 + 저장. SelectedLocale 대입 시점에 화면의 LocalizeStringEvent들이 갱신됨.
+        // 언어 적용 + 저장. SelectedLocale 대입 시점에 LocalizeStringEvent들이 갱신됨.
         public static void SetLanguage(Language lang)
         {
             PlayerPrefs.SetString(PREF_KEY, ToCode(lang));
@@ -47,6 +52,7 @@ namespace Core
             }
 
             LocalizationSettings.SelectedLocale = locale;
+            OnLanguageChanged?.Invoke();   // 코드 조립 문자열 갱신
         }
 
         // 앱 시작 시 저장된 언어 복원.
