@@ -17,7 +17,7 @@ MonoBehaviour:
   TowerAiType: 3
   TowerAtk: 6
   TowerAtkSpeed: 0.6
-  TowerMaxRange: 2
+  TowerMaxRange: 3.1
   TowerMaxAmmo: 13
   TowerProjectile: 6001
   ProjectileCount: 5
