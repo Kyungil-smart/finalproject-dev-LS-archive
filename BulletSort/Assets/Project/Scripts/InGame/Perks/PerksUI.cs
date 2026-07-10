@@ -13,6 +13,11 @@ namespace Ingame.Perks
 
         private void Awake()
         {
+            if (PerksManager.Instance == null)
+            {
+                return;
+            }
+
             PerksManager.Instance.OnPerksRolled += OpenWindow;
             PerksManager.Instance.OnPerkSelected += UpdateRemainSelectNum;
             PerksManager.Instance.OnPerkPhaseEnded += CloseWindow;
@@ -20,6 +25,11 @@ namespace Ingame.Perks
 
         private void OnDestroy()
         {
+            if (PerksManager.Instance == null)
+            {
+                return;
+            }
+
             PerksManager.Instance.OnPerksRolled -= OpenWindow;
             PerksManager.Instance.OnPerkSelected -= UpdateRemainSelectNum;
             PerksManager.Instance.OnPerkPhaseEnded -= CloseWindow;

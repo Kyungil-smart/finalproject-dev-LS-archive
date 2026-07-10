@@ -18,9 +18,15 @@ namespace InGame.Sort.Data
 
         [Tooltip("카드 배경. 인덱스=PieceType(1~6). 0번 칸은 비움")]
         [SerializeField] private Sprite[] _backgrounds;
+        
+        [Tooltip("공격 유형 아이콘. 인덱스=PieceType(1~6). 0번 칸은 비움")]
+        [SerializeField] private Sprite[] _typeIcons;
 
         // 카드 프레임 — PieceType(1~6)으로 조회. 범위 밖/미등록이면 null(호출부가 빈 칸 처리).
         public Sprite GetFrame(int pieceType) => GetAt(_frames, pieceType);
+        
+        // 공격 유형 아이콘 — PieceType(1~6)으로 조회. 프레임·배경과 같은 타입 기반.
+        public Sprite GetTypeIcon(int pieceType) => GetAt(_typeIcons, pieceType);
 
         // 카드 배경 — PieceType(1~6)으로 조회. 범위 밖/미등록이면 null.
         public Sprite GetBackground(int pieceType) => GetAt(_backgrounds, pieceType);

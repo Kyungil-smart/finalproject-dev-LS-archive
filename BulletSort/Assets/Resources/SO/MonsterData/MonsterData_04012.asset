@@ -17,8 +17,8 @@ MonoBehaviour:
   MonsterType: 1
   ExpTypeID: 81
   MonsterHp: 10
-  MonsterAtk: 4
-  MonsterAtkSpeed: 1.2
-  MonsterAtkRange: 1
+  MonsterAtk: 3
+  MonsterAtkSpeed: 3.3
+  MonsterAtkRange: 0.4
   MonsterMoveSpeed: 15
-  MonsterSprite: Rookie Plant 0073 (1)
+  MonsterSprite: monster_01_05

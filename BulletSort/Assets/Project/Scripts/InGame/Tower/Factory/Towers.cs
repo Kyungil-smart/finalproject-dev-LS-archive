@@ -57,7 +57,13 @@ namespace Towers.Factory
         {
             if (!gameObject.activeInHierarchy) return;
 
-            StartCoroutine(Attack());
+            if (_atkCoroutine != null)
+            {
+                StopCoroutine(_atkCoroutine);
+                _atkCoroutine = null;
+            }
+
+            _atkCoroutine = StartCoroutine(Attack());
         }
 
         // 공격 코루틴
@@ -89,6 +95,16 @@ namespace Towers.Factory
 
                 if (!_isOverSorting)
                     yield return new WaitUntil(() => _targetDetector.target != null);
+            }
+            SpendAllAmmo();
+        }
+
+        private void SpendAllAmmo()
+        {
+            if (_atkCoroutine != null)
+            {
+                StopCoroutine(_atkCoroutine);
+                _atkCoroutine = null;
             }
 
             Destroy(gameObject);
@@ -122,14 +138,11 @@ namespace Towers.Factory
             }
 
             _towerInfo = _towerInfoOrigin.UpdateInfo(bonus);
-
-            return;
         }
 
 
         private void OnDestroy()
         {
-            _atkCoroutine = null;
             _currentAmmo = 0;
             _slotTurretQueue.NotifyTurretDestroyed(this);
         }

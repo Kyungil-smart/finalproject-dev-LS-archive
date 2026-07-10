@@ -76,12 +76,13 @@ namespace InGame.Slot
                 // 디버그 표시용 — 로비에서 넘어온 덱을 인스펙터에도 채워 플레이 중 눈으로 확인.
                 //   (런타임 대입이라 에디터에 영구 저장은 안 됨, 플레이 중 표시용)
                 _deckPieceIDs = new List<int>(pieceIDs);
-                Lobby.Deck.DeckHolder.Clear();
+                // Clear() 제거 — 로비 진입 시 DeckBuilder.Start()가 비움.
+                //   여기서 비우면 씬이 두 번 로드되거나 재진입할 때 덱을 잃고 폴백을 탐.
             }
             else if (_deckPieceIDs != null && _deckPieceIDs.Count > 0)
                 pieceIDs = _deckPieceIDs;
             else
-                pieceIDs = PieceQuery.GetAllIDs();
+                pieceIDs = PieceQuery.GetDefaultDeckIDs();   // 1성 6종 (GetAllIDs는 90종이라 3-Sort 불가)
 
             _activePieceIDs = pieceIDs;
             _supplier.Initialize(pieceIDs);

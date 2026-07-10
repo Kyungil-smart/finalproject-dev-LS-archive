@@ -17,7 +17,7 @@ MonoBehaviour:
   PerkName: PerkName_MaxProj_Buffer
   PerkDesc: PerkDesc_MaxProj_Buffer
   MaxLevel: 3
-  PerkRarityType: 91
+  PerkRarityType: 92
   PerkTarget: 6
   PerkTargetText: TowerTypeText_Buffer
   IsActive: 1

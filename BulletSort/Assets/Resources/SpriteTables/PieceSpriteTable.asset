@@ -61,38 +61,62 @@ MonoBehaviour:
     Sprite: {fileID: -7498108616586246331, guid: ee9d29de755e62d41a3167de796b4489, type: 3}
   - Name: Character_Sprite_02_5
     Sprite: {fileID: -1068156468984581057, guid: ee9d29de755e62d41a3167de796b4489, type: 3}
+  - Name: Character_Sprite_03_0
+    Sprite: {fileID: 1712940309419603891, guid: 9747da8c156d4f74b8cfd51f902d5114, type: 3}
+  - Name: Character_Sprite_03_1
+    Sprite: {fileID: -6782720658164388521, guid: 9747da8c156d4f74b8cfd51f902d5114, type: 3}
+  - Name: Character_Sprite_03_2
+    Sprite: {fileID: 6620097240295665162, guid: 9747da8c156d4f74b8cfd51f902d5114, type: 3}
+  - Name: Character_Sprite_03_3
+    Sprite: {fileID: -4243448444042081764, guid: 9747da8c156d4f74b8cfd51f902d5114, type: 3}
+  - Name: Character_Sprite_03_4
+    Sprite: {fileID: -7498108616586246331, guid: 9747da8c156d4f74b8cfd51f902d5114, type: 3}
+  - Name: Character_Sprite_03_5
+    Sprite: {fileID: -1068156468984581057, guid: 9747da8c156d4f74b8cfd51f902d5114, type: 3}
+  - Name: Character_Sprite_04_0
+    Sprite: {fileID: 1712940309419603891, guid: d77c57526015e404388e247b2f139bf4, type: 3}
+  - Name: Character_Sprite_04_1
+    Sprite: {fileID: -6782720658164388521, guid: d77c57526015e404388e247b2f139bf4, type: 3}
+  - Name: Character_Sprite_04_2
+    Sprite: {fileID: 6620097240295665162, guid: d77c57526015e404388e247b2f139bf4, type: 3}
+  - Name: Character_Sprite_04_3
+    Sprite: {fileID: -4243448444042081764, guid: d77c57526015e404388e247b2f139bf4, type: 3}
+  - Name: Character_Sprite_04_4
+    Sprite: {fileID: -7498108616586246331, guid: d77c57526015e404388e247b2f139bf4, type: 3}
+  - Name: Character_Sprite_04_5
+    Sprite: {fileID: -1068156468984581057, guid: d77c57526015e404388e247b2f139bf4, type: 3}
   - Name: Image_Doi_01
-    Sprite: {fileID: -6806615296251277954, guid: 254bb2a2acf2cd34796fcec36357b1e7, type: 3}
+    Sprite: {fileID: -6806615296251277954, guid: 0ebb12e13162e724f8dddb3a3136f2b2, type: 3}
   - Name: Image_Doi_02
     Sprite: {fileID: -8678400875052698921, guid: 49153400d590ca94e8e0b99d42d502cc, type: 3}
   - Name: Image_Doi_03
     Sprite: {fileID: -979735094743768027, guid: ecf831e6511603e43910710f52b95073, type: 3}
   - Name: Image_Gabi_01
-    Sprite: {fileID: 4960381749064365194, guid: 635e7dc2104e14348a0027a76b5d72a7, type: 3}
+    Sprite: {fileID: 4960381749064365194, guid: ba60ae9062cdd1f439175ea8a83cff1d, type: 3}
   - Name: Image_Gabi_02
     Sprite: {fileID: -4896454939190302913, guid: ced16b83ef3e3f044aaf0a8d5f54b10e, type: 3}
   - Name: Image_Gabi_03
     Sprite: {fileID: -5211655041778976313, guid: f27c175407ce5fc4b8fb61c0723d6b74, type: 3}
   - Name: Image_Lily_01
-    Sprite: {fileID: 8391850124203791088, guid: abc1e6130970d6747b38bb6c5bf0c2b4, type: 3}
+    Sprite: {fileID: 8391850124203791088, guid: a1e482ff0d377324ba881b5e359ef1ee, type: 3}
   - Name: Image_Lily_02
     Sprite: {fileID: -1475911598086303346, guid: e86d245cd134fe3429e63a34cc9622b0, type: 3}
   - Name: Image_Lily_03
     Sprite: {fileID: 1964400828582845342, guid: 001afe2152bc939489fdb0b9ba328bc1, type: 3}
   - Name: Image_Serin_01
-    Sprite: {fileID: 8640330915648617641, guid: 1272465500a7da441ba0a1e698f58753, type: 3}
+    Sprite: {fileID: 8640330915648617641, guid: 8d3cea21ec1ea034eafbcffabec1c6ec, type: 3}
   - Name: Image_Serin_02
     Sprite: {fileID: 4997255379591013823, guid: 1b0fd2f61ca446747a158ae68c5e41cb, type: 3}
   - Name: Image_Serin_03
     Sprite: {fileID: 2390971459824689020, guid: a5d92ca4bf82dd54cb7475d6edb6a339, type: 3}
   - Name: Image_Yueun_01
-    Sprite: {fileID: 5324512274988799653, guid: 2dffc4f0cae7d904fbf40c91fa9f0620, type: 3}
+    Sprite: {fileID: 5324512274988799653, guid: 797d68eb491c16b4f910a2c40c84f8fc, type: 3}
   - Name: Image_Yueun_02
     Sprite: {fileID: 3533700637936019282, guid: a22b9d44a24c7d1498fee48bb501a451, type: 3}
   - Name: Image_Yueun_03
     Sprite: {fileID: 4451697478850496337, guid: 25090cc5e934d3140adc18ed929cf69c, type: 3}
   - Name: Image_Yujin_01
-    Sprite: {fileID: 4025556577006711843, guid: 8016778841a94e142b60757bc03d44b1, type: 3}
+    Sprite: {fileID: 4025556577006711843, guid: 33046b52fbf098b4b8b3ba40af68073e, type: 3}
   - Name: Image_Yujin_02
     Sprite: {fileID: 2080359167854196175, guid: fd0b4cb2f35bf0140a22452542f3f537, type: 3}
   - Name: Image_Yujin_03

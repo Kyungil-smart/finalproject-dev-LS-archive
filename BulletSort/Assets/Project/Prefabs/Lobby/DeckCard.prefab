@@ -227,6 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8712422088724149222}
   - component: {fileID: 3191299268076651894}
+  - component: {fileID: 1841477287972095161}
   - component: {fileID: 1110293265847815635}
   - component: {fileID: 1847338521328789519}
   - component: {fileID: 4260000743241698293}
@@ -279,6 +280,7 @@ MonoBehaviour:
   _portrait: {fileID: 1437387815636798823}
   _frame: {fileID: 2836484943979223538}
   _background: {fileID: 2327530445156413754}
+  _typeIcon: {fileID: 1682378064686023978}
   _lvText: {fileID: 5559785519006440570}
   _stars:
   - {fileID: 8022940545910126139}
@@ -289,6 +291,26 @@ MonoBehaviour:
   _statusNotOwned: {fileID: 6919451648238420716}
   _button: {fileID: 1110293265847815635}
   _inDeckButton: {fileID: 2914117562564329272}
+  _longPress: {fileID: 1841477287972095161}
+  _selectHighlight: {fileID: 8347906181327398142}
+  _statusTop: {fileID: 6238185400801090623}
+  _statusImage: {fileID: 7962932840618694439}
+  _costArea: {fileID: 4342040159057820300}
+  _costIcon: {fileID: 4155536029119346716}
+  _costText: {fileID: 8265311091348121215}
+--- !u!114 &1841477287972095161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947553216773656360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d57331e87047c1a82ab2438cd2eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.LongPressHandler
+  _threshold: 0.5
 --- !u!114 &1110293265847815635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,8 +604,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26, y: 0}
-  m_SizeDelta: {x: 148, y: 50}
+  m_AnchoredPosition: {x: 8.75, y: 0}
+  m_SizeDelta: {x: 182.5, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4261572115833407887
 CanvasRenderer:
@@ -643,9 +665,9 @@ MonoBehaviour:
   m_fontSize: 32
   m_fontSizeBase: 32
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 32
   m_fontStyle: 0
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
@@ -1727,7 +1749,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 1712940309419603891, guid: ee9d29de755e62d41a3167de796b4489, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

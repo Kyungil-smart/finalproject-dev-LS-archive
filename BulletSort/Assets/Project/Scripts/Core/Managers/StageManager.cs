@@ -41,9 +41,7 @@ namespace Core
         int _waveIdx;
 
         int _gainedGold;
-        int _reward;
-        public int GainedReward { get { return _reward; } }
-        
+
         public int CurStageID => _curStageID;
 
         public bool IsBossWave { get { return _waveIdx == 9; } }
@@ -75,8 +73,6 @@ namespace Core
             MonsterController.OnDead -= MonsterDeadHandler;
             base.OnDestroy();
         }
-
-
 
         // Lobby에서 선택 시 호출할 것
         public void SetStageID(int stageID)

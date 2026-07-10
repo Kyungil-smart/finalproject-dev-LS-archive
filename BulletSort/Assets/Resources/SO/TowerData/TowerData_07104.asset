@@ -16,15 +16,15 @@ MonoBehaviour:
   TowerType: 1
   TowerAiType: 1
   TowerAtk: 26
-  TowerAtkSpeed: 0.2
-  TowerMaxRange: 10
-  TowerMaxAmmo: 30
+  TowerAtkSpeed: 0.35
+  TowerMaxRange: 2.5
+  TowerMaxAmmo: 15
   TowerProjectile: 6001
   ProjectileCount: 1
-  ProjectileSize: 0.25
+  ProjectileSize: 0.05
   PiercingCount: 0
   SplashRadius: 0
   CurrentHp: 0
-  BulletSpeed: 1
+  BulletSpeed: 0.8
   TowerTypeText: TowerTypeText_Basic
   TowerName: PieceName_Basic

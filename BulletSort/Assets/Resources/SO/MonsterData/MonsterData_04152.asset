@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Normal_2_Stage5
   MonsterType: 1
   ExpTypeID: 81
-  MonsterHp: 80
-  MonsterAtk: 88
-  MonsterAtkSpeed: 1.2
-  MonsterAtkRange: 1
+  MonsterHp: 250
+  MonsterAtk: 5
+  MonsterAtkSpeed: 2.3
+  MonsterAtkRange: 0.4
   MonsterMoveSpeed: 15
-  MonsterSprite: Champion Kentauros 0070 (1)
+  MonsterSprite: monster_01_09

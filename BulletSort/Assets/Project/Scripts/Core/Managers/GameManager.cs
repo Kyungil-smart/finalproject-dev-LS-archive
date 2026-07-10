@@ -32,6 +32,9 @@ namespace Core
             {
                 Logger.Instance.LogInfo("GameManager 초기화 및 매니저 등록 완료");
             }
+            
+            // 어플 시작시 현지화 복원
+            StartCoroutine(LocalizationManager.Restore());
         }
 
         // --- 매니저 등록 헬퍼 --- //

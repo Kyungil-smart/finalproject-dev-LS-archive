@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Speedy_Stage5
   MonsterType: 2
   ExpTypeID: 82
-  MonsterHp: 30
-  MonsterAtk: 23
-  MonsterAtkSpeed: 1.7
-  MonsterAtkRange: 1
-  MonsterMoveSpeed: 15
-  MonsterSprite: Rookie Robot 05Dark (1)
+  MonsterHp: 22
+  MonsterAtk: 3
+  MonsterAtkSpeed: 2.6
+  MonsterAtkRange: 0.4
+  MonsterMoveSpeed: 35
+  MonsterSprite: monster_01_04

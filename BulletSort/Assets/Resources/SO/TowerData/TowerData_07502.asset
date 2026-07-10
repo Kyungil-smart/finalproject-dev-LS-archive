@@ -15,15 +15,15 @@ MonoBehaviour:
   TowerID: 7502
   TowerType: 5
   TowerAiType: 2
-  TowerAtk: 60
-  TowerAtkSpeed: 0.8
-  TowerMaxRange: 10
-  TowerMaxAmmo: 15
+  TowerAtk: 15
+  TowerAtkSpeed: 2.7
+  TowerMaxRange: 2.5
+  TowerMaxAmmo: 6
   TowerProjectile: 6004
   ProjectileCount: 1
-  ProjectileSize: 0.34
+  ProjectileSize: 0.75
   PiercingCount: 0
-  SplashRadius: 6
+  SplashRadius: 0.4
   CurrentHp: 0
   BulletSpeed: 0.5
   TowerTypeText: TowerTypeText_Boomer
