@@ -1,4 +1,5 @@
-﻿using Ingame.Perks;
+﻿using Core;
+using Ingame.Perks;
 using System;
 
 namespace Towers.Struct.TowerInfo
@@ -79,7 +80,7 @@ namespace Towers.Struct.TowerInfo
 
         public STowerInfo UpdateInfo(EffectBonusValue bonus)
         {
-            STowerInfo changedInfo = new STowerInfo();
+            STowerInfo changedInfo = new STowerInfo(DataManager.Instance.GetData<TowerData>(this._towerID));
 
             // 폭발형 처리
             if (_towerType == 4)
