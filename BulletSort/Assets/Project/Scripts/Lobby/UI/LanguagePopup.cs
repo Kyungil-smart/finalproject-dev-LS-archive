@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 namespace Lobby.UI
 {
-    // 언어 설정 팝업 — 한국어/영어 선택(옵션 텍스트 터치) + 변경/취소. 순수 표시(진입점은 PopupManager).
-    //   선택된 언어의 화살표 묶음(KR_Arrows/EN_Arrows)만 SetActive로 표시.
-    //   옵션 클릭은 임시 선택만 바꿈 — 실제 적용은 '변경' 버튼에서 콜백으로 위임. 취소는 적용 없이 닫기.
-    //   실제 언어 전환(로컬라이즈)은 이월 과제 — 팝업은 선택 상태·화살표 토글만, 적용은 onApply 콜백으로.
+    // 언어 설정 팝업 — 한국어/영어/일본어 선택(옵션 터치) + 변경/취소. 순수 표시(진입점은 PopupManager).
+    //   선택된 언어의 화살표 묶음만 SetActive로 표시(SetSelected가 셋을 한 번에 그려 중복 방지).
+    //   옵션 클릭은 임시 선택만 바꿈 — 실제 적용은 '변경' 버튼에서 onApply 콜백으로 위임.
+    //     콜백을 받은 SettingController가 LocalizationManager.SetLanguage로 Locale을 교체.
+    //   취소는 적용 없이 닫기 — 임시 선택은 다음 Show에서 현재 언어로 덮임.
     // 공통(root 토글·시작 비활성화·Close)은 PopupBase가 담당.
     // 작성자: 이성규
     public class LanguagePopup : PopupBase
@@ -24,20 +25,27 @@ namespace Lobby.UI
         [Tooltip("영어 선택 표시 화살표 묶음")]
         [SerializeField] private GameObject _englishArrows;
 
+        [Tooltip("일본어 옵션 버튼")]
+        [SerializeField] private Button _japaneseButton;
+        [Tooltip("일본어 선택 표시 화살표 묶음")]
+        [SerializeField] private GameObject _japaneseArrows;
+
         [Header("Buttons")]
         [SerializeField] private Button _confirmButton;   // 변경
         [SerializeField] private Button _cancelButton;    // 취소
 
-        // 변경 확정 시 실제 적용 위임 — 로컬라이즈 로직이 이 콜백을 받아 처리(이월).
+        // 변경 확정 시 적용 위임 — 팝업은 Locale을 직접 안 건드림.
         private Action<Language> _onApply;
 
-        // 팝업 열려 있는 동안의 임시 선택 — 변경 버튼 전까지 실제 적용 안 함.
+        // 팝업이 열려 있는 동안의 임시 선택 — 변경 버튼 전까지 실제 적용 안 함.
         private Language _selected;
 
         protected override void OnAwake()
         {
             _koreanButton.onClick.AddListener(() => SetSelected(Language.KO));
             _englishButton.onClick.AddListener(() => SetSelected(Language.EN));
+            _japaneseButton.onClick.AddListener(() => SetSelected(Language.JA));
+
             _confirmButton.onClick.AddListener(OnConfirm);
             _cancelButton.onClick.AddListener(Close);
         }
@@ -46,24 +54,25 @@ namespace Lobby.UI
         public void Show(Language current, Action<Language> onApply)
         {
             _onApply = onApply;
-            SetSelected(current);   // 현재 언어로 화살표 초기 표시
+            SetSelected(current);
             Open();
         }
 
-        // 임시 선택 변경 + 화살표 갱신 — 선택 기준으로 양쪽 한 번에 그려 둘 다 켜짐 방지.
+        // 임시 선택 변경 + 화살표 갱신 — 선택 기준으로 셋을 한 번에 그려 둘 이상 켜짐 방지.
         private void SetSelected(Language lang)
         {
             _selected = lang;
             if (_koreanArrows != null) _koreanArrows.SetActive(lang == Language.KO);
             if (_englishArrows != null) _englishArrows.SetActive(lang == Language.EN);
+            if (_japaneseArrows != null) _japaneseArrows.SetActive(lang == Language.JA);
         }
 
-        // 변경 — 선택된 언어로 적용 위임 후 닫기.
+        // 변경 — 닫은 뒤 콜백. Close()가 _onApply를 비우므로 지역 변수에 먼저 담아둠.
         private void OnConfirm()
         {
             var cb = _onApply;
             var lang = _selected;
-            Close();            // 먼저 닫고 콜백
+            Close();
             cb?.Invoke(lang);
         }
 

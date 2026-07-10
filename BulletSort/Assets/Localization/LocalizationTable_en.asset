@@ -81,55 +81,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930806960142
-    m_Localized: '[ERROR]An unknown error has occurred.\nCODE:100<Exit>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960143
-    m_Localized: '[Exit]Quit the game?<Confirm><Cancel>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960144
-    m_Localized: '[Notice]Your party is incomplete.\nAssign 6 characters.<OK>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960145
-    m_Localized: '[Notice]Not enough currency.<OK>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960146
-    m_Localized: '[Notice]View the tutorial?<Confirm><Cancel>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960147
-    m_Localized: '[Notice]This stage is locked.<OK>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960148
-    m_Localized: '[Notice]Connection lost.<Exit>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960149
-    m_Localized: '[Notice]Upgrade\nthis Bullet Girl?<Confirm>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960150
-    m_Localized: '[Notice]Give up and\nreturn to the lobby?<Leave><Cancel>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960151
-    m_Localized: '[Notice]Upgrade complete.<OK>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960152
-    m_Localized: '[Notice]Unlock this Bullet Girl?<Confirm>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960153
-    m_Localized: '[Notice]Bullet Girl unlocked.<OK>'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960154
-    m_Localized: '[Notice]This Bullet Girl is already at max level.<OK>'
+    m_Localized: ERROR
     m_Metadata:
       m_Items: []
   - m_Id: 7930806960155
@@ -154,10 +106,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 7930806960162
     m_Localized: Start!
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7930806960163
-    m_Localized: <Battle><Deck><Upgrade><Settings>
     m_Metadata:
       m_Items: []
   - m_Id: 7930806960164
@@ -252,7 +200,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930806960186
-    m_Localized: <OK>
+    m_Localized: OK
     m_Metadata:
       m_Items: []
   - m_Id: 7930806960187
@@ -300,7 +248,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930806960198
-    m_Localized: <OK>
+    m_Localized: OK
     m_Metadata:
       m_Items: []
   - m_Id: 7930806960199
@@ -347,7 +295,7 @@ MonoBehaviour:
     m_Localized: 'Fire Interval : {TowerData.TowerAtkSpeed}s'
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862264
+      - rid: 8237326939546189839
   - m_Id: 7930811154440
     m_Localized: Upgrade
     m_Metadata:
@@ -391,7 +339,7 @@ MonoBehaviour:
       {NextTowerAtkSpeed}s </color>"
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862265
+      - rid: 8237326939546189840
   - m_Id: 7930811154450
     m_Localized: '{RuntimeData.OwnedGold}/{UpgradeCostData.UpgradeCost}'
     m_Metadata:
@@ -493,7 +441,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154475
-    m_Localized: <Apply><Cancel>
+    m_Localized: Apply
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154476
@@ -510,7 +458,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154478
-    m_Localized: <OK>
+    m_Localized: OK
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154480
@@ -593,7 +541,7 @@ MonoBehaviour:
     m_Localized: Wave {RuntimeData.ClearedWave+1}/10
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862266
+      - rid: 8237326939546189841
   - m_Id: 7930811154500
     m_Localized: Rush
     m_Metadata:
@@ -630,7 +578,7 @@ MonoBehaviour:
     m_Localized: 'Fire Interval : {RuntimeData.ATKSpeed}s'
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862267
+      - rid: 8237326939546189842
   - m_Id: 7930811154509
     m_Localized: Selected Perks
     m_Metadata:
@@ -716,12 +664,12 @@ MonoBehaviour:
     m_Localized: Normal DMG
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862268
+      - rid: 8237326939546189843
   - m_Id: 7930811154530
     m_Localized: Boss DMG
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862269
+      - rid: 8237326939546189844
   - m_Id: 7930811154531
     m_Localized: Lv{PieceData.PieceLv} {PieceData.PieceName}
     m_Metadata:
@@ -739,7 +687,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154535
-    m_Localized: <OK>
+    m_Localized: OK
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154536
@@ -751,7 +699,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154538
-    m_Localized: <OK>
+    m_Localized: OK
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154539
@@ -775,7 +723,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154544
-    m_Localized: <OK>
+    m_Localized: OK
     m_Metadata:
       m_Items: []
   - m_Id: 7930811154545
@@ -938,7 +886,7 @@ MonoBehaviour:
     m_Localized: Increases Standard attack by {RuntimeData.ATK} + <color=green>{EffectData.ATK}</color>.
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862270
+      - rid: 8237326939546189845
   - m_Id: 7930811154585
     m_Localized: Standard fire interval becomes <color=green>{EffectData.ATKSpeed}</color>x
       faster.
@@ -1088,7 +1036,7 @@ MonoBehaviour:
       faster.
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862271
+      - rid: 8237326939546189846
   - m_Id: 7930811154617
     m_Localized: Makes all slots invincible for <color=green>{EffectData.Duration}</color>
       seconds.
@@ -1127,32 +1075,32 @@ MonoBehaviour:
     m_Localized: Standard
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862272
+      - rid: 8237326939546189847
   - m_Id: 7930811154626
     m_Localized: Breacher
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862273
+      - rid: 8237326939546189848
   - m_Id: 7930811154627
     m_Localized: Marksman
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862274
+      - rid: 8237326939546189849
   - m_Id: 7930811154628
     m_Localized: Anti-Armor
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862275
+      - rid: 8237326939546189850
   - m_Id: 7930811154629
     m_Localized: Demolition
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862276
+      - rid: 8237326939546189851
   - m_Id: 7930811154630
     m_Localized: Support
     m_Metadata:
       m_Items:
-      - rid: 6364978420121862277
+      - rid: 8237326939546189852
   - m_Id: 7930811154631
     m_Localized: Forgotten Ruins Diorama
     m_Metadata:
@@ -1381,63 +1329,163 @@ MonoBehaviour:
     m_Localized: Flash Punch
     m_Metadata:
       m_Items: []
+  - m_Id: 382004201381888
+    m_Localized: OK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547712
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547713
+    m_Localized: Notice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547714
+    m_Localized: An unknown error has occurred.\nCODE:100
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547715
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547716
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547717
+    m_Localized: Quit the game?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547718
+    m_Localized: Your party is incomplete.\nAssign 6 characters.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547719
+    m_Localized: Not enough currency.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547720
+    m_Localized: View the tutorial?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547721
+    m_Localized: This stage is locked.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547722
+    m_Localized: Connection lost.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547723
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547724
+    m_Localized: Upgrade\nthis Bullet Girl?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547725
+    m_Localized: Give up and\nreturn to the lobby?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547726
+    m_Localized: Leave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547727
+    m_Localized: Upgrade complete.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547728
+    m_Localized: Unlock this Bullet Girl?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547729
+    m_Localized: Bullet Girl unlocked.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547730
+    m_Localized: This Bullet Girl is already at max level.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547731
+    m_Localized: Battle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547732
+    m_Localized: Deck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547733
+    m_Localized: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547734
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382004226547735
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
-    - rid: 6364978420121862264
+    - rid: 8237326939546189839
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Interval
-    - rid: 6364978420121862265
+    - rid: 8237326939546189840
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Interval
-    - rid: 6364978420121862266
+    - rid: 8237326939546189841
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: '{RuntimeData.CurrentWave}'
-    - rid: 6364978420121862267
+    - rid: 8237326939546189842
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Interval
-    - rid: 6364978420121862268
+    - rid: 8237326939546189843
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Normal Damage
-    - rid: 6364978420121862269
+    - rid: 8237326939546189844
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Boss Damage
-    - rid: 6364978420121862270
+    - rid: 8237326939546189845
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: "Increases Standard attack by ({RuntimeData.ATK}) \u2192 <color=green>
           ({RuntimeData.ATK}+{EffectData.ATK}) </color>"
-    - rid: 6364978420121862271
+    - rid: 8237326939546189846
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: "{EffectData.Duration}=\uD6A8\uACFC \uC9C0\uC18D\uC2DC\uAC04"
-    - rid: 6364978420121862272
+    - rid: 8237326939546189847
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Assault Rifle
-    - rid: 6364978420121862273
+    - rid: 8237326939546189848
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Shotgun
-    - rid: 6364978420121862274
+    - rid: 8237326939546189849
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Sniper Rifle
-    - rid: 6364978420121862275
+    - rid: 8237326939546189850
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Mortar
-    - rid: 6364978420121862276
+    - rid: 8237326939546189851
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: AoE,Grenade Launcher
-    - rid: 6364978420121862277
+    - rid: 8237326939546189852
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: Medic

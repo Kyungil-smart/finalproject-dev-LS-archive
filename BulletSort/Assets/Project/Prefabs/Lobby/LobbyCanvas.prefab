@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8775108601844024245}
+  - component: {fileID: 5198002712007089450}
   m_Layer: 5
   m_Name: Currency_Info
   m_TagString: Untagged
@@ -37,6 +38,20 @@ RectTransform:
   m_AnchoredPosition: {x: -270, y: 0}
   m_SizeDelta: {x: 540, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5198002712007089450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342628476974363530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860b47d48369e4b4b94561925058900e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Lobby.UI.CurrencyDisplay
+  _goldText: {fileID: 3923366772290013944}
+  _stardustText: {fileID: 5983008858252357282}
 --- !u!1 &479909630471963480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1059,10 @@ MonoBehaviour:
   - {fileID: 4321692064961653437}
   _ownedContent: {fileID: 3030378822620146928}
   _ownedCardPrefab: {fileID: 3191299268076651894, guid: f5f39dc3ed893394c91d3044dc7555ee, type: 3}
-  _startButton: {fileID: 3046369849167258472}
+  _attackTypeButton: {fileID: 6147477007693232848}
+  _sortButton: {fileID: 8797951484145256355}
+  _equippedCountText: {fileID: 42109607005711933}
+  _ownedCountText: {fileID: 669994954510364700}
 --- !u!1 &2650600865402337299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4247,24 +4265,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8258046403181956486, guid: ffc82e44aa0e0f149834e37fad3cf4ce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffc82e44aa0e0f149834e37fad3cf4ce, type: 3}
---- !u!114 &3046369849167258472 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3062178928912264554, guid: ffc82e44aa0e0f149834e37fad3cf4ce, type: 3}
-  m_PrefabInstance: {fileID: 16302183130811906}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &7487514196691849196 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7480783279529935342, guid: ffc82e44aa0e0f149834e37fad3cf4ce, type: 3}
@@ -4440,7 +4447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 573872844000739650, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -558.2616
+      value: -196
       objectReference: {fileID: 0}
     - target: {fileID: 578856899715955296, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4556,7 +4563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2316162911742789536, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -901.2616
+      value: -539
       objectReference: {fileID: 0}
     - target: {fileID: 3513095963648798089, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4580,7 +4587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3513095963648798089, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -901.2616
+      value: -539
       objectReference: {fileID: 0}
     - target: {fileID: 3517969571497860250, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4604,7 +4611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3517969571497860250, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -558.2616
+      value: -196
       objectReference: {fileID: 0}
     - target: {fileID: 5221780346514572654, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4644,7 +4651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8498574719071219729, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -901.2616
+      value: -539
       objectReference: {fileID: 0}
     - target: {fileID: 9025384596995486062, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4668,13 +4675,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025384596995486062, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -558.2616
+      value: -196
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
+--- !u!114 &42109607005711933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1406518769592803830, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
+  m_PrefabInstance: {fileID: 1374001581200723915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &669994954510364700 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1899714148844945367, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
+  m_PrefabInstance: {fileID: 1374001581200723915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!114 &2029957550188571743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1097387970599052180, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
@@ -4729,6 +4758,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 547dce493338c1d48890c2027676d966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckSlot
+--- !u!114 &6147477007693232848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5062423027822949659, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
+  m_PrefabInstance: {fileID: 1374001581200723915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &6672646451638233822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5731797755649697045, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
@@ -4756,6 +4796,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 547dce493338c1d48890c2027676d966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lobby.Deck.DeckSlot
+--- !u!114 &8797951484145256355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7568850486197094504, guid: 90f31ec484d3b974fa6e75048077e221, type: 3}
+  m_PrefabInstance: {fileID: 1374001581200723915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1001 &5181427032795092430
 PrefabInstance:
   m_ObjectHideFlags: 0
