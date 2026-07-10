@@ -83,7 +83,7 @@ namespace Ingame.Perks
             {
                 RuntimeData = new
                 {
-                    PerkChoiceCompletedCount = PerksManager.Instance.RemainSelectNum,
+                    PerkChoiceCompletedCount = (PerksManager.Instance.TotalSelectNum - PerksManager.Instance.RemainSelectNum),
                     PerkChoiceTotalCount = PerksManager.Instance.TotalSelectNum
                 }
             };
