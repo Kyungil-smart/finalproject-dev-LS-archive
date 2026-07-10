@@ -1,6 +1,8 @@
 ﻿using Core;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.SmartFormat;
 using UnityEngine.UI;
 
 namespace Ingame.Perks
@@ -8,6 +10,7 @@ namespace Ingame.Perks
     public class PerksUIRerollArea : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _rerollRemainNumText;
+        [SerializeField] private LocalizedString _rerollRemainText;
         [SerializeField] Button _rerollButton;
 
         private void Awake()
@@ -26,7 +29,16 @@ namespace Ingame.Perks
         private void OnEnable()
         {
             _rerollButton.interactable = true;
-            _rerollRemainNumText.text = $"남은 횟수 : {PerksManager.Instance.RemainRerollNum}";
+
+            var runtimeDataWrapper = new
+            {
+                RuntimeData = new
+                {
+                    RerollCount = PerksManager.Instance.RemainRerollNum
+                }
+            };
+
+            _rerollRemainNumText.text = Smart.Format(_rerollRemainText.GetLocalizedString(), runtimeDataWrapper);
         }
 
         public void UpdateRemainRerollNum()
@@ -38,12 +50,20 @@ namespace Ingame.Perks
                 _rerollButton.interactable = false;
             }
 
-            _rerollRemainNumText.text = $"남은 횟수 : {remainRerollNum}";
+            var runtimeDataWrapper = new
+            {
+                RuntimeData = new
+                {
+                    RerollCount = PerksManager.Instance.RemainRerollNum
+                }
+            };
+
+            _rerollRemainNumText.text = Smart.Format(_rerollRemainText.GetLocalizedString(), runtimeDataWrapper);
         }
 
         private void OnClickRerollButton()
         {
-            Debug.Log($"[Perk Reroll Button] : On Click");
+            //Debug.Log($"[Perk Reroll Button] : On Click");
             PerksManager.Instance.Reroll();
         }
     }

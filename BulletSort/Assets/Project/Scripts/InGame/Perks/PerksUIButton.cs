@@ -1,6 +1,11 @@
 ﻿using Core;
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.SmartFormat;
 using UnityEngine.UI;
 
 namespace Ingame.Perks
@@ -8,29 +13,47 @@ namespace Ingame.Perks
     public class PerksUIButton : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _perkName;
-        [SerializeField] private TextMeshProUGUI _perkLevel;
         [SerializeField] private TextMeshProUGUI _perkDesc;
-        [SerializeField] private TextMeshProUGUI _perkEffect;
+        [SerializeField] private TextMeshProUGUI _perkTarget;
+        [SerializeField] private TextMeshProUGUI _perkRarity;
         [SerializeField] private int _index;
 
-        private Image _panelImage;
-        [SerializeField] private Sprite _normalPanel;
-        [SerializeField] private Sprite _rarePanel;
-        [SerializeField] private Sprite _uniquePanel;
-        [SerializeField] private Sprite _legendaryPanel;
+        [SerializeField] private LocalizedString _perkNewNameLS;
+        [SerializeField] private LocalizedString _perkLvUpNameLS;
+        [SerializeField] private LocalizedString _perkDescLS;
+        [SerializeField] private LocalizedString _perkTargetLS;
+        [SerializeField] private LocalizedString _perkRarityLS; //Todo
+
+        [SerializeField] Image _panelImage;
+        [SerializeField] Image _perkIconBackground;
+        [SerializeField] Image _perkSkillIcon;
+        [SerializeField] Image _perkTargetIcon;
+
+        [SerializeField] private Sprite[] _panels;
+        [SerializeField] private Sprite[] _icons;
+
+        [SerializeField] private Sprite[] _targetIcons;
+
+        [Serializable]
+        public struct IconSpritePair
+        {
+            public string _name;
+            public Sprite _sprite;
+        }
+
+
+        [SerializeField] private IconSpritePair[] _skillIconList;
+        private Dictionary<string, Sprite> _skillIcons;
 
         string _name;
         string _desc;
-        int _curLevel;
-        string _effectText;
         string _targetText;
+        string _rarityText;
 
         private Button _button;
-        private int _perkID;
 
         private void Awake()
         {
-            _panelImage = GetComponent<Image>();
             _button = GetComponent<Button>();
 
             if (_button != null)
@@ -39,36 +62,132 @@ namespace Ingame.Perks
             }
         }
 
+        private void OnEnable()
+        {
+            _skillIcons = new Dictionary<string, Sprite>();
+
+            foreach (var pair in _skillIconList)
+            {
+                _skillIcons[pair._name] = pair._sprite;
+            }
+        }
+
         public void SetUp(int perkID)
         {
             PerkData perk = DataManager.Instance.GetData<PerkData>(perkID);
+            RarityData rarity = DataManager.Instance.GetData<RarityData>(perk.PerkRarityType);
 
-            _name = perk.PerkName;
-            _desc = perk.PerkDesc;
-            _curLevel = perk.CurLevel;
-
-            _effectText = perk.PerkDesc;    // 삭제 예정. 기획팀에서 텍스트 일원화한다고 함.
-
-            _targetText = perk.PerkTargetText;
-
-            switch (perk.PerkRarityType)
+            if (perk.CurLevel > 1)
             {
-                case 91:
-                    _panelImage.sprite = _normalPanel;
-                    break;
-                case 92:
-                    _panelImage.sprite = _rarePanel;
-                    break;
-                case 93:
-                    _panelImage.sprite = _uniquePanel;
-                    break;
-                case 94:
-                    _panelImage.sprite = _legendaryPanel;
-                    break;
-                default:
-                    Debug.LogError($"Invalid Value Perk Rarity Type");
-                    break;
+                string perkName = LocalizationSettings.StringDatabase.GetLocalizedString(
+                    "LocalizationTable",
+                    perk.PerkName
+                );
+
+                var runtimeDataWrapper = new
+                {
+                    PerkData = new
+                    {
+                        PerkName = perkName
+                    },
+
+                    RuntimeData = new
+                    {
+                        PerkLv = perk.CurLevel,
+                        PerkLvNext = perk.CurLevel + 1
+                    }
+
+                };
+
+                _name = Smart.Format(_perkLvUpNameLS.GetLocalizedString().Replace("RuntimeData.PerkLv+1", "RuntimeData.PerkLvNext"), runtimeDataWrapper);
             }
+            else
+            {
+                string perkName = LocalizationSettings.StringDatabase.GetLocalizedString(
+                    "LocalizationTable",
+                    perk.PerkName
+                );
+
+                var runtimeDataWrapper = new
+                {
+                    PerkData = new
+                    {
+                        PerkName = perkName
+                    },
+                };
+
+                _name = Smart.Format(_perkNewNameLS.GetLocalizedString(), runtimeDataWrapper);
+            }
+
+            {
+                string perkDesc = LocalizationSettings.StringDatabase.GetLocalizedString(
+                    "LocalizationTable",
+                    perk.PerkDesc
+                );
+                var runtimeDataWrapper = new
+                {
+                    PerkData = new
+                    {
+                        PerkDesc = perkDesc
+                    },
+                };
+
+                perkDesc = Smart.Format(_perkDescLS.GetLocalizedString(), runtimeDataWrapper);
+
+                EffectData effect = DataManager.Instance.GetData<EffectData>(perk.EffectID);
+
+                //_desc = perkDesc;
+                _desc = Smart.Format(perkDesc, new object[] { effect });
+            }
+
+            {
+                string perkTarget = LocalizationSettings.StringDatabase.GetLocalizedString(
+                    "LocalizationTable",
+                    perk.PerkTargetText
+                );
+
+                if (perkTarget == "0")
+                {
+                    _targetText = "";
+                }
+                else
+                {
+                    var runtimeDataWrapper = new
+                    {
+                        PerkData = new
+                        {
+                            PerkTargetText = perkTarget
+                        },
+                    };
+                    _targetText = Smart.Format(_perkTargetLS.GetLocalizedString(), runtimeDataWrapper);
+                }
+            }
+
+            {
+                string rarityName = LocalizationSettings.StringDatabase.GetLocalizedString(
+                        "LocalizationTable",
+                        rarity.PerkRarityName
+                    );
+
+                var runtimeDataWrapper = new
+                {
+                    RarityData = new
+                    {
+                        PerkRarityName = rarityName
+                    },
+                };
+                _rarityText = Smart.Format(_perkRarityLS.GetLocalizedString(), runtimeDataWrapper);
+            }
+
+            _panelImage.sprite = _panels[perk.PerkRarityType - 91];
+            _perkIconBackground.sprite = _icons[perk.PerkRarityType - 91];
+
+            if (_targetText != "0")
+            {
+                _perkTargetIcon.sprite = _targetIcons[perk.PerkTarget - 1];
+            }
+
+            _perkSkillIcon.sprite = _skillIcons[perk.IconResourceKey];
 
             UpdateUI();
         }
@@ -80,19 +199,19 @@ namespace Ingame.Perks
                 _perkName.text = _name;
             }
 
-            if (_perkLevel != null)
-            {
-                _perkLevel.text = $"Lv {_curLevel} → {_curLevel + 1}";
-            }
-
             if (_perkDesc != null)
             {
                 _perkDesc.text = _desc;
             }
 
-            if (_perkEffect != null)
+            if (_perkTarget != null)
             {
-                _perkEffect.text = _effectText;
+                _perkTarget.text = _targetText;
+            }
+
+            if (_perkRarity != null)
+            {
+                _perkRarity.text = _rarityText;
             }
         }
 

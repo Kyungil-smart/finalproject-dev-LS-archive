@@ -194,7 +194,7 @@ MonoBehaviour:
     m_Top: 40
     m_Bottom: 40
   m_ChildAlignment: 4
-  m_Spacing: 30
+  m_Spacing: 15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -461,6 +461,18 @@ MonoBehaviour:
   - {fileID: 3760557507285733750}
   - {fileID: 1456744627830218199}
   _remainSelectNumText: {fileID: 6001927358083614538}
+  _perkNumString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &3082001960497414936
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +599,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ingame.Perks.PerksUIRerollArea
   _rerollRemainNumText: {fileID: 7037574307728242576}
+  _rerollRemainText:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _rerollButton: {fileID: 4866868570388852935}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &5443557596771678880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,9 +1189,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7493244207507749714, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7527457660130244410, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
       propertyPath: _index
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111912991703055151, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111912991703055151, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1302,6 +1338,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9111912991703055151, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111912991703055151, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1428,6 +1472,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9090213079543582856, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111912991703055151, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111912991703055151, guid: f0be05088e43c0b4dbced32fc098176c, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}

@@ -1,6 +1,8 @@
 ﻿using Core;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.SmartFormat;
 
 namespace Ingame.Perks
 {
@@ -10,6 +12,8 @@ namespace Ingame.Perks
         [SerializeField] private PerksUIButton[] _perkButtons;
 
         [SerializeField] private TextMeshProUGUI _remainSelectNumText;
+
+        [SerializeField] private LocalizedString _perkNumString;
 
         private void Awake()
         {
@@ -75,7 +79,16 @@ namespace Ingame.Perks
 
         private void UpdateRemainSelectNumText()
         {
-            _remainSelectNumText.text = $"특전 선택하기 (남은 횟수 : {PerksManager.Instance.RemainSelectNum})";
+            var runtimeDataWrapper = new
+            {
+                RuntimeData = new
+                {
+                    PerkChoiceCompletedCount = PerksManager.Instance.RemainSelectNum,
+                    PerkChoiceTotalCount = PerksManager.Instance.TotalSelectNum
+                }
+            };
+
+            _remainSelectNumText.text = Smart.Format(_perkNumString.GetLocalizedString(), runtimeDataWrapper);
         }
     }
 }
