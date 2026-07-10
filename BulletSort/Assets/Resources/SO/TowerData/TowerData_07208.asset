@@ -25,6 +25,6 @@ MonoBehaviour:
   PiercingCount: 0
   SplashRadius: 0
   CurrentHp: 0
-  BulletSpeed: 0.9
+  BulletSpeed: 1
   TowerTypeText: TowerTypeText_Shotgun
   TowerName: PieceName_Shotgun

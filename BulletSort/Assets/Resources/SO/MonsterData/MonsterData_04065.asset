@@ -20,5 +20,5 @@ MonoBehaviour:
   MonsterAtk: 6
   MonsterAtkSpeed: 3.8
   MonsterAtkRange: 0.4
-  MonsterMoveSpeed: 8
+  MonsterMoveSpeed: 0.5
   MonsterSprite: monster_02_0
