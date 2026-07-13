@@ -73,16 +73,22 @@ namespace Projectile
         {
             if(_isExplosive) return;
             
-            if(other.gameObject.tag == "Monster")
+            if(other.gameObject.tag == "Monster" && _atkList.Contains(other.gameObject))
                 _atkList.Add(other.gameObject);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject.tag == "Monster" && _atkList.Contains(other.gameObject))
+                _atkList.Remove(other.gameObject);
         }
 
         // 폭발 이펙트 재생, 콜라이더 범위 확장
         private void Explosion()
         {
             _collider.radius = _radius;
-            
 
+            if (_isExplosive) return;
             // 콜라이더 내 오브젝트 모두 공격
             foreach (GameObject tar in _atkList)
             {
@@ -115,13 +121,14 @@ namespace Projectile
 
         public void OnSpawn()
         {
-            _isCollision = false;
-            _isExplosive = false;
+           
         }
 
         public void OnDespawn()
         {
             _target = null;
+            _isCollision = false;
+            _isExplosive = false;
         }
     }
 }
