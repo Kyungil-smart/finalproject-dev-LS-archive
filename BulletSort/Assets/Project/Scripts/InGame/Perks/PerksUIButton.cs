@@ -77,7 +77,9 @@ namespace Ingame.Perks
             PerkData perk = DataManager.Instance.GetData<PerkData>(perkID);
             RarityData rarity = DataManager.Instance.GetData<RarityData>(perk.PerkRarityType);
 
-            if (perk.CurLevel > 1)
+            int curLevel = PerksManager.Instance.GetPerkLevel(perkID);   // 레벨은 매니저 런타임 테이블에서 조회
+
+            if (curLevel > 1)
             {
                 string perkName = LocalizationSettings.StringDatabase.GetLocalizedString(
                     "LocalizationTable",
@@ -93,8 +95,8 @@ namespace Ingame.Perks
 
                     RuntimeData = new
                     {
-                        PerkLv = perk.CurLevel,
-                        PerkLvNext = perk.CurLevel + 1
+                        PerkLv = curLevel,
+                        PerkLvNext = curLevel + 1
                     }
 
                 };

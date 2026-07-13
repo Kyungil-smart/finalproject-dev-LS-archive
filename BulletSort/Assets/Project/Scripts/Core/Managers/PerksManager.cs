@@ -39,6 +39,10 @@ namespace Core
         Dictionary<int, PerkData> _perksPool;
         Dictionary<int, List<PerkData>> _perksByRarity;
 
+        // PerkID → 현재 레벨. SO(PerkData) 대신 런타임에서 관리.
+        // Bind마다 새로 할당 → 런 시작 시 자동 초기화(에셋 오염·리셋 누락 문제 원천 제거).
+        Dictionary<int, int> _perkLevel;
+
         IReadOnlyDictionary<int, RarityData> _rarityInfo;
         Dictionary<int, RarityWeightRange> _rarityWeightRangeInfo;
         int _maxWeight;
@@ -57,6 +61,13 @@ namespace Core
 
 
         const int MAX_PERKS_NUM = 3;
+
+        // 특전 시작 레벨. partial의 기존 CurLevel 초기값(0)과 일치.
+        const int PERK_START_LEVEL = 0;
+
+        // 룰렛 시도 상한(초과 시 결정적 폴백으로 마무리)
+        const int MAX_ROLL_ATTEMPTS = 256;
+
         int[] _perksSlot;
 
         private EffectManager _effectManager;
@@ -64,7 +75,6 @@ namespace Core
 
         protected override void Init()
         {
-
             // Rarity Info 초기화 & Weight 최대치 계산
             _rarityInfo = DataManager.Instance.GetTable<RarityData>();
 
@@ -108,7 +118,7 @@ namespace Core
         {
             if (_remainSelectNum <= 0)
             {
-                OnPerkPhaseEnded();
+                OnPerkPhaseEnded?.Invoke();
                 return;
             }
 
@@ -128,7 +138,7 @@ namespace Core
 
             _remainRerollNum--;
 
-            OnRerolled();
+            OnRerolled?.Invoke();
 
             ChoosePerks();
         }
@@ -138,38 +148,91 @@ namespace Core
         {
             _perksSet.Clear();
 
-            while (_perksSet.Count < MAX_PERKS_NUM)
+            // 레벨업 여지가 있는 특전 수 집계
+            int selectableCount = CountSelectablePerks();
+
+            // 뽑을 특전이 하나도 없으면 빈 창으로 멈추지 않고 페이즈 정상 종료
+            if (selectableCount <= 0)
             {
-                while (true)
-                {
-                    int rarityID = RollRarityID();
-                    int perkID = PickRandomPerkID(rarityID);
-
-                    if (perkID == -1)
-                    {
-                        continue;
-                    }
-
-                    PerkData perk = _perksPool[perkID];
-
-                    if (!_perksSet.Contains(perkID) && perk.CurLevel < perk.MaxLevel)
-                    {
-                        if (perk.CurLevel == perk.MaxLevel)
-                        {
-                            _perksByRarity[rarityID].Remove(perk);  // 최대 레벨을 달성한 특전은 pool에서 제거
-                        }
-
-                        _perksSet.Add(perkID);
-                        break;
-                    }
-                }
+                EndPerksPhase();
+                return;
             }
-            // ...
+
+            // 3개 미만이면 있는 만큼만 제시 → 무한 루프 원천 차단
+            int targetCount = Mathf.Min(MAX_PERKS_NUM, selectableCount);
+
+            RollPerksWeighted(targetCount);
 
             _perksSlot = _perksSet.ToArray();
 
             // UI 출력
-            OnPerksRolled(_perksSlot);
+            OnPerksRolled?.Invoke(_perksSlot);
+        }
+
+        // 레벨업 여지가 있는(중복 없는) 특전의 총 개수
+        private int CountSelectablePerks()
+        {
+            int count = 0;
+
+            foreach (var pair in _perksPool)
+            {
+                if (GetPerkLevel(pair.Key) < pair.Value.MaxLevel)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        // 가중치 룰렛으로 targetCount개 뽑기.
+        // 시도 상한을 두고, 못 채우면 결정적 폴백으로 마무리 → 항상 종료 보장.
+        private void RollPerksWeighted(int targetCount)
+        {
+            int attempts = 0;
+
+            while (_perksSet.Count < targetCount && attempts < MAX_ROLL_ATTEMPTS)
+            {
+                attempts++;
+
+                int rarityID = RollRarityID();
+                int perkID = PickRandomPerkID(rarityID);
+
+                if (perkID == -1) continue;
+                if (_perksSet.Contains(perkID)) continue;
+
+                PerkData perk = _perksPool[perkID];
+                if (GetPerkLevel(perkID) >= perk.MaxLevel) continue;
+
+                _perksSet.Add(perkID);
+            }
+
+            // 룰렛이 시도 한계 내에 못 채운 잔여분을 결정적으로 채움(최후의 안전장치)
+            if (_perksSet.Count < targetCount)
+            {
+                FillRemainingDeterministic(targetCount);
+            }
+        }
+
+        // 남은 슬롯을 풀 전체 순회로 결정적으로 채움(가중치 무시)
+        private void FillRemainingDeterministic(int targetCount)
+        {
+            foreach (var pair in _perksPool)
+            {
+                if (_perksSet.Count >= targetCount) break;
+
+                if (GetPerkLevel(pair.Key) >= pair.Value.MaxLevel) continue;
+                if (_perksSet.Contains(pair.Key)) continue;
+
+                _perksSet.Add(pair.Key);
+            }
+        }
+
+        // 특전 페이즈 정상 종료(시간 복구 + 종료 이벤트)
+        private void EndPerksPhase()
+        {
+            Time.timeScale = 1;
+            OnPerkPhaseEnded?.Invoke();
         }
 
         private int RollRarityID()
@@ -213,29 +276,48 @@ namespace Core
 
         public void SelectPerk(int index)
         {
-            PerkData perk = _perksPool[_perksSlot[index]];
-            perk.CurLevel++;
+            int perkID = _perksSlot[index];
+            PerkData perk = _perksPool[perkID];
+
+            int newLevel = GetPerkLevel(perkID) + 1;
+            _perkLevel[perkID] = newLevel;
+
+            // 만렙 도달 시 rarity 풀에서 제거(다음 룰렛에서 배제)
+            if (newLevel >= perk.MaxLevel)
+            {
+                if (_perksByRarity.TryGetValue(perk.PerkRarityType, out var list))
+                {
+                    list.Remove(perk);
+                }
+            }
 
             _effectManager.ApplyEffect(perk.EffectID);
 
             Debug.Log($"<color=green>[PerksManager] : Perk {perk.PerkID} is Selected</color>");
-            Debug.Log($"{perk.CurLevel - 1} → {perk.CurLevel}");
+            Debug.Log($"{newLevel - 1} → {newLevel}");
 
             _remainSelectNum--;
             _remainRerollNum = DEFAULT_REROLL_NUM;
 
             if (_remainSelectNum == 0)
             {
-                Time.timeScale = 1;
-                OnPerkPhaseEnded();
+                EndPerksPhase();
                 return;
             }
             else
             {
-                OnPerkSelected();
+                OnPerkSelected?.Invoke();
             }
 
             ChoosePerks();
+        }
+
+        // UI 등 외부에서 특전 현재 레벨을 조회할 때 사용.
+        public int GetPerkLevel(int perkID)
+        {
+            return _perkLevel != null && _perkLevel.TryGetValue(perkID, out int lv)
+                ? lv
+                : PERK_START_LEVEL;
         }
 
         public void BindSlotBoardManager(SlotBoardManager manager)
@@ -270,6 +352,13 @@ namespace Core
                         break;
                     }
                 }
+            }
+
+            // 런타임 레벨 테이블 새로 생성 → 런 시작마다 시작 레벨로 초기화.
+            _perkLevel = new Dictionary<int, int>(_perksPool.Count);
+            foreach (var pair in _perksPool)
+            {
+                _perkLevel[pair.Key] = PERK_START_LEVEL;
             }
 
             // Rarity 기준으로 특전 정리
