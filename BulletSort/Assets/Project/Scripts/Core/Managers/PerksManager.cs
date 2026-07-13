@@ -40,7 +40,7 @@ namespace Core
         Dictionary<int, List<PerkData>> _perksByRarity;
 
         // PerkID → 현재 레벨. SO(PerkData) 대신 런타임에서 관리.
-        // Bind마다 새로 할당 → 런 시작 시 자동 초기화(에셋 오염·리셋 누락 문제 원천 제거).
+        // BuildPerksPool에서 생성 → 판 시작 시 초기화(에셋 오염·리셋 누락 문제 원천 제거).
         Dictionary<int, int> _perkLevel;
 
         IReadOnlyDictionary<int, RarityData> _rarityInfo;
@@ -148,12 +148,22 @@ namespace Core
         {
             _perksSet.Clear();
 
+            // 특전 풀이 아직 없으면 이 시점에 1회 구성.
+            // 풀 소스인 _activePieceIDs는 SlotBoardManager.Awake에서 채워지는데,
+            // Bind가 그 Awake보다 먼저 불리면 빈 목록을 잡음(pool=0) → 구성을 특전 페이즈로 지연.
+            // 특전 페이즈는 웨이브 클리어 후라 Awake는 이미 끝나 있어 항상 유효.
+            if (_perksPool == null)
+            {
+                BuildPerksPool();
+            }
+
             // 레벨업 여지가 있는 특전 수 집계
             int selectableCount = CountSelectablePerks();
 
             // 뽑을 특전이 하나도 없으면 빈 창으로 멈추지 않고 페이즈 정상 종료
             if (selectableCount <= 0)
             {
+                Debug.LogWarning("[PerksManager] 선택 가능한 특전이 없어 페이즈 종료. (덱/활성 타워 확인 필요)");
                 EndPerksPhase();
                 return;
             }
@@ -167,6 +177,67 @@ namespace Core
 
             // UI 출력
             OnPerksRolled?.Invoke(_perksSlot);
+        }
+
+        // 덱이 확정한 활성 타워 기준으로 특전 풀 구성. 판 중 덱 불변이므로 1회만 호출.
+        private void BuildPerksPool()
+        {
+            var towerTypes = _slotBoardManager.GetActiveTowerTypes();
+
+            Debug.Log($"[Perk진단] BuildPerksPool. towerTypes={(towerTypes == null ? "NULL" : string.Join(",", towerTypes))}");
+
+            _perksPool = new Dictionary<int, PerkData>();
+
+            var perksPoolOrigin = DataManager.Instance.GetTable<PerkData>();
+
+            foreach (var perk in perksPoolOrigin)
+            {
+                PerkData data = perk.Value;
+
+                if (data.IsActive == false)
+                {
+                    continue;
+                }
+
+                if (data.PerkTarget == 7 || data.PerkTarget == 8)
+                {
+                    _perksPool.Add(perk.Key, data);
+                    continue;
+                }
+
+                foreach (int type in towerTypes)
+                {
+                    if (data.PerkTarget == type)
+                    {
+                        _perksPool.Add(perk.Key, data);
+                        break;
+                    }
+                }
+            }
+
+            // 런타임 레벨 테이블 생성 → 시작 레벨로 초기화.
+            _perkLevel = new Dictionary<int, int>(_perksPool.Count);
+            foreach (var pair in _perksPool)
+            {
+                _perkLevel[pair.Key] = PERK_START_LEVEL;
+            }
+
+            // Rarity 기준으로 특전 정리
+            _perksByRarity = new Dictionary<int, List<PerkData>>();
+
+            foreach (var pair in _perksPool)
+            {
+                PerkData data = pair.Value;
+
+                int rarity = data.PerkRarityType;
+
+                if (!_perksByRarity.ContainsKey(rarity))
+                {
+                    _perksByRarity[rarity] = new List<PerkData>();
+                }
+
+                _perksByRarity[rarity].Add(data);
+            }
         }
 
         // 레벨업 여지가 있는(중복 없는) 특전의 총 개수
@@ -322,61 +393,10 @@ namespace Core
 
         public void BindSlotBoardManager(SlotBoardManager manager)
         {
+            // 참조만 보관. 풀 구성은 특전 페이즈 첫 진입(BuildPerksPool)으로 지연.
+            // 풀 소스 _activePieceIDs가 SlotBoardManager.Awake에서 채워지므로,
+            // Bind 시점엔 아직 비어 있을 수 있음 → 여기서 구성하면 pool=0.
             _slotBoardManager = manager;
-            var towerTypes = _slotBoardManager.GetActiveTowerTypes();
-
-            _perksPool = new Dictionary<int, PerkData>();
-
-            var perksPoolOrigin = DataManager.Instance.GetTable<PerkData>();
-
-            foreach (var perk in perksPoolOrigin)
-            {
-                PerkData data = perk.Value;
-
-                if (data.IsActive == false)
-                {
-                    continue;
-                }
-
-                if (data.PerkTarget == 7 || data.PerkTarget == 8)
-                {
-                    _perksPool.Add(perk.Key, data);
-                    continue;
-                }
-
-                foreach (int type in towerTypes)
-                {
-                    if (data.PerkTarget == type)
-                    {
-                        _perksPool.Add(perk.Key, data);
-                        break;
-                    }
-                }
-            }
-
-            // 런타임 레벨 테이블 새로 생성 → 런 시작마다 시작 레벨로 초기화.
-            _perkLevel = new Dictionary<int, int>(_perksPool.Count);
-            foreach (var pair in _perksPool)
-            {
-                _perkLevel[pair.Key] = PERK_START_LEVEL;
-            }
-
-            // Rarity 기준으로 특전 정리
-            _perksByRarity = new Dictionary<int, List<PerkData>>();
-
-            foreach (var pair in _perksPool)
-            {
-                PerkData data = pair.Value;
-
-                int rarity = data.PerkRarityType;
-
-                if (!_perksByRarity.ContainsKey(rarity))
-                {
-                    _perksByRarity[rarity] = new List<PerkData>();
-                }
-
-                _perksByRarity[rarity].Add(data);
-            }
         }
 
         public void BindEffectManager(EffectManager manager)
