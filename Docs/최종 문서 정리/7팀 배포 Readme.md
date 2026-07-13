@@ -149,7 +149,9 @@ Unity Asset Store에서 라이선스 조건을 준수해 사용한 외부 에셋
 
 - **DOTween** — 무료 버전 사용(라이선스상 무료 범위). [Asset Store](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676?locale=ko-KR)
 - **몬스터 에셋** — nGardensoft, Animated 2D Monster Pack: [4](https://assetstore.unity.com/packages/package/67030) · [5](https://assetstore.unity.com/packages/package/67449) · [6](https://assetstore.unity.com/packages/package/77641) · [11](https://assetstore.unity.com/packages/package/78241)
-- **GUI 에셋** — GUI Pro - Casual Game. 원본 에셋 파일은 빌드에 미포함이나, 이를 기반으로 변형·제작한 UI 이미지를 사용(파생물). [Asset Store](https://assetstore.unity.com/packages/2d/gui/gui-pro-casual-game-176695)
+- **GUI 에셋** — GUI Pro 시리즈. 원본 에셋 파일은 빌드에 미포함이나, 이를 기반으로 변형·제작한 UI 이미지를 사용(파생물).<br>
+  · GUI Pro - Fantasy Hero. [Asset Store](https://assetstore.unity.com/packages/2d/gui/gui-pro-fantasy-hero-318658)<br>
+  · GUI Pro - Casual Game. [Asset Store](https://assetstore.unity.com/packages/2d/gui/gui-pro-casual-game-176695)
 
 ### 폰트 (SIL Open Font License)
 
