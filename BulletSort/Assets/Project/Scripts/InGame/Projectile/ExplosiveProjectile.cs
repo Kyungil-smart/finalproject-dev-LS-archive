@@ -21,6 +21,7 @@ namespace Projectile
 
         private float _moveSpeed;
         private int _atk;
+        private float _originradius;
         private float _radius;
         private bool _isCollision;
         private bool _isExplosive;
@@ -35,6 +36,11 @@ namespace Projectile
         {
             _collider = GetComponent<CircleCollider2D>();
             _atkList = new List<GameObject>();
+        }
+
+        private void Start()
+        {
+            _originradius = _collider.radius;
         }
 
 
@@ -73,7 +79,7 @@ namespace Projectile
         {
             if(_isExplosive) return;
             
-            if(other.gameObject.tag == "Monster" && _atkList.Contains(other.gameObject))
+            if(other.gameObject.tag == "Monster" && !_atkList.Contains(other.gameObject))
                 _atkList.Add(other.gameObject);
         }
 
@@ -129,6 +135,7 @@ namespace Projectile
             _target = null;
             _isCollision = false;
             _isExplosive = false;
+            _collider.radius = _originradius;
         }
     }
 }
