@@ -1,4 +1,20 @@
+This project uses the following fonts, each licensed under the
+SIL Open Font License, Version 1.1. Their copyright notices are
+listed below, followed by the full license text.
+
+-----------------------------------------------------------
+Noto Sans KR
 Copyright 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'
+-----------------------------------------------------------
+Kazesawa
+Kazesawa: Copyright (c) 2015 polamjag
+Source Sans Pro: Copyright (c) 2012 Adobe Systems Incorporated
+M+ OUTLINE FONTS: Copyright (C) 2015 M+ FONTS PROJECT
+-----------------------------------------------------------
+Hakgyoansim (School Safety Fonts / 학교안심)
+Copyright (c) KERIS (Korea Education and Research Information Service, 한국교육학술정보원)
+-----------------------------------------------------------
+
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
