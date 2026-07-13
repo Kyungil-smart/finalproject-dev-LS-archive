@@ -26,18 +26,20 @@ namespace Monster.Factory
 
             instance.name = monsterData.name;
             instance.tag = "Monster";
-            GameObject child = Instantiate(new GameObject(), instance.transform);
+            var pos = spawnPoint.transform.position;
+            instance.transform.position = pos;
+            instance.transform.SetParent(spawnPoint.transform);
+            
+            GameObject child = new GameObject();
+            child.name = monsterData.MonsterSprite;
+            child.transform.SetParent(instance.transform);
+            child.transform.position = pos;
             SpriteRenderer sprite = child.AddComponent<SpriteRenderer>();
-
             sprite.sprite = _monsterSpriteTable.GetByName(monsterData.MonsterSprite);
             
             if(sprite.sprite!= null)
                 sprite.sortingLayerName = "Monster";
-
-            var pos = spawnPoint.transform.position;
             
-            instance.transform.position = pos;
-            instance.transform.SetParent(spawnPoint.transform);
             monsterctr.target = spawnPoint.Target;
             SpawnManager.Instance.Monsters.Add(instance);
         }
