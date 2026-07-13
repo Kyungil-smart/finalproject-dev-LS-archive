@@ -1,4 +1,4 @@
-# 총알소녀 (가제) — 배포 (Release)
+# 총알소녀 — 배포 (Release)
 
 > 3Sort 포탑 소환 디펜스 · 캐주얼 모바일 게임
 > 유닉온 기업협약 7팀 프로젝트
@@ -27,6 +27,23 @@
 
 > 세로 모드 고정 게임입니다. 가로로 돌아가지 않습니다.
 > 이번 빌드부터 APK 직접 설치가 아닌 Google Play(AAB) 배포입니다. 기기 밀도별 리소스 분할(density split)이 적용되어 다운로드 용량이 줄었습니다.
+
+---
+
+## 팀 구성 (플밍)
+
+| 담당 | 영역 |
+|---|---|
+| 이성규 (팀장) | 코어 인프라 · 3Sort 슬롯·기물 · 게임 플로우 · UI(아웃게임·덱 편성·강화·현지화) |
+| 안정연 (부팀장) | 몬스터 · 포탑·전투 |
+| 김경민 | 로그라이크 · 보상·가챠 · 데이터 · 스테이지 |
+
+---
+
+## 사용 기술 스택
+
+주요 기술·설계 패턴은 별도 문서 `사용기술스택_7팀.md` 참조.<br>
+Unity 6.3 LTS · URP 2D · C# · Android(AAB) 기반, 데이터 드리븐 · 옵저버 · 팩토리 · 오브젝트 풀링 · 의존성 역전(인터페이스) 등.
 
 ---
 
@@ -126,10 +143,27 @@ OBT 빌드에서 아웃게임 → 덱 편성 → 인게임 전투의 한 흐름�
 
 ---
 
-## 팀 구성 (플밍)
+## 라이선스 정보
 
-| 담당 | 영역 |
-|---|---|
-| 이성규 (팀장) | 코어 인프라 · 3Sort 슬롯·기물 · 게임 플로우 · UI(아웃게임·덱 편성·강화·현지화) |
-| 안정연 (부팀장) | 몬스터 · 포탑·전투 |
-| 김경민 | 로그라이크 · 보상·가챠 · 데이터 · 스테이지 |
+Unity Asset Store에서 라이선스 조건을 준수해 사용한 외부 에셋입니다.
+
+- **DOTween** — 무료 버전 사용(라이선스상 무료 범위). [Asset Store](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676?locale=ko-KR)
+- **몬스터 에셋** — nGardensoft, Animated 2D Monster Pack: [4](https://assetstore.unity.com/packages/package/67030) · [5](https://assetstore.unity.com/packages/package/67449) · [6](https://assetstore.unity.com/packages/package/77641) · [11](https://assetstore.unity.com/packages/package/78241)
+- **GUI 에셋** — GUI Pro - Casual Game. 원본 에셋 파일은 빌드에 미포함이나, 이를 기반으로 변형·제작한 UI 이미지를 사용(파생물). [Asset Store](https://assetstore.unity.com/packages/2d/gui/gui-pro-casual-game-176695)
+
+### 폰트 (SIL Open Font License)
+
+Asset Store가 아닌 각 배포처(Google Fonts·Kazesawa GitHub·KERIS 교육저작권지원센터)에서 받아, 모두 SIL Open Font License(OFL) 하에 사용했습니다. 저작권 고지 전문은 레포의 `OFL.txt` 참조.
+
+```
+Noto Sans KR
+Copyright 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'
+
+Kazesawa
+Kazesawa: Copyright (c) 2015 polamjag
+Source Sans Pro: Copyright (c) 2012 Adobe Systems Incorporated
+M+ OUTLINE FONTS: Copyright (C) 2015 M+ FONTS PROJECT
+
+Hakgyoansim (School Safety Fonts / 학교안심)
+Copyright (c) KERIS (Korea Education and Research Information Service, 한국교육학술정보원)
+```
