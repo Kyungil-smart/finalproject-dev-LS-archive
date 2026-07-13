@@ -19,14 +19,13 @@ namespace Core.ObjectPool
             if (!_pools.ContainsKey(prefab))
             {
                 _pools.Add(prefab, new Queue<GameObject>());
-            }
-            
-            for (int i = 0; i < count; i++)
-            {
-                GameObject obj = Instantiate(prefab, transform);
-                obj.name = prefab.name;
-                obj.SetActive(false);
-                _pools[prefab].Enqueue(obj);
+                for (int i = 0; i < count; i++)
+                {
+                    GameObject obj = Instantiate(prefab, transform);
+                    obj.name = prefab.name;
+                    obj.SetActive(false);
+                    _pools[prefab].Enqueue(obj);
+                }
             }
         }
 
