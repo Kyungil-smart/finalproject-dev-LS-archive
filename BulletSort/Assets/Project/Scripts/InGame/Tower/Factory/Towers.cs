@@ -82,6 +82,7 @@ namespace Towers.Factory
                     GameObject valueObj = PoolManager.Instance.Get(_projectile, gameObject.transform.position, Quaternion.identity);
 
                     valueObj.GetComponent<IProjectile>().Init(_targetDetector.target, _projectile, _towerInfo);
+                    _currentAmmo--;
                 }
 
                 if (maxAmmo < _towerInfo.TowerMaxAmmo)
@@ -90,11 +91,12 @@ namespace Towers.Factory
                     maxAmmo = _towerInfo.TowerMaxAmmo;
                 }
 
-                _currentAmmo--;
                 yield return new WaitForSeconds(_towerInfo.TowerAtkSpeed);
 
                 if (!_isOverSorting)
                     yield return new WaitUntil(() => _targetDetector.target != null);
+                else
+                    _currentAmmo--;
             }
             SpendAllAmmo();
         }
