@@ -12,21 +12,21 @@
 | 항목 | 내용 |
 |---|---|
 | Git Repository | [팀 공용 레포 URL](https://github.com/Kyungil-smart/finalproject-dev-LS-archive/tree/develop) |
-| 배포 (Google Play) | [내부/공개 테스트 링크 — 배포 후 기입] |
-| 빌드 파일 | Android App Bundle (AAB) — Google Play Console 제출 |
+| 빌드 파일 (Android APK) | [구글 드라이브 링크](https://drive.google.com/file/d/1tdByUx1tvrZ0AHbMUcRoVVXGbfEzf4Lr/view?usp=drive_link) |
 | 플랫폼 | Android (세로 모드 고정, Target API 36) |
 | 엔진 | Unity 6.3 LTS / URP 2D |
 
 ---
 
-## 설치·실행 방법 (Google Play)
+## 빌드 실행 방법 (Android APK)
 
-1. 위 Google Play 테스트 링크에 접속해 테스터 등록을 진행합니다.
-2. Play 스토어에서 앱을 설치합니다.
-3. 설치된 앱을 실행합니다.
+1. 위 구글 드라이브 링크에서 `.zip` 파일을 다운로드합니다.
+2. `zip` 파일을 압축 해제후 `apk` 파일을 선택합니다.
+3. Android 기기로 옮긴 뒤 설치합니다.
+   - *출처를 알 수 없는 앱 설치* 허용이 필요할 수 있습니다 (설정 → 보안 → 알 수 없는 출처 허용).
+4. 설치된 앱을 실행합니다.
 
 > 세로 모드 고정 게임입니다. 가로로 돌아가지 않습니다.
-> 이번 빌드부터 APK 직접 설치가 아닌 Google Play(AAB) 배포입니다. 기기 밀도별 리소스 분할(density split)이 적용되어 다운로드 용량이 줄었습니다.
 
 ---
 
