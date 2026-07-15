@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Normal_3_Stage2
   MonsterType: 1
   ExpTypeID: 81
-  MonsterHp: 60
+  MonsterHp: 42
   MonsterAtk: 4
   MonsterAtkSpeed: 2.8
-  MonsterAtkRange: 0.4
+  MonsterAtkRange: 0.8
   MonsterMoveSpeed: 1
   MonsterSprite: monster_01_16

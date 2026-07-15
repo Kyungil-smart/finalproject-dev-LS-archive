@@ -1,4 +1,3 @@
-#if UNITY_EDITOR
 using Reward;
 using UnityEngine;
 
@@ -31,7 +30,7 @@ namespace Lobby.Deck
         }
 
         [ContextMenu("둘 다 지급")]
-        private void AddBoth()
+        public void AddBoth()
         {
             if (!IsPlaying()) return;
             RewardManager.Instance.AddReward(_amount, _amount);
@@ -61,4 +60,3 @@ namespace Lobby.Deck
         }
     }
 }
-#endif

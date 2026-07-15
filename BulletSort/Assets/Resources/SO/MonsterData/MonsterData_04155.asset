@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Tanker_Stage5
   MonsterType: 3
   ExpTypeID: 82
-  MonsterHp: 760
+  MonsterHp: 532
   MonsterAtk: 8
   MonsterAtkSpeed: 3.35
-  MonsterAtkRange: 0.4
+  MonsterAtkRange: 0.8
   MonsterMoveSpeed: 0.5
   MonsterSprite: monster_02_4

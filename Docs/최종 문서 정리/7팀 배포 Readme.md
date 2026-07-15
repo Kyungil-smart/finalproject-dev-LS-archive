@@ -12,7 +12,7 @@
 | 항목 | 내용 |
 |---|---|
 | Git Repository | [팀 공용 레포 URL](https://github.com/Kyungil-smart/finalproject-dev-LS-archive/tree/develop) |
-| 빌드 파일 (Android APK) | [구글 드라이브 링크](https://drive.google.com/file/d/1tdByUx1tvrZ0AHbMUcRoVVXGbfEzf4Lr/view?usp=drive_link) |
+| 빌드 파일 (Android APK) | [구글 드라이브 링크](https://drive.google.com/drive/folders/1w7_pUPRn7OqKYaULaHg-zd8K4JnKL002?hl=ko) |
 | 플랫폼 | Android (세로 모드 고정, Target API 36) |
 | 엔진 | Unity 6.3 LTS / URP 2D |
 
