@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Boss_Stage5
   MonsterType: 4
   ExpTypeID: 0
-  MonsterHp: 3800
+  MonsterHp: 2660
   MonsterAtk: 40
   MonsterAtkSpeed: 0.6
-  MonsterAtkRange: 0.4
+  MonsterAtkRange: 0.8
   MonsterMoveSpeed: 0
   MonsterSprite: monster_03_4

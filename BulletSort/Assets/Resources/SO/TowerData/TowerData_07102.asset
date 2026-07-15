@@ -15,7 +15,7 @@ MonoBehaviour:
   TowerID: 7102
   TowerType: 1
   TowerAiType: 1
-  TowerAtk: 22
+  TowerAtk: 26
   TowerAtkSpeed: 0.35
   TowerMaxRange: 4
   TowerMaxAmmo: 15

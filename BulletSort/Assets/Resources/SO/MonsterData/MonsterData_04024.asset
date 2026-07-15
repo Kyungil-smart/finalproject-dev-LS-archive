@@ -16,9 +16,9 @@ MonoBehaviour:
   MonsterName: MonsterName_Speedy_Stage2
   MonsterType: 2
   ExpTypeID: 82
-  MonsterHp: 13
+  MonsterHp: 9
   MonsterAtk: 3
   MonsterAtkSpeed: 2.8
-  MonsterAtkRange: 0.4
+  MonsterAtkRange: 0.8
   MonsterMoveSpeed: 2
   MonsterSprite: monster_01_01
