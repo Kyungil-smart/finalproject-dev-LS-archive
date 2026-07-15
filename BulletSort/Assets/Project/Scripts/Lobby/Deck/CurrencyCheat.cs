@@ -1,4 +1,3 @@
-#if UNITY_EDITOR
 using Reward;
 using UnityEngine;
 
@@ -61,4 +60,3 @@ namespace Lobby.Deck
         }
     }
 }
-#endif
