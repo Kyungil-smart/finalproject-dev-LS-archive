@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc95ff2300f79d41924e182ad9053d2, type: 3}
+  m_Name: PieceCardTable
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Sort.Data.PieceCardTable
+  _frames:
+  - {fileID: 0}
+  - {fileID: 935637013467964021, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  - {fileID: 2934815300138910104, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  - {fileID: -2065913055826341805, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  - {fileID: -3007538396780313312, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  - {fileID: 1467062441889931898, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  - {fileID: -7159670702626629558, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  _backgrounds:
+  - {fileID: 0}
+  - {fileID: -8274506633405623361, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  - {fileID: 6801446209891735630, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  - {fileID: -7943800269614936964, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  - {fileID: -7130763052470731569, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  - {fileID: -8024276593390829397, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  - {fileID: 1845084431935295172, guid: 8b7122836c737ca4dbb1320cd5143b39, type: 3}
+  _typeIcons:
+  - {fileID: 0}
+  - {fileID: -4420998648869896282, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: -661716755265013477, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: -8048970844146997478, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: 6125265317746916632, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: 3194887536612346117, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}
+  - {fileID: 3735426664660763811, guid: add2c5e23e8604e4688d71b3f49f39d4, type: 3}

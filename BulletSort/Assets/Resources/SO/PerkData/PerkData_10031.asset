@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de380bce764b40149944b1d02ce85674, type: 3}
+  m_Name: PerkData_10031
+  m_EditorClassIdentifier: Assembly-CSharp::PerkData
+  PerkID: 10031
+  EffectID: 9101
+  PerkName: PerkName_Heal_Slot
+  PerkDesc: PerkDesc_Heal_Slot
+  MaxLevel: 1
+  PerkRarityType: 91
+  PerkTarget: 7
+  PerkTargetText: 0
+  IsActive: 0
+  IconResourceKey: Image_iconSkill_Icon_3
+  PieceTypeIcon: 0
+  CurLevel: 0
+  isUnique: 0
+  isSelected: 0

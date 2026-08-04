@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d220b8c16275534db0e4afc53a89155, type: 3}
+  m_Name: RarityData_00092
+  m_EditorClassIdentifier: Assembly-CSharp::RarityData
+  PerkRarityID: 92
+  PerkRarityName: PerkRarityName_Rare
+  Weight: 30
+  PerkPanelCard: Skill_Panel-1
+  PerkIconBG: Image_Icon_Large_9

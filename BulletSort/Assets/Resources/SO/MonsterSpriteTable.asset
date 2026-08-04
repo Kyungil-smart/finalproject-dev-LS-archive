@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cb8d3cfbe6a0d4baf09a53e0f79f3d, type: 3}
+  m_Name: MonsterSpriteTable
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterSpriteTable
+  _entries:
+  - Name: monster_01_00
+    Sprite: {fileID: 6717077389878140329, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_01
+    Sprite: {fileID: 3704260863335000714, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_02
+    Sprite: {fileID: 1547067229236171243, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_03
+    Sprite: {fileID: 2331774795359748888, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_04
+    Sprite: {fileID: -8417313388410751524, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_05
+    Sprite: {fileID: 6696914718993760881, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_06
+    Sprite: {fileID: 3380155292855316141, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_07
+    Sprite: {fileID: -5745082789758467811, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_08
+    Sprite: {fileID: 7661883703069129388, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_09
+    Sprite: {fileID: 5563944233922803339, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_10
+    Sprite: {fileID: 8250550736671166572, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_11
+    Sprite: {fileID: 7954803464149171616, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_12
+    Sprite: {fileID: 5454441032179798728, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_13
+    Sprite: {fileID: 5816415020621771221, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_14
+    Sprite: {fileID: 7610800034762875140, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_15
+    Sprite: {fileID: -6417622444057820309, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_16
+    Sprite: {fileID: 5244070698691751149, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_17
+    Sprite: {fileID: 607090120297444810, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_18
+    Sprite: {fileID: -5567021954630930728, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_01_19
+    Sprite: {fileID: -8390912160904874572, guid: ff47c3073e3656a498187d992e9ab6b2, type: 3}
+  - Name: monster_02_0
+    Sprite: {fileID: 6285197625075571667, guid: cfb88ddee6186694fba55e143f8e63ad, type: 3}
+  - Name: monster_02_1
+    Sprite: {fileID: 954392091005451073, guid: cfb88ddee6186694fba55e143f8e63ad, type: 3}
+  - Name: monster_02_2
+    Sprite: {fileID: -6269111361692001477, guid: cfb88ddee6186694fba55e143f8e63ad, type: 3}
+  - Name: monster_02_3
+    Sprite: {fileID: 3148751848221333756, guid: cfb88ddee6186694fba55e143f8e63ad, type: 3}
+  - Name: monster_02_4
+    Sprite: {fileID: 6724615167659337391, guid: cfb88ddee6186694fba55e143f8e63ad, type: 3}
+  - Name: monster_03_0
+    Sprite: {fileID: 3984678450137043398, guid: 9590d9bf0bf024e4c9ef8e913b7192fc, type: 3}
+  - Name: monster_03_1
+    Sprite: {fileID: 3700815824109223748, guid: 9590d9bf0bf024e4c9ef8e913b7192fc, type: 3}
+  - Name: monster_03_2
+    Sprite: {fileID: 5600079431143967938, guid: 9590d9bf0bf024e4c9ef8e913b7192fc, type: 3}
+  - Name: monster_03_3
+    Sprite: {fileID: 3654693102221461193, guid: 9590d9bf0bf024e4c9ef8e913b7192fc, type: 3}
+  - Name: monster_03_4
+    Sprite: {fileID: -8200089611191452695, guid: 9590d9bf0bf024e4c9ef8e913b7192fc, type: 3}

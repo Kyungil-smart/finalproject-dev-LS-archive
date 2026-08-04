@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be92e449fa4ea77469afc26d056fe3f7, type: 3}
+  m_Name: PieceData_08032
+  m_EditorClassIdentifier: Assembly-CSharp::PieceData
+  PieceID: 8032
+  PieceName: PieceName_Basic
+  PieceGrade: 2
+  PieceLv: 2
+  ConnectTower: 7107
+  PieceSprite: Character_Sprite_01_0
+  PieceCartoon: Image_Cartoon_Serin_02
+  PieceDetailIllust: Image_Serin_02
+  PiecePortrait: Character_Sprite_03_0
+  UpgradeCost: 400

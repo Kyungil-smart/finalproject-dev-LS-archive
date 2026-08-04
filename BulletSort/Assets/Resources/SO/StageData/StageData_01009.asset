@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb86407e78b398c409b133e7dceea40c, type: 3}
+  m_Name: StageData_01009
+  m_EditorClassIdentifier: Assembly-CSharp::StageData
+  StageID: 1009
+  StageName: StageName_9
+  WaveDataID: 2001
+  MonsterGroupID_Normal: 11091
+  MonsterGroupID_Speedy: 11092
+  MonsterGroupID_Tanker: 11093
+  BossID: 4909
+  WaveReward: 600
+  StageReward: 250
+  StageIcon: Image_Stage_Board_4
+  BGID: Background_Lobby_4
+  INGameBG: Background_Stage_4

@@ -2,8 +2,9 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -11,9 +12,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Piece
+  - Slot
+  - Cell
   - 
   - 
   - 
@@ -38,6 +39,41 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2409018143
+    locked: 0
+  - name: DestroyedBoard
+    uniqueID: 2926860533
+    locked: 0
+  - name: DestroyedUnderlay
+    uniqueID: 826617203
+    locked: 0
+  - name: Monster
+    uniqueID: 2906703955
+    locked: 0
+  - name: Board
+    uniqueID: 3826363277
+    locked: 0
+  - name: Piece
+    uniqueID: 2734753105
+    locked: 0
+  - name: Frame
+    uniqueID: 3430156937
+    locked: 0
+  - name: SlotUI
+    uniqueID: 837417751
+    locked: 0
+  - name: Projecttile
+    uniqueID: 2001887287
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Dragging
+    uniqueID: 904888743
+    locked: 0
+  - name: 'ScreenUI '
+    uniqueID: 4241732563
+    locked: 0
+  m_RenderingLayers:
+  - Default

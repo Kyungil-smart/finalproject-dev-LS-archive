@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e2608a7056ba749b24d17562a972c7, type: 3}
+  m_Name: MonsterData_04905
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
+  MonsterID: 4905
+  MonsterName: MonsterName_Boss_Stage5
+  MonsterType: 4
+  ExpTypeID: 0
+  MonsterHp: 1960
+  MonsterAtk: 40
+  MonsterAtkSpeed: 0.6
+  MonsterAtkRange: 0.8
+  MonsterMoveSpeed: 0
+  MonsterSprite: monster_03_4

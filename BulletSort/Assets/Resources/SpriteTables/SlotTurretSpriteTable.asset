@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af983a34bfca59f428cb0b4d3c8d24de, type: 3}
+  m_Name: SlotTurretSpriteTable
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Slot.Data.SlotTurretSpriteTable
+  _frames:
+  - {fileID: -4865506469525511713, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: 8843225531015679251, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: 5325337160552637437, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: -2608298720112880513, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: -8030418942539017387, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: -3546055733029565394, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  - {fileID: -32983059421308247, guid: dce823b01b4e46f4d96cc9f3bf9a4425, type: 3}
+  _turretIcons:
+  - {fileID: 0}
+  - {fileID: 6191171553845220826, guid: 54c6e79e3b17bcb439667571f0c5bbbd, type: 3}
+  - {fileID: 6697224285032239100, guid: 477788b7793a4df45a10669b7baed2b1, type: 3}
+  - {fileID: -4486703346795514048, guid: 29eccb5972e8d4a4992ce941f5ac2464, type: 3}
+  - {fileID: 3146544282631543297, guid: 6145f10cc6754a744a8d512da05f077c, type: 3}
+  - {fileID: 2678185303550147776, guid: 1c3b0c600905b2b438a0f649cd96e9e6, type: 3}
+  - {fileID: 2129176801192318779, guid: 5805f3773d6c09749a941c396d25480c, type: 3}
+  _ammoBoardIcons:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 551120ab6e4913947bcfcef9d7d20977, type: 3}
+  - {fileID: 21300000, guid: afac78fbcdc346f4cbd89486c8dda31d, type: 3}
+  - {fileID: 21300000, guid: a3302488ca78eae45b317ba998622835, type: 3}
+  - {fileID: 21300000, guid: 4c80db547a111564eac4f3f977b7fc81, type: 3}
+  - {fileID: 21300000, guid: e864b1a50250d224684d07fcb26e93b0, type: 3}
+  - {fileID: 21300000, guid: c20c3db93889aca45917d122a802a50d, type: 3}

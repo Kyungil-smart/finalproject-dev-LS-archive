@@ -1,0 +1,10 @@
+int,int,int,int,int,int,int,int,int,int,*,string,,칼럼 설명,,,,
+WaveID,WavePattern_1,WavePattern_2,WavePattern_3,WavePattern_4,WavePattern_5,WavePattern_6,WavePattern_7,WavePattern_8,WavePattern_9,*,Desc,,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
+02001,03001,03002,03003,03004,03005,03006,03007,03008,03009,*,,,WaveID,PK,,웨이브의 고유 ID. 스테이지를 구성하는 단계.,P1
+,,,,,,,,,,*,,,WavePattern_n,FK,WavePatternData.WavePatternID,"한 스테이지의 웨이브마다 구성하는 몬스터 스폰 단위. 
+5초마다 웨이브에 해당하는 waveSpawnData를 순차적으로 스폰하며 총 7번 반복 스폰한다.",P1
+,,,,,,,,,,*,,,Desc,,,시트에서 데이터 부연설명을 위한 칼럼으로 인게임에서 사용되지 않음.,P4
+,,,,,,,,,,*,,,,,,,
+,,,,,,,,,,*,,,알림,,,,
+,,,,,,,,,,*,,,"회색 부분은 ""Rush"" 웨이브 구간으로 더 많은 몬스터가 나와 유저를 압박하는 구간. 
+본래 모든 스테이지다 다른 웨이브 패턴을 가질 수 있도록 현재의 테이블을 작성했지만, 그럴 경우 밸런싱에 너무 많은 시간이 소모된다고 판단해 하나의 패턴으로 결정.",,,,

@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Log_Area
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16361c3298725dd4182025e6e6a2639d, type: 2}
+  m_sharedMaterial: {fileID: 3086947831701717239, guid: 16361c3298725dd4182025e6e6a2639d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0.5019608}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -312,4 +312,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Core.Logger
   debugAreaText: {fileID: 3125145708609708438}
   enableDebug: 1
-  maxLines: 15
+  maxLines: 13

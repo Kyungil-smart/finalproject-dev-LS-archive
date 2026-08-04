@@ -1,0 +1,37 @@
+using UnityEngine;
+
+namespace InGame.Slot.Data
+{
+    // 슬롯 1종의 정적 *수치* 데이터. PieceData와 대칭 — DataManager 테이블에 실려 SlotQuery로 조회.
+    // 기획값(체력·회복·부활)만 보유. 표시 스프라이트는 SlotTurretSpriteTable로 분리(슬롯 위치 무관·TowerType 종속).
+    // 작성자: 이성규
+    [CreateAssetMenu(fileName = "SlotData", menuName = "Scriptable Objects/Temp/SlotData")]
+    public class SlotData : ScriptableObject
+    {
+        // ID는 DataManager.GetIdFromSO가 public 필드로 읽음(자동 생성 SO 컨벤션과 동일).
+        // private+프로퍼티는 NonPublic 리플렉션 의존이라, 자동 생성이 DataManager를 덮으면 깨짐 → public 필드로 통일.
+        [Tooltip("슬롯 데이터 식별자 — DataManager 테이블 키. 데이터 담당 협의 후 확정(임시값)")]
+        public int SlotDataID;
+
+        [Tooltip("슬롯 최대 체력(MaxHP) — 회복해도 이 값을 못 넘음")]
+        [SerializeField] private int _maxHP = 100;
+
+        [Tooltip("정렬 성공 시 회복되는 체력(HealOnSortValue)")]
+        [SerializeField] private int _healOnSortValue;
+
+        [Tooltip("파괴 슬롯 부활에 필요한 정렬 성공 횟수(RequiredRepairCount) — 1차 기준 3 고정")]
+        [SerializeField] private int _requiredRepairCount = 3;
+
+        [Tooltip("부활 시 회복 체력(ReviveHPValue) — 1차 기준 MaxHP까지")]
+        [SerializeField] private int _reviveHPValue;
+
+        // 외부 접근용 프로퍼티 (읽기 전용)
+        public int MaxHP => _maxHP;
+        public int HealOnSortValue => _healOnSortValue;
+        public int RequiredRepairCount => _requiredRepairCount;
+        public int ReviveHPValue => _reviveHPValue;
+
+        // ── 후순위 자리 ──
+        // ReviveDamage(부활 고정 데미지·넉백) — 기획서 후순위. 부활 로직 들어갈 때 추가.
+    }
+}

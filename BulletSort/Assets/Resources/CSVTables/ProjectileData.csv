@@ -1,0 +1,16 @@
+int,int,string,string,string,*,string,string,,,,,
+ProjectileID,ProjectileType,ProjectilePrefab,PopEffectPrefab,SubPopEffectPrefab,*,ProjectileName,Desc,필드 이름,PK/FK,연결 테이블. 칼럼,설명,우선순위
+06001,1,01,Hit_1_blue,0,*,노말,,ProjectileID,PK,,투사체 ID,P1
+06002,2,13,Hit_3_purple,Hit_1_purple,*,저격,해당 sub은 투사체가 몬스터를 관통했을 때 사용,ProjectileType,,,투사체 타입 (로직),P1
+06003,3,02,splash,0,*,탱커,체력비례데미지,ProjectilePrefab,FK,,투사체 리소스 (컬럼 이름 변경할 필요 있을지도.),P1
+06004,4,14,explosion_4,0,*,폭발,,PopEffectPrefab,FK,,투사체 피격 시 터지는 효과 리소스 (컬럼 이름 변경할 필요 있을지도.),P2
+06005,5,08,Hit_1_green,Level_Up_green,*,힐링,해당 sub은 몬스터가 투사체에 피격된 후 기물을 회복시킬 때 사용,SubPopEffectPrefab,FK,,투사체 특수 조건시 터지는 효과 리소스 (컬럼 이름 변경할 필요 있을지도.),P3
+,,,,,*,,,,,,,
+,,,,,*,,,,,,,
+,,,,,*,,,,,,,
+,,,,,*,,,No.,ProjectileType,,,
+,,,,,*,,,Basic,1,기본탄은 기본형과 산탄형이 같이 쓰는 프리팹,,
+,,,,,*,,,SR,2,,,
+,,,,,*,,,Mortar,3,,,
+,,,,,*,,,Boomer,4,,,
+,,,,,*,,,Buffer,5,,,

@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Lobby.Deck
+{
+    // 덱 전달소 — 로비(덱 편성)에서 인게임으로 넘어갈 때 편성 덱 ID를 보관.
+    // 씬이 갈려 인스턴스 참조가 끊기므로 static으로 다리만 놓음.
+    // SlotBoardManager가 인게임 진입 시 Consume으로 읽어 대기 그룹 구성.
+    //   비어 있으면(덱 안 거치고 바로 인게임 등) 호출부가 폴백(GetAllIDs).
+    // 정식: 세이브/덱 데이터 시스템(김경민) 들어오면 이 static 다리를 그 경유로 교체.
+    // 작성자: 이성규
+    public static class DeckHolder
+    {
+        private static List<int> _deckPieceIDs;
+        
+        // 플레이 시작 시 static 강제 초기화 — 도메인 리로드를 꺼도 이전 세션 잔여가 안 남게.
+        //   빌드는 매번 프로세스가 새로 떠 무방하나, 에디터(도메인 리로드 off) 반복 테스트 대비.
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void Init()
+        {
+            _deckPieceIDs = null;
+        }
+
+        // 편성된 덱이 있나 (6칸 중 하나라도 채워졌나)
+        public static bool HasDeck => _deckPieceIDs != null && _deckPieceIDs.Count > 0;
+
+        // 로비에서 편성 완료 시 저장 (시작 버튼)
+        public static void Set(IReadOnlyList<int> deckPieceIDs)
+        {
+            _deckPieceIDs = new List<int>(deckPieceIDs);
+        }
+
+        // 인게임에서 읽기 — 복사본 반환(원본 보호). 없으면 null → 호출부 폴백.
+        public static IReadOnlyList<int> Get()
+        {
+            return _deckPieceIDs != null ? new List<int>(_deckPieceIDs) : null;
+        }
+
+        // 인게임 진입 후 비우기 — 다음 진입에 이전 덱이 남지 않게(원하면 호출).
+        public static void Clear()
+        {
+            _deckPieceIDs = null;
+        }
+    }
+}

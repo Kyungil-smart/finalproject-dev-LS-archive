@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e2608a7056ba749b24d17562a972c7, type: 3}
+  m_Name: MonsterData_04115
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
+  MonsterID: 4115
+  MonsterName: MonsterName_Tanker_Stage1
+  MonsterType: 3
+  ExpTypeID: 82
+  MonsterHp: 420
+  MonsterAtk: 8
+  MonsterAtkSpeed: 3.55
+  MonsterAtkRange: 0.8
+  MonsterMoveSpeed: 0.5
+  MonsterSprite: monster_02_0
